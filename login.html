@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Login</title>
+    <link rel="stylesheet" href="login_style.css">
+</head>
+<body>
+    <div class="content">
+        <h1>ยินดีต้อนรับสู่เว็บไซต์</h1>
+        <p>เนื้อหาของเว็บสามารถอยู่ที่นี่</p>
+        <div class="placeholder-text">som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>som som som som<br>
+            som som som som<br>
+            som som som som<br>
+            som som som som<br>
+        </div>
+    </div>
+
+    <div class="tab-bar">
+        <div class="tab" id="homeTab">
+            <img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png" alt="Home tab" class="tab-icon">
+        </div>
+        <div class="tab" id="searchTab">
+            <img src="https://img.icons8.com/ios7/512/search.png" alt="Search tab" class="tab-icon">
+        </div>
+        
+        <div class="tab" id="loginTab">
+            <img src="https://icon-library.com/images/transparent-icon/transparent-icon-10.jpg" alt="Login tab" class="tab-icon">
+        </div>
+            
+        
+    </div>
+
+    
+
+
+    <div id="loginPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <label for="username">Username / Email</label>
+                <input type="text" id="username" name="username" placeholder="Username or Email" required>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="register">
+                <a href="#" id="registerLink">Register</a>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="registerPopup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="closeregisterPopup">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" name="registerEmail" placeholder="Email" required>
+                <label for="registerUsername">Username</label>
+                <input type="text" id="registerUsername" name="registerUsername" placeholder="Username" required>
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" name="registerPassword" placeholder="Password" required>
+                <label for="registerConfirmPassword">Confirm Password</label>
+                <input type="password" id="registerConfirmPassword" name="registerConfirmPassword" placeholder="Confirm Password" required>
+                <button type="submit">Register</button>
+            </form>
+            
+        </div>
+    </div>
+
+    
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const homeTab = document.getElementById("homeTab");
+            const searchTab = document.getElementById("searchTab");
+            const loginTab = document.getElementById("loginTab");
+            const loginPopup = document.getElementById("loginPopup");
+            const closePopup = document.getElementById("closePopup");
+        
+            const registerPopup = document.getElementById("registerPopup");
+            const registerLink = document.getElementById("registerLink");
+            const closeregisterPopup = document.getElementById("closeregisterPopup");
+        
+            const loginForm = document.getElementById("loginForm");
+            const registerForm = document.getElementById("registerForm");
+            
+            homeTab.addEventListener("click", () => {
+                window.location.href = 'home.html'; 
+            });
+        
+            searchTab.addEventListener("click", () => {
+                window.location.href = 's.html'; 
+            });
+        
+            loginTab.addEventListener("click", () => {
+                loginPopup.style.display = "flex";
+            });
+        
+            closePopup.addEventListener("click", () => {
+                loginPopup.style.display = "none";
+            });
+        
+            registerLink.addEventListener("click", (event) => {
+                event.preventDefault();
+                loginPopup.style.display = "none";
+                registerPopup.style.display = "flex";
+            });
+            closeregisterPopup.addEventListener("click", () => {
+                registerPopup.style.display = "none";
+            });
+            
+        
+            // เพิ่ม event listener สำหรับการส่งฟอร์ม login
+            loginForm.addEventListener("submit", (event) => {
+                event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+        
+                // ดึงข้อมูลจากฟอร์ม
+                const username = document.getElementById("username").value;
+                const password = document.getElementById("password").value;
+        
+                if (username=="som"){
+                    window.location.href = 'main-som.html';
+                }
+                else{
+                    alert("try again");
+                }
+            });
+
+            registerForm.addEventListener("submit", (event) => {
+                event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+        
+                // ดึงข้อมูลจากฟอร์ม
+                const registerEmail = document.getElementById("registerEmail").value;
+                const registerUsername = document.getElementById("registerUsername").value;
+                const registerPassword = document.getElementById("registerPassword").value;
+                const registerConfirmPassword = document.getElementById("registerConfirmPassword").value;
+                if (registerPassword!=registerConfirmPassword){
+                    alert("Passwords don't match please try again");
+                }
+                else if (registerUsername=="som2"){
+                    
+                    registerPopup.style.display = "none";
+                    loginPopup.style.display = "flex";
+                }
+                else{
+                    alert("try again2");
+                }
+            });
+
+            
+        });
+        
+    </script>
+</body>
+</html>
