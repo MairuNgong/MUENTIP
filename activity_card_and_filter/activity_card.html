@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="activity_card.css" />
+    <link rel="stylesheet" href="filter.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <button id="filter_button">
+      <img src="../img/filter.png" />
+    </button>
+    <div id="filter_window" style="display: none">
+      <div class="filter_header">
+        <p class="filter_title">Apply filter</p>
+        <button id="close_button">
+          <img src="../img/filter.png" />
+        </button>
+      </div>
+      <div class="filter_tags_group" id="tags_group"></div>
+    </div>
+
+    <div id="container"></div>
+
+    <script src="activity_card.js"></script>
+    <script src="filter.js"></script>
+  </body>
+</html>

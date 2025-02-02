@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my activity page</title>
+    <link rel="stylesheet" href="my_activity_page.css">
+    <link rel="stylesheet" href="filter.css">
+    <link rel="stylesheet" href="activity_card.css">
+    <link rel="stylesheet" href="search_and_filter.css">
+</head>
+
+<body>
+    <nav class="header-nav">
+        <ul class="header-menu">
+            <li><a href="../view_activity_page/view_activity_page.html">Home</a></li>
+            <li><a href="">My Activity</a></li>
+        </ul>
+    </nav>
+
+    <nav class="activity-nav">
+        <ul class="activity-menu">
+            <li><a id="createButton" href="#">Create</a></li>
+            <li><a id="approvedButton" href="#">Approved</a></li>
+            <li><a id="non-approvedButton" href="#">Non - Approved</a></li>
+        </ul>
+        <hr>
+    </nav>
+
+    <div class="search-and-filter">
+        <div class="search-container">
+            <input type="text" placeholder="stand-in" name="search">
+            <button type="submit">
+                <img src="../img/search.png" alt="Search Icon">
+            </button>
+        </div>
+
+        <div class="filter-container">
+            <button id="filter_button">
+                <img src="../img/filter.png" />
+            </button>
+
+            <div id="filter_window" style="display: none">
+                <div class="filter_header">
+                    <p class="filter_title">Apply filter</p>
+                    <button id="close_button">
+                        <img src="../img/filter.png" />
+                    </button>
+                </div>
+                <div class="filter_tags_group" id="tags_group"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="create-container">
+        <div class="create-inner">
+            <button id="create-button">
+                <img src="../img/Plus.png">
+            </button>
+        </div>
+    </div>
+
+    <div id="container"></div>
+
+    <script src="my_activity_page.js"></script>
+    <script src="../activity_card_and_filter/activity_card.js"></script>
+    <!-- <script src="my_act_create.js"></script> -->
+    <script src="../activity_card_and_filter/filter.js"></script>
+</body>
+
+</html>
