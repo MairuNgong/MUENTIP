@@ -10,13 +10,13 @@ body {
 }
 
 
-/* กำหนดขนาดของ content */
+
 .content {
     text-align: center;
     padding: 50px 20px;
 }
 
-/* แถบ tab ที่ด้านล่าง */
+
 .tab-bar {
     display: flex;
     justify-content: space-around;
@@ -49,7 +49,7 @@ body {
     background-color: #b4ffe6;
 }
 
-/* Popup Login */
+
 .popup {
     display: none;
     position: fixed;
@@ -68,12 +68,12 @@ body {
     padding-bottom:30px;
     
     width: 300px;
-    text-align: center; /* ทำให้เนื้อหาภายใน popup ชิดซ้าย */
+    text-align: center; 
     position: relative;
     border-radius: 30px;
 }
 
-/* ปุ่มกากบาทที่มุมขวาบน */
+
 .close-btn {
     font-size: 30px;
     position: absolute;
@@ -82,10 +82,10 @@ body {
     cursor: pointer;
 }
 
-/* ฟอร์ม input ปรับให้ชิดซ้าย */
+
 .popup-content label {
     display: block;
-    text-align: left; /* ทำให้ label ชิดซ้าย */
+    text-align: left; 
     margin-bottom: 5px;
 }
 
@@ -95,12 +95,12 @@ body {
     margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #ddd;
-    text-align: left; /* ทำให้ข้อความในช่องกรอกข้อมูลชิดซ้าย */
+    text-align: left; 
     background-color:#e7e7e7;
 }
 
 .popup-content form {
-    background-color: white; /* สีพื้นหลังของฟอร์ม */
+    background-color: white; 
     padding: 20px ; 
 }
 .popup-content .register {

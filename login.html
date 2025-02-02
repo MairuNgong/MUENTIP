@@ -155,12 +155,10 @@
                 registerPopup.style.display = "none";
             });
             
-        
-            // เพิ่ม event listener สำหรับการส่งฟอร์ม login
+
             loginForm.addEventListener("submit", (event) => {
-                event.preventDefault(); // ป้องกันการรีเฟรชหน้า
-        
-                // ดึงข้อมูลจากฟอร์ม
+                event.preventDefault(); 
+
                 const username = document.getElementById("username").value;
                 const password = document.getElementById("password").value;
         
@@ -173,9 +171,8 @@
             });
 
             registerForm.addEventListener("submit", (event) => {
-                event.preventDefault(); // ป้องกันการรีเฟรชหน้า
-        
-                // ดึงข้อมูลจากฟอร์ม
+                event.preventDefault();  
+                
                 const registerEmail = document.getElementById("registerEmail").value;
                 const registerUsername = document.getElementById("registerUsername").value;
                 const registerPassword = document.getElementById("registerPassword").value;
