@@ -81,11 +81,11 @@
 }
 .enter_button{
   border: 0;
-  border-radius: 0px 20px 20px 0px;;
+  border-radius: 0px 20px 20px 0px;
   background-color: #C0EFD8;
 }
 .enter_button img{
-  padding: 0px 15px 0px 0px;
+  padding: 0px 15px;
   width: 30px;
 }
 .enter_button:hover {
