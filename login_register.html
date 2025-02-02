@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Popup Login</title>
-    <link rel="stylesheet" href="login_style.css">
+    <link rel="stylesheet" href="login_register_style.css">
 </head>
 <body>
     <div class="content">
@@ -163,7 +163,7 @@
                 const password = document.getElementById("password").value;
         
                 if (username=="som"){
-                    window.location.href = 'main-som.html';
+                    window.location.href = 'tab_after_login.html';
                 }
                 else{
                     alert("try again");
@@ -172,7 +172,7 @@
 
             registerForm.addEventListener("submit", (event) => {
                 event.preventDefault();  
-                
+
                 const registerEmail = document.getElementById("registerEmail").value;
                 const registerUsername = document.getElementById("registerUsername").value;
                 const registerPassword = document.getElementById("registerPassword").value;

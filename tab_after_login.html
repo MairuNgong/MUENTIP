@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Popup Login</title>
-    <link rel="stylesheet" href="tab_style.css">
+    <link rel="stylesheet" href="tab_after_login_style.css">
 </head>
 
 <body>
@@ -37,7 +37,7 @@
         const homeTab = document.getElementById("homeTab");
         const searchTab = document.getElementById("searchTab");
         const creatActivityTab =document.getElementById("creatActivityTab");
-        const profileTab = document.getElementById("searchTab");
+        const profileTab = document.getElementById("profileTab");
         const logoutTab = document.getElementById("logoutTab");
         
         
@@ -55,7 +55,7 @@
             window.location.href = 'profile.html'; 
         });
         logoutTab.addEventListener("click", () => {
-            window.location.href = 'login.html'; 
+            window.location.href = 'login_register.html'; 
         });
     });
 </script>
