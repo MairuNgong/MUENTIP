@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Login</title>
+    <link rel="stylesheet" href="~/css/NavBar/tab_after_login_style.css">
+</head>
+
+<body>
+    @RenderBody()
+    <div class="spacing"></div>
+    <div class="tab-bar">
+
+        <div class="tab" id="homeTab">
+            <img src="~/img/home.png" alt="Home tab" class="tab-icon">
+        </div>
+        <div class="tab" id="searchTab">
+            <img src="~/img/search.png" alt="Search tab" class="tab-icon">
+        </div>
+        <div class="tab" id="creatActivityTab">
+            <img src="~/img/edit.png" alt="create activitys tab"
+                 class="tab-icon">
+        </div>
+        <div class="tab" id="profileTab">
+            <img src="~/img/default-profile.png" alt="Profile tab"
+                 class="tab-icon">
+        </div>
+        <div class="tab" id="logoutTab">
+            <img src="~/img/out.png" alt="Logout tab"
+                 class="tab-icon">
+        </div>
+
+    </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const homeTab = document.getElementById("homeTab");
+        const searchTab = document.getElementById("searchTab");
+        const creatActivityTab = document.getElementById("creatActivityTab");
+        const profileTab = document.getElementById("profileTab");
+        const logoutTab = document.getElementById("logoutTab");
+
+
+        homeTab.addEventListener("click", () => {
+            window.location.href = "@Url.Action("Index", "Home")";
+        });
+
+        searchTab.addEventListener("click", () => {
+            window.location.href = "@Url.Action("Index", "SearchPage")";
+        });
+        creatActivityTab.addEventListener("click", () => {
+            window.location.href = "@Url.Action("Index", "CreateActivity")";
+        });
+        profileTab.addEventListener("click", () => {
+            window.location.href = "@Url.Action("Index", "Profile")";
+        });
+        logoutTab.addEventListener("click", () => {
+            window.location.href = "@Url.Action("Index", "_LayoutNavBarGuest")";
+        });
+    });
+</script>

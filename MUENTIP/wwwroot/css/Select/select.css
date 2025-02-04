@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+/* Style for the container that holds the activities */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", Helvetica;
+  }
+
+  body {
+    background-color: #f8f9fa;
+    overflow: auto;
+  }
+
+  header {
+    background: #c0efd8;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+.rectangle-container {
+  background-color: #f3f3f3; /* สีพื้นหลัง */
+  border-radius: 30px; /* มุมโค้งมน */
+  padding: 20px; /* ระยะห่างจากขอบ */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เงา */
+  margin: 20px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Style for each activity card */
+.applicant_card {
+    display: flex;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+    flex-wrap: wrap;
+}
+/* Style for the checkbox container */
+.checkbox_wrapper {
+  display: flex;
+
+}
+
+.line {
+  width: 90%;         /* ความยาวของเส้น */
+  height: 2px;         /* ความหนาของเส้น */
+  background-color: #000;  /* สีของเส้น */
+  margin-left: 20px;      /* ระยะห่างจากบนและล่าง */
+}
+
+/* Style for the checkbox itself */
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-left: 240px;
+  cursor: pointer;
+}
+
+
+.applicant_detail {
+    display: flex;
+    align-items: center; /* Vertically center the content */
+    flex-wrap: wrap;
+    gap: 10px; /* Adds space between the elements */
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  font-size: 14px;
+  color: #333;
+  font-weight: bold;
+}
+
+.Select_all_button{
+  width: 140px; 
+  height: 50px;
+  margin-left: 130px; 
+  border-radius: 100px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  font-size: 25px;
+  position: relative;
+  margin-top: 20px; 
+}
+
+.Confirm_button{
+  width: 120px; 
+  height: 50px;
+  border-radius: 100px;
+  border-color: #57C543;
+  background-color: #f8f9fa;
+  color: #57C543;
+}
+.Confirm_button:hover{
+  background-color: #80da80;
+}
+
+

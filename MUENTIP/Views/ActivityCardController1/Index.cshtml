@@ -1,0 +1,39 @@
+﻿@using MUENTIP.ViewModels
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model TestActivityCard_FilterViewModel
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="~/css/component/activity_card.css" />
+    <link rel="stylesheet" href="~/css/component/filter.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <button id="filter_button">
+      <img src="../img/filter.png" />
+    </button>
+    <div id="filter_window" style="display: none">
+      <div class="filter_header">
+        <p class="filter_title">Apply filter</p>
+        <button id="close_button">
+          <img src="../img/filter.png" />
+        </button>
+      </div>
+      <div class="filter_tags_group" id="tags_group"></div>
+    </div>
+
+    <div id="container"></div>
+
+    <script>
+        var homeIndexUrl = "@Url.Action("Index", "Home")";
+        var activityModel = @Html.Raw(Json.Serialize(Model));
+    </script>
+
+    <script src="~/js/component/activity_card.js"></script>
+    <script src="~/js/component/filter.js"></script>
+  </body>
+</html>

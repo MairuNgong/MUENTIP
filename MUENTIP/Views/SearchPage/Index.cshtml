@@ -1,0 +1,63 @@
+﻿@using MUENTIP.ViewModels
+@{
+    ViewData["Title"] = "Search Page";
+}
+
+@model SearchViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Page</title>
+    <link rel="stylesheet" href="~/css/Search/activity_card.css" />
+    <link rel="stylesheet" href="~/css/Search/filter.css" />
+    <link rel="stylesheet" href="~/css/Search/search.css" />
+</head>
+<body>
+    <header>Search Page</header>
+
+    <div style="display: flex; align-items: center; margin-top: 10px">
+        <input type="text"
+               id="search_bar"
+               placeholder="Search..."
+               style="padding: 10px; width: 270px; margin-left: 50px" />
+        <button id="search_button"
+                style="margin-left: -40px; display: inline-block">
+            <img src="../img/search.png" width="20px" />
+        </button>
+        <button id="filter_button"
+                style="margin-left: 10px; display: inline-block">
+            <img src="../img/filter.png" />
+        </button>
+    </div>
+
+    <div id="filter_window" style="display: none">
+        <div class="filter_header">
+            <p class="filter_title">Apply filter</p>
+            <button id="close_button">
+                <img src="../img/filter.png" />
+            </button>
+        </div>
+        <div class="filter_tags_group" id="tags_group"></div>
+    </div>
+
+    <hr style="
+        border: 1px solid #ccc;
+        margin: 10px 0;
+        width: 90%;
+        margin-left: 30px;
+      " />
+
+    <div id="container" style="margin-left: 30px"></div>
+
+    <script>
+        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
+        var activityModel = @Html.Raw(Json.Serialize(Model));
+    </script>
+
+    <script src="~/js/Search/activity_card.js"></script>
+    <script src="~/js/Search/filter.js"></script>
+    <script src="~/js/Search/test.js"></script>
+</body>
+</html>

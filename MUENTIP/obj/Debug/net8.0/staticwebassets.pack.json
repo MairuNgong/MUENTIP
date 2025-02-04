@@ -1,0 +1,425 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Home\\activity_card.css",
+      "PackagePath": "staticwebassets\\css\\Home\\activity_card.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Home\\home_page.css",
+      "PackagePath": "staticwebassets\\css\\Home\\home_page.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyActivity\\activity_card.css",
+      "PackagePath": "staticwebassets\\css\\MyActivity\\activity_card.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyActivity\\filter.css",
+      "PackagePath": "staticwebassets\\css\\MyActivity\\filter.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyActivity\\my_activity_page.css",
+      "PackagePath": "staticwebassets\\css\\MyActivity\\my_activity_page.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyActivity\\search_and_filter.css",
+      "PackagePath": "staticwebassets\\css\\MyActivity\\search_and_filter.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\NavBar\\login_register_style.css",
+      "PackagePath": "staticwebassets\\css\\NavBar\\login_register_style.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\NavBar\\tab_after_login_style.css",
+      "PackagePath": "staticwebassets\\css\\NavBar\\tab_after_login_style.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Search\\activity_card.css",
+      "PackagePath": "staticwebassets\\css\\Search\\activity_card.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Search\\filter.css",
+      "PackagePath": "staticwebassets\\css\\Search\\filter.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Search\\search.css",
+      "PackagePath": "staticwebassets\\css\\Search\\search.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Select\\select.css",
+      "PackagePath": "staticwebassets\\css\\Select\\select.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\component\\activity_card.css",
+      "PackagePath": "staticwebassets\\css\\component\\activity_card.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\component\\filter.css",
+      "PackagePath": "staticwebassets\\css\\component\\filter.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\Plus.png",
+      "PackagePath": "staticwebassets\\img\\Plus.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\back-to-top.png",
+      "PackagePath": "staticwebassets\\img\\back-to-top.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\calendar.png",
+      "PackagePath": "staticwebassets\\img\\calendar.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\clock.png",
+      "PackagePath": "staticwebassets\\img\\clock.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\default-profile.png",
+      "PackagePath": "staticwebassets\\img\\default-profile.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\edit.png",
+      "PackagePath": "staticwebassets\\img\\edit.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\filter.png",
+      "PackagePath": "staticwebassets\\img\\filter.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\home.png",
+      "PackagePath": "staticwebassets\\img\\home.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\location-pin.png",
+      "PackagePath": "staticwebassets\\img\\location-pin.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\out.png",
+      "PackagePath": "staticwebassets\\img\\out.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\people.png",
+      "PackagePath": "staticwebassets\\img\\people.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\profile.png",
+      "PackagePath": "staticwebassets\\img\\profile.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\right-arrow.png",
+      "PackagePath": "staticwebassets\\img\\right-arrow.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\search.png",
+      "PackagePath": "staticwebassets\\img\\search.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\view-all.png",
+      "PackagePath": "staticwebassets\\img\\view-all.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Home\\activity_card.js",
+      "PackagePath": "staticwebassets\\js\\Home\\activity_card.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Home\\home_page.js",
+      "PackagePath": "staticwebassets\\js\\Home\\home_page.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\activity_card.js",
+      "PackagePath": "staticwebassets\\js\\MyActivity\\activity_card.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\filter.js",
+      "PackagePath": "staticwebassets\\js\\MyActivity\\filter.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_act_create_user.js",
+      "PackagePath": "staticwebassets\\js\\MyActivity\\my_act_create_user.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
+      "PackagePath": "staticwebassets\\js\\MyActivity\\my_activity_page.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Search\\activity_card.js",
+      "PackagePath": "staticwebassets\\js\\Search\\activity_card.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Search\\filter.js",
+      "PackagePath": "staticwebassets\\js\\Search\\filter.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Search\\test.js",
+      "PackagePath": "staticwebassets\\js\\Search\\test.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Select\\select.js",
+      "PackagePath": "staticwebassets\\js\\Select\\select.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\component\\activity_card.js",
+      "PackagePath": "staticwebassets\\js\\component\\activity_card.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\component\\filter.js",
+      "PackagePath": "staticwebassets\\js\\component\\filter.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.MUENTIP.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.MUENTIP.props",
+      "PackagePath": "build\\MUENTIP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.MUENTIP.props",
+      "PackagePath": "buildMultiTargeting\\MUENTIP.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.MUENTIP.props",
+      "PackagePath": "buildTransitive\\MUENTIP.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

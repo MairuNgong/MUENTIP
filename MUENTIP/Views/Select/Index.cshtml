@@ -1,0 +1,66 @@
+﻿@using MUENTIP.ViewModels
+@{
+    ViewData["Title"] = "Select Page";
+}
+
+}
+
+@model SelectViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Select Page</title>
+    <link rel="stylesheet" href="~/css/Select/select.css" />
+    <style></style>
+</head>
+<body>
+    <header>Select User</header>
+
+    <div id="rectangle_fill" class="rectangle-container">
+        <div class="header">
+            <h1 style="margin-top: 20px; margin-left: 20px">
+                Select User <span id="selectedCount">0</span>
+            </h1>
+
+            <p style="margin-top: 20px; margin-left: 20px">
+                Select users to approve them
+            </p>
+            <p style="margin-left: 20px">
+                (you don't have to choose to match the expected people)
+            </p>
+        </div>
+        <div style="
+          display: flex;
+          align-items: center;
+          margin-top: 20px;
+          margin-left: 30px;
+        ">
+            <img src=@Model.ownerImgLink style="width: 80px" />
+            <button class="Select_all_button"
+                    id="selectAllBtn"
+                    style="margin-left: 70px">
+                Select all
+            </button>
+        </div>
+
+        <hr class="line" style="margin-top: 20px" />
+        <div id="container" style="margin-left: 0px"></div>
+
+        <div>
+            <button class="Confirm_button"
+                    id="confirmBtn"
+                    style="margin-left: 210px">
+                Confirm
+            </button>
+        </div>
+    </div>
+
+    <script>
+        var selectModel = @Html.Raw(Json.Serialize(Model));
+        console.log(selectModel);
+    </script>
+    <script src="~/js/Select/select.js"></script>
+</body>
+</html>
