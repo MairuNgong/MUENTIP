@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "YfZNDcMW5lewKM6wDbHVnV99opasFNmFea/Csc8qzaM=",
+  "Hash": "tWTxYFVzd25aEU35+PJx1sWpotkrcQpCZnP5U9GDvtY=",
   "Source": "MUENTIP",
   "BasePath": "_content/MUENTIP",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\obj\\Debug\\net8.0\\scopedcss\\bundle\\MUENTIP.styles.css"
+    },
+    {
+      "Identity": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MUENTIP.bundle.scp.css",
+      "SourceId": "MUENTIP",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "BasePath": "_content/MUENTIP",
+      "RelativePath": "MUENTIP.bundle.scp.css",
+      "AssetKind": "All",
+      "AssetMode": "Reference",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "ScopedCss",
+      "AssetTraitValue": "ProjectBundle",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MUENTIP.bundle.scp.css"
     },
     {
       "Identity": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\component\\activity_card.css",

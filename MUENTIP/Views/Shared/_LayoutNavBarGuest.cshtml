@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="~/css/NavBar/login_register_style.css">
 </head>
 <body>
-    @RenderBody()
+    <main role="main">
+        @RenderBody()
+    </main>
 
     <div class="spacing"></div>
     <div class="tab-bar">
@@ -110,37 +112,42 @@
             });
 
 
-            loginForm.addEventListener("submit", (event) => {
+            loginForm.addEventListener("submit", async function (event) {
                 event.preventDefault();
 
-                const username = document.getElementById("username").value;
-                const password = document.getElementById("password").value;
+                const formData = new FormData(this);
+                const response = await fetch("/Account/Login", {
+                    method: "POST",
+                    body: new URLSearchParams(formData),
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" }
+                });
 
-                if (username == "som") {
-                    window.location.href = "@Url.Action("Index", "_LayoutNavBar")";
-                }
-                else {
-                    alert("try again");
+                const result = await response.json();
+                if (result.success) {
+                    alert("Login successful!");
+                    location.reload(); // Refresh the page to update UI
+                } else {
+                    alert(result.message);
                 }
             });
 
-            registerForm.addEventListener("submit", (event) => {
+            registerForm.addEventListener("submit", async function (event){
                 event.preventDefault();
 
-                const registerEmail = document.getElementById("registerEmail").value;
-                const registerUsername = document.getElementById("registerUsername").value;
-                const registerPassword = document.getElementById("registerPassword").value;
-                const registerConfirmPassword = document.getElementById("registerConfirmPassword").value;
-                if (registerPassword != registerConfirmPassword) {
-                    alert("Passwords don't match please try again");
-                }
-                else if (registerUsername == "som2") {
+                const formData = new FormData(this);
+                const response = await fetch("/Account/Register", {
+                    method: "POST",
+                    body: new URLSearchParams(formData),
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" }
+                });
 
-                    registerPopup.style.display = "none";
-                    loginPopup.style.display = "flex";
-                }
-                else {
-                    alert("try again2");
+                const result = await response.json();
+                if (result.success) {
+                    alert("Registration successful! You can now log in.");
+                    document.getElementById("registerPopup").style.display = "none"; // Close popup
+                } else {
+                    console.log(result.errors);
+                    alert(result.message);
                 }
             });
 

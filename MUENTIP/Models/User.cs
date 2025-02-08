@@ -5,8 +5,6 @@ namespace MUENTIP.Models
 {
     public class User: IdentityUser
     {
-        [Key]
-        public int UserId { get; set; }  // Primary Key
         
         public string? ProfileImageLink { get; set; }
         public string? Info { get; set; }
