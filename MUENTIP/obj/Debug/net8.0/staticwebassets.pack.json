@@ -169,6 +169,14 @@
       "PackagePath": "staticwebassets\\js\\Select\\select.js"
     },
     {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\component\\Guest.js",
+      "PackagePath": "staticwebassets\\js\\component\\Guest.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\component\\SignIn.js",
+      "PackagePath": "staticwebassets\\js\\component\\SignIn.js"
+    },
+    {
       "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\component\\activity_card.js",
       "PackagePath": "staticwebassets\\js\\component\\activity_card.js"
     },
