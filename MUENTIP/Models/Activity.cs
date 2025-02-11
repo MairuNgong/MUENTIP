@@ -12,7 +12,10 @@ namespace MUENTIP.Models
         public string Title { get; set; }
 
         [Required]
-        public DateTime ActivityDateTime { get; set; }
+        public DateTime StartDateTime { get; set; }
+
+        [Required]
+        public DateTime EndDateTime { get; set; }
 
         [Required]
         public DateTime DeadlineDateTime { get; set; }

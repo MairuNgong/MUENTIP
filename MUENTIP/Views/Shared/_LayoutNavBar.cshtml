@@ -38,8 +38,8 @@
                 <img src="~/img/out.png" alt="Logout tab"
                      class="tab-icon">
             </div>
-
         </div>
+        <button id="menuButton" class="menu-button">&#9776;</button>
         <script src="~/js/Component/SignIn.js"></script>
             
     }
@@ -57,10 +57,8 @@
             <div class="tab" id="loginTab">
                 <img src="~/img/default-profile.png" alt="Login tab" class="tab-icon">
             </div>
-
-
         </div>
-
+        <button id="menuButton" class="menu-button">&#9776;</button>
 
         <div id="loginPopup" class="popup">
             <div class="popup-content">
@@ -102,5 +100,15 @@
         </div>
         <script src="~/js/Component/Guest.js"></script>
     }
+    <script>
+        document.getElementById('menuButton').addEventListener('click', function () {
+            const tabBar = document.querySelector('.tab-bar');
+            const body = document.body;
+
+            tabBar.classList.toggle('hidden');
+            body.classList.toggle('tab-bar-visible');
+
+        });
+    </script>
 </body>
 </html>

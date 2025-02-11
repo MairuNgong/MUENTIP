@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\MUENTIP.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\CreateActivity\\create_activity.css",
+      "PackagePath": "staticwebassets\\css\\CreateActivity\\create_activity.css"
+    },
+    {
       "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Home\\activity_card.css",
       "PackagePath": "staticwebassets\\css\\Home\\activity_card.css"
     },
@@ -127,6 +131,10 @@
     {
       "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\img\\view-all.png",
       "PackagePath": "staticwebassets\\img\\view-all.png"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\CreateActivity\\create_activity.js",
+      "PackagePath": "staticwebassets\\js\\CreateActivity\\create_activity.js"
     },
     {
       "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Home\\activity_card.js",

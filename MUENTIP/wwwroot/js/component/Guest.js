@@ -56,7 +56,7 @@
 
                 const result = await response.json();
                 if (result.success) {
-                    location.reload();
+                    window.location.href = "/Profile/";
                 }
                 else
                 {
@@ -111,3 +111,4 @@
 
 
  });
+

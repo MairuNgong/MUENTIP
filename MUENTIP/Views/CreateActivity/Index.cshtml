@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Create Activity Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Activity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/CreateActivity/create_activity.css"/>
+</head>
+<body>
+    <div class="Banner">
+        <button class="ReturnButton" onclick="goBack()">&#60;</button>
+        <span>Create activity</span>
+    </div>
+
+    <form id="ActivityForm" class="ActivityForm">
+        <label for="Title">Title</label>
+        <input type="text" id="Title" name="Title" placeholder="Title" required>
+        <div class="DateTimeContainer">
+            <div class="DateTimeField">
+                <label for="StartDate">Start Date</label>
+                <input type="date" id="StartDate" name="StartDate" required>
+			</div>
+            <div class="DateTimeField">
+                <label for="StartTime">Start Time</label>
+                <input type="time"id="StartTime" name="StartTime" required>
+            </div>
+        </div>
+        <div class="DateTimeContainer">
+            <div class="DateTimeField">
+                <label for="EndDate">End Date</label>
+                <input type="date" id="EndDate" name="EndDate" required>
+            </div>
+            <div class="DateTimeField">
+                <label for="EndTime">End Time</label>
+                <input type="time" id="EndTime" name="EndTime" required>
+            </div>
+        </div>
+        <div class="PLContainer">
+            <div class="DateTimeField">
+                <label for="ApplyMax">Participants</label>
+                <input type="number"id="ApplyMax" name="ApplyMax" min="1" step="1" placeholder="1" required>
+            </div>
+            <div class="DateTimeField">
+                <label for="Location">Location</label>
+                <input type="text" id="Location" name="Location" placeholder="KMITL" required>
+            </div>
+        </div>
+        <div class="DateTimeContainer">
+            <div class="DateTimeField">
+                <label for="DeadLineDate">Closing Date</label>
+                <input type="date" id="DeadLineDate" name="DeadLineDate" required>
+            </div>
+            <div class="DateTimeField">
+                <label for="DeadLineTime">Closed Time</label>
+                <input type="time" id="DeadLineTime" name="DeadLineTime" required>
+            </div>
+        </div>
+        <label for="Description">Description</label>
+        <textarea id="autoResize" rows="1" placeholder="Type here..."></textarea>
+        <div class="button-div">
+            <button type="button" id="cancel-button" onclick="goBack()">Cancel</button>
+            <button type="submit" id="create-button">Create</button>
+        </div>
+    </form>
+
+    <script src="~/js/CreateActivity/create_activity.js"></script>
+</body>
+</html>

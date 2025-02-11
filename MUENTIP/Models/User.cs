@@ -9,6 +9,8 @@ namespace MUENTIP.Models
         public string? ProfileImageLink { get; set; }
         public string? Info { get; set; }
 
+        public string? Gender { get; set; }
+        public DateOnly? BirthDate { get; set; }
         public string? Education { get; set; }
 
         public string? Address { get; set; }

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "IUKr6+LMUSJa4ZpQpD4sd7qFZTMzjs64SNe6/+wHLaQ=",
+  "Hash": "Nidq7/UaN3X09CMgu33IS3Zv66IBc3hhWQDiSkY/Y+o=",
   "Source": "MUENTIP",
   "BasePath": "_content/MUENTIP",
   "Mode": "Default",
@@ -129,6 +129,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\component\\filter.css"
+    },
+    {
+      "Identity": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\CreateActivity\\create_activity.css",
+      "SourceId": "MUENTIP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\",
+      "BasePath": "_content/MUENTIP",
+      "RelativePath": "css/CreateActivity/create_activity.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\CreateActivity\\create_activity.css"
     },
     {
       "Identity": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Home\\activity_card.css",
@@ -756,6 +775,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\component\\SignIn.js"
+    },
+    {
+      "Identity": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\CreateActivity\\create_activity.js",
+      "SourceId": "MUENTIP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\",
+      "BasePath": "_content/MUENTIP",
+      "RelativePath": "js/CreateActivity/create_activity.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\CreateActivity\\create_activity.js"
     },
     {
       "Identity": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Home\\activity_card.js",
