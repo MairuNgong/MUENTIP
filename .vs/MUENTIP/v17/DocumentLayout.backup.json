@@ -1,0 +1,83 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7965257B-21B6-45D4-8AD0-42677A6A8241}|MUENTIP\\MUENTIP.csproj|c:\\users\\admin\\desktop\\2nd\\muentip\\muentip\\wwwroot\\css\\myactivity\\my_activity_page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{7965257B-21B6-45D4-8AD0-42677A6A8241}|MUENTIP\\MUENTIP.csproj|solutionrelative:muentip\\wwwroot\\css\\myactivity\\my_activity_page.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7965257B-21B6-45D4-8AD0-42677A6A8241}|MUENTIP\\MUENTIP.csproj|c:\\users\\admin\\desktop\\2nd\\muentip\\muentip\\views\\myactivity\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{7965257B-21B6-45D4-8AD0-42677A6A8241}|MUENTIP\\MUENTIP.csproj|solutionrelative:muentip\\views\\myactivity\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7965257B-21B6-45D4-8AD0-42677A6A8241}|MUENTIP\\MUENTIP.csproj|c:\\users\\admin\\desktop\\2nd\\muentip\\muentip\\wwwroot\\js\\myactivity\\my_activity_page.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{7965257B-21B6-45D4-8AD0-42677A6A8241}|MUENTIP\\MUENTIP.csproj|solutionrelative:muentip\\wwwroot\\js\\myactivity\\my_activity_page.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "my_activity_page.js",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
+              "RelativeDocumentMoniker": "MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
+              "RelativeToolTip": "MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAABHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-02-07T08:14:13.493Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "my_activity_page.css",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyActivity\\my_activity_page.css",
+              "RelativeDocumentMoniker": "MUENTIP\\wwwroot\\css\\MyActivity\\my_activity_page.css",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyActivity\\my_activity_page.css",
+              "RelativeToolTip": "MUENTIP\\wwwroot\\css\\MyActivity\\my_activity_page.css",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEAAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-02-07T07:54:41.859Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\Views\\MyActivity\\Index.cshtml",
+              "RelativeDocumentMoniker": "MUENTIP\\Views\\MyActivity\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\Views\\MyActivity\\Index.cshtml",
+              "RelativeToolTip": "MUENTIP\\Views\\MyActivity\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABwAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-02-05T09:32:00.636Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
