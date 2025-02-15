@@ -1,4 +1,5 @@
-// Mock data for activities and tags (you can replace this with real data from your API or other sources)
+﻿// Create Activities
+
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
 
@@ -8,18 +9,19 @@ const img_calendar_src = "../img/calendar.png";
 const img_location_src = "../img/location-pin.png";
 const img_arrow_src = "../img/right-arrow.png";
 
-// Function to render activities based on tags and title search
-function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "") {
-    container.innerHTML = ""; // Clear existing content
+function renderActivities(container, ShowedtagList, searchTerm = "", maxActivities = Infinity) {
+    container.innerHTML = "";
 
-    // Filter activities based on tags and title
-    const filteredActivities = activities.filter(activity =>
-        activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
-        activity.title.toLowerCase().includes(searchTitle.toLowerCase())  // Filter by title
-    );
+    // Filter activities based on tags and title (if searchTerm is provided)
+    const filteredActivities = activities.filter(activity => {
+        const tagMatch = activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag));
+        const titleMatch = searchTerm ? activity.title.toLowerCase().includes(searchTerm.toLowerCase()) : true;
 
-    // Limit the number of activities to show
-    const activitiesToShow = filteredActivities.slice(0, maxActivities);
+        return tagMatch && titleMatch;
+    });
+
+    // If no search term is provided, show all activities without additional space
+    const activitiesToShow = searchTerm ? filteredActivities.slice(0, maxActivities) : activities.slice(0, maxActivities);
 
     activitiesToShow.forEach(activity => {
         const activity_card = document.createElement("div");
@@ -136,7 +138,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         enter_button.appendChild(img_arrow);
 
         enter_button.onclick = function () {
-            window.location.href = "ViewActivityURL";  // Replace with your actual URL
+            window.location.href = ViewActivityURL;
         };
 
         activity_card.appendChild(enter_button);
@@ -144,10 +146,8 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
     });
 }
 
+// Example usage:
 
-// Initial call to render activities
 const container = document.getElementById("container");
-renderActivities(container, tags);
-
-// You can manually call the search function whenever necessary
-// Example: searchActivities();
+const searchTerm = "";  // Empty search term will show all activities
+renderActivities(container, tags, searchTerm);
