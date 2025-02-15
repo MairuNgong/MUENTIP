@@ -123,3 +123,83 @@
     overflow-y: hidden;
     resize: none;
 }
+.tag_div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+#filter_window {
+    padding: 10px;
+    border-radius: 15px;
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    width: 42%;
+    background-color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.filter_header {
+    padding: 0px 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.filter_tag {
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px;
+    background-color: #D1D1D1;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.inuse_tag {
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 16px 6px 0px;
+    background-color: #D1D1D1;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.filter_tags_group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 20px 16px;
+    margin: 10px 10px;
+    max-height: 150px; 
+    overflow-y: auto; 
+}
+
+.remove_tag {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 20px;
+    height: 20px;
+    padding: 2px;
+    background: red;
+    border-radius: 50%;
+    border: 0;
+    margin: 0 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.remove_tagL:hover {
+    background-color: darkred;
+}
+
+.message {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}

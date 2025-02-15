@@ -79,7 +79,6 @@ namespace MUENTIP.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("TagName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
@@ -440,9 +439,7 @@ namespace MUENTIP.Migrations
 
                     b.HasOne("MUENTIP.Models.Tag", "Tag")
                         .WithMany("ActivityTags")
-                        .HasForeignKey("TagName")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TagName");
 
                     b.Navigation("Activity");
 

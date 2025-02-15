@@ -1,7 +1,8 @@
 ﻿@{
     ViewData["Title"] = "Create Activity Page";
 }
-
+@using MUENTIP.ViewModels
+@model CreateActivityViewModel
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,14 +59,35 @@
                 <input type="time" id="DeadLineTime" name="DeadLineTime" required>
             </div>
         </div>
+        <div class="tag_div">
+            <div id="filter_window">
+                <div class="filter_header">
+                    <p class="filter_title">In-use tag(s)</p>
+                </div>
+                <div class="filter_tags_group" id="inuse_group"></div>
+            </div>
+            <div id="filter_window">
+                <div class="filter_header">
+                    <p class="filter_title">Browse tags</p>
+                </div>
+                <div class="filter_tags_group" id="tags_group"></div>
+            </div>
+        </div>
         <label for="Description">Description</label>
-        <textarea id="autoResize" rows="1" placeholder="Type here..."></textarea>
+        <textarea name="Description" id="autoResize" rows="1" placeholder="Type here..."></textarea>
+        <div class="message">
+            <p id="Message" name="Message" style="color:red"></p>
+        </div>
         <div class="button-div">
             <button type="button" id="cancel-button" onclick="goBack()">Cancel</button>
             <button type="submit" id="create-button">Create</button>
         </div>
     </form>
 
+    <script>
+        const tagModel = @Html.Raw(Json.Serialize(Model));
+        const tags = JSON.parse(JSON.stringify(tagModel)).tags;
+    </script>
     <script src="~/js/CreateActivity/create_activity.js"></script>
 </body>
 </html>

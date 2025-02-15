@@ -41,14 +41,14 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(string registerEmail, string registerUsername, string registerPassword, string registerConfirmPassword)
     {
-        // Check if the password and confirmation password match
+        
         if (registerPassword != registerConfirmPassword)
         {
             return Json(new { success = false, message = "Passwords do not match." });
         }
 
         var normalizedUserName = registerUsername.ToUpper();
-        // Manually query by normalized username to ensure a single result
+        
         var existingUser = await _userManager.Users
             .FirstOrDefaultAsync(u => u.NormalizedUserName == normalizedUserName);
 
@@ -65,18 +65,18 @@ public class AccountController : Controller
             return Json(new { success = false, message = "This username is already taken." });
         }
 
-        // Create the new user
+        
         var user = new User { UserName = registerUsername, Email = registerEmail };
         var result = await _userManager.CreateAsync(user, registerPassword);
 
-        // Check if registration was successful
+        
         if (result.Succeeded)
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
             return Json(new { success = true });
         }
 
-        // If there was an error during registration, return the error message
+        
         return Json(new { success = false, message = "Password must be at least 6 characters long and include uppercase, lowercase, a number, and a special character (., #, ?).", errors = result.Errors.Select(e => e.Description) });
     }
 

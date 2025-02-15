@@ -1,7 +1,4 @@
-//ดูการใช้งานเริ่มที่บรรทัด 152 โดยก่อนหน้านั้นเป็นแค่ของชั่วคราวเพราะเดี๋ยวตอนจริงจะ fetch
-//เอาไปใช้โดยการ duplicate fileนี้ไปใส่folderหน้าของเราอีกที จะได้ใช้ของใตรของมัน แล้ว include scriptไว้ใต้body แบบในตัวอย่างที่ให้(component ต้องถูกโหลดก่อนจึงควรไว้ก่อนscriptอื่น)จากนั้นก็แก้ไขไฟล์นี้ตรงการเรียกใช้function parameter คือ containerที่จะใส่,tag list สำหรับการfilter หรือหน้าแรกที่จัดเป็นหมู่ๆ, จำนวนโดยถ้าไม่ใส่จะสร้างหมด
-//search ไปเพิ่ม parameter เอาเอง แล้วก็ไปfilter เพิ่มใน functionเอา
-//แก้ข้อมูลobjectให้ตรงที่ต้องการได้เลย ใส่เพิ่มก็ได้
+
 console.log(activityModel);
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
@@ -63,8 +60,8 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         img_start_date_time.className = "icon";
         img_start_date_time.src = img_clock_src;
         start_date_time.appendChild(img_start_date_time);
-        let date_obj = new Date(activity.startDateTime.replace(' ', 'T'));
-        let date = activity.startDateTime.split(' ')[0];
+        let date_obj = new Date(activity.startDateTime);
+        let date = date_obj.toISOString().split("T")[0];
         let time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
         start_date_time_label.textContent = "start : ";
         start_date_time_value.textContent = `${date} ${time}`;
@@ -82,8 +79,8 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         img_end_date_time.src = img_clock_src;
         end_date_time.className = "activity_detail";
         end_date_time.appendChild(img_end_date_time);
-        date_obj = new Date(activity.endDateTime.replace(' ', 'T'));
-        date = activity.endDateTime.split(' ')[0];
+        date_obj = new Date(activity.endDateTime);
+        date = date_obj.toISOString().split("T")[0];
         time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
         end_date_time_label.textContent = "end : ";
         end_date_time_value.textContent = `${date} ${time}`;
@@ -99,7 +96,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         img_deadline_date_time.className = "icon";
         img_deadline_date_time.src = img_calendar_src;
         deadline_date_time.appendChild(img_deadline_date_time);
-        date_obj = new Date(activity.deadlineDateTime.replace(' ', 'T'));
+        date_obj = new Date(activity.deadlineDateTime);
         let current_date = new Date();
         if (date_obj > current_date) {
             deadline_date_time.style.color = "#57C543";
