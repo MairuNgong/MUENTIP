@@ -7,7 +7,8 @@
     const closePopup = document.getElementById("closePopup");
 
     const registerPopup = document.getElementById("registerPopup");
-    const registerLink = document.getElementById("registerLink");
+     const registerLink = document.getElementById("registerLink");
+     const loginLink = document.getElementById("loginLink");
     const closeregisterPopup = document.getElementById("closeregisterPopup");
 
      const loginForm = document.getElementById("loginForm");
@@ -40,6 +41,11 @@
             });
             closeregisterPopup.addEventListener("click", () => {
                 registerPopup.style.display = "none";
+            });
+            loginLink.addEventListener("click", (event) => {
+                 event.preventDefault();
+                 loginPopup.style.display = "flex";
+                 registerPopup.style.display = "none";
              });
 
 
@@ -77,27 +83,7 @@
                 const result = await response.json();
                 if (result.success) {
                     RegisterMessage.style.color = "green";
-                    RegisterMessage.textContent = "Registed. You can ";
-
-
-                    const span = document.createElement("span");
-                    const LoginLink = document.createElement("a");
-                    LoginLink.href = "#"; 
-                    LoginLink.textContent = "login now";
-                    LoginLink.style.textDecoration = "underline";
-                    LoginLink.style.color = "blue";
-                    LoginLink.style.cursor = "pointer";
-
-                    
-                    LoginLink.addEventListener("click", (event) => {
-                        event.preventDefault();
-                        loginPopup.style.display = "flex"; 
-                        registerPopup.style.display = "none"; 
-                    });
-
-    
-                    span.appendChild(LoginLink);
-                    RegisterMessage.appendChild(span);
+                    RegisterMessage.textContent = "Registed. You can login now.";
                 }
                 else {
 
@@ -107,6 +93,7 @@
                     RegisterMessage.style.color = "red";
                     RegisterMessage.textContent = result.message;
                 }
+                
             });
 
 

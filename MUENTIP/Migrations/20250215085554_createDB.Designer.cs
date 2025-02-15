@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MUENTIP.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20250210134952_AddStartEndTime")]
-    partial class AddStartEndTime
+    [Migration("20250215085554_createDB")]
+    partial class createDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
