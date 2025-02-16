@@ -5,6 +5,14 @@
     padding: 0;
 }
 
+.header-muentip {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 10%;
+    background-color: #C0EFD8;
+}
+
 .header-nav {
     background-color: #707070;
     max-width: 100%;
@@ -17,35 +25,35 @@
     align-items: center;
 }
 
-.header-menu li {
-    margin: 1rem;
-}
+    .header-menu li {
+        margin: 1rem;
+    }
 
-.header-menu li a {
-    color: white;
-    text-decoration: none;
-    font-family: "Inter", Helvetica;
-    font-size: 16px;
-    font-weight: bold;
-}
+        .header-menu li a {
+            color: white;
+            text-decoration: none;
+            font-family: "Inter", Helvetica;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-.header-menu li:nth-child(2) a {
-    color: #C0EFD8;
-    text-decoration: underline;
-    text-underline-offset: 6px;
-    text-decoration-thickness: 2px;
-}
+        .header-menu li:nth-child(2) a {
+            color: #C0EFD8;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            text-decoration-thickness: 2px;
+        }
 
 .activity-nav {
     max-width: 100%;
     margin: 0 auto;
 }
 
-.activity-nav hr {
-    border: 1px solid black;
-    margin: 0 1rem;
-    margin-top: -0.8rem;
-}
+    .activity-nav hr {
+        border: 1px solid black;
+        margin: 0 1rem;
+        margin-top: -0.8rem;
+    }
 
 .activity-menu {
     display: flex;
@@ -53,23 +61,23 @@
     align-items: center;
 }
 
-.activity-menu li {
-    margin: 1rem;
-}
+    .activity-menu li {
+        margin: 1rem;
+    }
 
-.activity-menu li a {
-    color: black;
-    text-decoration: none;
-    font-family: "Inter", Helvetica;
-    font-size: 16px;
-    font-weight: bold;
-}
+        .activity-menu li a {
+            color: black;
+            text-decoration: none;
+            font-family: "Inter", Helvetica;
+            font-size: 16px;
+            font-weight: bold;
+        }
 
-.activity-menu li a.active {
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    text-decoration-thickness: 3px;
-}
+            .activity-menu li a.active {
+                text-decoration: underline;
+                text-underline-offset: 5px;
+                text-decoration-thickness: 3px;
+            }
 
 .create-container {
     display: flex;
@@ -87,6 +95,10 @@
     padding: 1rem 0;
 }
 
+    .create-inner:hover {
+        background-color: #ACACAC; /* A darker shade of  */
+    }
+
 #create-button {
     background: none;
     border: none;
@@ -96,7 +108,18 @@
     cursor: pointer;
 }
 
-#create-button img {
-    width: 70px;
-    height: 70px;
+    #create-button img {
+        width: 70px;
+        height: 70px;
+    }
+
+@media(min-width: 800px) {
+    .create-inner {
+        width: 700px;
+    }
+
+    .activity_card {
+        width: calc(50% - 16px); /* ให้แต่ละการ์ดมีความกว้าง 50% ของพื้นที่ */
+        margin: 8px; /* เพิ่มระยะห่างระหว่างการ์ด */
+    }
 }
