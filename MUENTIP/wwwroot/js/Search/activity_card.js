@@ -55,19 +55,43 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         location_text.textContent = activity.location;
         location.appendChild(location_text);
 
-        const activity_date_time = document.createElement("div");
-        const img_activity_date_time = document.createElement("img");
-        const activity_date_time_text = document.createElement("span");
-        activity_date_time.className = "activity_detail";
-        img_activity_date_time.className = "icon";
-        img_activity_date_time.src = img_clock_src;
-        activity_date_time.appendChild(img_activity_date_time);
-        let date_obj = new Date(activity.activityDateTime.replace(' ', 'T'));
-        let current_date = new Date();
-        let date = activity.activityDateTime.split(' ')[0];
+        const start_date_time = document.createElement("div");
+        const img_start_date_time = document.createElement("img");
+        const start_date_time_text = document.createElement("span");
+        const start_date_time_value = document.createElement("span");
+        const start_date_time_label = document.createElement("span");
+        start_date_time.className = "activity_detail";
+        img_start_date_time.className = "icon";
+        img_start_date_time.src = img_clock_src;
+        start_date_time.appendChild(img_start_date_time);
+        let date_obj = new Date(activity.startDateTime);
+        let date = date_obj.toISOString().split("T")[0];
         let time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
-        activity_date_time_text.textContent = `${date} ${time}`;
-        activity_date_time.appendChild(activity_date_time_text);
+        start_date_time_label.textContent = "start : ";
+        start_date_time_value.textContent = `${date} ${time}`;
+        start_date_time_text.appendChild(start_date_time_label);
+        start_date_time_text.appendChild(start_date_time_value);
+        start_date_time.appendChild(start_date_time_text);
+
+
+        const end_date_time = document.createElement("div");
+        const img_end_date_time = document.createElement("img");
+        const end_date_time_text = document.createElement("span");
+        const end_date_time_value = document.createElement("span");
+        const end_date_time_label = document.createElement("span");
+        img_end_date_time.className = "icon";
+        img_end_date_time.src = img_clock_src;
+        end_date_time.className = "activity_detail";
+        end_date_time.appendChild(img_end_date_time);
+        date_obj = new Date(activity.endDateTime);
+        date = date_obj.toISOString().split("T")[0];
+        time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
+        end_date_time_label.textContent = "end : ";
+        end_date_time_value.textContent = `${date} ${time}`;
+        end_date_time_text.appendChild(end_date_time_label);
+        end_date_time_text.appendChild(end_date_time_value);
+        end_date_time.appendChild(end_date_time_text);
+
 
         const deadline_date_time = document.createElement("div");
         const img_deadline_date_time = document.createElement("img");
@@ -76,7 +100,8 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         img_deadline_date_time.className = "icon";
         img_deadline_date_time.src = img_calendar_src;
         deadline_date_time.appendChild(img_deadline_date_time);
-        date_obj = new Date(activity.deadlineDateTime.replace(' ', 'T'));
+        date_obj = new Date(activity.deadlineDateTime);
+        let current_date = new Date();
         if (date_obj > current_date) {
             deadline_date_time.style.color = "#57C543";
             date = date_obj.toISOString().split("T")[0];
@@ -91,7 +116,8 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         left_content_text.appendChild(title);
         left_content_text.appendChild(owner);
         left_content_text.appendChild(location);
-        left_content_text.appendChild(activity_date_time);
+        left_content_text.appendChild(start_date_time);
+        left_content_text.appendChild(end_date_time);
         left_content_text.appendChild(deadline_date_time);
 
         const participant = document.createElement("div");
@@ -136,7 +162,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         enter_button.appendChild(img_arrow);
 
         enter_button.onclick = function () {
-            window.location.href = "ViewActivityURL";  // Replace with your actual URL
+            window.location.href = homeIndexUrl;
         };
 
         activity_card.appendChild(enter_button);
