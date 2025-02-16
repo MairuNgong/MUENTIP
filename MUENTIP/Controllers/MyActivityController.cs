@@ -27,7 +27,7 @@ namespace MUENTIP.Controllers
             };
             var sampleApprovedActivities = new List<ActivityCardViewModel>
             {
-                new ActivityCardViewModel
+               new ActivityCardViewModel
                 {
                     ActivityId = 3,
                     Title = "Tech sharing",

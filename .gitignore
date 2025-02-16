@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 .vs/
 *.dll
 *.exe
 *.config
 bin/
 obj/
+=======
+.vs/
+*.dll  
+*.exe  
+*.config  
+bin/  
+obj/  
+>>>>>>> main
