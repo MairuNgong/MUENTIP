@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+4ubrPtKhOOqnRu9ki6XQozNwyPWKh8/LUByhZ0GZFk=",
+  "Hash": "sPOvlZar426zZwxHx4Rz7E1EJIJfEjzVMoNiMCkrxHU=",
   "Source": "MUENTIP",
   "BasePath": "_content/MUENTIP",
   "Mode": "Default",
@@ -199,8 +199,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "q2k5nh10a0",
-      "Integrity": "4l8f1GzYmxooSwWx6YemVEuRPSe0BrSJRjdLGHRlFCA=",
+      "Fingerprint": "j54k7rcl6a",
+      "Integrity": "+foAzauCFRaYR8041RPEAh6b9+Gnnoy2OkOzCIy7yDg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\MyActivity\\activity_card.css"
@@ -241,8 +241,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "3uggw1em0d",
-      "Integrity": "xSIlXxDTLR7UN8dZJ3eyJHj+3UkvISZM6nqFqhPSMLM=",
+      "Fingerprint": "5eyjl000d6",
+      "Integrity": "I5aS5D3Ycry1bbJLl8YDfs5fRqk51c4iDNtFZ2Q5h10=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\MyActivity\\my_activity_page.css"
@@ -850,8 +850,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ui4ha6zjk6",
-      "Integrity": "2rzZHpc8T/OlXUeJtfEgucKlkqXnAva6UGrVb8BjoJY=",
+      "Fingerprint": "7ovch60l5i",
+      "Integrity": "qQvLFmfxbDuV5rVCx+NIfxTu05OCLlA3BtgHiExWMhA=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\MyActivity\\activity_card.js"
@@ -871,32 +871,11 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "y8h040uvpq",
-      "Integrity": "roT6WOBZLvTZ7mH5sRXe7GtYlAziCOYpT1JP6lKyxGg=",
+      "Fingerprint": "be1o6vq8tu",
+      "Integrity": "7aAM23kZiLGaG1HUgBUSoDGqwHyBi8wQHUM+OyASW4c=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\MyActivity\\filter.js"
-    },
-    {
-      "Identity": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_act_create_user.js",
-      "SourceId": "MUENTIP",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\",
-      "BasePath": "_content/MUENTIP",
-      "RelativePath": "js/MyActivity/my_act_create_user#[.{fingerprint}]?.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "Fingerprint": "e80ra7um7f",
-      "Integrity": "EqDBEOKBswWx8ldlUMXwWykQzBBSJfdAJHP4uQbCN4g=",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\MyActivity\\my_act_create_user.js"
     },
     {
       "Identity": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
@@ -913,8 +892,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "op5ds2pg4c",
-      "Integrity": "LNIchl1nfN0DtrEriS79Pdkg1UXSPYEcG0vBkCX8H7g=",
+      "Fingerprint": "ae7a81glxz",
+      "Integrity": "8i9oTtUSmPdGxnPr4kZQ6eoqOaTbfJQ1g5vlynH5cMc=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\MyActivity\\my_activity_page.js"
@@ -2636,7 +2615,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1658"
+          "Value": "2202"
         },
         {
           "Name": "Content-Type",
@@ -2644,11 +2623,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4l8f1GzYmxooSwWx6YemVEuRPSe0BrSJRjdLGHRlFCA=\""
+          "Value": "\"+foAzauCFRaYR8041RPEAh6b9+Gnnoy2OkOzCIy7yDg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 10:14:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2658,12 +2637,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4l8f1GzYmxooSwWx6YemVEuRPSe0BrSJRjdLGHRlFCA="
+          "Value": "sha256-+foAzauCFRaYR8041RPEAh6b9+Gnnoy2OkOzCIy7yDg="
         }
       ]
     },
     {
-      "Route": "css/MyActivity/activity_card.q2k5nh10a0.css",
+      "Route": "css/MyActivity/activity_card.j54k7rcl6a.css",
       "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyActivity\\activity_card.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2673,7 +2652,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1658"
+          "Value": "2202"
         },
         {
           "Name": "Content-Type",
@@ -2681,11 +2660,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4l8f1GzYmxooSwWx6YemVEuRPSe0BrSJRjdLGHRlFCA=\""
+          "Value": "\"+foAzauCFRaYR8041RPEAh6b9+Gnnoy2OkOzCIy7yDg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 10:14:39 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2695,7 +2674,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "q2k5nh10a0"
+          "Value": "j54k7rcl6a"
         },
         {
           "Name": "label",
@@ -2703,7 +2682,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4l8f1GzYmxooSwWx6YemVEuRPSe0BrSJRjdLGHRlFCA="
+          "Value": "sha256-+foAzauCFRaYR8041RPEAh6b9+Gnnoy2OkOzCIy7yDg="
         }
       ]
     },
@@ -2790,7 +2769,7 @@
       ]
     },
     {
-      "Route": "css/MyActivity/my_activity_page.3uggw1em0d.css",
+      "Route": "css/MyActivity/my_activity_page.5eyjl000d6.css",
       "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyActivity\\my_activity_page.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -2800,7 +2779,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1807"
+          "Value": "2579"
         },
         {
           "Name": "Content-Type",
@@ -2808,11 +2787,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xSIlXxDTLR7UN8dZJ3eyJHj+3UkvISZM6nqFqhPSMLM=\""
+          "Value": "\"I5aS5D3Ycry1bbJLl8YDfs5fRqk51c4iDNtFZ2Q5h10=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 13:33:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2822,7 +2801,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "3uggw1em0d"
+          "Value": "5eyjl000d6"
         },
         {
           "Name": "label",
@@ -2830,7 +2809,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-xSIlXxDTLR7UN8dZJ3eyJHj+3UkvISZM6nqFqhPSMLM="
+          "Value": "sha256-I5aS5D3Ycry1bbJLl8YDfs5fRqk51c4iDNtFZ2Q5h10="
         }
       ]
     },
@@ -2845,7 +2824,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1807"
+          "Value": "2579"
         },
         {
           "Name": "Content-Type",
@@ -2853,11 +2832,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xSIlXxDTLR7UN8dZJ3eyJHj+3UkvISZM6nqFqhPSMLM=\""
+          "Value": "\"I5aS5D3Ycry1bbJLl8YDfs5fRqk51c4iDNtFZ2Q5h10=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 13:33:06 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2867,7 +2846,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xSIlXxDTLR7UN8dZJ3eyJHj+3UkvISZM6nqFqhPSMLM="
+          "Value": "sha256-I5aS5D3Ycry1bbJLl8YDfs5fRqk51c4iDNtFZ2Q5h10="
         }
       ]
     },
@@ -4862,7 +4841,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 09:52:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4907,7 +4886,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 09:52:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5168,6 +5147,51 @@
       ]
     },
     {
+      "Route": "js/MyActivity/activity_card.7ovch60l5i.js",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\activity_card.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9908"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"qQvLFmfxbDuV5rVCx+NIfxTu05OCLlA3BtgHiExWMhA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Feb 2025 15:08:49 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "7ovch60l5i"
+        },
+        {
+          "Name": "label",
+          "Value": "js/MyActivity/activity_card.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-qQvLFmfxbDuV5rVCx+NIfxTu05OCLlA3BtgHiExWMhA="
+        }
+      ]
+    },
+    {
       "Route": "js/MyActivity/activity_card.js",
       "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\activity_card.js",
       "Selectors": [],
@@ -5178,7 +5202,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7781"
+          "Value": "9908"
         },
         {
           "Name": "Content-Type",
@@ -5186,11 +5210,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2rzZHpc8T/OlXUeJtfEgucKlkqXnAva6UGrVb8BjoJY=\""
+          "Value": "\"qQvLFmfxbDuV5rVCx+NIfxTu05OCLlA3BtgHiExWMhA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 15:08:49 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5200,13 +5224,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-2rzZHpc8T/OlXUeJtfEgucKlkqXnAva6UGrVb8BjoJY="
+          "Value": "sha256-qQvLFmfxbDuV5rVCx+NIfxTu05OCLlA3BtgHiExWMhA="
         }
       ]
     },
     {
-      "Route": "js/MyActivity/activity_card.ui4ha6zjk6.js",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\activity_card.js",
+      "Route": "js/MyActivity/filter.be1o6vq8tu.js",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\filter.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5215,7 +5239,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7781"
+          "Value": "1827"
         },
         {
           "Name": "Content-Type",
@@ -5223,11 +5247,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2rzZHpc8T/OlXUeJtfEgucKlkqXnAva6UGrVb8BjoJY=\""
+          "Value": "\"7aAM23kZiLGaG1HUgBUSoDGqwHyBi8wQHUM+OyASW4c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 15:10:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5237,15 +5261,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ui4ha6zjk6"
+          "Value": "be1o6vq8tu"
         },
         {
           "Name": "label",
-          "Value": "js/MyActivity/activity_card.js"
+          "Value": "js/MyActivity/filter.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2rzZHpc8T/OlXUeJtfEgucKlkqXnAva6UGrVb8BjoJY="
+          "Value": "sha256-7aAM23kZiLGaG1HUgBUSoDGqwHyBi8wQHUM+OyASW4c="
         }
       ]
     },
@@ -5260,7 +5284,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1799"
+          "Value": "1827"
         },
         {
           "Name": "Content-Type",
@@ -5268,11 +5292,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"roT6WOBZLvTZ7mH5sRXe7GtYlAziCOYpT1JP6lKyxGg=\""
+          "Value": "\"7aAM23kZiLGaG1HUgBUSoDGqwHyBi8wQHUM+OyASW4c=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 15:10:56 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5282,13 +5306,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-roT6WOBZLvTZ7mH5sRXe7GtYlAziCOYpT1JP6lKyxGg="
+          "Value": "sha256-7aAM23kZiLGaG1HUgBUSoDGqwHyBi8wQHUM+OyASW4c="
         }
       ]
     },
     {
-      "Route": "js/MyActivity/filter.y8h040uvpq.js",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\filter.js",
+      "Route": "js/MyActivity/my_activity_page.ae7a81glxz.js",
+      "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -5297,7 +5321,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1799"
+          "Value": "1939"
         },
         {
           "Name": "Content-Type",
@@ -5305,11 +5329,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"roT6WOBZLvTZ7mH5sRXe7GtYlAziCOYpT1JP6lKyxGg=\""
+          "Value": "\"8i9oTtUSmPdGxnPr4kZQ6eoqOaTbfJQ1g5vlynH5cMc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 15:01:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5319,97 +5343,15 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "y8h040uvpq"
+          "Value": "ae7a81glxz"
         },
         {
           "Name": "label",
-          "Value": "js/MyActivity/filter.js"
+          "Value": "js/MyActivity/my_activity_page.js"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-roT6WOBZLvTZ7mH5sRXe7GtYlAziCOYpT1JP6lKyxGg="
-        }
-      ]
-    },
-    {
-      "Route": "js/MyActivity/my_act_create_user.e80ra7um7f.js",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_act_create_user.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10666"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"EqDBEOKBswWx8ldlUMXwWykQzBBSJfdAJHP4uQbCN4g=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "e80ra7um7f"
-        },
-        {
-          "Name": "label",
-          "Value": "js/MyActivity/my_act_create_user.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-EqDBEOKBswWx8ldlUMXwWykQzBBSJfdAJHP4uQbCN4g="
-        }
-      ]
-    },
-    {
-      "Route": "js/MyActivity/my_act_create_user.js",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_act_create_user.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10666"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"EqDBEOKBswWx8ldlUMXwWykQzBBSJfdAJHP4uQbCN4g=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-EqDBEOKBswWx8ldlUMXwWykQzBBSJfdAJHP4uQbCN4g="
+          "Value": "sha256-8i9oTtUSmPdGxnPr4kZQ6eoqOaTbfJQ1g5vlynH5cMc="
         }
       ]
     },
@@ -5424,7 +5366,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1937"
+          "Value": "1939"
         },
         {
           "Name": "Content-Type",
@@ -5432,11 +5374,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"LNIchl1nfN0DtrEriS79Pdkg1UXSPYEcG0vBkCX8H7g=\""
+          "Value": "\"8i9oTtUSmPdGxnPr4kZQ6eoqOaTbfJQ1g5vlynH5cMc=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
+          "Value": "Sun, 16 Feb 2025 15:01:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5446,52 +5388,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-LNIchl1nfN0DtrEriS79Pdkg1UXSPYEcG0vBkCX8H7g="
-        }
-      ]
-    },
-    {
-      "Route": "js/MyActivity/my_activity_page.op5ds2pg4c.js",
-      "AssetFile": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1937"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"LNIchl1nfN0DtrEriS79Pdkg1UXSPYEcG0vBkCX8H7g=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 05 Feb 2025 09:26:37 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "op5ds2pg4c"
-        },
-        {
-          "Name": "label",
-          "Value": "js/MyActivity/my_activity_page.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-LNIchl1nfN0DtrEriS79Pdkg1UXSPYEcG0vBkCX8H7g="
+          "Value": "sha256-8i9oTtUSmPdGxnPr4kZQ6eoqOaTbfJQ1g5vlynH5cMc="
         }
       ]
     },

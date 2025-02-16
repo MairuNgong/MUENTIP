@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MUENTIP")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+888ac698242f892a45f9e6c9e15de9326f823bba")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+44451b0bf7e1313019da6bd04df6b17b37d00768")]
 [assembly: System.Reflection.AssemblyProductAttribute("MUENTIP")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MUENTIP")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MUENTIP.ViewModels;
+using System.Globalization;
 
 namespace MUENTIP.Controllers
 {
@@ -9,7 +10,7 @@ namespace MUENTIP.Controllers
         {
             var sampleCreatedActivities = new List<ActivityCardViewModel>
             {
-                 new ActivityCardViewModel
+                new ActivityCardViewModel
                 {
                     ActivityId = 1,
                     Title = "Badminton together",
@@ -21,7 +22,6 @@ namespace MUENTIP.Controllers
                     ApplyMax = 3,
                     TagsList = new List<string> {"Sport"}
                 },
-
                 new ActivityCardViewModel
                 {
                     ActivityId = 2,
@@ -47,12 +47,13 @@ namespace MUENTIP.Controllers
                     TagsList = new List<string> {"Technology"}
                 }
             };
+
             var sampleApprovedActivities = new List<ActivityCardViewModel>
             {
                 new ActivityCardViewModel
                 {
                     ActivityId = 4,
-                    Title = "Hiking",
+                    Title = "driving",
                     Owner = "Inw111",
                     Location = "Mt. Olympus",
                     ActivityDateTime = "2025-03-08 10:00",
@@ -86,6 +87,7 @@ namespace MUENTIP.Controllers
                     TagsList = new List<string> {"Cook","Food"}
                 }
             };
+
             var sampleNonApprovedActivities = new List<ActivityCardViewModel>
             {
                 new ActivityCardViewModel
@@ -103,7 +105,7 @@ namespace MUENTIP.Controllers
                 new ActivityCardViewModel
                 {
                     ActivityId = 8,
-                    Title = "Swimming",
+                    Title = "sleeping",
                     Owner = "Inw111",
                     Location = "Pool Olympus",
                     ActivityDateTime = "2025-03-08 10:00",
@@ -113,6 +115,7 @@ namespace MUENTIP.Controllers
                     TagsList = new List<string> {"Sport"}
                 }
             };
+
             var sampleTags = new List<TagFilterViewModel>
             {
                 new TagFilterViewModel
@@ -140,13 +143,15 @@ namespace MUENTIP.Controllers
                     TagName = "Technology"
                 }
             };
+
+            //สร้าง viewModel 
             var model = new MyActivityViewModel
             {
                 userId = 1,
                 createdActivity = sampleCreatedActivities,
                 approvedActivity = sampleApprovedActivities,
                 nonApproveActivity = sampleNonApprovedActivities,
-                FilterTags = sampleTags
+                filterTags = sampleTags
             };
             return View(model);
         }

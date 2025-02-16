@@ -145,10 +145,6 @@
       "PackagePath": "staticwebassets\\js\\MyActivity\\filter.js"
     },
     {
-      "Id": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_act_create_user.js",
-      "PackagePath": "staticwebassets\\js\\MyActivity\\my_act_create_user.js"
-    },
-    {
       "Id": "C:\\Users\\Admin\\Desktop\\2nd\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyActivity\\my_activity_page.js",
       "PackagePath": "staticwebassets\\js\\MyActivity\\my_activity_page.js"
     },

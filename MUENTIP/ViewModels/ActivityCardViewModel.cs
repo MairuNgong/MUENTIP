@@ -11,5 +11,6 @@ public class ActivityCardViewModel
     public string DeadlineDateTime { get; set; }
     public int ApplyMax { get; set; }
     public int ApplyCount { get; set; } // Number of Applications
+    public string Participations { get; set; }
     public List<string> TagsList { get; set; } // Activity Tags
 }

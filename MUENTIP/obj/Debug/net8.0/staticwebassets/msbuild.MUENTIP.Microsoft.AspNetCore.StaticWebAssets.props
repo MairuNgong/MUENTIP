@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>q2k5nh10a0</Fingerprint>
-      <Integrity>4l8f1GzYmxooSwWx6YemVEuRPSe0BrSJRjdLGHRlFCA=</Integrity>
+      <Fingerprint>j54k7rcl6a</Fingerprint>
+      <Integrity>+foAzauCFRaYR8041RPEAh6b9+Gnnoy2OkOzCIy7yDg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\MyActivity\activity_card.css'))</OriginalItemSpec>
@@ -120,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>3uggw1em0d</Fingerprint>
-      <Integrity>xSIlXxDTLR7UN8dZJ3eyJHj+3UkvISZM6nqFqhPSMLM=</Integrity>
+      <Fingerprint>5eyjl000d6</Fingerprint>
+      <Integrity>I5aS5D3Ycry1bbJLl8YDfs5fRqk51c4iDNtFZ2Q5h10=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\MyActivity\my_activity_page.css'))</OriginalItemSpec>
@@ -642,8 +642,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>ui4ha6zjk6</Fingerprint>
-      <Integrity>2rzZHpc8T/OlXUeJtfEgucKlkqXnAva6UGrVb8BjoJY=</Integrity>
+      <Fingerprint>7ovch60l5i</Fingerprint>
+      <Integrity>qQvLFmfxbDuV5rVCx+NIfxTu05OCLlA3BtgHiExWMhA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyActivity\activity_card.js'))</OriginalItemSpec>
@@ -660,8 +660,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>y8h040uvpq</Fingerprint>
-      <Integrity>roT6WOBZLvTZ7mH5sRXe7GtYlAziCOYpT1JP6lKyxGg=</Integrity>
+      <Fingerprint>be1o6vq8tu</Fingerprint>
+      <Integrity>7aAM23kZiLGaG1HUgBUSoDGqwHyBi8wQHUM+OyASW4c=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyActivity\filter.js'))</OriginalItemSpec>
@@ -678,29 +678,11 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>op5ds2pg4c</Fingerprint>
-      <Integrity>LNIchl1nfN0DtrEriS79Pdkg1UXSPYEcG0vBkCX8H7g=</Integrity>
+      <Fingerprint>ae7a81glxz</Fingerprint>
+      <Integrity>8i9oTtUSmPdGxnPr4kZQ6eoqOaTbfJQ1g5vlynH5cMc=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyActivity\my_activity_page.js'))</OriginalItemSpec>
-    </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyActivity\my_act_create_user.js'))">
-      <SourceType>Package</SourceType>
-      <SourceId>MUENTIP</SourceId>
-      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
-      <BasePath>_content/MUENTIP</BasePath>
-      <RelativePath>js/MyActivity/my_act_create_user.js</RelativePath>
-      <AssetKind>All</AssetKind>
-      <AssetMode>All</AssetMode>
-      <AssetRole>Primary</AssetRole>
-      <RelatedAsset></RelatedAsset>
-      <AssetTraitName></AssetTraitName>
-      <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>e80ra7um7f</Fingerprint>
-      <Integrity>EqDBEOKBswWx8ldlUMXwWykQzBBSJfdAJHP4uQbCN4g=</Integrity>
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyActivity\my_act_create_user.js'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\Search\activity_card.js'))">
       <SourceType>Package</SourceType>
