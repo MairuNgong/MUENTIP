@@ -5,14 +5,16 @@ namespace MUENTIP.Models
 {
     public class InterestIn
     {
-        [Required]
+        [Key]
+        public int Id { get; set; }
+
         [ForeignKey("Tag")]
-        public int TagName { get; set; }
-        public virtual Tag Tag { get; set; }
+        public string? TagName { get; set; }
+        public virtual Tag? Tag { get; set; }
 
         [Required]
         [ForeignKey("User")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public virtual User User { get; set; }
 
 

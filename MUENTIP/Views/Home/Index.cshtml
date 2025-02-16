@@ -26,8 +26,6 @@
         <div id="realtime-activity"></div>
     </section>
     <button id="back-to-top"><img src="~/img/back-to-top.png" /></button>
-
-
     <script>
         var activityModel = @Html.Raw(Json.Serialize(Model));
         var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";

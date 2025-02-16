@@ -1,4 +1,5 @@
 ﻿@using MUENTIP.ViewModels
+
 @{
     ViewData["Title"] = "My Activity Page";
 }
@@ -18,6 +19,8 @@
 </head>
 
 <body>
+    <header class="header-muentip">MUENTIP</header>
+
     <nav class="header-nav">
         <ul class="header-menu">
             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
@@ -66,16 +69,16 @@
             </button>
         </div>
     </div>
-
+    
     <div id="container"></div>
+    
 
     <script>
         var activityModel = @Html.Raw(Json.Serialize(Model));
         var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
     </script>
-    <script src="~/js/MyActivity/my_activity_page.js"></script>
+
     <script src="~/js/MyActivity/activity_card.js"></script>
-    <!-- <script src="my_act_create.js"></script> -->
     <script src="~/js/MyActivity/filter.js"></script>
 </body>
 
