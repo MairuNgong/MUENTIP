@@ -12,7 +12,10 @@ namespace MUENTIP.Models
         public string Title { get; set; }
 
         [Required]
-        public DateTime ActivityDateTime { get; set; }
+        public DateTime StartDateTime { get; set; }
+
+        [Required]
+        public DateTime EndDateTime { get; set; }
 
         [Required]
         public DateTime DeadlineDateTime { get; set; }
@@ -22,7 +25,7 @@ namespace MUENTIP.Models
 
         [Required]
         [ForeignKey("User")]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public virtual User User { get; set; }
 
         [Required]

@@ -5,11 +5,12 @@ public class ActivityCardViewModel
 {
     public int ActivityId { get; set; }
     public string Title { get; set; }
-    public string Owner { get; set; } // User.Username
+    public string Owner { get; set; } 
     public string Location { get; set; }
-    public string ActivityDateTime { get; set; } // Formatted DateTime
+    public string StartDateTime { get; set; }
+    public string EndDateTime { get; set; }
     public string DeadlineDateTime { get; set; }
     public int ApplyMax { get; set; }
-    public int ApplyCount { get; set; } // Number of Applications
-    public List<string> TagsList { get; set; } // Activity Tags
+    public int ApplyCount { get; set; } 
+    public List<string> TagsList { get; set; } 
 }

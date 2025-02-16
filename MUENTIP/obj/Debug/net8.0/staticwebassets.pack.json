@@ -1,6 +1,14 @@
 {
   "Files": [
     {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\MUENTIP.bundle.scp.css",
+      "PackagePath": "staticwebassets\\MUENTIP.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\CreateActivity\\create_activity.css",
+      "PackagePath": "staticwebassets\\css\\CreateActivity\\create_activity.css"
+    },
+    {
       "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\css\\Home\\activity_card.css",
       "PackagePath": "staticwebassets\\css\\Home\\activity_card.css"
     },
@@ -125,6 +133,10 @@
       "PackagePath": "staticwebassets\\img\\view-all.png"
     },
     {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\CreateActivity\\create_activity.js",
+      "PackagePath": "staticwebassets\\js\\CreateActivity\\create_activity.js"
+    },
+    {
       "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Home\\activity_card.js",
       "PackagePath": "staticwebassets\\js\\Home\\activity_card.js"
     },
@@ -163,6 +175,14 @@
     {
       "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\Select\\select.js",
       "PackagePath": "staticwebassets\\js\\Select\\select.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\component\\Guest.js",
+      "PackagePath": "staticwebassets\\js\\component\\Guest.js"
+    },
+    {
+      "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\component\\SignIn.js",
+      "PackagePath": "staticwebassets\\js\\component\\SignIn.js"
     },
     {
       "Id": "C:\\Users\\ssupa\\Code\\MUENTIP\\MUENTIP\\wwwroot\\js\\component\\activity_card.js",

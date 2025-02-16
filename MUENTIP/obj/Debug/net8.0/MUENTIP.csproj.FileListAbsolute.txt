@@ -282,3 +282,6 @@ C:\Users\ssupa\Code\MUENTIP\MUENTIP\bin\Debug\net8.0\Microsoft.AspNetCore.Compon
 C:\Users\ssupa\Code\MUENTIP\MUENTIP\bin\Debug\net8.0\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll
 C:\Users\ssupa\Code\MUENTIP\MUENTIP\bin\Debug\net8.0\Microsoft.AspNetCore.Metadata.dll
 C:\Users\ssupa\Code\MUENTIP\MUENTIP\bin\Debug\net8.0\Microsoft.JSInterop.dll
+C:\Users\ssupa\Code\MUENTIP\MUENTIP\obj\Debug\net8.0\MUENTIP.sourcelink.json
+C:\Users\ssupa\Code\MUENTIP\MUENTIP\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ssupa\Code\MUENTIP\MUENTIP\obj\Debug\net8.0\scopedcss\projectbundle\MUENTIP.bundle.scp.css
