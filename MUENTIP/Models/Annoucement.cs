@@ -9,9 +9,9 @@ namespace MUENTIP.Models
         [ForeignKey("Activity")]
         public int ActivityId { get; set; }
 
-        public virtual Activity Activity { get; set; }
+        public virtual required Activity Activity { get; set; }
 
-        [Required]
+        [Key]
         public int AnnoucementId { get; set; }
 
         [Required]

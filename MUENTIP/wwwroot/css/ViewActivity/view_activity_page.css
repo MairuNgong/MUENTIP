@@ -1,0 +1,118 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", Helvetica;
+    word-wrap: break-word; 
+    overflow-wrap: break-word;
+}
+
+.activity-header{
+    font-size: 32px;
+    font-weight: bold;
+    background-color: #C0EFD8;
+    text-align: center;
+    padding: 3rem;
+}
+
+.tags-div{
+    margin: 1rem 1.5rem 1rem 1.5rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.tag{
+    display: inline-block;
+    border-radius: 50px;
+    border: #000000 solid 1px;
+    padding: 5px 15px 5px 15px;
+    margin-right: 20px;
+    width: fit-content;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 400; 
+}
+
+p {
+    font-size: 13px;
+    font-weight: 400;
+}
+
+p img{
+    margin-right: 0.5rem;
+    height: 22px;
+    vertical-align: middle;
+}
+
+h1 {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.deadline-datetime {
+    color: #53A700;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.owner-div img{
+    height: 42px;
+}
+
+.participants{
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: fit-content;
+    background-color: #F9F9F9;
+    padding: 1rem;
+    text-align: center;
+}
+
+.participants p{
+    font-size: 24px;
+    font-weight: bold;
+    color: #57C543;
+    margin: 1rem 0 1rem, 0;
+}
+
+.participants img{
+    height: 23px;
+    margin: 0;
+}
+
+.participants button{
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 50px;
+    border: none;
+    background-color: #C0EFD8;
+    height: 1.5rem;
+    width: 5rem;
+    margin: 0;
+}
+
+.activity-info-div, .activity-announce{
+    margin: 1rem 1.5rem 1rem 1.5rem;
+}
+
+.activity-info-div{
+    margin-bottom: 50px;
+}
+
+.fyi-text{
+    color: red;
+}
+
+.parti-fyi-div{
+    float: right;
+    text-align: center;
+}
+
+.announce-div{
+    background-color: #d6d6d6;
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 1rem;
+}

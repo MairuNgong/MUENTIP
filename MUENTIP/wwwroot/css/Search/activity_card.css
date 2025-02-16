@@ -81,7 +81,7 @@
 .enter_button{
   border: 0;
   width: 50px;
-  border-radius: 0px 20px 20px 0px;;
+  border-radius: 0px 20px 20px 0px;
   background-color: #C0EFD8;
 }
 .enter_button img{
@@ -90,4 +90,49 @@
 }
 .enter_button:hover {
   background-color: #ACACAC; /* A darker shade of  */
+}
+
+
+@media (min-width: 800px) {
+    .activity_card {
+        display: flex;
+        flex-direction: row;
+        margin: 14px auto;
+        font-family: "Inter", Helvetica;
+        font-weight: 400;
+        width: 560px;
+        padding: 0;
+    }
+
+    .left_group_and_tags {
+        background-color: #F1F1F1;
+        width: 270px;
+        padding: 6px 160px 6px 20px;
+    }
+
+    .enter_button {
+        border: 0;
+        width: 50px;
+        border-radius: 0px 20px 20px 0px;
+        padding: 30px 60px 30px 30px;
+        background-color: #C0EFD8;
+    }
+
+    .activity_participant {
+        width: 91px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        font-family: "Inter", Helvetica;
+        font-weight: bold;
+        font-size: 24px;
+        transform: translateX(140px);
+    }
+
+        .activity_participant img {
+            width: 50px;
+            align-self: center;
+            transform: translateY(6px)
+        }
 }

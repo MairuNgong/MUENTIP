@@ -15,14 +15,17 @@ namespace MVC_test.Controllers
                 new ActivityCardViewModel
                 {
                     ActivityId = 1,
-                    Title = "Badminton together",
+                    Title = "ตีแบตกันเว้ยเฮีย ด่วนๆๆๆๆๆมาก",
                     Owner = "Inwza007",
                     Location = "badminton court, kmitl",
-                    ActivityDateTime = "2025-03-15 10:00",
+                    PostDateTime = "2025-03-09 10:00",
+                    StartDateTime = "2025-03-15 10:00",
+                    EndDateTime = "2025-03-15 13:00",
                     DeadlineDateTime = "2025-03-10 10:00",
                     ApplyCount = 1,
                     ApplyMax = 3,
-                    TagsList = new List<string> {"Sport", "Badminton"}
+                    TagsList = new List<string> {"Sport", "Badminton"},
+                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 },
 
                 new ActivityCardViewModel
@@ -31,11 +34,14 @@ namespace MVC_test.Controllers
                     Title = "Basketball",
                     Owner = "Inwza007",
                     Location = "badminton court, kmitl",
-                    ActivityDateTime = "2025-03-18 10:00",
+                    PostDateTime = "2025-03-14 00:00",
+                    StartDateTime = "2025-03-18 10:00",
+                    EndDateTime = "2025-03-19 13:00",
                     DeadlineDateTime = "2025-03-15 00:00",
                     ApplyCount = 20,
                     ApplyMax = 11,
-                    TagsList = new List<string> {"Sport"}
+                    TagsList = new List<string> {"Sport"},
+                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 },
                 new ActivityCardViewModel
                 {
@@ -43,11 +49,14 @@ namespace MVC_test.Controllers
                     Title = "Tech sharing",
                     Owner = "Inwza007",
                     Location = "badminton court, kmitl",
-                    ActivityDateTime = "2025-01-18 10:00",
+                    PostDateTime = "2025-01-14 00:00",
+                    StartDateTime = "2025-01-18 10:00",
+                    EndDateTime = "2025-01-21 13:00",
                     DeadlineDateTime = "2025-01-15 00:00",
                     ApplyCount = 0,
                     ApplyMax = 30,
-                    TagsList = new List<string> {"Technology"}
+                    TagsList = new List<string> {"Technology"},
+                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 },
                 new ActivityCardViewModel
                 {
@@ -55,11 +64,14 @@ namespace MVC_test.Controllers
                     Title = "Hiking",
                     Owner = "Inwza007",
                     Location = "Mt. Olympus",
-                    ActivityDateTime = "2025-03-08 10:00",
+                    PostDateTime = "2025-02-14 00:00",
+                    StartDateTime = "2025-03-08 10:00",
+                    EndDateTime = "2025-03-08 13:00",
                     DeadlineDateTime = "2025-02-15 00:00",
                     ApplyCount = 7,
                     ApplyMax = 11,
-                    TagsList = new List<string> {"Sport","Nature","Wellness"}
+                    TagsList = new List<string> {"Sport","Nature","Wellness"},
+                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 },
                 new ActivityCardViewModel
                 {
@@ -67,11 +79,14 @@ namespace MVC_test.Controllers
                     Title = "Swimming",
                     Owner = "Inwza007",
                     Location = "Pool Olympus",
-                    ActivityDateTime = "2025-03-08 10:00",
+                    PostDateTime = "2025-01-31 00:00",
+                    StartDateTime = "2025-03-08 10:00",
+                    EndDateTime = "2025-03-08 13:00",
                     DeadlineDateTime = "2025-02-01 00:00",
                     ApplyCount = 10,
                     ApplyMax = 12,
-                    TagsList = new List<string> {"Sport","Wellness"}
+                    TagsList = new List<string> {"Sport","Wellness"},
+                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 },
                 new ActivityCardViewModel
                 {
@@ -79,11 +94,14 @@ namespace MVC_test.Controllers
                     Title = "Cooking class",
                     Owner = "Inwza007",
                     Location = "Kitchen. Olympus",
-                    ActivityDateTime = "2025-04-08 10:00",
+                    PostDateTime = "2025-02-28 00:00",
+                    StartDateTime = "2025-04-08 10:00",
+                    EndDateTime = "2025-08-11 13:00",
                     DeadlineDateTime = "2025-03-01 00:00",
                     ApplyCount = 5,
                     ApplyMax = 5,
-                    TagsList = new List<string> {"Cook","Food"}
+                    TagsList = new List<string> {"Cook","Food"},
+                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
                 }
             };
 
