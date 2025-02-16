@@ -76,7 +76,8 @@ body {
     background-color: rgb(180 245 217);
     padding:10px 0;
     padding-bottom:30px;
-    
+    max-height: 80%; 
+    overflow-y: auto; 
     width: 300px;
     text-align: center; 
     position: relative;
