@@ -12,6 +12,7 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/MyProfile/my_profile_page.css">
     <link rel="stylesheet" href="~/css/MyProfile/edit-profile.css">
+    <link rel="stylesheet" href="~/css/MyProfile/filter.css">
 </head>
 <body>
     <header>Edit Profile Page</header>
@@ -74,9 +75,23 @@
                     <ul>
                         @foreach (var tag in Model.Interest)
                         {
-
+                                   <li class="hot-tag-ele">@tag.TagName</li>
                         }
+                        <button id="close_button">
+                            <img src="../img/filter.png" />
+                        </button>
+
+
                     </ul>
+                    <div id="filter_window" style="display: none">
+                        <div class="filter_header">
+                            <p class="filter_title">Apply filter</p>
+                            <button id="close_button">
+                                <img src="../img/filter.png" />
+                            </button>
+                        </div>
+                        <div class="filter_tags_group" id="tags_group"></div>
+                    </div>
                 </div>
             </div>
 
@@ -87,6 +102,14 @@
 
     </form>
 
+    
+    <script>
+        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
+        var activityModel = @Html.Raw(Json.Serialize(Model));
+    </script>
+
     <script src="~/js/MyProfile/my_profile_page.js"></script>
+    <script src="~/js/MyProfile/filter.js"></script>
+    <script src="~/js/MyProfile/test.js"></script>
 </body>
 </html>

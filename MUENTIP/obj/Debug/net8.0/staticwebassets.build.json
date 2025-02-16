@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "xqZwpCXgpa7kOTtokjlU/3JzeUMJ8X1WpfluYjBwqVo=",
+  "Hash": "ElpOtij+8x84rnxgsjxIgbujAFamOXfnalYKMDqp8zA=",
   "Source": "MUENTIP",
   "BasePath": "_content/MUENTIP",
   "Mode": "Default",
@@ -309,6 +309,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\MyProfile\\edit-profile.css"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyProfile\\filter.css",
+      "SourceId": "MUENTIP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\",
+      "BasePath": "_content/MUENTIP",
+      "RelativePath": "css/MyProfile/filter#[.{fingerprint}]?.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "z807sxf4i6",
+      "Integrity": "A62mwsSB4W0oGkPKnhZidcFy6I1534AKEDVvUbT4AyA=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MyProfile\\filter.css"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyProfile\\my_profile_page.css",
@@ -997,8 +1018,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "4shbmm8nqc",
-      "Integrity": "xFyALBAGwwkXIysogfutBodSrr9UCeaRV9ZSZ6Kt4K8=",
+      "Fingerprint": "z6i7j0r92n",
+      "Integrity": "JcWuD+xWw1TZf96EjlSUDEVWJs4vWurwPhCVLSnwBBs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\MyProfile\\activity_card.js"
@@ -1046,6 +1067,27 @@
       "OriginalItemSpec": "wwwroot\\js\\MyProfile\\edit_profile_page.js.cs"
     },
     {
+      "Identity": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\filter.js",
+      "SourceId": "MUENTIP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\",
+      "BasePath": "_content/MUENTIP",
+      "RelativePath": "js/MyProfile/filter#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "0guhcgb7l8",
+      "Integrity": "YPC4THkmEpk3BpVex7LGZ3tqvlLB5MaDEYCR8XIdXgc=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\MyProfile\\filter.js"
+    },
+    {
       "Identity": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\my_profile_page.js",
       "SourceId": "MUENTIP",
       "SourceType": "Discovered",
@@ -1065,6 +1107,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\MyProfile\\my_profile_page.js"
+    },
+    {
+      "Identity": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\test.js",
+      "SourceId": "MUENTIP",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\",
+      "BasePath": "_content/MUENTIP",
+      "RelativePath": "js/MyProfile/test#[.{fingerprint}]?.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "4q7kvdmbf4",
+      "Integrity": "HFcaQLztH6wUlezt8BDMlzFzv65HFKCQ4BRj4Yf2BhM=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\MyProfile\\test.js"
     },
     {
       "Identity": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\Search\\activity_card.js",
@@ -3261,6 +3324,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-aIupl6lkBBl86sJ1BxZaaUPkahQOoOzRxbjp8V1IftA="
+        }
+      ]
+    },
+    {
+      "Route": "css/MyProfile/filter.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyProfile\\filter.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1929"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A62mwsSB4W0oGkPKnhZidcFy6I1534AKEDVvUbT4AyA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Feb 2025 15:12:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-A62mwsSB4W0oGkPKnhZidcFy6I1534AKEDVvUbT4AyA="
+        }
+      ]
+    },
+    {
+      "Route": "css/MyProfile/filter.z807sxf4i6.css",
+      "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyProfile\\filter.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "1929"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"A62mwsSB4W0oGkPKnhZidcFy6I1534AKEDVvUbT4AyA=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Feb 2025 15:12:47 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z807sxf4i6"
+        },
+        {
+          "Name": "label",
+          "Value": "css/MyProfile/filter.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-A62mwsSB4W0oGkPKnhZidcFy6I1534AKEDVvUbT4AyA="
         }
       ]
     },
@@ -5889,51 +6034,6 @@
       ]
     },
     {
-      "Route": "js/MyProfile/activity_card.4shbmm8nqc.js",
-      "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\activity_card.js",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9462"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"xFyALBAGwwkXIysogfutBodSrr9UCeaRV9ZSZ6Kt4K8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 16 Feb 2025 11:48:54 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "4shbmm8nqc"
-        },
-        {
-          "Name": "label",
-          "Value": "js/MyProfile/activity_card.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-xFyALBAGwwkXIysogfutBodSrr9UCeaRV9ZSZ6Kt4K8="
-        }
-      ]
-    },
-    {
       "Route": "js/MyProfile/activity_card.js",
       "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\activity_card.js",
       "Selectors": [],
@@ -5944,7 +6044,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9462"
+          "Value": "8035"
         },
         {
           "Name": "Content-Type",
@@ -5952,11 +6052,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"xFyALBAGwwkXIysogfutBodSrr9UCeaRV9ZSZ6Kt4K8=\""
+          "Value": "\"JcWuD+xWw1TZf96EjlSUDEVWJs4vWurwPhCVLSnwBBs=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 16 Feb 2025 11:48:54 GMT"
+          "Value": "Sun, 16 Feb 2025 14:19:26 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -5966,7 +6066,52 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-xFyALBAGwwkXIysogfutBodSrr9UCeaRV9ZSZ6Kt4K8="
+          "Value": "sha256-JcWuD+xWw1TZf96EjlSUDEVWJs4vWurwPhCVLSnwBBs="
+        }
+      ]
+    },
+    {
+      "Route": "js/MyProfile/activity_card.z6i7j0r92n.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\activity_card.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8035"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"JcWuD+xWw1TZf96EjlSUDEVWJs4vWurwPhCVLSnwBBs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Feb 2025 14:19:26 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "z6i7j0r92n"
+        },
+        {
+          "Name": "label",
+          "Value": "js/MyProfile/activity_card.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-JcWuD+xWw1TZf96EjlSUDEVWJs4vWurwPhCVLSnwBBs="
         }
       ]
     },
@@ -6135,6 +6280,88 @@
       ]
     },
     {
+      "Route": "js/MyProfile/filter.0guhcgb7l8.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\filter.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3133"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YPC4THkmEpk3BpVex7LGZ3tqvlLB5MaDEYCR8XIdXgc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Feb 2025 14:24:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0guhcgb7l8"
+        },
+        {
+          "Name": "label",
+          "Value": "js/MyProfile/filter.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-YPC4THkmEpk3BpVex7LGZ3tqvlLB5MaDEYCR8XIdXgc="
+        }
+      ]
+    },
+    {
+      "Route": "js/MyProfile/filter.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\filter.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "3133"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"YPC4THkmEpk3BpVex7LGZ3tqvlLB5MaDEYCR8XIdXgc=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Feb 2025 14:24:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-YPC4THkmEpk3BpVex7LGZ3tqvlLB5MaDEYCR8XIdXgc="
+        }
+      ]
+    },
+    {
       "Route": "js/MyProfile/my_profile_page.js",
       "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\my_profile_page.js",
       "Selectors": [],
@@ -6213,6 +6440,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-hOOgxedwtALvPlJiEavuI8LxR2RO97UVHgSSXkLFYic="
+        }
+      ]
+    },
+    {
+      "Route": "js/MyProfile/test.4q7kvdmbf4.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\test.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "270"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HFcaQLztH6wUlezt8BDMlzFzv65HFKCQ4BRj4Yf2BhM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Feb 2025 14:24:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "4q7kvdmbf4"
+        },
+        {
+          "Name": "label",
+          "Value": "js/MyProfile/test.js"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-HFcaQLztH6wUlezt8BDMlzFzv65HFKCQ4BRj4Yf2BhM="
+        }
+      ]
+    },
+    {
+      "Route": "js/MyProfile/test.js",
+      "AssetFile": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\test.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "270"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"HFcaQLztH6wUlezt8BDMlzFzv65HFKCQ4BRj4Yf2BhM=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 16 Feb 2025 14:24:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-HFcaQLztH6wUlezt8BDMlzFzv65HFKCQ4BRj4Yf2BhM="
         }
       ]
     },

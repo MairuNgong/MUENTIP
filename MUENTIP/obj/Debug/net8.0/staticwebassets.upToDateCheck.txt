@@ -8,6 +8,7 @@ wwwroot\css\MyActivity\my_activity_page.css
 wwwroot\css\MyActivity\search_and_filter.css
 wwwroot\css\MyProfile\activity_card.css
 wwwroot\css\MyProfile\edit-profile.css
+wwwroot\css\MyProfile\filter.css
 wwwroot\css\MyProfile\my_profile_page.css
 wwwroot\css\NavBar\login_register_style.css
 wwwroot\css\NavBar\tab_after_login_style.css
@@ -43,7 +44,9 @@ wwwroot\js\MyActivity\my_activity_page.js
 wwwroot\js\MyProfile\activity_card.js
 wwwroot\js\MyProfile\edit_profile_page.js
 wwwroot\js\MyProfile\edit_profile_page.js.cs
+wwwroot\js\MyProfile\filter.js
 wwwroot\js\MyProfile\my_profile_page.js
+wwwroot\js\MyProfile\test.js
 wwwroot\js\Search\activity_card.js
 wwwroot\js\Search\filter.js
 wwwroot\js\Search\test.js

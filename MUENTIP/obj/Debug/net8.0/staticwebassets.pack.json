@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\css\\MyProfile\\edit-profile.css"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyProfile\\filter.css",
+      "PackagePath": "staticwebassets\\css\\MyProfile\\filter.css"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\css\\MyProfile\\my_profile_page.css",
       "PackagePath": "staticwebassets\\css\\MyProfile\\my_profile_page.css"
     },
@@ -177,8 +181,16 @@
       "PackagePath": "staticwebassets\\js\\MyProfile\\edit_profile_page.js.cs"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\filter.js",
+      "PackagePath": "staticwebassets\\js\\MyProfile\\filter.js"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\my_profile_page.js",
       "PackagePath": "staticwebassets\\js\\MyProfile\\my_profile_page.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\test.js",
+      "PackagePath": "staticwebassets\\js\\MyProfile\\test.js"
     },
     {
       "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\Search\\activity_card.js",

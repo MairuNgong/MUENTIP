@@ -3,15 +3,16 @@
 //search ??????? parameter ?????? ????????filter ??????? function???
 //?????????object?????????????????????? ?????????????
 document.addEventListener("DOMContentLoaded", function () { 
-    const create_activities = activityModel && activityModel.activityViewModel
-        ? activityModel.activityViewModel.createdActivity
-        : [];
-    const approve_activities = activityModel && activityModel.activityViewModel
-        ? activityModel.activityViewModel.approvedActivity
-        : [];
+    const create_activities =JSON.parse(JSON.stringify(activityModel.activityViewModel.createdActivity));
+
+    console.log(create_activities);
+    const approve_activities = JSON.parse(JSON.stringify(activityModel.activityViewModel.approvedActivity));
+    console.log(approve_activities);
     const tags = JSON.parse(JSON.stringify(activityModel)).tags;
     const img_people_src = "../img/people.png";
+
     const img_clock_src = "../img/clock.png";
+
     const img_calendar_src = "../img/calendar.png";
     const img_location_src = "../img/location-pin.png";
     const img_arrow_src = "../img/right-arrow.png";
@@ -19,7 +20,12 @@ document.addEventListener("DOMContentLoaded", function () {
 function renderActivities(container, activitiesList, maxActivities = Infinity) {
     container.innerHTML = "";
 
-    activitiesList.slice(0, maxActivities).forEach(activity => {
+    const filteredActivities = activities.filter(activity =>
+        activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
+    );
+    const activitiesToShow = filteredActivities.slice(0, maxActivities);
+
+    activitiesToShow.forEach(activity => {
         const activity_card = document.createElement("div");
         activity_card.className = "activity_card";
 
@@ -142,65 +148,15 @@ function renderActivities(container, activitiesList, maxActivities = Infinity) {
     });
 }
   
-  function renderHotTag(container, hot_tags) {
-    hot_tags.forEach(hot_tag => {
-      const hot_tag_ele = document.createElement("li");
-      const link_to_section = document.createElement("a");
-      hot_tag_ele.className = "hot-tag-ele";
-      link_to_section.textContent = hot_tag.tagName;
-      link_to_section.href = `#${hot_tag.tagName}-section`;
-      hot_tag_ele.appendChild(link_to_section);
-      container.appendChild(hot_tag_ele);
-    })
-  }
-
-  function createViewAllBt(container) {
-    const view_all_bt = document.createElement("button");
-    const view_all_img = document.createElement("img");
-    view_all_bt.textContent = "View All";
-    view_all_bt.className = "view-all-bt"
-    view_all_img.src = "../img/view-all.png";
-    view_all_bt.onclick = function() {
-      // to get tag to filter use cookie or localstorage
-    window.location.href = "../view_all_page/view_all_page.html";
-    }
-    view_all_bt.appendChild(view_all_img);
-    container.appendChild(view_all_bt);
-  }
-
-  function renderHotTagSection(container, hot_tags) {
-    hot_tags.forEach(hot_tag => {
-      const hot_tag_section = document.createElement("section");
-      const hot_tag_title = document.createElement("h1");
-      const hot_tag_act_div = document.createElement("div");
-      const hot_tag_lst = [hot_tag];
-      hot_tag_section.id = `${hot_tag.tagName}-section`;
-      hot_tag_title.textContent = hot_tag.tagName;
-      hot_tag_section.appendChild(hot_tag_title);
-      hot_tag_section.appendChild(hot_tag_act_div);
-      container.appendChild(hot_tag_section);
-      renderActivities(hot_tag_act_div, hot_tag_lst, 5);
-      if (hot_tag_act_div.children.length > 4) {
-        createViewAllBt(hot_tag_act_div);
-      }
-    })
-  }
-
- 
-  const hot_tag_container = document.getElementById("tag-nav");
-
   
-  
-  
-
     function renderCreatedActivities() {
         const createdActivitiesContainer = document.getElementById("createActivities");
-        renderActivities(createdActivitiesContainer, create_activities, create_activities.length);
+        renderActivities(createdActivitiesContainer, create_activities);
     }
 
     function renderParticipatedActivities() {
         const participatedActivitiesContainer = document.getElementById("participateActivities");
-        renderActivities(participatedActivitiesContainer, approve_activities, approve_activities.length);
+        renderActivities(participatedActivitiesContainer, approve_activities);
     }
 
     renderCreatedActivities();

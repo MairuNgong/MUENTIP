@@ -1,1 +1,6 @@
 .vs/
+*.dll  
+*.exe  
+*.config  
+bin/  
+obj/
