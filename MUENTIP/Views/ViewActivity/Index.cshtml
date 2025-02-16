@@ -1,5 +1,63 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@using MUENTIP.ViewModels
+@model ViewActivityViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View Activity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/ViewActivity/view_activity_page.css" />
+</head>
+<body>
+    <header class="activity-header">@Model.Card.Title</header>
+    <div class="tags-div">
+        @foreach (var tagName in Model.Card.TagsList)
+        {
+            <div class="tag">@tagName</div>
+        }
+    </div>
+    <div class="activity-info-div">
+        <div class="parti-fyi-div">
+            <div class="participants">
+                <img src="../img/people.png" alt="people">
+                <p>@Model.Card.ApplyCount/@Model.Card.ApplyMax</p>
+                <button>apply</button>
+            </div>
+            @* if *@
+            <p class="fyi-text">*จำนวนผู้สมัครถึงที่กำหนดแล้ว</p>
+        </div>
+        <p class="deadline-datetime">Until @Model.Card.DeadlineDateTime</p>
+        <p><img src="../img/clock.png" alt="clock">@Model.Card.StartDateTime - @Model.Card.EndDateTime</p>
+        <p><img src="../img/location-pin.png" alt="location">@Model.Card.Location</p>
+        <div class="owner-div">
+            <img src="../img/profile.png" alt="owner-img">
+            <p>@Model.Card.Owner</p>
+            <p>test</p>
+            @* <p>@Model.Card.PostDateTime</p> *@
+        </div>
+        <h1>Detail</h1>
+        <p>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
+        @* <p>@Model.Card.Description</p> *@
+    </div>
+
+    <div class="activity-announce">
+        <h1>Announcement</h1>
+        @* json parse *@
+        @foreach (var announce in Model.Announcements)
+        {
+            <div class="announce-div">
+                <p>@announce.AnnounceDate</p>
+                <p>@announce.Content</p>
+            </div>
+        }
+    </div>
+
+    <script>
+        var viewActivityModel = @Html.Raw(Json.Serialize(Model));
+        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
+    </script>
+    <script src="~/js/ViewActivity/view_activity.js"></script>
+    <script src="~/js/ViewActivity/view_activity_page.js"></script>
+</body>
+
+</html>
