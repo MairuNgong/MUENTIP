@@ -12,7 +12,7 @@ console.log(tags)
   const img_location_src = "../img/location-pin.png";
   const img_arrow_src = "../img/right-arrow.png";
   
-function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
+  function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
     container.innerHTML = "";
 
     const filteredActivities = activities.filter(activity =>
@@ -23,7 +23,6 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
     activitiesToShow.forEach(activity => {
         const activity_card = document.createElement("div");
         activity_card.className = "activity_card";
-        // activity_card.id = `${activity.activityId}`;
 
         const left_group = document.createElement("div");
         left_group.className = "left_group";
@@ -64,8 +63,8 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         img_start_date_time.className = "icon";
         img_start_date_time.src = img_clock_src;
         start_date_time.appendChild(img_start_date_time);
-        let date_obj = new Date(activity.startDateTime.replace(' ', 'T'));
-        let date = activity.startDateTime.split(' ')[0];
+        let date_obj = new Date(activity.startDateTime);
+        let date = date_obj.toISOString().split("T")[0];
         let time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
         start_date_time_label.textContent = "start : ";
         start_date_time_value.textContent = `${date} ${time}`;
@@ -83,8 +82,8 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         img_end_date_time.src = img_clock_src;
         end_date_time.className = "activity_detail";
         end_date_time.appendChild(img_end_date_time);
-        date_obj = new Date(activity.endDateTime.replace(' ', 'T'));
-        date = activity.endDateTime.split(' ')[0];
+        date_obj = new Date(activity.endDateTime);
+        date = date_obj.toISOString().split("T")[0];
         time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
         end_date_time_label.textContent = "end : ";
         end_date_time_value.textContent = `${date} ${time}`;
@@ -100,7 +99,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         img_deadline_date_time.className = "icon";
         img_deadline_date_time.src = img_calendar_src;
         deadline_date_time.appendChild(img_deadline_date_time);
-        date_obj = new Date(activity.deadlineDateTime.replace(' ', 'T'));
+        date_obj = new Date(activity.deadlineDateTime);
         let current_date = new Date();
         if (date_obj > current_date) {
             deadline_date_time.style.color = "#57C543";
@@ -169,7 +168,6 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         container.appendChild(activity_card);
     });
 }
-
   
   function renderHotTag(container, hot_tags) {
     hot_tags.forEach(hot_tag => {

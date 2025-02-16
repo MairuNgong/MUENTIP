@@ -24,7 +24,7 @@ namespace MVC_test.Controllers
                 Title = t.Title,
                 Owner = t.User.UserName,
                 Location = t.Location,
-                PostDateTime = t.PostDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),,
+                PostDateTime = t.PostDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                 StartDateTime = t.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                 EndDateTime = t.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                 DeadlineDateTime = t.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),

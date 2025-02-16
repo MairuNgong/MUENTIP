@@ -18,10 +18,7 @@ namespace MVC_test.Controllers
                     Title = "ตีแบตกันเว้ยเฮีย ด่วนๆๆๆๆๆมาก",
                     Owner = "Inwza007",
                     Location = "badminton court, kmitl",
-<<<<<<< HEAD
                     PostDateTime = "2025-03-09 10:00",
-=======
->>>>>>> main
                     StartDateTime = "2025-03-15 10:00",
                     EndDateTime = "2025-03-15 13:00",
                     DeadlineDateTime = "2025-03-10 10:00",
@@ -52,10 +49,7 @@ namespace MVC_test.Controllers
                     Title = "Tech sharing",
                     Owner = "Inwza007",
                     Location = "badminton court, kmitl",
-<<<<<<< HEAD
                     PostDateTime = "2025-01-14 00:00",
-=======
->>>>>>> main
                     StartDateTime = "2025-01-18 10:00",
                     EndDateTime = "2025-01-21 13:00",
                     DeadlineDateTime = "2025-01-15 00:00",
@@ -70,10 +64,7 @@ namespace MVC_test.Controllers
                     Title = "Hiking",
                     Owner = "Inwza007",
                     Location = "Mt. Olympus",
-<<<<<<< HEAD
                     PostDateTime = "2025-02-14 00:00",
-=======
->>>>>>> main
                     StartDateTime = "2025-03-08 10:00",
                     EndDateTime = "2025-03-08 13:00",
                     DeadlineDateTime = "2025-02-15 00:00",
@@ -88,10 +79,7 @@ namespace MVC_test.Controllers
                     Title = "Swimming",
                     Owner = "Inwza007",
                     Location = "Pool Olympus",
-<<<<<<< HEAD
                     PostDateTime = "2025-01-31 00:00",
-=======
->>>>>>> main
                     StartDateTime = "2025-03-08 10:00",
                     EndDateTime = "2025-03-08 13:00",
                     DeadlineDateTime = "2025-02-01 00:00",
@@ -106,10 +94,7 @@ namespace MVC_test.Controllers
                     Title = "Cooking class",
                     Owner = "Inwza007",
                     Location = "Kitchen. Olympus",
-<<<<<<< HEAD
                     PostDateTime = "2025-02-28 00:00",
-=======
->>>>>>> main
                     StartDateTime = "2025-04-08 10:00",
                     EndDateTime = "2025-08-11 13:00",
                     DeadlineDateTime = "2025-03-01 00:00",
