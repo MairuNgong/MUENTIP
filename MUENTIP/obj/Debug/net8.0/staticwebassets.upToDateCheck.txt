@@ -41,6 +41,8 @@ wwwroot\js\MyActivity\filter.js
 wwwroot\js\MyActivity\my_act_create_user.js
 wwwroot\js\MyActivity\my_activity_page.js
 wwwroot\js\MyProfile\activity_card.js
+wwwroot\js\MyProfile\edit_profile_page.js
+wwwroot\js\MyProfile\edit_profile_page.js.cs
 wwwroot\js\MyProfile\my_profile_page.js
 wwwroot\js\Search\activity_card.js
 wwwroot\js\Search\filter.js

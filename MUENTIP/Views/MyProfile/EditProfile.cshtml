@@ -26,15 +26,15 @@
                 <div class="profile-edit-picture">
                     <input type="file" name="ProfilePicture" accept="image/*" />
                 </div>
-                
+
             </div>
-            
+
             <div class="detail-profile">
                 <div class="form-group">
                     <label for="Name">Name : </label>
                     <input type="text" id="Name" name="Name" value="@Model.Name" required />
                 </div>
-            
+
                 <div class="form-group">
                     <label for="Email">Email : </label>
                     <input type="email" id="Email" name="Email" value="@Model.Email" required />
@@ -74,7 +74,7 @@
                     <ul>
                         @foreach (var tag in Model.Interest)
                         {
-                            
+
                         }
                     </ul>
                 </div>
@@ -84,7 +84,7 @@
                 <button type="submit">Save Changes</button>
             </div>
         </div>
-        
+
     </form>
 
     <script src="~/js/MyProfile/my_profile_page.js"></script>

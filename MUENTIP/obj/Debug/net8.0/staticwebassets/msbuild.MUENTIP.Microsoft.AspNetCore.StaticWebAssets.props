@@ -174,8 +174,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>5tyrhhsqm5</Fingerprint>
-      <Integrity>B0LBFefCUimdYbWz8BJUuzDT4MQGNjbIsOPfjE+7ApA=</Integrity>
+      <Fingerprint>4532fo44fd</Fingerprint>
+      <Integrity>aIupl6lkBBl86sJ1BxZaaUPkahQOoOzRxbjp8V1IftA=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\MyProfile\edit-profile.css'))</OriginalItemSpec>
@@ -192,8 +192,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>k9k8lnud11</Fingerprint>
-      <Integrity>aNb4/UYW8Jv6R/b+v6aeOvDK29g8S+XQqWX8/dqv9yM=</Integrity>
+      <Fingerprint>adilaa4uh3</Fingerprint>
+      <Integrity>PsIO7c8MCvUHH1Ly9eSnMDkPJPOo0afsv12pJzet0r8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\MyProfile\my_profile_page.css'))</OriginalItemSpec>
@@ -774,6 +774,42 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyProfile\activity_card.js'))</OriginalItemSpec>
     </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyProfile\edit_profile_page.js'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MUENTIP</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MUENTIP</BasePath>
+      <RelativePath>js/MyProfile/edit_profile_page.js</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>7rqc3yo2uj</Fingerprint>
+      <Integrity>c73vs4vPbuQgwhCSJwuHDAoj8U6DYd0lJl2hB/L2Mhw=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyProfile\edit_profile_page.js'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyProfile\edit_profile_page.js.cs'))">
+      <SourceType>Package</SourceType>
+      <SourceId>MUENTIP</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/MUENTIP</BasePath>
+      <RelativePath>js/MyProfile/edit_profile_page.js.cs</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>jijzdx9fbt</Fingerprint>
+      <Integrity>dRF+tGQAH4iv2clL16Qck1s8ZuolsPaa1lzkiw+ph7s=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyProfile\edit_profile_page.js.cs'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyProfile\my_profile_page.js'))">
       <SourceType>Package</SourceType>
       <SourceId>MUENTIP</SourceId>
@@ -786,8 +822,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>8q03ikty17</Fingerprint>
-      <Integrity>kGfVdDkSSmeAj42BrofZKdbYLt4Ib0zu+/ySHN5QTWI=</Integrity>
+      <Fingerprint>ohspkj8idb</Fingerprint>
+      <Integrity>hOOgxedwtALvPlJiEavuI8LxR2RO97UVHgSSXkLFYic=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\MyProfile\my_profile_page.js'))</OriginalItemSpec>

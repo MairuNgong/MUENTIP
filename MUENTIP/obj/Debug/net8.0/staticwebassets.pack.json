@@ -169,6 +169,14 @@
       "PackagePath": "staticwebassets\\js\\MyProfile\\activity_card.js"
     },
     {
+      "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\edit_profile_page.js",
+      "PackagePath": "staticwebassets\\js\\MyProfile\\edit_profile_page.js"
+    },
+    {
+      "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\edit_profile_page.js.cs",
+      "PackagePath": "staticwebassets\\js\\MyProfile\\edit_profile_page.js.cs"
+    },
+    {
       "Id": "C:\\Users\\User\\Desktop\\P2T2\\project-web2\\MUENTIP\\MUENTIP\\wwwroot\\js\\MyProfile\\my_profile_page.js",
       "PackagePath": "staticwebassets\\js\\MyProfile\\my_profile_page.js"
     },
