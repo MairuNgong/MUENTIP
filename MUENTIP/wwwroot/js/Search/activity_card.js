@@ -1,12 +1,4 @@
-//ดูการใช้งานเริ่มที่บรรทัด 152 โดยก่อนหน้านั้นเป็นแค่ของชั่วคราวเพราะเดี๋ยวตอนจริงจะ fetch
-//เอาไปใช้โดยการ duplicate fileนี้ไปใส่folderหน้าของเราอีกที จะได้ใช้ของใตรของมัน แล้ว include scriptไว้ใต้body แบบในตัวอย่างที่ให้(component ต้องถูกโหลดก่อนจึงควรไว้ก่อนscriptอื่น)จากนั้นก็แก้ไขไฟล์นี้ตรงการเรียกใช้function parameter คือ containerที่จะใส่,tag list สำหรับการfilter หรือหน้าแรกที่จัดเป็นหมู่ๆ, จำนวนโดยถ้าไม่ใส่จะสร้างหมด
-//search ไปเพิ่ม parameter เอาเอง แล้วก็ไปfilter เพิ่มใน functionเอา
-//แก้ข้อมูลobjectให้ตรงที่ต้องการได้เลย ใส่เพิ่มก็ได้
- 
-
-
-// Create Activities
-
+// Mock data for activities and tags (you can replace this with real data from your API or other sources)
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
 
@@ -16,12 +8,17 @@ const img_calendar_src = "../img/calendar.png";
 const img_location_src = "../img/location-pin.png";
 const img_arrow_src = "../img/right-arrow.png";
 
-function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
-    container.innerHTML = "";
+// Function to render activities based on tags and title search
+function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "") {
+    container.innerHTML = ""; // Clear existing content
 
+    // Filter activities based on tags and title
     const filteredActivities = activities.filter(activity =>
-        activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
+        activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
+        activity.title.toLowerCase().includes(searchTitle.toLowerCase())  // Filter by title
     );
+
+    // Limit the number of activities to show
     const activitiesToShow = filteredActivities.slice(0, maxActivities);
 
     activitiesToShow.forEach(activity => {
@@ -139,7 +136,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         enter_button.appendChild(img_arrow);
 
         enter_button.onclick = function () {
-            window.location.href = ViewActivityURL;
+            window.location.href = "ViewActivityURL";  // Replace with your actual URL
         };
 
         activity_card.appendChild(enter_button);
@@ -147,5 +144,10 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
     });
 }
 
+
+// Initial call to render activities
 const container = document.getElementById("container");
 renderActivities(container, tags);
+
+// You can manually call the search function whenever necessary
+// Example: searchActivities();
