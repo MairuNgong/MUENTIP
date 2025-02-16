@@ -40,6 +40,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=MyActivity}/{action=Index}/{id?}");
+    pattern: "{controller=MyProfile}/{action=EditProfile}/{id?}");
 
 app.Run();

@@ -60,8 +60,8 @@ namespace MVC_test.Controllers
                 },
                 new ActivityCardViewModel
                 {
-                    ActivityId = 4,
-                    Title = "Hiking",
+                    ActivityId = 1,
+                    Title = "Badminton together",
                     Owner = "Inwza007",
                     Location = "Mt. Olympus",
                     PostDateTime = "2025-02-14 00:00",
@@ -75,8 +75,8 @@ namespace MVC_test.Controllers
                 },
                 new ActivityCardViewModel
                 {
-                    ActivityId = 5,
-                    Title = "Swimming",
+                    ActivityId = 3,
+                    Title = "Tech sharing",
                     Owner = "Inwza007",
                     Location = "Pool Olympus",
                     PostDateTime = "2025-01-31 00:00",
