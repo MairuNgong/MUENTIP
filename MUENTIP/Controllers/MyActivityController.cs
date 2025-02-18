@@ -1,56 +1,50 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using MUENTIP.Data;
 using MUENTIP.ViewModels;
-using System.Globalization;
+using Microsoft.AspNetCore.Identity;
+using MUENTIP.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MUENTIP.Controllers
 {
     public class MyActivityController : Controller
     {
-        public IActionResult Index()
+        private readonly ApplicationDBContext _context;
+        private readonly UserManager<User> _userManager;
+
+        public MyActivityController(ApplicationDBContext context, UserManager<User> userManager)
         {
-            var sampleCreatedActivities = new List<ActivityCardViewModel>
+            _context = context;
+            _userManager = userManager;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var user = await _userManager.GetUserAsync(User); // ดึง user ที่ login อยู่
+
+            List<ActivityCardViewModel> activityFromDb = new(); // ตั้งค่าเริ่มต้นให้ไม่เป็น null
+
+            if (user != null) // ตรวจสอบว่า user มีค่าหรือไม่
             {
-                new ActivityCardViewModel
-                {
-                    ActivityId = 1,
-                    Title = "ตีแบตกันเว้ยเฮีย ด่วนๆๆๆๆๆมาก",
-                    Owner = "Inwza007",
-                    Location = "badminton court, kmitl",
-                    PostDateTime = "2025-03-09 10:00",
-                    StartDateTime = "2025-03-15 10:00",
-                    EndDateTime = "2025-03-15 13:00",
-                    DeadlineDateTime = "2025-03-10 10:00",
-                    ApplyCount = 1,
-                    ApplyMax = 3,
-                    TagsList = new List<string> {"Sport"}
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 2,
-                    Title = "Basketball",
-                    Owner = "Inwza007",
-                    Location = "badminton court, kmitl",
-                    ActivityDateTime = "2025-03-18 10:00",
-                    DeadlineDateTime = "2025-03-15 00:00",
-                    ApplyCount = 20,
-                    ApplyMax = 11,
-                    TagsList = new List<string> {"Sport"}
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 3,
-                    Title = "Tech sharing",
-                    Owner = "Inwza007",
-                    Location = "badminton court, kmitl",
-                    PostDateTime = "2025-01-14 00:00",
-                    StartDateTime = "2025-01-18 10:00",
-                    EndDateTime = "2025-01-21 13:00",
-                    DeadlineDateTime = "2025-01-15 00:00",
-                    ApplyCount = 0,
-                    ApplyMax = 30,
-                    TagsList = new List<string> {"Technology"}
-                }
-            };
+                activityFromDb = await _context.Activities
+                    .Where(t => t.User.Id == user.Id) // เลือกเฉพาะ activities ที่ถูกสร้างโดย user นี้
+                    .Select(t => new ActivityCardViewModel
+                    {
+                        ActivityId = t.ActivityId,
+                        Title = t.Title,
+                        Owner = t.User.UserName,
+                        Location = t.Location,
+                        StartDateTime = t.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        EndDateTime = t.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        DeadlineDateTime = t.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        ApplyMax = t.ApplyMax,
+                        ApplyCount = t.Applications.Count(),
+                        TagsList = t.ActivityTags != null
+                            ? t.ActivityTags.Select(at => at.Tag.TagName).ToList()
+                            : new List<string>()
+                    })
+                    .ToListAsync(); // ✅ ใช้ async
+            }
 
             var sampleApprovedActivities = new List<ActivityCardViewModel>
             {
@@ -60,35 +54,13 @@ namespace MUENTIP.Controllers
                     Title = "driving",
                     Owner = "Inw111",
                     Location = "Mt. Olympus",
-                    ActivityDateTime = "2025-03-08 10:00",
+                    PostDateTime = "2025-03-09 10:00",
+                    StartDateTime = "2025-03-15 10:00",
+                    EndDateTime = "2025-03-15 13:00",
                     DeadlineDateTime = "2025-02-01 00:00",
                     ApplyCount = 7,
                     ApplyMax = 11,
                     TagsList = new List<string> {"Sport","Nature","Wellness"}
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 5,
-                    Title = "Swimming",
-                    Owner = "Inw111",
-                    Location = "Pool Olympus",
-                    ActivityDateTime = "2025-03-08 10:00",
-                    DeadlineDateTime = "2025-02-01 00:00",
-                    ApplyCount = 10,
-                    ApplyMax = 12,
-                    TagsList = new List<string> {"Sport","Wellness"}
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 6,
-                    Title = "Cooking class",
-                    Owner = "Inw111",
-                    Location = "Kitchen. Olympus",
-                    ActivityDateTime = "2025-04-08 10:00",
-                    DeadlineDateTime = "2025-02-01 00:00",
-                    ApplyCount = 5,
-                    ApplyMax = 5,
-                    TagsList = new List<string> {"Cook","Food"}
                 }
             };
 
@@ -100,63 +72,30 @@ namespace MUENTIP.Controllers
                     Title = "Hiking",
                     Owner = "Inw111",
                     Location = "Mt. Olympus",
-                    ActivityDateTime = "2025-03-08 10:00",
+                    PostDateTime = "2025-03-09 10:00",
+                    StartDateTime = "2025-03-15 10:00",
+                    EndDateTime = "2025-03-15 13:00",
                     DeadlineDateTime = "2025-02-01 00:00",
                     ApplyCount = 7,
                     ApplyMax = 11,
                     TagsList = new List<string> {"Sport","Nature","Wellness"}
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 8,
-                    Title = "sleeping",
-                    Owner = "Inw111",
-                    Location = "Pool Olympus",
-                    ActivityDateTime = "2025-03-08 10:00",
-                    DeadlineDateTime = "2025-02-20 00:00",
-                    ApplyCount = 10,
-                    ApplyMax = 12,
-                    TagsList = new List<string> {"Sport"}
                 }
             };
 
-            var sampleTags = new List<TagFilterViewModel>
-            {
-                new TagFilterViewModel
-                {
-                    TagName = "Cook"
-                },
-                new TagFilterViewModel
-                {
-                    TagName = "Food"
-                },
-                new TagFilterViewModel
-                {
-                    TagName = "Sport"
-                },
-                new TagFilterViewModel
-                {
-                    TagName = "Wellness"
-                },
-                new TagFilterViewModel
-                {
-                    TagName = "Nature"
-                },
-                new TagFilterViewModel
-                {
-                    TagName = "Technology"
-                }
-            };
+            var tagsFromDb = await _context.Tags
+                .Select(t => new TagFilterViewModel { TagName = t.TagName })
+                .ToListAsync(); // ✅ ใช้ async
 
             //สร้าง viewModel 
             var model = new MyActivityViewModel
             {
-                userId = 1,
-                createdActivity = sampleCreatedActivities,
+                userId = int.TryParse(user?.Id, out int id) ? id : 0, // ✅ แปลง string -> int
+                createdActivity = activityFromDb,
                 approvedActivity = sampleApprovedActivities,
                 nonApproveActivity = sampleNonApprovedActivities,
-                filterTags = sampleTags
+                filterTags = tagsFromDb
             };
+
             return View(model);
         }
     }

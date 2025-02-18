@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = ViewActivityURL;
     });
 
-    function renderActivities(container, ShowedtagList, tab) {
+    function renderActivities(container, ShowedtagList, tab, maxActivities = Infinity) {
         container.innerHTML = "";
 
         let activities = [];
@@ -68,34 +68,25 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         console.log('activities', activities);
-
-        // กรองข้อมูลตาม Tag ที่เลือก
         const filteredActivities = activities.filter(activity =>
             activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
         );
-
-        const activitiesToShow = filteredActivities;
-        console.log('activitiesToShow', activitiesToShow);
-
-        if (!activitiesToShow || activitiesToShow.length === 0) {
-            container.innerHTML = "<p>No activities found</p>";
-            return;
-        }
-
+        const activitiesToShow = filteredActivities.slice(0, maxActivities);
+    
         activitiesToShow.forEach(activity => {
             const activity_card = document.createElement("div");
             activity_card.className = "activity_card";
-
+    
             const left_group = document.createElement("div");
             left_group.className = "left_group";
-
+    
             const left_content_text = document.createElement("div");
             left_content_text.className = "left_content_text";
-
+    
             const title = document.createElement("div");
             title.className = "activity_title";
             title.textContent = activity.title;
-
+    
             const owner = document.createElement("div");
             const img_people = document.createElement("img");
             const owner_text = document.createElement("span");
@@ -105,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
             owner.appendChild(img_people);
             owner_text.textContent = activity.owner;
             owner.appendChild(owner_text);
-
+    
             const location = document.createElement("div");
             const img_location = document.createElement("img");
             const location_text = document.createElement("span");
@@ -115,21 +106,45 @@ document.addEventListener("DOMContentLoaded", function () {
             location.appendChild(img_location);
             location_text.textContent = activity.location;
             location.appendChild(location_text);
-
-            const activity_date_time = document.createElement("div");
-            const img_activity_date_time = document.createElement("img");
-            const activity_date_time_text = document.createElement("span");
-            activity_date_time.className = "activity_detail";
-            img_activity_date_time.className = "icon";
-            img_activity_date_time.src = img_clock_src;
-            activity_date_time.appendChild(img_activity_date_time);
-            let date_obj = new Date(activity.activityDateTime.replace(' ', 'T'));
-            let current_date = new Date();
-            let date = activity.activityDateTime.split(' ')[0];
+    
+            const start_date_time = document.createElement("div");
+            const img_start_date_time = document.createElement("img");
+            const start_date_time_text = document.createElement("span");
+            const start_date_time_value = document.createElement("span");
+            const start_date_time_label = document.createElement("span");
+            start_date_time.className = "activity_detail";
+            img_start_date_time.className = "icon";
+            img_start_date_time.src = img_clock_src;
+            start_date_time.appendChild(img_start_date_time);
+            let date_obj = new Date(activity.startDateTime);
+            let date = date_obj.toISOString().split("T")[0];
             let time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
-            activity_date_time_text.textContent = `${date} ${time}`;
-            activity_date_time.appendChild(activity_date_time_text);
-
+            start_date_time_label.textContent = "start : ";
+            start_date_time_value.textContent = `${date} ${time}`;
+            start_date_time_text.appendChild(start_date_time_label);
+            start_date_time_text.appendChild(start_date_time_value);
+            start_date_time.appendChild(start_date_time_text);
+    
+    
+            const end_date_time = document.createElement("div");
+            const img_end_date_time = document.createElement("img");
+            const end_date_time_text = document.createElement("span");
+            const end_date_time_value = document.createElement("span");
+            const end_date_time_label = document.createElement("span");
+            img_end_date_time.className = "icon";
+            img_end_date_time.src = img_clock_src;
+            end_date_time.className = "activity_detail";
+            end_date_time.appendChild(img_end_date_time);
+            date_obj = new Date(activity.endDateTime);
+            date = date_obj.toISOString().split("T")[0];
+            time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
+            end_date_time_label.textContent = "end : ";
+            end_date_time_value.textContent = `${date} ${time}`;
+            end_date_time_text.appendChild(end_date_time_label);
+            end_date_time_text.appendChild(end_date_time_value);
+            end_date_time.appendChild(end_date_time_text);
+    
+    
             const deadline_date_time = document.createElement("div");
             const img_deadline_date_time = document.createElement("img");
             const deadline_date_time_text = document.createElement("span");
@@ -137,7 +152,8 @@ document.addEventListener("DOMContentLoaded", function () {
             img_deadline_date_time.className = "icon";
             img_deadline_date_time.src = img_calendar_src;
             deadline_date_time.appendChild(img_deadline_date_time);
-            date_obj = new Date(activity.deadlineDateTime.replace(' ', 'T'));
+            date_obj = new Date(activity.deadlineDateTime);
+            let current_date = new Date();
             if (date_obj > current_date) {
                 deadline_date_time.style.color = "#57C543";
                 date = date_obj.toISOString().split("T")[0];
@@ -148,13 +164,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 deadline_date_time_text.textContent = "Closed";
             }
             deadline_date_time.appendChild(deadline_date_time_text);
-
+    
             left_content_text.appendChild(title);
             left_content_text.appendChild(owner);
             left_content_text.appendChild(location);
-            left_content_text.appendChild(activity_date_time);
+            left_content_text.appendChild(start_date_time);
+            left_content_text.appendChild(end_date_time);
             left_content_text.appendChild(deadline_date_time);
-
+    
             const participant = document.createElement("div");
             const img_participant = document.createElement("img");
             const participant_text = document.createElement("span");
@@ -170,10 +187,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             participant.appendChild(img_participant);
             participant.appendChild(participant_text);
-
+    
             left_group.appendChild(left_content_text);
             left_group.appendChild(participant);
-
+    
             const left_group_and_tags = document.createElement("div");
             left_group_and_tags.className = "left_group_and_tags";
             const tags = document.createElement("div");
@@ -184,22 +201,22 @@ document.addEventListener("DOMContentLoaded", function () {
                 tag_element.textContent = tag;
                 tags.appendChild(tag_element);
             });
-
+    
             left_group_and_tags.appendChild(left_group);
             left_group_and_tags.appendChild(tags);
-
+    
             activity_card.appendChild(left_group_and_tags);
-
+    
             const enter_button = document.createElement("button");
             const img_arrow = document.createElement("img");
             img_arrow.src = img_arrow_src;
             enter_button.className = "enter_button";
             enter_button.appendChild(img_arrow);
-
+    
             enter_button.onclick = function () {
-                window.location.href = ViewActivityURL;
+                window.location.href = homeIndexUrl;
             };
-
+    
             activity_card.appendChild(enter_button);
             container.appendChild(activity_card);
         });
