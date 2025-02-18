@@ -20,10 +20,9 @@
         <div class="parti-fyi-div">
             <div class="participants">
                 <img src="../img/people.png" alt="people">
-                <p>@Model.Card.ApplyCount/@Model.Card.ApplyMax</p>
+                <p id="parti-num">@Model.Card.ApplyCount/@Model.Card.ApplyMax</p>
                 <button>apply</button>
             </div>
-            @* if *@
             <p class="fyi-text">*จำนวนผู้สมัครถึงที่กำหนดแล้ว</p>
         </div>
         <p class="deadline-datetime">Until @Model.Card.DeadlineDateTime</p>
