@@ -50,7 +50,7 @@ namespace MUENTIP.Controllers
                 {
                     ActivityId = activity_id,
                     AnnouncementId = 0,
-                    AnnounceDate = "2025-03-09 10:00",
+                    AnnounceDate = "xxxx-xx-xx xx:xx",
                     Content = "No announcements available for this activity."
                 });
             }

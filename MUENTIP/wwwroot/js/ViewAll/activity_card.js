@@ -1,11 +1,6 @@
-//ดูการใช้งานเริ่มที่บรรทัด 152 โดยก่อนหน้านั้นเป็นแค่ของชั่วคราวเพราะเดี๋ยวตอนจริงจะ fetch
-//เอาไปใช้โดยการ duplicate fileนี้ไปใส่folderหน้าของเราอีกที จะได้ใช้ของใตรของมัน แล้ว include scriptไว้ใต้body แบบในตัวอย่างที่ให้(component ต้องถูกโหลดก่อนจึงควรไว้ก่อนscriptอื่น)จากนั้นก็แก้ไขไฟล์นี้ตรงการเรียกใช้function parameter คือ containerที่จะใส่,tag list สำหรับการfilter หรือหน้าแรกที่จัดเป็นหมู่ๆ, จำนวนโดยถ้าไม่ใส่จะสร้างหมด
-//search ไปเพิ่ม parameter เอาเอง แล้วก็ไปfilter เพิ่มใน functionเอา
-//แก้ข้อมูลobjectให้ตรงที่ต้องการได้เลย ใส่เพิ่มก็ได้
- 
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
-console.log(tags)
+
 const img_people_src = "../img/people.png";
 const img_clock_src = "../img/clock.png";
 const img_calendar_src = "../img/calendar.png";
@@ -14,11 +9,8 @@ const img_arrow_src = "../img/right-arrow.png";
 
 function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
   container.innerHTML = "";
-
-  const filteredActivities = activities.filter(activity =>
-      activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
-  );
-  const activitiesToShow = filteredActivities.slice(0, maxActivities);
+  
+  const activitiesToShow = activities;
 
   activitiesToShow.forEach(activity => {
       const activity_card = document.createElement("div");
@@ -169,56 +161,6 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
   });
 }
 
-function renderHotTag(container, hot_tags) {
-  hot_tags.forEach(hot_tag => {
-    const hot_tag_ele = document.createElement("li");
-    const link_to_section = document.createElement("a");
-    hot_tag_ele.className = "hot-tag-ele";
-    link_to_section.textContent = hot_tag.tagName;
-    link_to_section.href = `#${hot_tag.tagName}-section`;
-    hot_tag_ele.appendChild(link_to_section);
-    container.appendChild(hot_tag_ele);
-  })
-}
+const act_container = document.getElementById("act-div");
 
-function createViewAllBt(container, tag_name) {
-  const view_all_bt = document.createElement("button");
-  const view_all_img = document.createElement("img");
-  view_all_bt.textContent = "View All";
-  view_all_bt.className = "view-all-bt"
-  view_all_img.src = "../img/view-all.png";
-  view_all_bt.onclick = function() {
-    window.location.href = `/ViewAll/Index?tag_name=${tag_name}`;
-  }
-  view_all_bt.appendChild(view_all_img);
-  container.appendChild(view_all_bt);
-}
-
-function renderHotTagSection(container, hot_tags) {
-  hot_tags.forEach(hot_tag => {
-    const hot_tag_section = document.createElement("section");
-    const hot_tag_title = document.createElement("h1");
-    const hot_tag_act_div = document.createElement("div");
-    const hot_tag_lst = [hot_tag];
-    hot_tag_section.id = `${hot_tag.tagName}-section`;
-    hot_tag_title.textContent = hot_tag.tagName;
-    hot_tag_section.appendChild(hot_tag_title);
-    hot_tag_section.appendChild(hot_tag_act_div);
-    container.appendChild(hot_tag_section);
-    renderActivities(hot_tag_act_div, hot_tag_lst, 5);
-    if (hot_tag_act_div.children.length > 4) {
-      createViewAllBt(hot_tag_act_div, hot_tag.tagName);
-    }
-  })
-}
-
-const realtime_container = document.getElementById("realtime-activity");
-const hot_tag_container = document.getElementById("tag-nav");
-
-// ต้องเขียน filter ใหม่นับactก่อนrender 
-renderActivities(realtime_container, tags, 5);
-if (realtime_container.children.length > 4) {
-  createViewAllBt(realtime_container, "Realtime");
-}
-renderHotTag(hot_tag_container, tags);
-renderHotTagSection(document.body, tags);
+renderActivities(act_container, tags);

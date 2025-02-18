@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+*{
+    margin: 0;
+    font-family: "Inter", Helvetica;
+    scroll-padding-top: 70px;
+    scroll-behavior: smooth;
+}
+
+nav {
+    background-color: #707070;
+    max-width: 100%;
+    margin: 0 auto;
+    position: sticky;
+    top: 0;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative; 
+    width: 100%;
+}
+
+.header-menu li {
+    margin: 0 1rem;
+}
+
+.header-menu li:first-child {
+    position: absolute;
+    left: 20px; 
+}
+
+.header-menu li img {
+    height: 27px; 
+    width: auto;
+}
+

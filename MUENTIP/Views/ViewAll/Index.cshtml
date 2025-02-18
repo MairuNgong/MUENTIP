@@ -1,0 +1,29 @@
+@using MUENTIP.ViewModels
+@model ViewAllViewModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>View@Model.TagName</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Home/activity_card.css" />
+    <link rel="stylesheet" href="~/css/ViewAll/view_all_page.css" />
+</head>
+<body>
+    <nav class="header-nav">
+        <ul class="header-menu">
+            <li><a href="@Url.Action("Index", "Home")"><img src="../img/white_go_back.png" alt="go-back"></a></li>
+            <li>@Model.TagName</li>
+        </ul>
+    </nav>
+    <div id="act-div"></div>
+    
+    <script>
+        var activityModel = @Html.Raw(Json.Serialize(Model));
+        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
+    </script>
+    <script src="~/js/ViewAll/activity_card.js"></script>
+    <script src="~/js/ViewAll/view_all_page.js"></script>
+</body>
+
+</html>
