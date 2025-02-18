@@ -29,7 +29,6 @@ namespace MUENTIP.Controllers
                 ApplyCount = t.Applications.Count(),
                 TagsList = t.ActivityTags != null ? t.ActivityTags.Select(at => at.Tag.TagName).ToList() : new List<string>(),
                 Description = t.Description
-
             }).ToList();
 
             var announcementFromDb = _context.Annoucements.Select(announce => new AnnouncementViewModel

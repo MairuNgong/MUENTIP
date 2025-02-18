@@ -202,6 +202,7 @@ function renderHotTagSection(container, hot_tags) {
     const hot_tag_lst = [hot_tag];
     hot_tag_section.id = `${hot_tag.tagName}-section`;
     hot_tag_title.textContent = hot_tag.tagName;
+    hot_tag_act_div.className = "act-div";
     hot_tag_section.appendChild(hot_tag_title);
     hot_tag_section.appendChild(hot_tag_act_div);
     container.appendChild(hot_tag_section);
