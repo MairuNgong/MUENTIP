@@ -1,20 +1,26 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MUENTIP.Data;
-using MUENTIP.Models;
 using MUENTIP.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using MUENTIP.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MUENTIP.Controllers
 {
     public class ViewActivityController : Controller
     {
         private readonly ApplicationDBContext _context;
+        private readonly UserManager<User> _userManager;
 
-        public ViewActivityController(ApplicationDBContext context)
+        public ViewActivityController(ApplicationDBContext context, UserManager<User> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
-        public IActionResult Index(int activity_id)
+        public async Task<IActionResult> Index(int activity_id)
         {
+            var user = await _userManager.GetUserAsync(User);
+
             var activityFromDb = _context.Activities.Select(t => new ActivityCardViewModel
             {
                 ActivityId = t.ActivityId,
@@ -44,13 +50,28 @@ namespace MUENTIP.Controllers
 
             var announcements = announcementFromDb.Where(announce => announce.ActivityId == activity_id).ToList();
 
-            var model = new ViewActivityViewModel
+            ViewActivityViewModel model;
+
+            if (user == null)
             {
-                Card = activity_card,
-                Announcements = announcements
-            };
+                model = new ViewActivityViewModel
+                {
+                    Card = activity_card,
+                    Announcements = announcements
+                };
+            }
+            else
+            {
+                model = new ViewActivityViewModel
+                {
+                    UserId = user.Id,
+                    Card = activity_card,
+                    Announcements = announcements
+                };
+            }
 
             return View(model);
         }
+
     }
 }
