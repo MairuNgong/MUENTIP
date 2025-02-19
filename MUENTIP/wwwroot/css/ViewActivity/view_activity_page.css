@@ -1,11 +1,16 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-body{
+*{
     margin: 0;
     padding: 0;
     font-family: "Inter", Helvetica;
     word-wrap: break-word; 
     overflow-wrap: break-word;
+    scroll-behavior: smooth;
+}
+
+.tags-div, .activity-info-div, .activity-announce{
+    margin: 1rem 2rem 2rem 2rem;
 }
 
 .activity-header{
@@ -17,7 +22,6 @@ body{
 }
 
 .tags-div{
-    margin: 1rem 1.5rem 1rem 1.5rem;
     overflow-x: auto;
     white-space: nowrap;
     scrollbar-width: none;
@@ -38,6 +42,7 @@ body{
 p {
     font-size: 13px;
     font-weight: 400;
+    margin-bottom: 1rem;
 }
 
 p img{
@@ -46,9 +51,14 @@ p img{
     vertical-align: middle;
 }
 
+#descript {
+    margin-left: 2rem;
+}
+
 h1 {
     font-weight: 400;
     font-size: 20px;
+    margin-bottom: 1rem;
 }
 
 .deadline-datetime {
@@ -57,12 +67,24 @@ h1 {
     font-weight: 600;
 }
 
-.owner-div{
-    margin: 3rem 0 3rem 0;
+.owner-div {
+    display: flex;
+    align-items: center; 
+    margin: 2rem 0 2rem 0;
 }
 
-.owner-div img{
-    height: 42px;
+.owner-div img {
+    width: 42px;
+    margin-right: 10px; 
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column; 
+}
+
+.owner-div p {
+    margin: 0; 
 }
 
 .participants{
@@ -97,15 +119,12 @@ h1 {
     margin: 0;
 }
 
-.activity-info-div, .activity-announce{
-    margin: 1rem 1.5rem 1rem 1.5rem;
-}
-
 .activity-info-div{
     margin-bottom: 50px;
 }
 
 .fyi-text{
+    margin-top: 1rem;
     color: #FF0000;
     display: none;
 }
@@ -119,5 +138,29 @@ h1 {
     background-color: #F2F2F2;
     border-radius: 15px;
     padding: 1rem;
-    margin: 1rem;
+    margin: 1rem 0 1rem 2rem;
+}
+
+@media (min-width: 800px) {
+    .fyi-text {
+        margin-top: 1rem;
+        color: #FF0000;
+        display: block; 
+        text-align: left; 
+    }
+
+    .parti-fyi-div {
+        display: flex; 
+        align-items: center; 
+        justify-content: flex-start; 
+        flex-direction: row-reverse; 
+    }
+
+    .participants {
+        margin-left: 1rem; 
+    }
+    
+    .fyi-text {
+        margin-left: 1rem; 
+    }
 }

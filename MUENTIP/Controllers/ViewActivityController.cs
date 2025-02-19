@@ -43,16 +43,6 @@ namespace MUENTIP.Controllers
             if (activity_card == null) return NotFound();
 
             var announcements = announcementFromDb.Where(announce => announce.ActivityId == activity_id).ToList();
-            if (!announcements.Any())
-            {
-                announcements.Add(new AnnouncementViewModel
-                {
-                    ActivityId = activity_id,
-                    AnnouncementId = 0,
-                    AnnounceDate = "xxxx-xx-xx xx:xx",
-                    Content = "No announcements available for this activity."
-                });
-            }
 
             var model = new ViewActivityViewModel
             {
