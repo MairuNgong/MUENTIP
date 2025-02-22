@@ -5,6 +5,7 @@
     scroll-padding-top: 70px;
     scroll-behavior: smooth;
 }
+
 .Banner {
     background-color: #C0EFD8;
     display: flex;
@@ -16,9 +17,9 @@
     font-weight: bold;
 }
 
-.Banner span {
-    padding-left: 15px;
-}
+    .Banner span {
+        padding-left: 15px;
+    }
 
 .ReturnButton {
     background: none;
@@ -44,36 +45,38 @@
     margin-right: 20px;
 }
 
-.ActivityForm input{
-    width: 100%;
-    padding: 8px 12px;
-    border-radius: 15px;
-    background-color: #F2F2F2;
-    border: 0;
-    margin-bottom: 30px;
-}
+    .ActivityForm input {
+        width: 100%;
+        padding: 8px 12px;
+        border-radius: 15px;
+        background-color: #F2F2F2;
+        border: 0;
+        margin-bottom: 30px;
+    }
 
-.ActivityForm label {
-    margin-bottom: 5px;
-}
+    .ActivityForm label {
+        margin-bottom: 5px;
+    }
 
 .DateTimeContainer {
     width: 100%;
     display: flex;
     justify-content: flex-start;
-    gap:40px;
+    gap: 40px;
 }
+
 .DateTimeField {
     display: flex;
     flex-direction: column;
 }
-.DateTimeField input {
-    width: 100%; 
-}
 
-.DateTimeField:first-child {
-    flex-grow: 1;
-}
+    .DateTimeField input {
+        width: 100%;
+    }
+
+    .DateTimeField:first-child {
+        flex-grow: 1;
+    }
 
 .PLContainer {
     width: 100%;
@@ -82,28 +85,30 @@
     gap: 55px;
 }
 
-.PLContainer :first-child {
-    width: 50px;
-}
-.PLContainer :last-child {
-    flex-grow: 1;
-}
+    .PLContainer :first-child {
+        width: 50px;
+    }
 
-.button-div{
+    .PLContainer :last-child {
+        flex-grow: 1;
+    }
+
+.button-div {
     width: 100%;
-    display:flex;
+    display: flex;
     justify-content: space-around;
     gap: 40px;
 }
-.button-div button {
-    cursor: pointer;
-    font-weight: bold;
-    color: white;
-    border: 0;
-    padding: 20px 40px;
-    border-radius: 50px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
+
+    .button-div button {
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        border: 0;
+        padding: 20px 40px;
+        border-radius: 50px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    }
 
 #create-button {
     background-color: #53A700;
@@ -112,6 +117,7 @@
 #cancel-button {
     background-color: #D1D1D1;
 }
+
 #autoResize {
     width: 100%;
     padding: 8px 12px;
@@ -124,6 +130,7 @@
     overflow-y: hidden;
     resize: none;
 }
+
 .tag_div {
     display: flex;
     width: 100%;
@@ -160,6 +167,7 @@
     border-radius: 50px;
     cursor: pointer;
 }
+
 .inuse_tag {
     font-size: 12px;
     display: inline-flex;
@@ -176,8 +184,8 @@
     align-items: center;
     gap: 20px 16px;
     margin: 10px 10px;
-    max-height: 150px; 
-    overflow-y: auto; 
+    max-height: 150px;
+    overflow-y: auto;
 }
 
 .remove_tag {
@@ -195,6 +203,7 @@
     cursor: pointer;
     font-weight: bold;
 }
+
 .remove_tagL:hover {
     background-color: darkred;
 }
