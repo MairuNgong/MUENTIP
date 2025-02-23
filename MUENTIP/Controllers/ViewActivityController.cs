@@ -51,39 +51,74 @@ namespace MUENTIP.Controllers
                 Content = announce.Content            
             }).ToListAsync();;
 
+            bool is_applied = false;
+            if (user != null)
+            {
+                is_applied = await _context.ApplyOn
+                    .AnyAsync(a => a.UserId == user.Id && a.ActivityId == activity_id);
+            }
+
+            var participationStatus = "Not Yet";
+            var participants = await _context.ParticipateIn
+                .Where(p => p.ActivityId == activity_id)
+                .ToListAsync();
+
+            if (participants != null && user != null)
+            {
+                var participant = await _context.ParticipateIn
+                    .FirstOrDefaultAsync(p => p.UserId == user.Id && p.ActivityId == activity_id);
+                
+                if (participant != null)
+                {
+                    participationStatus = "Participating";
+                }
+                else
+                {
+                    participationStatus = "Not Participating";
+                }
+            }
+
+            DateTime deadline;
+            bool isValidDeadline = DateTime.TryParseExact(
+                activityFromDb.DeadlineDateTime,
+                "yyyy-MM-ddTHH:mm:ss",
+                System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.DateTimeStyles.None,
+                out deadline
+            );
+
+            bool out_of_date = isValidDeadline && DateTime.Compare(DateTime.Now, deadline) > 0;
+
             var model = new ViewActivityViewModel
             {
                 Card = activityFromDb,
-                Announcements = announcementFromDb
+                Announcements = announcementFromDb,
+                UserName = user?.UserName,
+                IsApplyOn = is_applied ? (bool?)true : (bool?)false, 
+                ParticipationStatus = string.IsNullOrEmpty(participationStatus) ? "Not Participating" : participationStatus,  // Default to "Not Participating"
+                OutOfDate = out_of_date
             };
-
-            if (user != null)
-            {
-                model.UserName = user.UserName;
-            }
 
             return View(model);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAnnounce(
-            int ActivityId,
-            string Content)
+        public async Task<IActionResult> CreateAnnounce(int activity_id, string content)
         {
             try
             {
                 var user = await _userManager.GetUserAsync(User);
                 if (user == null) return Json(new { success = false, message = "User not logged in." });
                 
-                var activity = _context.Activities.Find(ActivityId);
+                var activity = _context.Activities.Find(activity_id);
                 if (activity == null) return NotFound("Activity not found.");
 
                 var announcement = new Annoucement
                 {
-                    ActivityId = ActivityId,
+                    ActivityId = activity_id,
                     Activity = activity,
                     AnnouceDate = DateTime.Now,
-                    Content = Content
+                    Content = content
                 };
 
                 _context.Annoucements.Add(announcement);
@@ -108,6 +143,56 @@ namespace MUENTIP.Controllers
                 await _context.SaveChangesAsync();
 
                 return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        public async Task<IActionResult> ApplyOn(int activity_id){
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null) return Json(new { success = false, message = "User not logged in." });
+                
+                var activity = _context.Activities.Find(activity_id);
+                if (activity == null) return NotFound("Activity not found.");
+
+                var apply_on = new ApplyOn
+                {
+                    ActivityId = activity_id,
+                    Activity = activity,
+                    UserId = user.Id,
+                    User = user,
+                    AppliedDate = DateTime.Now,
+                };
+
+                _context.ApplyOn.Add(apply_on);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true});
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        public async Task<IActionResult> Withdraw(int activity_id){
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null) return Json(new { success = false, message = "User not logged in." });
+                
+                var apply_on = await _context.ApplyOn
+                    .FirstOrDefaultAsync(a => a.UserId == user.Id && a.ActivityId == activity_id);
+                if (apply_on == null) return Json(new { success = false, message = "User is not participating in this activity." });
+
+                _context.ApplyOn.Remove(apply_on);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true});
             }
             catch (Exception ex)
             {

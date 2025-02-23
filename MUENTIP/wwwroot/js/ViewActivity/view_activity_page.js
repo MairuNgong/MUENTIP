@@ -1,10 +1,17 @@
 ﻿const activity = JSON.parse(JSON.stringify(viewActivityModel)).card;
 const announces = JSON.parse(JSON.stringify(viewActivityModel)).announcements;
 const username = JSON.parse(JSON.stringify(viewActivityModel)).userName;
+const is_apply_on = JSON.parse(JSON.stringify(viewActivityModel)).isApplyOn;
+const is_participate = JSON.parse(JSON.stringify(viewActivityModel)).participationStatus;
+const out_of_date = JSON.parse(JSON.stringify(viewActivityModel)).outOfDate;
 
 console.log(username);
 console.log(activity);
 console.log(announces);
+
+console.log("Is Participate: " + is_participate);
+console.log("Is Apply On: " + is_apply_on);
+console.log("Out of Date: " + out_of_date);
 
 const img_people_src = "../img/people.png";
 const img_clock_src = "../img/clock.png";
@@ -15,9 +22,13 @@ const img_delete_src = "../img/x.png";
 const parti_width = document.querySelector(".participants").offsetWidth;
 const fyi_text = document.getElementsByClassName("fyi-text")[0];
 const parti_num = document.getElementById("parti-num");
+const parti_bt = document.getElementById("parti-bt");
 
 fyi_text.style.width = `${parti_width}px`;
 
+if (activity.applyCount < activity.applyMax && out_of_date) {
+    parti_num.style.color = "#ACACAC";
+}
 if (activity.applyCount > activity.applyMax) {
     fyi_text.style.display = "block";
     parti_num.style.color = "#FF0000";
@@ -138,35 +149,111 @@ function edit_activity() {
     const edit_act_bt = document.getElementById("edit-act-bt");
 
     edit_act_bt.addEventListener("click", function(ev) {
-        window.location.href = "/";
+        window.location.href = "";
     });
 }
 
 function view_participants() {
-    const view_parti_bt = document.getElementById("parti-bt");
+    parti_bt.textContent = "view";
 
-    edit_act_bt.addEventListener("click", function(ev) {
+    parti_bt.addEventListener("click", function(ev) {
         window.location.href = "/";
     });
 }
 
 render_announcement();
 
-// owner user
-if (username === activity.owner) {
-    // edit_activity();
-    // view_participants();
-    add_new_announce();    
-}
-
-// others user
-if (username != activity.owner && username != null) {
-    // participant bt Apply On
-}
-
 document.addEventListener("DOMContentLoaded", function () {
-    const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, header");
+    const login_popup = document.getElementById("loginPopup");
 
+    // owner user
+    if (username === activity.owner) {
+        // edit_activity();
+        view_participants();
+        add_new_announce();    
+    }
+
+    // others user
+    if (username != activity.owner && username != null) {
+
+        if (is_participate === "Participating") {
+            parti_bt.textContent = "accepted";
+            parti_bt.className = "participants-bt-2";
+        }
+        if (!is_participate === "Not Participating") {
+            parti_bt.textContent = "rejected";
+            parti_bt.className = "participants-bt-2";
+        }
+        if (!is_apply_on && out_of_date) {
+            parti_bt.textContent = "closed";
+            parti_bt.className = "participants-bt-2";
+        }
+        if (!is_apply_on && !out_of_date) {
+            parti_bt.textContent = "apply";
+
+            parti_bt.addEventListener("click", async function(ev) {
+                ev.preventDefault();
+
+                try {
+                    const response = await fetch(`/ViewActivity/ApplyOn?activity_id=${activity.activityId}`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" }
+                    });
+        
+                    const result = await response.json();
+                    if (result.success) {
+                        console.log("ApplyOn created successfully!");
+                        window.location.reload();
+                    } else {
+                        alert(result.message);
+                    }
+                } catch (error) {
+                    console.error("Error creating ApplyOn:", error);
+                }
+            });
+        }
+        if (is_apply_on && !out_of_date) {
+            parti_bt.textContent = "cancel";
+            parti_bt.style.backgroundColor = "#D1D1D1";
+
+            parti_bt.addEventListener("click", async function(ev) {
+                ev.preventDefault();
+
+                try {
+                    const response = await fetch(`/ViewActivity/Withdraw?activity_id=${activity.activityId}`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" }
+                    });
+        
+                    const result = await response.json();
+                    if (result.success) {
+                        console.log("Cancel successfully!");
+                        window.location.reload();
+                    } else {
+                        alert(result.message);
+                    }
+                } catch (error) {
+                    console.error("Error Withdrawing:", error);
+                }
+            });
+        }
+    }
+    // not logged in
+    if (username == null) {
+        if (!is_apply_on && out_of_date) {
+            parti_bt.textContent = "closed";
+            parti_bt.className = "participants-bt-2";
+        }
+        if (!is_apply_on && !out_of_date) {
+            parti_bt.textContent = "apply";
+            parti_bt.addEventListener("click", function() {
+                login_popup.style.display = "block";
+            });
+        }
+    }
+
+    const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, header");
+    
     elements.forEach(el => {
         if (/[ก-๙]/.test(el.textContent)) { 
             el.style.fontFamily = '"Noto Sans Thai", serif';
