@@ -22,12 +22,38 @@ namespace MUENTIP.Controllers
         {
             var user = await _userManager.GetUserAsync(User); // ดึง user ที่ login อยู่
 
-            List<ActivityCardViewModel> activityFromDb = new(); // ตั้งค่าเริ่มต้นให้ไม่เป็น null
-
-            if (user != null) // ตรวจสอบว่า user มีค่าหรือไม่
+            if (user == null)
             {
-                activityFromDb = await _context.Activities
-                    .Where(t => t.User.Id == user.Id) // เลือกเฉพาะ activities ที่ถูกสร้างโดย user นี้
+                return RedirectToAction("Login", "Account"); // กลับไปหน้า login ถ้ายังไม่ได้ login
+            }
+
+            // โหลดข้อมูล User พร้อมกิจกรรมที่สร้างและกิจกรรมที่สมัครไว้
+            var userClass = await _context.Users
+                .Include(u => u.CreatedActivities)   // โหลดกิจกรรมที่ user สร้าง
+                    .ThenInclude(a => a.Applications) // โหลด Applications ของแต่ละกิจกรรม
+                .Include(u => u.CreatedActivities)
+                    .ThenInclude(a => a.ActivityTags) // โหลด Tags ของกิจกรรม
+                        .ThenInclude(at => at.Tag) // โหลดชื่อ Tag
+                .Include(u => u.Applications) // โหลด ApplyOn (กิจกรรมที่ user สมัครไว้)
+                    .ThenInclude(apply => apply.Activity) // โหลดข้อมูล Activity
+                        .ThenInclude(a => a.User) // โหลดข้อมูล User เจ้าของกิจกรรม
+                .Include(u => u.Applications) // โหลด ApplyOn (กิจกรรมที่ user สมัครไว้)
+                    .ThenInclude(apply => apply.Activity) // โหลดข้อมูล Activity
+                        .ThenInclude(a => a.ActivityTags) // โหลด Tags ของ Activity
+                            .ThenInclude(at => at.Tag) // โหลดชื่อ Tag
+                .Include(u => u.Participations) // โหลด Participations (กิจกรรมที่ได้รับการอนุมัติ)
+                    .ThenInclude(p => p.Activity) // โหลดข้อมูล Activity ของการเข้าร่วม
+                        .ThenInclude(a => a.User) // โหลดข้อมูล User เจ้าของกิจกรรม
+                .FirstOrDefaultAsync(u => u.Id == user.Id);
+
+
+            List<ActivityCardViewModel> CreatedActivityFromDb = new();
+            List<ActivityCardViewModel> NonApprovedActivityFromDb = new();
+            List<ActivityCardViewModel> ApprovedActivityFromDb = new();
+
+            if (userClass != null)
+            {
+                CreatedActivityFromDb = userClass.CreatedActivities
                     .Select(t => new ActivityCardViewModel
                     {
                         ActivityId = t.ActivityId,
@@ -43,56 +69,58 @@ namespace MUENTIP.Controllers
                             ? t.ActivityTags.Select(at => at.Tag.TagName).ToList()
                             : new List<string>()
                     })
-                    .ToListAsync(); // ✅ ใช้ async
+                    .ToList();
+
+
+                NonApprovedActivityFromDb = userClass.Applications
+                    .Where(apply => apply.Activity != null)
+                    .Select(apply => new ActivityCardViewModel
+                    {
+                        ActivityId = apply.ActivityId,
+                        Title = apply.Activity.Title,
+                        Owner = apply.Activity.User.UserName, // ดึงชื่อเจ้าของกิจกรรม
+                        Location = apply.Activity.Location,
+                        StartDateTime = apply.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        EndDateTime = apply.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        DeadlineDateTime = apply.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        ApplyMax = apply.Activity.ApplyMax,
+                        ApplyCount = apply.Activity.Applications.Count(),
+                        TagsList = apply.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>(),
+                    })
+                    .ToList();
+
+                // return Ok(NonApprovedActivityFromDb);
+
+                ApprovedActivityFromDb = userClass.Participations
+                    .Where(p => p.Activity != null)
+                    .Select(p => new ActivityCardViewModel
+                    {
+                        ActivityId = p.Activity.ActivityId,
+                        Title = p.Activity.Title,
+                        Owner = p.Activity.User.UserName ?? "Unknown", // ป้องกัน null
+                        Location = p.Activity.Location,
+                        StartDateTime = p.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        EndDateTime = p.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        DeadlineDateTime = p.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        ApplyMax = p.Activity.ApplyMax,
+                        ApplyCount = p.Activity.Applications.Count(),
+                        TagsList = p.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>()
+                    })
+                    .ToList();
             }
 
-            var sampleApprovedActivities = new List<ActivityCardViewModel>
-            {
-                new ActivityCardViewModel
-                {
-                    ActivityId = 4,
-                    Title = "driving",
-                    Owner = "Inw111",
-                    Location = "Mt. Olympus",
-                    PostDateTime = "2025-03-09 10:00",
-                    StartDateTime = "2025-03-15 10:00",
-                    EndDateTime = "2025-03-15 13:00",
-                    DeadlineDateTime = "2025-02-01 00:00",
-                    ApplyCount = 7,
-                    ApplyMax = 11,
-                    TagsList = new List<string> {"Sport","Nature","Wellness"}
-                }
-            };
-
-            var sampleNonApprovedActivities = new List<ActivityCardViewModel>
-            {
-                new ActivityCardViewModel
-                {
-                    ActivityId = 7,
-                    Title = "Hiking",
-                    Owner = "Inw111",
-                    Location = "Mt. Olympus",
-                    PostDateTime = "2025-03-09 10:00",
-                    StartDateTime = "2025-03-15 10:00",
-                    EndDateTime = "2025-03-15 13:00",
-                    DeadlineDateTime = "2025-02-01 00:00",
-                    ApplyCount = 7,
-                    ApplyMax = 11,
-                    TagsList = new List<string> {"Sport","Nature","Wellness"}
-                }
-            };
-
+            // ดึงแท็กจากฐานข้อมูล
             var tagsFromDb = await _context.Tags
                 .Select(t => new TagFilterViewModel { TagName = t.TagName })
-                .ToListAsync(); // ✅ ใช้ async
+                .ToListAsync();
 
-            //สร้าง viewModel 
+            // สร้าง ViewModel
             var model = new MyActivityViewModel
             {
-                userId = int.TryParse(user?.Id, out int id) ? id : 0, // ✅ แปลง string -> int
-                createdActivity = activityFromDb,
-                approvedActivity = sampleApprovedActivities,
-                nonApproveActivity = sampleNonApprovedActivities,
+                userId = int.TryParse(user.Id, out int id) ? id : 0, // แปลง string -> int
+                createdActivity = CreatedActivityFromDb,
+                nonApproveActivity = NonApprovedActivityFromDb,
+                approvedActivity = ApprovedActivityFromDb,
                 filterTags = tagsFromDb
             };
 
