@@ -21,7 +21,9 @@ namespace MUENTIP.Controllers
         {
             var user = await _userManager.GetUserAsync(User);
 
-            var activityFromDb = _context.Activities.Select(t => new ActivityCardViewModel
+            var activityFromDb = await _context.Activities
+                                .Where(t => t.ActivityId == activity_id)
+                                .Select(t => new ActivityCardViewModel
             {
                 ActivityId = t.ActivityId,
                 Title = t.Title,
@@ -35,43 +37,87 @@ namespace MUENTIP.Controllers
                 ApplyCount = t.Applications.Count(),
                 TagsList = t.ActivityTags != null ? t.ActivityTags.Select(at => at.Tag.TagName).ToList() : new List<string>(),
                 Description = t.Description
-            }).ToList();
+            }).FirstOrDefaultAsync();
 
-            var announcementFromDb = _context.Annoucements.Select(announce => new AnnouncementViewModel
+            if (activityFromDb == null) return NotFound();
+
+            var announcementFromDb = await _context.Annoucements
+                                    .Where(announce => announce.ActivityId == activity_id)
+                                    .Select(announce => new AnnouncementViewModel
             {
                 ActivityId = announce.ActivityId,
                 AnnouncementId = announce.AnnoucementId,
                 AnnounceDate = announce.AnnouceDate.ToString("yyyy-MM-ddTHH:mm:ss"),
                 Content = announce.Content            
-            }).ToList();
+            }).ToListAsync();;
 
-            var activity_card = activityFromDb.FirstOrDefault(act_card => act_card.ActivityId == activity_id);
-            if (activity_card == null) return NotFound();
+            // var activity_card = activityFromDb.FirstOrDefault(act_card => act_card.ActivityId == activity_id);
+            // if (activity_card == null) return NotFound();
 
-            var announcements = announcementFromDb.Where(announce => announce.ActivityId == activity_id).ToList();
+            // var announcements = announcementFromDb.Where(announce => announce.ActivityId == activity_id).ToList();
 
-            ViewActivityViewModel model;
-
-            if (user == null)
+            var model = new ViewActivityViewModel
             {
-                model = new ViewActivityViewModel
-                {
-                    Card = activity_card,
-                    Announcements = announcements
-                };
-            }
-            else
+                Card = activityFromDb,
+                Announcements = announcementFromDb
+            };
+
+            if (user != null)
             {
-                model = new ViewActivityViewModel
-                {
-                    UserId = user.Id,
-                    Card = activity_card,
-                    Announcements = announcements
-                };
+                model.UserName = user.UserName;
             }
 
             return View(model);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> CreateAnnounce(
+            int ActivityId,
+            string Content)
+        {
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null) return Json(new { success = false, message = "User not logged in." });
+                
+                var activity = _context.Activities.Find(ActivityId);
+                if (activity == null) return NotFound("Activity not found.");
+
+                var announcement = new Annoucement
+                {
+                    ActivityId = ActivityId,
+                    Activity = activity,
+                    AnnouceDate = DateTime.Now,
+                    Content = Content
+                };
+
+                _context.Annoucements.Add(announcement);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true});
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        public async Task<IActionResult> DeleteAnnounce(int annoucement_id)
+        {
+            try
+            {
+                var dl_announcement = _context.Annoucements.Find(annoucement_id);         
+                if (dl_announcement == null) return NotFound("Announcement not found.");
+
+                _context.Annoucements.Remove(dl_announcement);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true});
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
     }
 }

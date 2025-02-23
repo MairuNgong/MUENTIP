@@ -9,7 +9,17 @@
     <link rel="stylesheet" href="~/css/ViewActivity/view_activity_page.css" />
 </head>
 <body>
-    <header class="activity-header">@Model.Card.Title</header>
+    <header class="activity-header">
+        @if (Model.Card.Owner == Model.UserName)
+        {
+            <button id="edit-act-bt">
+            <img src="../img/edit.png" alt="edit">
+        </button>
+        }
+        <h1>
+            @Model.Card.Title
+        </h1>
+    </header>
     <div class="tags-div">
         @foreach (var tagName in Model.Card.TagsList)
         {
@@ -21,34 +31,52 @@
             <div class="participants">
                 <img src="../img/people.png" alt="people">
                 <p id="parti-num">@Model.Card.ApplyCount/@Model.Card.ApplyMax</p>
-                <button>apply</button>
+                <button id="parti-bt">view</button>
             </div>
             <p class="fyi-text">*The number of participants has reached the specified number.</p>
         </div>
-        <p class="deadline-datetime">Until @Model.Card.DeadlineDateTime</p>
-        <p><img src="../img/clock.png" alt="clock">@Model.Card.StartDateTime - @Model.Card.EndDateTime</p>
+        @{
+            string FormatDateTime(string dateTimeString)
+            {
+                if (DateTime.TryParse(dateTimeString, out DateTime dateTime))
+                {
+                    DateTime adjustedDateTime = dateTime;
+                    return adjustedDateTime.ToString("yyyy-MM-dd HH:mm");
+                }
+                return "N/A";
+            }
+        }
+        <p class="deadline-datetime">
+            Until @FormatDateTime(Model.Card.DeadlineDateTime)
+        </p>
+        <p>
+            <img src="../img/clock.png" alt="clock">
+            @FormatDateTime(Model.Card.StartDateTime) - @FormatDateTime(Model.Card.EndDateTime)
+        </p>
         <p><img src="../img/location-pin.png" alt="location">@Model.Card.Location</p>
         <div class="owner-div">
             <img src="../img/profile.png" alt="owner-img">
             <div class="owner-text-div">
                 <p>@Model.Card.Owner</p>
-                <p>@Model.Card.PostDateTime</p>
+                <p>@FormatDateTime(Model.Card.PostDateTime)</p>
             </div>
         </div>
-        <h1>Detail</h1>
+        <h2>Detail</h2>
         <p id="descript">@Model.Card.Description</p>
     </div>
-
     <div class="activity-announce">
-        <h1>Announcement</h1>
+        <h2>Announcement</h2>
+        @if (Model.Card.Owner == Model.UserName)
+        {
+            <form id="add-new-announce">
+                <textarea name="Content" placeholder="Add new announcement..." rows="1" oninput="expandTextarea(this)" required></textarea>
+                <button id="new-announce-bt" type="submit">+</button>
+            </form>
+        }
     </div>
-
     <script>
         var viewActivityModel = @Html.Raw(Json.Serialize(Model));
-        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
     </script>
-    <script src="~/js/ViewActivity/view_activity.js"></script>
     <script src="~/js/ViewActivity/view_activity_page.js"></script>
 </body>
-
 </html>

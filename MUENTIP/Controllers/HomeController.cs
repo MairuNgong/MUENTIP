@@ -16,7 +16,9 @@ namespace MVC_test.Controllers
         
         public IActionResult Index()
         {
-            var activityFromDb = _context.Activities.Select(t => new ActivityCardViewModel
+            var activityFromDb = _context.Activities
+                                .OrderByDescending(t => t.ActivityId) 
+                                .Select(t => new ActivityCardViewModel
             {
                 ActivityId = t.ActivityId,
                 Title = t.Title,

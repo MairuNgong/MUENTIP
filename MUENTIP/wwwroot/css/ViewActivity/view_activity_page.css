@@ -15,11 +15,27 @@
 }
 
 .activity-header{
+    background-color: #C0EFD8;
+    padding: 2rem;
+}
+
+.activity-header button {
+    text-decoration: none;
+    background: transparent; 
+    border: none; 
+    float: right;
+    cursor: pointer; 
+}
+
+.activity-header button img{
+    height: 48px;
+}
+
+.activity-header h1{
+    margin: 3rem;
     font-size: 32px;
     font-weight: bold;
-    background-color: #C0EFD8;
     text-align: center;
-    padding: 3rem;
 }
 
 .tags-div{
@@ -54,9 +70,10 @@ p img{
 
 #descript {
     margin-left: 2rem;
+    white-space: pre-line;
 }
 
-h1 {
+h2 {
     font-weight: 400;
     font-size: 20px;
     margin-bottom: 1rem;
@@ -88,7 +105,12 @@ h1 {
     margin: 0; 
 }
 
-.participants{
+.participants {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+    gap: 1rem; 
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
     width: fit-content;
@@ -101,11 +123,10 @@ h1 {
     font-size: 24px;
     font-weight: bold;
     color: #57C543;
-    margin: 1rem 0 1rem, 0;
 }
 
 .participants img{
-    height: 23px;
+    height: 30px;
     margin: 0;
 }
 
@@ -135,18 +156,69 @@ h1 {
     text-align: center;
 }
 
-.announce-div{
+.announce-div, .activity-announce form textarea{
     background-color: #F2F2F2;
     border-radius: 15px;
+    border: none;
     padding: 1rem;
-    margin: 1rem 0 1rem 2rem;
+    margin: 1rem 0rem 1rem 2rem;
+    height: fit-content;
+}
+
+.announce-div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.announce-div img {
+    height: 30px;
+    width: 30px;
+}
+
+.announce-div p {
+    white-space: pre-line;
+}
+
+.announce-div #delete-announce-bt {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    height: 30px;
+    width: 30px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.activity-announce #new-announce-bt{
+    border-radius: 10px;
+    border: none;
+    background-color: #C0EFD8;
+    font-size: 30px;
+    font-weight: 600;
+    width: 35px; 
+    text-align: center;
+    padding: 0; 
+    cursor: pointer;
+}
+
+.activity-announce form textarea{
+    overflow-y: hidden; 
+    resize: none;
+    width: calc(100% - 120px);
+}
+
+.activity-announce form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 @media (min-width: 800px) {
     .fyi-text {
         margin-top: 1rem;
         color: #FF0000;
-        display: block; 
         text-align: left; 
     }
 
