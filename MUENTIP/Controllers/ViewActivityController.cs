@@ -51,11 +51,6 @@ namespace MUENTIP.Controllers
                 Content = announce.Content            
             }).ToListAsync();;
 
-            // var activity_card = activityFromDb.FirstOrDefault(act_card => act_card.ActivityId == activity_id);
-            // if (activity_card == null) return NotFound();
-
-            // var announcements = announcementFromDb.Where(announce => announce.ActivityId == activity_id).ToList();
-
             var model = new ViewActivityViewModel
             {
                 Card = activityFromDb,
@@ -112,7 +107,7 @@ namespace MUENTIP.Controllers
                 _context.Annoucements.Remove(dl_announcement);
                 await _context.SaveChangesAsync();
 
-                return Json(new { success = true});
+                return Json(new { success = true });
             }
             catch (Exception ex)
             {
