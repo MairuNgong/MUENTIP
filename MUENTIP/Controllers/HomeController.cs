@@ -13,7 +13,7 @@ namespace MVC_test.Controllers
         {
             _context = context;
         }
-        
+        // new push
         public IActionResult Index()
         {
             var activityFromDb = _context.Activities
