@@ -21,7 +21,7 @@ async function closeApp() {
 
     const result = await response.json()
     if (result.success) {
-        window.location.href = "/ViewActivity/";
+        window.location.href = `/ViewActivity/Index?activity_id=${id}`;
     }
     else {
         alert("No");
@@ -43,7 +43,7 @@ ActivityForm.addEventListener("submit", async function (event) {
 
     const result = await response.json();
     if (result.success) {
-        window.location.href = "/ViewActivity/";
+        window.location.href = `/ViewActivity/Index?activity_id=${model.activityId}`;
     }
     else {
 

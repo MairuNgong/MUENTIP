@@ -157,7 +157,7 @@ function view_participants() {
     parti_bt.textContent = "view";
 
     parti_bt.addEventListener("click", function(ev) {
-        window.location.href = "/";
+        window.location.href = `/Select/Index?id=${activity.activityId}`;
     });
 }
 
