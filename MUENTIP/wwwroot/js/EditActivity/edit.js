@@ -8,6 +8,26 @@ function goBack() {
         window.location.href = '/Home/';
     }
 }
+
+async function closeApp() {
+    const id = model.activityId;
+
+    console.log("hello");
+    const response = await fetch("/EditActivity/Close", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ id: id })
+    });
+
+    const result = await response.json()
+    if (result.success) {
+        window.location.href = "/ViewActivity/";
+    }
+    else {
+        alert("No");
+    }
+}
+
 ActivityForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 

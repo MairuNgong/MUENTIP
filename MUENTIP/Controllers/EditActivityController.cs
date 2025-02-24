@@ -150,5 +150,29 @@ namespace MUENTIP.Controllers
                 return Json(new { success = false, message = $"{selected_tags}" });
             }
         }
+        [HttpPost]
+        public async Task<IActionResult> Close(int id)
+        {
+            try
+            {
+                var activity = await _context.Activities.FirstOrDefaultAsync(a => a.ActivityId == id);
+
+                if (activity == null)
+                {
+                    return NotFound();
+                }
+               
+                activity.DeadlineDateTime = DateTime.UtcNow.AddDays(-1);
+                
+                _context.Activities.Update(activity);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error: {ex.Message}");
+            }
+        }
     }
 }

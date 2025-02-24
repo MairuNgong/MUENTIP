@@ -17,7 +17,7 @@
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
-    z-index: 1000;
+    z-index: 99;
 }
 
 .Banner span {
@@ -208,4 +208,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+@media (min-width: 800px) {
+    .ReturnButton {
+        margin-left: 3%;
+    }
 }
