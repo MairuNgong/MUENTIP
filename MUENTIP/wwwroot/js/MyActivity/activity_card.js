@@ -3,10 +3,6 @@ const approvedActivity = JSON.parse(JSON.stringify(activityModel)).approvedActiv
 const nonApproveActivity = JSON.parse(JSON.stringify(activityModel)).nonApproveActivity;
 const tags = JSON.parse(JSON.stringify(activityModel)).filterTags;
 
-// ดึงปุ่มทั้งหมดจากเมนู
-const buttons = document.querySelectorAll(".activity-menu li a");
-const createContainer = document.querySelector(".create-container");
-const container = document.getElementById("container");
 
 const img_people_src = "/img/people.png";
 const img_clock_src = "/img/clock.png";
@@ -14,72 +10,18 @@ const img_calendar_src = "/img/calendar.png";
 const img_location_src = "/img/location-pin.png";
 const img_arrow_src = "/img/right-arrow.png";
 
-//gobal
-let activities = [];
 
-// กำหนดค่าเริ่มต้นของ Active Tab จาก localStorage
-const savedTab = localStorage.getItem("activeTab") || "createButton";
-setActiveTab(savedTab);
+function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "") {
+    container.innerHTML = ""; // Clear existing content
 
-// กำหนด Event Listeners สำหรับปุ่มเลือกแท็บ
-document.getElementById("createButton")?.addEventListener("click", function () {
-    setActiveTab("createButton");
-});
-document.getElementById("approvedButton")?.addEventListener("click", function () {
-    setActiveTab("approvedButton");
-});
-document.getElementById("non-approvedButton")?.addEventListener("click", function () {
-    setActiveTab("non-approvedButton");
-});
-
-document.getElementById("create-button")?.addEventListener("click", function () {
-    window.location.href = ViewActivityURL;
-});
-
-function setActiveTab(selectedButtonId) {
-    buttons.forEach(button => button.classList.remove("active"));
-
-    const selectedButton = document.getElementById(selectedButtonId);
-    if (selectedButton) {
-        selectedButton.classList.add("active");
-        localStorage.setItem("activeTab", selectedButtonId); // บันทึกค่า activeTab
-    }
-
-    // แสดง/ซ่อน create-container ตามปุ่มที่เลือก
-    createContainer.style.display = selectedButtonId === "createButton" ? "flex" : "none";
-
-    
-    // ตรวจสอบค่า tab ที่ได้รับ และเลือกกิจกรรมที่จะแสดง
-    if (selectedButtonId === "createButton") {
-        activities = createdActivity;
-    }
-    else if (selectedButtonId === "approvedButton") {
-        activities = approvedActivity;
-    }
-    else if (selectedButtonId === "non-approvedButton") {
-        activities = nonApproveActivity;
-    }
-
-    // // เรียกใช้ฟังก์ชัน renderActivities ใหม่หลังจากเปลี่ยนแท็บ
-    renderActivities(container, tags);
-}
-
-function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
-    container.innerHTML = "";
-
-    console.log('activities', activities);
-
-    // console.log("ShowedtagList:", ShowedtagList);
-    
+    // Filter activities based on tags and title
     const filteredActivities = activities.filter(activity =>
-        activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
+        activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
+        activity.title.toLowerCase().includes(searchTitle.toLowerCase())  // Filter by title
     );
 
-    // console.log("Filtered Activities:", filteredActivities);
-
-    const activitiesToShow = filteredActivities.slice(0, maxActivities);;
-
-    console.log("activitiesToShow:", activitiesToShow);
+    // Limit the number of activities to show
+    const activitiesToShow = filteredActivities.slice(0, maxActivities);
 
     activitiesToShow.forEach(activity => {
         const activity_card = document.createElement("div");
@@ -229,5 +171,3 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
         container.appendChild(activity_card);
     });
 }
-
-// renderActivities(container, tags, savedTab);
