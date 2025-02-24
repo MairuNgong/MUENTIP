@@ -185,7 +185,8 @@ function createViewAllBt(container, tag_name) {
   const view_all_bt = document.createElement("button");
   const view_all_img = document.createElement("img");
   view_all_bt.textContent = "View All";
-  view_all_bt.className = "view-all-bt"
+  view_all_bt.className = "activity_card";
+  view_all_bt.id = "view-all-bt";
   view_all_img.src = "../img/view-all.png";
   view_all_bt.onclick = function() {
     window.location.href = `/ViewAll/Index?tag_name=${tag_name}`;

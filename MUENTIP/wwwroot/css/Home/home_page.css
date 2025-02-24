@@ -105,26 +105,22 @@
     background-color: #ACACAC;
 }
 
-.view-all-bt {
-    display: flex;
+#view-all-bt {
     justify-content: center;
     align-items: center;
-    height: 120px;
-    width: 356px;
     border-radius: 20px;
     border: none;
     background-color: #d9d9d9;
     font-size: 20px;
-    margin: 14px auto;
 }
 
-.view-all-bt img {
+#view-all-bt img {
     height: 40px; 
     margin-left: 20px; 
     vertical-align: middle;
 }
 
-.view-all-bt:hover {
+#view-all-bt:hover {
     text-decoration: underline;
 }
 
@@ -134,6 +130,12 @@ h1 {
 
 .act-div {
     /* background-color: #672a2a; */
+}
+
+@media (max-width: 799px) {
+    #view-all-bt {
+        height: 120px;
+    }
 }
 
 @media (min-width: 800px) {

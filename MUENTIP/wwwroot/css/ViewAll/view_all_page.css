@@ -46,3 +46,25 @@ nav {
     width: auto;
 }
 
+
+@media (min-width: 800px) {
+    .act-div {
+        /* background-color: #36672a; */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0rem 2rem; 
+        max-width: 800px; 
+        margin: 0 auto; 
+    }
+}
+
+@media (min-width: 1200px) {
+    /* .act-div {
+        background-color: #36672a;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0rem 2rem; 
+        max-width: 1200px; 
+        margin: 0 auto; 
+    } */
+}
