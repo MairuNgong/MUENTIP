@@ -28,6 +28,10 @@ namespace MUENTIP.Controllers
                 return NotFound();
             }
 
+            if (activity.DeadlineDateTime <= DateTime.Now) {
+                return Unauthorized();
+            }
+
             var user = await _userManager.GetUserAsync(User);
             if (user == null || user.Id != activity.UserId)
             {

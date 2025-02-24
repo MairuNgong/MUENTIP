@@ -151,3 +151,5 @@ function renderActivities(container, ShowedtagList, searchTerm = "", maxActiviti
 const container = document.getElementById("container");
 const searchTerm = "";  // Empty search term will show all activities
 renderActivities(container, tags, searchTerm);
+
+
