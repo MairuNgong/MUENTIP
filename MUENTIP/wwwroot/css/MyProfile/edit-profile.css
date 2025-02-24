@@ -1,5 +1,8 @@
-﻿.form-group {
+﻿@import url('https://fonts.google.com/noto/specimen/Noto+Sans+Thai');
+
+.form-group {
     margin-bottom: 15px;
+    width: 360px;
 }
 .cancel-btn {
     position: absolute;
@@ -62,7 +65,44 @@ ul li {
 ul li input[type="checkbox"] {
     margin-right: 10px;
 }
+.hot-tag-ele {
+    display: inline-block;
+    border-radius: 50px;
+    border: #000000 solid 1px;
+    padding: 5px 15px 5px 15px;
+    margin-right: 20px;
+    width: fit-content;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 400;
+    background-color: #fdfdfde0;
+    color: #000000;
+}
 
+    .hot-tag-ele a {
+        text-decoration: none;
+        color: #000000;
+    }
+
+    .hot-tag-ele:hover {
+        background-color: #ACACAC;
+    }
+.remove-tag-btn{
+    background-color: #fdfdfde0;
+    color: red;
+    border: none;
+    padding: 2px;
+    padding-right: 1px;
+    font-size: 10px;
+}
+.remove-tag-btn:hover{
+    background-color: #f81010;
+    color:#000000;
+}
+.add-btn{
+    font-size: 16px;
+    color:#5f5c5c;
+}
 button {
     background-color: #1cb88a;
     color: white;
@@ -75,6 +115,60 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+/* Tag Modal Styles */
+.tag-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+}
+
+.modal-content {
+    background-color: #E5E7E6;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    border-radius: 20px;
+    position: relative;
+}
+
+
+#availableTags {
+    list-style-type: none;
+    padding: 5px;
+    
+}
+
+#availableTags li {
+    
+    display: inline-block;
+    border-radius: 50px;
+    border: #000000 solid 1px;
+    padding: 5px 15px 5px 15px;
+    margin-right: 20px;
+    width: fit-content;
+    list-style: none;
+    font-size: 12px;
+    font-weight: 400;
+    background-color: #D1D1D1;
+}
+
+#availableTags li:hover {
+    background-color: #b5ffcb;
+}
+
+.cancel-select-tag-btn{
+    position: absolute;
+    top: 5%;
+    right: 5%; 
 }
 
 @media (min-width: 800px) {

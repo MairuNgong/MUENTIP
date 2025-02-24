@@ -1,92 +1,34 @@
-const createdActivity = JSON.parse(JSON.stringify(activityModel)).createdActivity;
-const approvedActivity = JSON.parse(JSON.stringify(activityModel)).approvedActivity;
-const nonApproveActivity = JSON.parse(JSON.stringify(activityModel)).nonApproveActivity;
-const tags = JSON.parse(JSON.stringify(activityModel)).filterTags;
+document.addEventListener("DOMContentLoaded", function () { 
+    const create_activities = JSON.parse(JSON.stringify(activityModel)).createdActivity;
+    const approve_activities = JSON.parse(JSON.stringify(activityModel)).approvedActivity;
 
-document.addEventListener("DOMContentLoaded", function () {
-    // ?????????????????????
-    const buttons = document.querySelectorAll(".activity-menu li a");
-    const createContainer = document.querySelector(".create-container");
-    const container = document.getElementById("container");
-
-    const img_people_src = "/img/people.png";
-    const img_clock_src = "/img/clock.png";
-    const img_calendar_src = "/img/calendar.png";
-    const img_location_src = "/img/location-pin.png";
-    const img_arrow_src = "/img/right-arrow.png";
-
-    // ??????????????????? Active Tab ??? localStorage
-    const savedTab = localStorage.getItem("activeTab") || "createButton";
-    setActiveTab(savedTab);
-    console.log('savedTab', savedTab);
-
-    // ????? Event Listeners ???????????????????
-    document.getElementById("createButton")?.addEventListener("click", function () {
-        setActiveTab("createButton");
-    });
-    document.getElementById("approvedButton")?.addEventListener("click", function () {
-        setActiveTab("approvedButton");
-    });
-    document.getElementById("non-approvedButton")?.addEventListener("click", function () {
-        setActiveTab("non-approvedButton");
-    });
-
-    function setActiveTab(selectedButtonId) {
-        buttons.forEach(button => button.classList.remove("active"));
-
-        const selectedButton = document.getElementById(selectedButtonId);
-        if (selectedButton) {
-            selectedButton.classList.add("active");
-            localStorage.setItem("activeTab", selectedButtonId); // ????????? activeTab
-        }
-
-        // ????/???? create-container ???????????????
-        createContainer.style.display = selectedButtonId === "createButton" ? "flex" : "none";
-
-        // ???????????????? renderActivities ??????????????????????
-        renderActivities(container, tags, selectedButtonId);
-    }
-
-    document.getElementById("create-button")?.addEventListener("click", function () {
-        window.location.href = ViewActivityURL;
-    });
-
-    function renderActivities(container, ShowedtagList, tab, maxActivities = Infinity) {
+    const tags = JSON.parse(JSON.stringify(activityModel)).interestedTags;
+    
+    const img_people_src = "../img/people.png";
+    const img_clock_src = "../img/clock.png";
+    const img_calendar_src = "../img/calendar.png";
+    const img_location_src = "../img/location-pin.png";
+    const img_arrow_src = "../img/right-arrow.png";
+  
+    function renderActivities(container, activitiesList, maxActivities = Infinity) {
+        
+        
         container.innerHTML = "";
-
-        let activities = [];
-
-        // ?????????? tab ????????? ????????????????????????
-        if (tab === "createButton") {
-            activities = createdActivity;
-        }
-        else if (tab === "approvedButton") {
-            activities = approvedActivity;
-        }
-        else if (tab === "non-approvedButton") {
-            activities = nonApproveActivity;
-        }
-
-        console.log('activities', activities);
-        const filteredActivities = activities.filter(activity =>
-            activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
-        );
-        const activitiesToShow = filteredActivities.slice(0, maxActivities);
-
-        activitiesToShow.forEach(activity => {
+    
+        activitiesList.slice(0, maxActivities).forEach(activity => {
             const activity_card = document.createElement("div");
             activity_card.className = "activity_card";
-
+    
             const left_group = document.createElement("div");
             left_group.className = "left_group";
-
+    
             const left_content_text = document.createElement("div");
             left_content_text.className = "left_content_text";
-
+    
             const title = document.createElement("div");
             title.className = "activity_title";
             title.textContent = activity.title;
-
+    
             const owner = document.createElement("div");
             const img_people = document.createElement("img");
             const owner_text = document.createElement("span");
@@ -96,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
             owner.appendChild(img_people);
             owner_text.textContent = activity.owner;
             owner.appendChild(owner_text);
-
+    
             const location = document.createElement("div");
             const img_location = document.createElement("img");
             const location_text = document.createElement("span");
@@ -106,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             location.appendChild(img_location);
             location_text.textContent = activity.location;
             location.appendChild(location_text);
-
+    
             const start_date_time = document.createElement("div");
             const img_start_date_time = document.createElement("img");
             const start_date_time_text = document.createElement("span");
@@ -116,16 +58,20 @@ document.addEventListener("DOMContentLoaded", function () {
             img_start_date_time.className = "icon";
             img_start_date_time.src = img_clock_src;
             start_date_time.appendChild(img_start_date_time);
-            let date_obj = new Date(activity.startDateTime);
-            let date = date_obj.toISOString().split("T")[0];
-            let time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
-            start_date_time_label.textContent = "start : ";
-            start_date_time_value.textContent = `${date} ${time}`;
-            start_date_time_text.appendChild(start_date_time_label);
-            start_date_time_text.appendChild(start_date_time_value);
+            let startDateTimeObj = activity.startDateTime ? new Date(activity.startDateTime) : null;
+            if (startDateTimeObj) {
+                let date = startDateTimeObj.toISOString().split("T")[0];
+                let time = startDateTimeObj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
+                start_date_time_label.textContent = "start : ";
+                start_date_time_value.textContent = `${date} ${time}`;
+                start_date_time_text.appendChild(start_date_time_label);
+                start_date_time_text.appendChild(start_date_time_value);
+            } else {
+                start_date_time_text.textContent = "Invalid start time";
+            }
             start_date_time.appendChild(start_date_time_text);
-
-
+    
+            
             const end_date_time = document.createElement("div");
             const img_end_date_time = document.createElement("img");
             const end_date_time_text = document.createElement("span");
@@ -135,16 +81,19 @@ document.addEventListener("DOMContentLoaded", function () {
             img_end_date_time.src = img_clock_src;
             end_date_time.className = "activity_detail";
             end_date_time.appendChild(img_end_date_time);
-            date_obj = new Date(activity.endDateTime);
-            date = date_obj.toISOString().split("T")[0];
-            time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
-            end_date_time_label.textContent = "end : ";
-            end_date_time_value.textContent = `${date} ${time}`;
-            end_date_time_text.appendChild(end_date_time_label);
-            end_date_time_text.appendChild(end_date_time_value);
+            let endDateTimeObj = activity.endDateTime ? new Date(activity.endDateTime) : null;
+            if (endDateTimeObj) {
+                let date = endDateTimeObj.toISOString().split("T")[0];
+                let time = endDateTimeObj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
+                end_date_time_label.textContent = "end : ";
+                end_date_time_value.textContent = `${date} ${time}`;
+                end_date_time_text.appendChild(end_date_time_label);
+                end_date_time_text.appendChild(end_date_time_value);
+            } else {
+                end_date_time_text.textContent = "Invalid end time";
+            }
             end_date_time.appendChild(end_date_time_text);
-
-
+    
             const deadline_date_time = document.createElement("div");
             const img_deadline_date_time = document.createElement("img");
             const deadline_date_time_text = document.createElement("span");
@@ -152,33 +101,37 @@ document.addEventListener("DOMContentLoaded", function () {
             img_deadline_date_time.className = "icon";
             img_deadline_date_time.src = img_calendar_src;
             deadline_date_time.appendChild(img_deadline_date_time);
-            date_obj = new Date(activity.deadlineDateTime);
+            let deadlineDateTimeObj = activity.deadlineDateTime ? new Date(activity.deadlineDateTime) : null;
             let current_date = new Date();
-            if (date_obj > current_date) {
-                deadline_date_time.style.color = "#57C543";
-                date = date_obj.toISOString().split("T")[0];
-                time = date_obj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
-                deadline_date_time_text.textContent = `open till ${date} ${time}`;
+            if (deadlineDateTimeObj) {
+                if (deadlineDateTimeObj > current_date) {
+                    deadline_date_time.style.color = "#57C543";
+                    let date = deadlineDateTimeObj.toISOString().split("T")[0];
+                    let time = deadlineDateTimeObj.toTimeString().split(" ")[0].split(":").slice(0, 2).join(":");
+                    deadline_date_time_text.textContent = `open till ${date} ${time}`;
+                } else {
+                    deadline_date_time.style.color = "#FF0000";
+                    deadline_date_time_text.textContent = "Closed";
+                }
             } else {
-                deadline_date_time.style.color = "#FF0000";
-                deadline_date_time_text.textContent = "Closed";
+                deadline_date_time_text.textContent = "Invalid deadline";
             }
             deadline_date_time.appendChild(deadline_date_time_text);
-
+    
             left_content_text.appendChild(title);
             left_content_text.appendChild(owner);
             left_content_text.appendChild(location);
             left_content_text.appendChild(start_date_time);
             left_content_text.appendChild(end_date_time);
             left_content_text.appendChild(deadline_date_time);
-
+    
             const participant = document.createElement("div");
             const img_participant = document.createElement("img");
             const participant_text = document.createElement("span");
             participant.className = "activity_participant";
             img_participant.src = img_people_src;
             participant_text.textContent = activity.applyCount + "/" + activity.applyMax;
-            if (date_obj <= current_date) {
+            if (deadlineDateTimeObj && deadlineDateTimeObj <= current_date) {
                 participant_text.style.color = "#ACACAC";
             } else if (activity.applyCount < activity.applyMax) {
                 participant_text.style.color = "#57C543";
@@ -187,10 +140,10 @@ document.addEventListener("DOMContentLoaded", function () {
             }
             participant.appendChild(img_participant);
             participant.appendChild(participant_text);
-
+    
             left_group.appendChild(left_content_text);
             left_group.appendChild(participant);
-
+    
             const left_group_and_tags = document.createElement("div");
             left_group_and_tags.className = "left_group_and_tags";
             const tags = document.createElement("div");
@@ -201,25 +154,50 @@ document.addEventListener("DOMContentLoaded", function () {
                 tag_element.textContent = tag;
                 tags.appendChild(tag_element);
             });
-
+    
             left_group_and_tags.appendChild(left_group);
             left_group_and_tags.appendChild(tags);
-
+    
             activity_card.appendChild(left_group_and_tags);
-
+    
             const enter_button = document.createElement("button");
             const img_arrow = document.createElement("img");
             img_arrow.src = img_arrow_src;
             enter_button.className = "enter_button";
             enter_button.appendChild(img_arrow);
-
+    
             enter_button.onclick = function () {
-                window.location.href = homeIndexUrl;
+                window.location.href = `/ViewActivity/Index?activity_id=${activity.activityId}`;
             };
-
+    
             activity_card.appendChild(enter_button);
             container.appendChild(activity_card);
         });
     }
+    
+    function renderCreatedActivities() {
+        const createdActivitiesContainer = document.getElementById("createActivities");
+        if (!createdActivitiesContainer) {
+            
+            return;
+        }
+        else {
+            
+            renderActivities(createdActivitiesContainer, create_activities, create_activities.length);
+        }
+        
+    }
 
+    function renderParticipatedActivities() {
+        const participatedActivitiesContainer = document.getElementById("participateActivities");
+        if (!participatedActivitiesContainer) {
+            
+            return; 
+        }
+        
+        renderActivities(participatedActivitiesContainer, approve_activities, approve_activities.length);
+    }
+  
+    renderCreatedActivities();
+    renderParticipatedActivities();
 });

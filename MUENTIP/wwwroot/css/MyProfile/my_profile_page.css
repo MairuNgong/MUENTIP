@@ -1,4 +1,6 @@
-﻿header {
+﻿@import url('https://fonts.google.com/noto/specimen/Noto+Sans+Thai');
+
+header {
     background: #a1a5a3;
     padding: 20px;
     text-align: center;

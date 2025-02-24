@@ -1,29 +1,88 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    const addTagBtn = document.getElementById('add-tag-btn');
-    const interestList = document.getElementById('interest-list');
-    const tagDropdown = document.getElementById('tag-dropdown');
+﻿const tags = JSON.parse(JSON.stringify(activityModel)).interestedTags; 
+const availableTagsObj = JSON.parse(JSON.stringify(activityModel)).availableTags;
+const availableTags = availableTagsObj.map(tag => tag.tagName); 
+console.log("availableTags", availableTags);
 
-    // เพิ่ม tag จาก dropdown ไปยังรายการที่เลือก
-    addTagBtn.addEventListener('click', function () {
-        const selectedOption = tagDropdown.selectedOptions[0];
-        if (selectedOption) {
-            const newTagName = selectedOption.value;
-            const newTagItem = document.createElement('li');
-            newTagItem.classList.add('selected-tag');
-            newTagItem.innerHTML = `
-                <span>${newTagName}</span>
-                <button type="button" class="remove-tag-btn" data-tag="${newTagName}">x</button>
-            `;
-            interestList.appendChild(newTagItem);
-        }
+document.getElementById("addTagBtn").addEventListener("click", function() {
+    openTagModal(); 
+});
+
+function openTagModal() {
+    const modal = document.getElementById("tagModal");
+    const availableTagsList = document.getElementById("availableTags");
+    availableTagsList.innerHTML = "";  
+    availableTags.forEach(function(tag) {
+        const li = document.createElement("li");
+        li.textContent = tag;
+        li.addEventListener("click", function() {
+            addTagToProfile(tag);  
+        });
+        availableTagsList.appendChild(li);
     });
 
-    // ลบ tag ที่เลือกออกจากรายการ
-    interestList.addEventListener('click', function (e) {
-        if (e.target.classList.contains('remove-tag-btn')) {
-            const tagToRemove = e.target.getAttribute('data-tag');
-            const tagItem = e.target.closest('li');
-            tagItem.remove();
+    modal.style.display = "block";  
+}
+
+function closeTagModal() {
+    const modal = document.getElementById("tagModal");
+    modal.style.display = "none"; 
+}
+
+
+function addTagToProfile(tag) {
+    if (tags.includes(tag)) {
+        alert("Tag already added");
+        return;
+    }
+
+    const tagNav = document.getElementById("tag-nav");
+    const li = document.createElement("li");
+    li.classList.add("hot-tag-ele");
+    li.textContent = tag;
+
+    const removeButton = document.createElement("button");
+    removeButton.type = "button";
+    removeButton.classList.add("remove-tag-btn");
+    removeButton.textContent = "X";
+    removeButton.addEventListener("click", function() {
+        removeTagFromProfile(tag);  
+    });
+
+    li.appendChild(removeButton);
+    tagNav.appendChild(li);
+
+    tags.push(tag);
+
+    closeTagModal(); 
+}
+
+function removeTagFromProfile(tag) {
+    const tagNav = document.getElementById("tag-nav");
+    const tagListItems = tagNav.getElementsByClassName("hot-tag-ele");
+
+    for (let i = 0; i < tagListItems.length; i++) {
+        const item = tagListItems[i];
+        if (item.textContent.includes(tag)) {
+            item.remove();
+            break;
         }
+    }
+
+    const tagIndex = tags.indexOf(tag);
+    if (tagIndex > -1) {
+        tags.splice(tagIndex, 1);
+    }
+}
+
+document.querySelector("form").addEventListener("submit", function(event) {
+    const existingTagsInputs = document.querySelectorAll("input[name='InterestedTags']");
+    existingTagsInputs.forEach(input => input.remove());
+
+    tags.forEach(tag => {
+        const tagsInput = document.createElement("input");
+        tagsInput.type = "hidden";
+        tagsInput.name = "InterestedTags";  
+        tagsInput.value = tag;  
+        this.append(tagsInput); 
     });
 });

@@ -1,4 +1,4 @@
-﻿@model MUENTIP.ViewModels.MyProfileWithActivitiesViewModel;
+﻿@model MUENTIP.ViewModels.MyProfileViewModel;
 
 @{
     ViewData["Title"] = "My Profile Page";
@@ -22,23 +22,24 @@
         <!-- Profile Information -->
         <div class="profile-card">
             <div class="profile-picture">
-                <img src="@ViewBag.ProfileImageLink" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
+                <img src="@Model.ProfileImageLink" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
             </div>
-            <h2>@ViewBag.Username</h2>
+            <h2>@Model.UserName</h2>
+            
             <div class="detail-profile">
                 
-                <p><strong>Email : </strong> @ViewBag.Email</p>
-                <p><strong>Detail : </strong> @ViewBag.Info</p>
-                <p><strong>Birthday : </strong> @ViewBag.BirthDate</p>
-                <p><strong>Gender : </strong> @ViewBag.Gender</p>
-                <p><strong>Education:</strong> @ViewBag.Education</p>
-                <p><strong>Address : </strong>@ViewBag.Address </p>
+                <p><strong>Email : </strong> @Model.Email</p>
+                <p><strong>Detail : </strong> @Model.Info</p>
+                <p><strong>Birthday : </strong> @Model.BirthDate</p>
+                <p><strong>Gender : </strong> @Model.Gender</p>
+                <p><strong>Education:</strong> @Model.Education</p>
+                <p><strong>Address : </strong>@Model.Address </p>
                 <p><strong>Interest : </strong> 
                     <ul id="tag-nav" class="tag-nav">
-                    @* @foreach (var ints_tag in Model.UserProfile.Interest) *@
-                    @* { *@
-                    @*                 <li class="hot-tag-ele">@ints_tag.TagName</li> *@
-                    @* } *@
+                    @foreach (var ints_tag in Model.InterestedTags) 
+                    { 
+                                     <li class="hot-tag-ele">@ints_tag</li> 
+                     } 
 </ul>
 
                    </p>
@@ -56,7 +57,7 @@
 
 
 
-        <div id="createActivities" class="tab-content active"></div
+        <div id="createActivities" class="tab-content active"></div>
 
         <div id="participateActivities" class="tab-content"></div>
 
@@ -64,11 +65,12 @@
 
 
 <script>
-    var activityModel = @Html.Raw(Json.Serialize(ViewBag)); // ส่งข้อมูล activityModel
-    var ViewActivityURL = "@Url.Action("Index", "ViewActivity")"; // URL สำหรับเปิดกิจกรรม
+    var activityModel = @Html.Raw(Json.Serialize(Model));
+    var ViewActivityURL = "@Url.Action("Index", "ViewActivity")"; 
 </script>
-<script src="~/js/MyProfile/activity_card.js"></script>
 <script src="~/js/MyProfile/my_profile_page.js"></script>
+<script src="~/js/MyProfile/activity_card.js"></script>
+
 
 
 
