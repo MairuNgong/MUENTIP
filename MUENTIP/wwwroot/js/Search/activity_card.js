@@ -162,7 +162,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         enter_button.appendChild(img_arrow);
 
         enter_button.onclick = function () {
-            window.location.href = homeIndexUrl;
+            window.location.href = `/ViewActivity/Index?activity_id=${activity.activityId}`;
         };
 
         activity_card.appendChild(enter_button);
