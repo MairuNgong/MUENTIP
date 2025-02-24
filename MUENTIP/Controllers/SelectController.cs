@@ -98,7 +98,7 @@ public class SelectController : Controller
         _context.ParticipateIn.Add(Participate); // Use the correct DbSet
         await _context.SaveChangesAsync();
 
-        return Ok(new { message = "User successfully added to the activity." });
+        return Ok(new { message = "User successfully added to the activitys." });
     }
 
 
