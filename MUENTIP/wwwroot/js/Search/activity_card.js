@@ -171,9 +171,26 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
 }
 
 
-// Initial call to render activities
+
 const container = document.getElementById("container");
 renderActivities(container, tags);
 
-// You can manually call the search function whenever necessary
-// Example: searchActivities();
+const back_to_top_bt = document.getElementById("back-to-top");
+const header_height = document.querySelector("header").offsetHeight;
+const target_ele = document.querySelector("header");
+var height = header_height
+
+window.onscroll = function () {
+    if (document.body.scrollTop > height ||
+        document.documentElement.scrollTop > height) {
+        back_to_top_bt.style.display = "block";
+    } else {
+        back_to_top_bt.style.display = "none";
+    }
+};
+
+back_to_top_bt.onclick = function () {
+    target_ele.scrollIntoView({
+        block: "start"
+    });
+};
