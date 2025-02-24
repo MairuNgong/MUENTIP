@@ -2,6 +2,9 @@
 @using Microsoft.AspNetCore.Identity
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
+@{
+    var user = await UserManager.GetUserAsync(User);
+}
 
 <!DOCTYPE html>
 <html lang="th">
@@ -31,8 +34,13 @@
                      class="tab-icon">
             </div>
             <div class="tab" id="profileTab">
-                <img src="~/img/default-profile.png" alt="Profile tab"
-                     class="tab-icon">
+                @if (user.ProfileImageLink != null)
+                {
+                    <img src="@user.ProfileImageLink" alt="Profile tab" class="tab-icon" style="border-radius:50%">
+                }
+                else{
+                     <img src="~/img/default-profile.png" alt="Profile tab"class="tab-icon">
+                }
             </div>
             <div class="tab" id="logoutTab">
                 <img src="~/img/out.png" alt="Logout tab"
