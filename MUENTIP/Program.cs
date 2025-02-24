@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using MUENTIP.Models;
 using Microsoft.EntityFrameworkCore;
 using MUENTIP.Data;
+using CloudinaryDotNet;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +21,17 @@ builder.Services.AddDbContext<ApplicationDBContext>(
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDBContext>()
     .AddDefaultTokenProviders();
+
+Env.Load();
+
+var cloudinaryAccount = new Account(
+    Env.GetString("CLOUDINARY_CLOUD_NAME"),
+    Env.GetString("CLOUDINARY_API_KEY"),
+    Env.GetString("CLOUDINARY_API_SECRET")
+);
+
+var cloudinary = new Cloudinary(cloudinaryAccount);
+builder.Services.AddSingleton(cloudinary);
 
 var app = builder.Build();
 
@@ -41,5 +54,7 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
 
 app.Run();
