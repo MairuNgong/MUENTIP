@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "/CreateActivity/";
     });
     profileTab.addEventListener("click", () => {
-        window.location.href = "/Profile/";
+        window.location.href = "/MyProfile/";
     });
 
     logoutTab.addEventListener("click", () => {

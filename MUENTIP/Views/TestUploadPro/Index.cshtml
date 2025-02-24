@@ -1,0 +1,27 @@
+﻿<input type="file" id="fileInput">
+<button onclick="uploadImage()">Upload</button>
+<img id="preview" style="display:none; width:100px; height:100px;">
+
+<script>
+    async function uploadImage() {
+        const fileInput = document.getElementById("fileInput");
+        const file = fileInput.files[0];
+
+        let formData = new FormData();
+        formData.append("file", file);
+
+        const response = await fetch("/TestUploadPro/Upload", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            document.getElementById("preview").src = data.imageUrl;
+            document.getElementById("preview").style.display = "block";
+        } else {
+            alert("Upload failed: " + data.message);
+        }
+    }
+
+</script>

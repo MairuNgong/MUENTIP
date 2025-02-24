@@ -3,4 +3,5 @@
 *.exe  
 *.config  
 bin/  
-obj/  
+obj/
+.env

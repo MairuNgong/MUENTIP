@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "Create Activity Page";
+}
+@using MUENTIP.ViewModels
+@model EditActivityViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit Activity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/EditActivity/edit_activity.css" />
+</head>
+<body>
+    <div class="Banner">
+        <div>
+            <button class="ReturnButton" onclick="goBack()">&#60;</button>
+            <span>Edit activity</span>
+        </div>
+        <div>
+            <button type="button" id="close-button" onclick="closeApp()">Close application</button>
+        </div>
+    </div>
+
+    <form id="ActivityForm" class="ActivityForm">
+        <label for="Title">Title</label>
+        <input type="text" id="Title" name="Title" placeholder="Title" value="@Model.Title" required>
+        <div class="DateTimeContainer">
+            <div class="DateTimeField">
+                <label for="StartDate">Start Date</label>
+                <input type="date" id="StartDate" name="StartDate" value="@Model.StartDateTime.ToString("yyyy-MM-dd")" required>
+            </div>
+            <div class="DateTimeField">
+                <label for="StartTime">Start Time</label>
+                <input type="time" id="StartTime" name="StartTime" value="@Model.StartDateTime.ToString("HH:mm")" required>
+            </div>
+        </div>
+        <div class="DateTimeContainer">
+            <div class="DateTimeField">
+                <label for="EndDate">End Date</label>
+                <input type="date" id="EndDate" name="EndDate" value="@Model.EndDateTime.ToString("yyyy-MM-dd")" required>
+            </div>
+            <div class="DateTimeField">
+                <label for="EndTime">End Time</label>
+                <input type="time" id="EndTime" name="EndTime" value="@Model.EndDateTime.ToString("HH:mm")" required>
+            </div>
+        </div>
+        <div class="PLContainer">
+            <div class="DateTimeField">
+                <label for="ApplyMax">Participants</label>
+                <input type="number" id="ApplyMax" name="ApplyMax" min="1" step="1" placeholder="1" value="@Model.ApplyMax" required>
+            </div>
+            <div class="DateTimeField">
+                <label for="Location">Location</label>
+                <input type="text" id="Location" name="Location" placeholder="KMITL" value="@Model.Location" required>
+            </div>
+        </div>
+        <div class="DateTimeContainer">
+            <div class="DateTimeField">
+                <label for="DeadLineDate">Closing Date</label>
+                <input type="date" id="DeadLineDate" name="DeadLineDate" value="@Model.DeadlineDateTime.ToString("yyyy-MM-dd")" required>
+            </div>
+            <div class="DateTimeField">
+                <label for="DeadLineTime">Closed Time</label>
+                <input type="time" id="DeadLineTime" name="DeadLineTime" value="@Model.DeadlineDateTime.ToString("HH:mm")" required>
+            </div>
+        </div>
+        <div class="tag_div">
+            <div id="filter_window">
+                <div class="filter_header">
+                    <p class="filter_title">In-use tag(s)</p>
+                </div>
+                <div class="filter_tags_group" id="inuse_group"></div>
+            </div>
+            <div id="filter_window">
+                <div class="filter_header">
+                    <p class="filter_title">Browse tags</p>
+                </div>
+                <div class="filter_tags_group" id="tags_group"></div>
+            </div>
+        </div>
+        <label for="Description">Description</label>
+        <textarea name="Description" id="autoResize" rows="1" placeholder="Type here...">@Model.Description</textarea>
+        <div class="message">
+            <p id="Message" name="Message" style="color:red"></p>
+        </div>
+        <div class="button-div">
+            <button type="button" id="cancel-button" onclick="goBack()">Cancel</button>
+            <button type="submit" id="create-button">Save</button>
+        </div>
+    </form>
+
+    <script>
+        const model = @Html.Raw(Json.Serialize(Model));
+        const tags = JSON.parse(JSON.stringify(model)).allTags;
+        const selected_tags_fromdb =  JSON.parse(JSON.stringify(model)).activityTags;
+        console.log(selected_tags_fromdb);
+    </script>
+    <script src="~/js/EditActivity/edit.js"></script>
+</body>
+</html>

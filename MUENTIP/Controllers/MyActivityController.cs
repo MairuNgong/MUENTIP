@@ -24,7 +24,7 @@ namespace MUENTIP.Controllers
 
             if (user == null)
             {
-                return NotFound(); // กลับไปหน้า login ถ้ายังไม่ได้ login
+                return NotFound();; // กลับไปหน้า login ถ้ายังไม่ได้ login
             }
 
             // โหลดข้อมูล User พร้อมกิจกรรมที่สร้างและกิจกรรมที่สมัครไว้
