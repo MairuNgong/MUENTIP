@@ -107,6 +107,8 @@ namespace MUENTIP.Controllers
                         TagsList = p.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>()
                     })
                     .ToList();
+
+                NonApprovedActivityFromDb.RemoveAll(n => ApprovedActivityFromDb.Any(a => a.ActivityId == n.ActivityId));
             }
 
             // ดึงแท็กจากฐานข้อมูล
