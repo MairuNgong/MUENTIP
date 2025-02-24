@@ -1,89 +1,109 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-#container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.activity_card{
-  display: flex;
-  flex-direction: row;
-  margin: 14px auto;
-  font-family: "Inter", Helvetica;
-  font-weight: 400;
-  width: 356px;
-  padding: 0;
-}
-.left_group_and_tags{
-  background-color: #F1F1F1;
-  width: 271px;
-  border-radius: 20px 0px 0px 20px;
-  padding: 6px 0px 6px 20px;
-}
-.left_group{
-  display: flex;
-  flex-direction: row;
+
+#container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap; /* ทำให้การ์ดสามารถขึ้นบรรทัดใหม่ได้ */
+    justify-content: center; /* จัดการ์ดให้อยู่ตรงกลาง */
+    gap: 16px;
+    margin: 1rem;
 }
 
-.left_content_text{
-  width: 180px;
+.activity_card {
+    display: flex;
+    flex-direction: row;
+    margin: 0.2rem auto;
+    font-family: "Inter", Helvetica;
+    font-weight: 400;
+    width: 356px; /* ความกว้างของการ์ด */
+    padding: 0;
+    box-sizing: border-box; /* ทำให้ padding ไม่รบกวนขนาดของการ์ด */
 }
 
-.activity_title{
-  padding-bottom: 6px;
-  color: #000000;
-  font-size: 16px;
-  letter-spacing: 0;
-  line-height: normal;
+@media (min-width: 800px) {
+    .activity_card {
+        width: calc(50% - 16px); /* กำหนดความกว้างของการ์ดเป็น 50% ของหน้าจอ */
+        }
 }
 
-.activity_detail{
-  padding: 1px 1px 0px 10px;
-  font-size: 10px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
+.left_group_and_tags {
+    background-color: #F1F1F1;
+    width: 200%;
+    border-radius: 20px 0px 0px 20px;
+    padding: 6px 0px 6px 20px;
 }
 
-.icon{
-  width: 10px;
-  padding-right: 5px;
+.left_group {
+    display: flex;
+    flex-direction: row;
 }
 
-.activity_participant{
-  width: 91px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  font-family: "Inter", Helvetica;
-  font-weight: bold;
-  font-size: 24px;
+.left_content_text {
+    width: 180px;
 }
-.activity_participant img {
-  width: 25px;
+
+.activity_title {
+    padding-bottom: 6px;
+    color: #000000;
+    font-size: 16px;
+    letter-spacing: 0;
+    line-height: normal;
 }
-.tags_group{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 12px;
-  margin-top: 3px;
+
+.activity_detail {
+    padding: 1px 1px 0px 10px;
+    font-size: 10px;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
 }
-.activity_tag{
-  padding: 4px 8px;
-  background-color: #ffffff;
-  border-radius: 50px;
-  font-size: 12px;
+
+.icon {
+    width: 10px;
+    padding-right: 5px;
 }
-.enter_button{
-  width: 100%;
-  border: 0;
-  border-radius: 0px 20px 20px 0px;;
-  background-color: #C0EFD8;
+
+.activity_participant {
+    width: 91px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Inter", Helvetica;
+    font-weight: bold;
+    font-size: 24px;
 }
-.enter_button img{
-  padding: 0.2rem;
-  width: 30px;
+
+    .activity_participant img {
+        width: 25px;
+    }
+
+.tags_group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    margin-top: 3px;
 }
-.enter_button:hover {
-  background-color: #ACACAC; /* A darker shade of  */
+
+.activity_tag {
+    padding: 4px 8px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    font-size: 12px;
 }
+
+.enter_button {
+    width: 100%;
+    border: 0;
+    border-radius: 0px 20px 20px 0px;
+    background-color: #C0EFD8;
+}
+
+    .enter_button img {
+        padding: 0.2rem;
+        width: 30px;
+    }
+
+    .enter_button:hover {
+        background-color: #ACACAC; /* A darker shade of  */
+    }
