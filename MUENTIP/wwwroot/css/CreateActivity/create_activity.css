@@ -1,10 +1,14 @@
-﻿* {
+﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+* {
     margin: 0;
     font-family: "Inter", Helvetica;
     scroll-padding-top: 70px;
     scroll-behavior: smooth;
 }
 .Banner {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: #C0EFD8;
     display: flex;
     flex-direction: row;
@@ -13,6 +17,7 @@
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
+    z-index: 99;
 }
 
 .Banner span {
@@ -41,6 +46,7 @@
     flex-direction: column;
     padding: 30px;
     margin-right: 20px;
+    margin-top: 60px;
 }
 
 .ActivityForm input{
@@ -202,4 +208,9 @@
     width: 100%;
     display: flex;
     justify-content: center;
+}
+@media (min-width: 800px) {
+    .ReturnButton {
+        margin-left: 3%;
+    }
 }

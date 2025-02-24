@@ -1,176 +1,203 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using MUENTIP.Models;
+﻿using Microsoft.AspNetCore.Mvc;
+using MUENTIP.Data;
 using MUENTIP.ViewModels;
-using MVC_test.Models;
+using Microsoft.AspNetCore.Identity;
+using MUENTIP.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace MUENTIP.Controllers
 {
     public class ViewActivityController : Controller
     {
-        public IActionResult Index(int activity_id)
+        private readonly ApplicationDBContext _context;
+        private readonly UserManager<User> _userManager;
+
+        public ViewActivityController(ApplicationDBContext context, UserManager<User> userManager)
         {
-            var sampleCards = new List<ActivityCardViewModel>
+            _context = context;
+            _userManager = userManager;
+        }
+        public async Task<IActionResult> Index(int activity_id)
+        {
+            var user = await _userManager.GetUserAsync(User);
+
+            var activityFromDb = await _context.Activities
+                                .Where(t => t.ActivityId == activity_id)
+                                .Select(t => new ActivityCardViewModel
             {
-                new ActivityCardViewModel
-                {
-                    ActivityId = 1,
-                    Title = "ตีแบตกันเว้ยเฮีย ด่วนๆๆๆๆๆมาก",
-                    Owner = "Inwza007",
-                    Location = "badminton court, kmitl",
-                    PostDateTime = "2025-03-09 10:00",
-                    StartDateTime = "2025-03-15 10:00",
-                    EndDateTime = "2025-03-15 13:00",
-                    DeadlineDateTime = "2025-03-10 10:00",
-                    ApplyCount = 1,
-                    ApplyMax = 3,
-                    TagsList = new List<string> {"Sport", "Badminton"},
-                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                },
+                ActivityId = t.ActivityId,
+                Title = t.Title,
+                Owner = t.User.UserName,
+                Location = t.Location,
+                PostDateTime = t.PostDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                StartDateTime = t.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                EndDateTime = t.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                DeadlineDateTime = t.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                ApplyMax = t.ApplyMax,
+                ApplyCount = t.Applications.Count(),
+                TagsList = t.ActivityTags != null ? t.ActivityTags.Select(at => at.Tag.TagName).ToList() : new List<string>(),
+                Description = t.Description
+            }).FirstOrDefaultAsync();
 
-                new ActivityCardViewModel
-                {
-                    ActivityId = 2,
-                    Title = "Basketball",
-                    Owner = "Inwza007",
-                    Location = "badminton court, kmitl",
-                    PostDateTime = "2025-03-14 00:00",
-                    StartDateTime = "2025-03-18 10:00",
-                    EndDateTime = "2025-03-19 13:00",
-                    DeadlineDateTime = "2025-03-15 00:00",
-                    ApplyCount = 20,
-                    ApplyMax = 11,
-                    TagsList = new List<string> {"Sport"},
-                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 3,
-                    Title = "Tech sharing",
-                    Owner = "Inwza007",
-                    Location = "badminton court, kmitl",
-                    PostDateTime = "2025-01-14 00:00",
-                    StartDateTime = "2025-01-18 10:00",
-                    EndDateTime = "2025-01-21 13:00",
-                    DeadlineDateTime = "2025-01-15 00:00",
-                    ApplyCount = 0,
-                    ApplyMax = 30,
-                    TagsList = new List<string> {"Technology"},
-                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 4,
-                    Title = "Hiking",
-                    Owner = "Inwza007",
-                    Location = "Mt. Olympus",
-                    PostDateTime = "2025-02-14 00:00",
-                    StartDateTime = "2025-03-08 10:00",
-                    EndDateTime = "2025-03-08 13:00",
-                    DeadlineDateTime = "2025-02-15 00:00",
-                    ApplyCount = 7,
-                    ApplyMax = 11,
-                    TagsList = new List<string> {"Sport","Nature","Wellness"},
-                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 5,
-                    Title = "Swimming",
-                    Owner = "Inwza007",
-                    Location = "Pool Olympus",
-                    PostDateTime = "2025-01-31 00:00",
-                    StartDateTime = "2025-03-08 10:00",
-                    EndDateTime = "2025-03-08 13:00",
-                    DeadlineDateTime = "2025-02-01 00:00",
-                    ApplyCount = 10,
-                    ApplyMax = 12,
-                    TagsList = new List<string> {"Sport","Wellness"},
-                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                },
-                new ActivityCardViewModel
-                {
-                    ActivityId = 6,
-                    Title = "Cooking class",
-                    Owner = "Inwza007",
-                    Location = "Kitchen. Olympus",
-                    PostDateTime = "2025-02-28 00:00",
-                    StartDateTime = "2025-04-08 10:00",
-                    EndDateTime = "2025-08-11 13:00",
-                    DeadlineDateTime = "2025-03-01 00:00",
-                    ApplyCount = 5,
-                    ApplyMax = 5,
-                    TagsList = new List<string> {"Cook","Food"},
-                    Description = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-                }
-            };
+            if (activityFromDb == null) return NotFound();
 
-            var sampleAnnouncements = new List<AnnouncementViewModel>
+            var announcementFromDb = await _context.Annoucements
+                                    .Where(announce => announce.ActivityId == activity_id)
+                                    .Select(announce => new AnnouncementViewModel
             {
-                new AnnouncementViewModel
+                ActivityId = announce.ActivityId,
+                AnnouncementId = announce.AnnoucementId,
+                AnnounceDate = announce.AnnouceDate.ToString("yyyy-MM-ddTHH:mm:ss"),
+                Content = announce.Content            
+            }).ToListAsync();;
+
+            bool is_applied = false;
+            if (user != null)
+            {
+                is_applied = await _context.ApplyOn
+                    .AnyAsync(a => a.UserId == user.Id && a.ActivityId == activity_id);
+            }
+
+            var participationStatus = "Not Yet";
+            var participants = await _context.ParticipateIn
+                .Where(p => p.ActivityId == activity_id)
+                .ToListAsync();
+
+            if (participants != null && user != null)
+            {
+                var participant = await _context.ParticipateIn
+                    .FirstOrDefaultAsync(p => p.UserId == user.Id && p.ActivityId == activity_id);
+                
+                if (participant != null)
                 {
-                    ActivityId = 1,
-                    AnnouncementId = 1,
-                    AnnounceDate = "2025-03-01 10:00",
-                    Content = "Join us for a fun badminton session! Sign up now. 1"
-                },
-                new AnnouncementViewModel
-                {
-                    ActivityId = 1,
-                    AnnouncementId = 2,
-                    AnnounceDate = "2025-03-01 10:00",
-                    Content = "Join us for a fun badminton session! Sign up now. 2"
-                },
-                new AnnouncementViewModel
-                {
-                    ActivityId = 1,
-                    AnnouncementId = 3,
-                    AnnounceDate = "2025-03-01 10:00",
-                    Content = "Join us for a fun badminton session! Sign up now. 3"
-                },
-                new AnnouncementViewModel
-                {
-                    ActivityId = 2,
-                    AnnouncementId = 1,
-                    AnnounceDate = "2025-03-05 10:00",
-                    Content = "Get ready for basketball! A few spots left."
-                },
-                new AnnouncementViewModel
-                {
-                    ActivityId = 3,
-                    AnnouncementId = 1,
-                    AnnounceDate = "2025-01-15 10:00",
-                    Content = "Tech sharing event coming soon. Don't miss out on the insights!"
-                },
-                new AnnouncementViewModel
-                {
-                    ActivityId = 4,
-                    AnnouncementId = 1,
-                    AnnounceDate = "2025-02-20 10:00",
-                    Content = "Prepare for an exciting hiking adventure. Limited spots available!"
-                },
-                new AnnouncementViewModel
-                {
-                    ActivityId = 5,
-                    AnnouncementId = 1,
-                    AnnounceDate = "2025-02-25 10:00",
-                    Content = "Join our swimming session at Pool Olympus! Registration is open."
+                    participationStatus = "Participating";
                 }
-            };
+                else
+                {
+                    participationStatus = "Not Participating";
+                }
+            }
 
-            var activity_card = sampleCards.FirstOrDefault(act_card => act_card.ActivityId == activity_id);
-            if (activity_card == null) return NotFound();
+            DateTime deadline;
+            bool isValidDeadline = DateTime.TryParseExact(
+                activityFromDb.DeadlineDateTime,
+                "yyyy-MM-ddTHH:mm:ss",
+                System.Globalization.CultureInfo.InvariantCulture,
+                System.Globalization.DateTimeStyles.None,
+                out deadline
+            );
 
-            var announcements = sampleAnnouncements.Where(announce => announce.ActivityId == activity_id).ToList();
-            if (!announcements.Any()) return NotFound();
+            bool out_of_date = isValidDeadline && DateTime.Compare(DateTime.Now, deadline) > 0;
 
             var model = new ViewActivityViewModel
             {
-                Card = activity_card,
-                Announcements = announcements
+                Card = activityFromDb,
+                Announcements = announcementFromDb,
+                UserName = user?.UserName,
+                IsApplyOn = is_applied ? (bool?)true : (bool?)false, 
+                ParticipationStatus = string.IsNullOrEmpty(participationStatus) ? "Not Participating" : participationStatus,  // Default to "Not Participating"
+                OutOfDate = out_of_date
             };
 
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateAnnounce(int activity_id, string content)
+        {
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null) return Json(new { success = false, message = "User not logged in." });
+                
+                var activity = _context.Activities.Find(activity_id);
+                if (activity == null) return NotFound("Activity not found.");
+
+                var announcement = new Annoucement
+                {
+                    ActivityId = activity_id,
+                    Activity = activity,
+                    AnnouceDate = DateTime.Now,
+                    Content = content
+                };
+
+                _context.Annoucements.Add(announcement);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true});
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        public async Task<IActionResult> DeleteAnnounce(int annoucement_id)
+        {
+            try
+            {
+                var dl_announcement = _context.Annoucements.Find(annoucement_id);         
+                if (dl_announcement == null) return NotFound("Announcement not found.");
+
+                _context.Annoucements.Remove(dl_announcement);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        public async Task<IActionResult> ApplyOn(int activity_id){
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null) return Json(new { success = false, message = "User not logged in." });
+                
+                var activity = _context.Activities.Find(activity_id);
+                if (activity == null) return NotFound("Activity not found.");
+
+                var apply_on = new ApplyOn
+                {
+                    ActivityId = activity_id,
+                    Activity = activity,
+                    UserId = user.Id,
+                    User = user,
+                    AppliedDate = DateTime.Now,
+                };
+
+                _context.ApplyOn.Add(apply_on);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true});
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
+        }
+
+        public async Task<IActionResult> Withdraw(int activity_id){
+            try
+            {
+                var user = await _userManager.GetUserAsync(User);
+                if (user == null) return Json(new { success = false, message = "User not logged in." });
+                
+                var apply_on = await _context.ApplyOn
+                    .FirstOrDefaultAsync(a => a.UserId == user.Id && a.ActivityId == activity_id);
+                if (apply_on == null) return Json(new { success = false, message = "User is not participating in this activity." });
+
+                _context.ApplyOn.Remove(apply_on);
+                await _context.SaveChangesAsync();
+
+                return Json(new { success = true});
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, message = ex.Message });
+            }
         }
     }
 }
