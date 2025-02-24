@@ -1,6 +1,10 @@
 var Appliers = JSON.parse(JSON.stringify(selectModel)).appliers; 
 var ApplyMax = JSON.parse(JSON.stringify(selectModel)).applyMax;
+var activity_id = JSON.parse(JSON.stringify(selectModel)).activity_id;
 
+console.log(activity_id)
+console.log(selectModel)
+console.log(ApplyMax)
 function renderApplier(container) {
   // Remove all child elements from the container to overwrite it
   container.innerHTML = "";
@@ -21,8 +25,13 @@ function renderApplier(container) {
 
     const owner = document.createElement("div");
     const img_people = document.createElement("img");
-    img_people.className = "icon";
-    img_people.src = applicant.userImgLink; // Display the applicant's profile picture
+      img_people.className = "icon";
+      if (applicant.userImgLink != null) {
+          img_people.src = applicant.userImgLink; // Display the applicant's profile picture
+      }
+      else {
+          img_people.src = "/img/default-profile.png"
+      }
     owner.className = "applicant_detail";
     owner.appendChild(img_people);
 
@@ -48,7 +57,29 @@ function renderApplier(container) {
 
     applicant_card.appendChild(left_group);
 
-    container.appendChild(applicant_card);
+      container.appendChild(applicant_card);
+
+      document.getElementById("confirmBtn").addEventListener("click", async function () {
+          // สมมติว่า `user_id` และ `activity_id` เก็บค่าไว้ในตัวแปร
+          const user_id = applicant.userId;
+          const activity_id = JSON.parse(JSON.stringify(selectModel)).activity_id; // เช่นเดียวกัน
+
+          // สร้าง FormData และเพิ่มข้อมูลที่ต้องการ
+          const formData = new FormData();
+          formData.append("user_id", user_id);
+          formData.append("activity_id", activity_id);
+
+          // ส่งคำขอ POST ไปยังเซิร์ฟเวอร์
+          const response = await fetch("/Select/select_create", {
+              method: "POST",
+              body: new URLSearchParams(formData),
+              headers: { "Content-Type": "application/x-www-form-urlencoded" }
+          });
+
+          // ตรวจสอบผลลัพธ์จากเซิร์ฟเวอร์ (ถ้าต้องการ)
+          const data = await response.json();
+          console.log(data);
+      });
 });
 
   // Add event listeners to checkboxes after rendering
@@ -79,19 +110,8 @@ document.getElementById("selectAllBtn").addEventListener("click", function() {
 
   // Update the selected count
   const checkedCheckboxes = document.querySelectorAll(".checkbox:checked").length;
-  const totalCheckboxes = ApplyMax;
+  const totalCheckboxes = Appliers.length;
   document.getElementById("selectedCount").textContent = `${checkedCheckboxes} / ${totalCheckboxes}`;
-});
-
-// Add confirmation functionality
-document.getElementById("confirmBtn").addEventListener("click", function() {
-  // Get all checked checkboxes
-  const checkedCheckboxes = document.querySelectorAll(".checkbox:checked");
-
-  // Display a confirmation message with the number of selected checkboxes
-  alert(`You have selected ${checkedCheckboxes.length} Applier(s).`);
-
-  // Optionally, you can perform additional actions here, such as sending the selected data to a server
 });
 
 // Assuming you have a container with the id "container" in your HTML
