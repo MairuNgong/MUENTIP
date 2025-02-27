@@ -149,7 +149,7 @@ function edit_activity() {
     const edit_act_bt = document.getElementById("edit-act-bt");
 
     edit_act_bt.addEventListener("click", function(ev) {
-        window.location.href = "";
+        window.location.href = `/EditActivity/Index?id=${activity.activityId}`;
     });
 }
 
@@ -157,7 +157,7 @@ function view_participants() {
     parti_bt.textContent = "view";
 
     parti_bt.addEventListener("click", function(ev) {
-        window.location.href = "/";
+        window.location.href = `/Select/Index?id=${activity.activityId}`;
     });
 }
 
@@ -165,10 +165,10 @@ render_announcement();
 
 document.addEventListener("DOMContentLoaded", function () {
     const login_popup = document.getElementById("loginPopup");
-
+    
     // owner user
     if (username === activity.owner) {
-        // edit_activity();
+        edit_activity();
         view_participants();
         add_new_announce();    
     }
