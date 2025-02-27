@@ -1,0 +1,78 @@
+﻿@model MUENTIP.ViewModels.MyProfileViewModel;
+
+@{
+    ViewData["Title"] = "My Profile Page";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/MyActivity/my_activity_page.css">
+    <link rel="stylesheet" href="~/css/MyProfile/activity_card.css">
+    <link rel="stylesheet" href="~/css/MyProfile/my_profile_page.css">
+
+</head>
+<body>
+
+        <header>Profile Page</header>
+        <button class="edit-profile-btn">Edit Profile</button>
+        <!-- Profile Information -->
+        <div class="profile-card">
+            <div class="profile-picture">
+                <img src="@Model.ProfileImageLink" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
+            </div>
+            <h2>@Model.UserName</h2>
+            
+            <div class="detail-profile">
+                
+                <p><strong>Email : </strong> @Model.Email</p>
+                <p><strong>Detail : </strong> @Model.Info</p>
+                <p><strong>Birthday : </strong> @Model.BirthDate</p>
+                <p><strong>Gender : </strong> @Model.Gender</p>
+                <p><strong>Education:</strong> @Model.Education</p>
+                <p><strong>Address : </strong>@Model.Address </p>
+                <p><strong>Interest : </strong> 
+                    <ul id="tag-nav" class="tag-nav">
+                    @foreach (var ints_tag in Model.InterestedTags) 
+                    { 
+                                     <li class="hot-tag-ele">@ints_tag</li> 
+                     } 
+</ul>
+
+                   </p>
+            </div>
+        </div>
+
+        <!-- Navigation to switch between activities -->
+        <nav class="activity-nav">
+        <ul class="activity-menu">
+            <li><a id="createTab" href="#">Create</a></li>
+            <li><a id="participateTab" href="#">Approved</a></li>
+        </ul>
+        <hr>
+    </nav>
+
+
+
+        <div id="createActivities" class="tab-content active"></div>
+
+        <div id="participateActivities" class="tab-content"></div>
+
+
+
+
+<script>
+    var activityModel = @Html.Raw(Json.Serialize(Model));
+    var ViewActivityURL = "@Url.Action("Index", "ViewActivity")"; 
+</script>
+<script src="~/js/MyProfile/my_profile_page.js"></script>
+<script src="~/js/MyProfile/activity_card.js"></script>
+
+
+
+
+</body>
+</html>
