@@ -1,5 +1,9 @@
 ﻿@import url('https://fonts.google.com/noto/specimen/Noto+Sans+Thai');
 
+* {
+    font-family: "Inter", Helvetica;
+}
+
 header {
     background: #a1a5a3;
     padding: 20px;
@@ -10,7 +14,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 99; 
 }
 
 .edit-profile-btn {

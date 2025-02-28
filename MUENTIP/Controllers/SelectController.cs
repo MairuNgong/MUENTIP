@@ -70,7 +70,6 @@ public class SelectController : Controller
 
     }
     [HttpPost]
-    [HttpPost]
     public async Task<IActionResult> select_create(string activity_id, string user_id)
     {
         if (!int.TryParse(activity_id, out int activityIds))

@@ -15,9 +15,7 @@
     <link rel="stylesheet" href="~/css/NavBar/login_register_style.css">
 </head>
 <body>
-    <main role="main">
-        @RenderBody()
-    </main>
+    @RenderBody()
     @if (SignInManager.IsSignedIn(User))
     {
         <div class="spacing"></div>
@@ -48,6 +46,9 @@
             </div>
         </div>
         <button id="menuButton" class="menu-button">&#9776;</button>
+        <script>
+            userId = "@user.Id";
+        </script>
         <script src="~/js/Component/SignIn.js"></script>
             
     }

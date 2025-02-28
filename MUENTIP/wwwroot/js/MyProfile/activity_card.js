@@ -4,11 +4,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const tags = JSON.parse(JSON.stringify(activityModel)).interestedTags;
     
-    const img_people_src = "../img/people.png";
-    const img_clock_src = "../img/clock.png";
-    const img_calendar_src = "../img/calendar.png";
-    const img_location_src = "../img/location-pin.png";
-    const img_arrow_src = "../img/right-arrow.png";
+    const img_people_src = "/img/people.png";
+    const img_clock_src = "/img/clock.png";
+    const img_calendar_src = "/img/calendar.png";
+    const img_location_src = "/img/location-pin.png";
+    const img_arrow_src = "/img/right-arrow.png";
   
     function renderActivities(container, activitiesList, maxActivities = Infinity) {
         
