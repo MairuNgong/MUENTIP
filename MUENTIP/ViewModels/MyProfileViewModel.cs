@@ -7,6 +7,7 @@ namespace MUENTIP.ViewModels
     public class MyProfileViewModel
     {
         
+        public string Id { get; set; }
         [Required]
         public string UserName { get; set; }
         public string? ProfileImageLink { get; set; }
@@ -22,6 +23,8 @@ namespace MUENTIP.ViewModels
 
         public string? Address { get; set; }
 
+        public bool showCreate { get; set; }
+        public bool showParticipate { get; set; }
         public List<string>  InterestedTags { get; set; }
         public List<ActivityCardViewModel> createdActivity { get; set; }
         public List<ActivityCardViewModel> approvedActivity { get; set; }

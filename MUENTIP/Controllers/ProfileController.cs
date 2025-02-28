@@ -4,6 +4,7 @@ using MUENTIP.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using MUENTIP.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.SignalR;
 namespace MUENTIP.Controllers
 {
     public class ProfileController : Controller
@@ -91,9 +92,9 @@ namespace MUENTIP.Controllers
                         .ToListAsync();
             var model = new MyProfileViewModel
             {
-        
+                Id = user.Id,
                 UserName = user.UserName,
-                ProfileImageLink = user.ProfileImageLink ?? "https://th.bing.com/th/id/OIP.aPBOwj8LDbYM2vElJgv_SQAAAA?rs=1&pid=ImgDetMain",
+                ProfileImageLink = user.ProfileImageLink,
                 Email = user.Email,
                 Info = user.Info,
                 BirthDate = user.BirthDate,
@@ -104,7 +105,9 @@ namespace MUENTIP.Controllers
                 createdActivity = CreatedActivityFromDb,
         
                 approvedActivity = ApprovedActivityFromDb,
-                availableTags = tagsFromDb
+                availableTags = tagsFromDb,
+                showCreate = user.ShowCreate,
+                showParticipate = user.ShowParticipate
             };
 
             return View(model);

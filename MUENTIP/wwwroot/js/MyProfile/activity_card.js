@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () { 
     const create_activities = JSON.parse(JSON.stringify(activityModel)).createdActivity;
     const approve_activities = JSON.parse(JSON.stringify(activityModel)).approvedActivity;
-
+    const showCreate = JSON.parse(JSON.stringify(activityModel)).showCreate;
+    const showParticipate = JSON.parse(JSON.stringify(activityModel)).showParticipate;
     const tags = JSON.parse(JSON.stringify(activityModel)).interestedTags;
     
     const img_people_src = "/img/people.png";
@@ -177,8 +178,9 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function renderCreatedActivities() {
         const createdActivitiesContainer = document.getElementById("createActivities");
-        if (!createdActivitiesContainer) {
-            
+        if (!isOwner && !showCreate) {
+
+            createdActivitiesContainer.innerHTML = "<div style='text-align: center; color: grey; margin-top: 20px;'>This info is private</div>";
             return;
         }
         else {
@@ -190,8 +192,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderParticipatedActivities() {
         const participatedActivitiesContainer = document.getElementById("participateActivities");
-        if (!participatedActivitiesContainer) {
-            
+        if (!isOwner && !showParticipate) {
+
+            participatedActivitiesContainer.innerHTML = "<div style='text-align: center; color: grey; margin-top: 20px;'>This info is private</div>";
             return; 
         }
         

@@ -1,7 +1,11 @@
 ﻿@model MUENTIP.ViewModels.MyProfileViewModel;
-
+@using MUENTIP.Models
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
 @{
     ViewData["Title"] = "My Profile Page";
+    var user = await UserManager.GetUserAsync(User);
+    var userId = user.Id;
 }
 
 <!DOCTYPE html>
@@ -18,22 +22,32 @@
 <body>
 
         <header>Profile Page</header>
-        <button class="edit-profile-btn">Edit Profile</button>
-        <!-- Profile Information -->
+        @if (userId == Model.Id)
+        {
+            <button class="edit-profile-btn">Edit Profile</button>
+        }
+    <!-- Profile Information -->
         <div class="profile-card">
             <div class="profile-picture">
+            @if (Model.ProfileImageLink != null)
+            {
                 <img src="@Model.ProfileImageLink" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
+            }
+            else
+            {
+                <img src="/img/default-profile.png" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
+            }
             </div>
             <h2>@Model.UserName</h2>
             
             <div class="detail-profile">
                 
                 <p><strong>Email : </strong> @Model.Email</p>
-                <p><strong>Detail : </strong> @Model.Info</p>
-                <p><strong>Birthday : </strong> @Model.BirthDate</p>
-                <p><strong>Gender : </strong> @Model.Gender</p>
-                <p><strong>Education:</strong> @Model.Education</p>
-                <p><strong>Address : </strong>@Model.Address </p>
+                <p><strong>Detail : </strong> @(Model.Info ?? "**Not added yet")</p>
+                <p><strong>Birthday : </strong> @(Model.BirthDate != null ? Model.BirthDate.Value.ToString("yyyy-MM-dd") : "**Not added yet")</p>
+                <p><strong>Gender : </strong> @(Model.Gender ?? "**Not added yet")</p>
+                <p><strong>Education : </strong> @(Model.Education ?? "**Not added yet")</p>
+                <p><strong>Address : </strong> @(Model.Address ?? "**Not added yet")</p>
                 <p><strong>Interest : </strong> 
                     <ul id="tag-nav" class="tag-nav">
                     @foreach (var ints_tag in Model.InterestedTags) 
@@ -53,21 +67,17 @@
             <li><a id="participateTab" href="#">Approved</a></li>
         </ul>
         <hr>
-    </nav>
-
-
-
+        </nav>
         <div id="createActivities" class="tab-content active"></div>
+
 
         <div id="participateActivities" class="tab-content"></div>
 
-
-
-
-<script>
-    var activityModel = @Html.Raw(Json.Serialize(Model));
-    var ViewActivityURL = "@Url.Action("Index", "ViewActivity")"; 
-</script>
+    <script>
+        var activityModel = @Html.Raw(Json.Serialize(Model));
+        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
+        var isOwner = (`@userId` == `@Model.Id`) ? true : false;
+    </script>
 <script src="~/js/MyProfile/my_profile_page.js"></script>
 <script src="~/js/MyProfile/activity_card.js"></script>
 

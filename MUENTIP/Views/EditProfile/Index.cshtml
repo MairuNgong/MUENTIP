@@ -9,7 +9,6 @@
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/css/MyProfile/my_profile_page.css">
     <link rel="stylesheet" href="~/css/MyProfile/edit-profile.css">
-    <link rel="stylesheet" href="~/css/MyProfile/filter.css">
 </head>
 
 <body>
@@ -28,12 +27,21 @@
         </div>
     </div>
 
-    <form method="post" action="@Url.Action("Index", "EditProfile")">
+    <form id="EditForm">
+        <input type="hidden" id="profileImageLink" name="ProfileImageLink">
         <div class="profile-card">
             <div class="profile-picture">
-                <img src="@Model.ProfileImageLink" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
+                @if (Model.ProfileImageLink != null)
+                {
+                    <img src="@Model.ProfileImageLink" alt="Profile Picture" id="profile-img" style="width: 150px; height: 150px; border-radius: 50%;" />
+                }
+                else
+                {
+                    <img src="/img/default-profile.png" alt="Profile Picture" id="profile-img" style="width: 150px; height: 150px; border-radius: 50%;" />
+                }
             </div>
-            <button onclick="uploadImage()">Upload</button>
+            <input type="file" id="fileInput" style="display: none;" accept="image/*" onchange="uploadImage()">
+            <button type="button" class="button" onclick="document.getElementById('fileInput').click()">Upload</button>
 
             <div class="detail-profile">
                 <div class="form-group">
@@ -53,12 +61,12 @@
 
                 <div class="form-group">
                     <label for="Birthday">Birthday : </label>
-                    <input type="date" id="Birthday" name="BirthDate" value="@Model.BirthDate" />
+                    <input type="date" id="Birthday" name="BirthDate" value="@Model.BirthDate?.ToString("yyyy-MM-dd")" />
                 </div>
 
                 <div class="form-group">
                     <label for="Gender">Gender : </label>
-                    <input type="text" id="Gender" name="Gender" value="@Model.Gender" required />
+                    <input type="text" id="Gender" name="Gender" value="@Model.Gender"/>
                 </div>
 
                 <div class="form-group">
@@ -81,16 +89,37 @@
                             </li>
                         }
                     </ul>
-                    <button type="button" id="addTagBtn" class="hot-tag-ele"><div class="add-btn">+</div></button>
+                    <button type="button"id="addTagBtn" class="hot-tag-ele"><div class="add-btn">+</div></button>
+                </div>
+                <div class="form-group">
+                    <label for="showCreate">Show your created activities? : </label>
+                    <input type="checkbox" id="showCreate" name="showCreate"
+                    @if (Model.showCreate)
+                    {
+                        @:checked
+                    }
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="showParticipate">Show your participation history?: </label>
+                    <input type="checkbox" id="showParticipate" name="showParticipate"
+                    @if (Model.showParticipate)
+                    {
+                        @:checked
+                    } 
+                    />
                 </div>
             </div>
-
+            <p id="error"></p>
             <!-- Submit Button -->
             <div class="form-group">
-                <button type="submit">Save Changes</button>
+                <button type="submit" class="button">Save Changes</button>
             </div>
         </div>
+            
     </form>
+
+   
 
     <script>
         var activityModel = @Html.Raw(Json.Serialize(Model)); 

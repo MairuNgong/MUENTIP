@@ -21,6 +21,10 @@
     border-radius: 5px;
 }
 
+.cancel-btn:hover {
+    background-color: darkred;
+}
+
 label {
     display: block;
     font-weight: bold;
@@ -92,22 +96,24 @@ ul li input[type="checkbox"] {
         background-color: #ACACAC;
     }
 .remove-tag-btn{
-    background-color: #fdfdfde0;
+
+    background-color: transparent;
+    border-radius: 50%;
     color: red;
     border: none;
-    padding: 2px;
-    padding-right: 1px;
+    padding: 3px 6px 3px 6px;
     font-size: 10px;
+    font-weight: bold;
 }
 .remove-tag-btn:hover{
-    background-color: #f81010;
+    background-color: red;
     color:#000000;
 }
 .add-btn{
     font-size: 16px;
     color:#5f5c5c;
 }
-button {
+.button {
     background-color: #1cb88a;
     color: white;
     border: none;
@@ -117,7 +123,7 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.button:hover {
     background-color: #45a049;
 }
 /* Tag Modal Styles */
@@ -158,6 +164,7 @@ button:hover {
     border: #000000 solid 1px;
     padding: 5px 15px 5px 15px;
     margin-right: 20px;
+    margin-bottom: 20px;
     width: fit-content;
     list-style: none;
     font-size: 12px;

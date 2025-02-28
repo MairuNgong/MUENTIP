@@ -5,9 +5,10 @@
     const participateTab = document.getElementById('participateTab');
     const createActivities = document.getElementById('createActivities');
     const participateActivities = document.getElementById('participateActivities');
-    editProfileBtn.addEventListener('click', function () {
-        window.location.href = "/EditProfile"; 
-    });
+    if (editProfileBtn)
+        editProfileBtn.addEventListener('click', function () {
+            window.location.href = "/EditProfile"; 
+        });
     
     
 

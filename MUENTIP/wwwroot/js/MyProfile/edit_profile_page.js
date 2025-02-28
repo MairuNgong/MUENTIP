@@ -2,7 +2,7 @@
 const availableTagsObj = JSON.parse(JSON.stringify(activityModel)).availableTags;
 const availableTags = availableTagsObj.map(tag => tag.tagName); 
 console.log("availableTags", availableTags);
-
+console.log(tags);
 document.getElementById("addTagBtn").addEventListener("click", function() {
     openTagModal(); 
 });
@@ -52,8 +52,6 @@ function addTagToProfile(tag) {
     tagNav.appendChild(li);
 
     tags.push(tag);
-
-    closeTagModal(); 
 }
 
 function removeTagFromProfile(tag) {
@@ -85,4 +83,74 @@ document.querySelector("form").addEventListener("submit", function(event) {
         tagsInput.value = tag;  
         this.append(tagsInput); 
     });
+});
+
+async function uploadImage() {
+    console.log("DONT");
+    const fileInput = document.getElementById("fileInput");
+    if (!fileInput.files.length) return;
+
+    const file = fileInput.files[0];
+    let formData = new FormData();
+    formData.append("file", file);
+
+    try {
+        const response = await fetch("/EditProfile/Image", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+            document.getElementById("profile-img").src = data.imageUrl;
+            document.getElementById("profileImageLink").value = data.imageUrl;
+        } else {
+            alert("Upload failed: " + data.message);
+        }
+    } catch (error) {
+        alert("An error occurred: " + error.message);
+    }
+}
+
+document.getElementById('EditForm').addEventListener('submit', async function (e) {
+    e.preventDefault(); // Prevent form submission
+
+    // Collect form data
+    let formData = new FormData();
+    formData.append('UserName', document.getElementById('Name').value);
+    formData.append('Email', document.getElementById('Email').value);
+    formData.append('Info', document.getElementById('Detail').value);
+    formData.append('BirthDate', document.getElementById('Birthday').value);
+    formData.append('Gender', document.getElementById('Gender').value);
+    formData.append('Education', document.getElementById('Education').value);
+    formData.append('Address', document.getElementById('Address').value);
+    formData.append('showCreate', document.getElementById('showCreate').checked);
+    formData.append('showParticipate', document.getElementById('showParticipate').checked);
+    // Handle tags
+   
+    formData.append('InterestedTags', JSON.stringify(tags));
+    console.log(JSON.stringify(tags))
+    // Handle profile image
+    let profileImageLink = document.getElementById('profileImageLink').value;
+    if (profileImageLink) {
+        formData.append('ProfileImageLink', profileImageLink);
+    }
+
+    // Send the request
+    const response = await fetch('/EditProfile/Edit', {
+        method: 'POST',
+        body: formData
+    })
+    const result = await response.json();
+    if (result.success) {
+        window.location.href = `/Profile/Index/${result.message}`;
+    }
+    else {
+        Message = document.getElementById("error");
+        while (Message.firstChild) {
+            Message.removeChild(Message.firstChild);
+        }
+        Message.style.color = "red";
+        Message.textContent = result.message;
+    }
 });
