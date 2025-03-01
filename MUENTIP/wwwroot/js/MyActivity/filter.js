@@ -47,7 +47,14 @@ tags.forEach(tag => {
 document.getElementById("filter_button").addEventListener("click", ShowFilterWindow);
 document.getElementById("close_button").addEventListener("click", CloseFilterWindow);
 
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, input, textarea");
 
-
-
-
+    elements.forEach(el => {
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        } else if (/[ก-๙]/.test(el.textContent)) { 
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        }
+    });
+});
