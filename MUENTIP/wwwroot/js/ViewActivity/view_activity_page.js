@@ -247,7 +247,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!is_apply_on && !out_of_date) {
             parti_bt.textContent = "apply";
             parti_bt.addEventListener("click", function() {
-                login_popup.style.display = "block";
+                login_popup.style.display = "flex";
             });
         }
     }
