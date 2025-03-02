@@ -33,12 +33,18 @@ header {
 #search_bar {
     display: flex;
     padding: 11px;
-    margin-left: 50px;
     background-color: #F2F2F2;
     border-radius: 15px;
     border: 0;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
     width: 270px;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
 }
 
 #search_tag {
@@ -119,7 +125,7 @@ header {
 
     #search_bar {
         background-color: #F2F2F2;
-        margin-left: calc(50vw - 245px);
+        /* margin-left: calc(50vw - 245px); */
         width: 420px;
     }
 

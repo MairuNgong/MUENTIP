@@ -1,14 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
-*{
+* {
     margin: 0;
     font-family: "Inter", Helvetica;
     scroll-padding-top: 70px;
     scroll-behavior: smooth;
 }
 
-#hot-tag-nav, section {
+.header-muentip {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 3rem;
+    background-color: #C0EFD8;
+}
+
+#hot-tag-nav,
+section {
     margin: 1rem 0rem 1rem 0rem;
     font-size: 14px;
     font-weight: bold;
@@ -40,18 +49,18 @@
     z-index: 1000;
 }
 
-.header-menu{
+.header-menu {
     display: flex;
     list-style: none;
     align-items: center;
-    /* margin-left: 1.5rem; */
+    margin-left: -30px;
 }
 
-.header-menu li{
+.header-menu li {
     margin: 1rem;
 }
 
-.header-menu li a{
+.header-menu li a {
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -63,14 +72,6 @@
     text-decoration: underline;
     text-underline-offset: 6px;
     text-decoration-thickness: 2px;
-}
-
-.header-muentip {
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-    padding: 3rem;
-    background-color: #C0EFD8;
 }
 
 .tag-nav {
@@ -93,7 +94,7 @@
     width: fit-content;
     list-style: none;
     font-size: 12px;
-    font-weight: 400; 
+    font-weight: 400;
 }
 
 .hot-tag-ele a {
@@ -115,8 +116,8 @@
 }
 
 #view-all-bt img {
-    height: 40px; 
-    margin-left: 20px; 
+    height: 40px;
+    margin-left: 20px;
     vertical-align: middle;
 }
 
@@ -143,18 +144,28 @@ h1 {
         /* background-color: #36672a; */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 0rem 2rem; 
-        max-width: 800px; 
-        margin: 0 auto; 
+        gap: 0rem 2rem;
+        max-width: 800px;
+        margin: 0 auto;
     }
 
     h1 {
         margin-left: 0;
     }
 
-    #hot-tag-nav, section {
+    #hot-tag-nav,
+    section {
         margin: 1rem 2rem 1rem 3rem;
     }
+
+    .header-menu li a {
+        font-size: 20px;
+    }
+
+    .header-menu {
+        margin-left: 0;
+    }
+
 }
 
 @media (min-width: 1200px) {
@@ -162,8 +173,8 @@ h1 {
         /* background-color: #36672a; */
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 0rem 2rem; 
-        max-width: 1200px; 
-        margin: 0 auto; 
+        gap: 0rem 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 }
