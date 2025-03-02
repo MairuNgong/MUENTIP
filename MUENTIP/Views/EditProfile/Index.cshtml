@@ -1,5 +1,10 @@
-﻿@{
+﻿@using MUENTIP.Models
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
+@{
     ViewData["Title"] = "EditProfile";
+    var user = await UserManager.GetUserAsync(User);
+    var userId = user.Id;
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +18,7 @@
 
 <body>
     <header>Edit Profile Page</header>
-    <a href="@Url.Action("Index", "Profile")" class="cancel-btn">
+    <a href="@Url.Action("Index", "Profile", new { id = userId })" class="cancel-btn">
         <button type="button" class="cancel-btn">X</button>
     </a>
 
