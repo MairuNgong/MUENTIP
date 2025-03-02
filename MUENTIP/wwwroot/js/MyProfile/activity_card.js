@@ -178,9 +178,32 @@ document.addEventListener("DOMContentLoaded", function () {
     
     function renderCreatedActivities() {
         const createdActivitiesContainer = document.getElementById("createActivities");
+        
+        createdActivitiesContainer.classList.remove("no-activities-container");
         if (!isOwner && !showCreate) {
 
             createdActivitiesContainer.innerHTML = "<div style='text-align: center; color: grey; margin-top: 20px;'>This info is private</div>";
+            return;
+        }
+        if (create_activities.length === 0) {
+
+            createdActivitiesContainer.innerHTML = "<div style='text-align: center; color: grey; margin-top: 20px;'>You haven't created in any activities yet.</div>";
+            createdActivitiesContainer.classList.add("no-activities-container");
+            if (isOwner) {
+
+                const button = document.createElement("button");
+                button.textContent = "create an activity";
+                button.className = "profile-activity-button";
+
+
+                button.onclick = function () {
+
+                    window.location.href = "/CreateActivity/";
+                };
+
+                createdActivitiesContainer.appendChild(button);
+            }
+
             return;
         }
         else {
@@ -192,11 +215,34 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function renderParticipatedActivities() {
         const participatedActivitiesContainer = document.getElementById("participateActivities");
+        
         if (!isOwner && !showParticipate) {
 
             participatedActivitiesContainer.innerHTML = "<div style='text-align: center; color: grey; margin-top: 20px;'>This info is private</div>";
             return; 
         }
+        if (approve_activities.length === 0) {
+
+            participatedActivitiesContainer.innerHTML = "<div style='text-align: center; color: grey; margin-top: 20px;'>You haven't participated in any activities yet.</div>";
+            participatedActivitiesContainer.classList.add("no-activities-container");
+            if (isOwner) {
+
+                const button = document.createElement("button");
+                button.textContent = "Join an activity";
+                button.className = "profile-activity-button";
+
+
+                button.onclick = function () {
+
+                    window.location.href = "/Home/";
+                };
+
+                participatedActivitiesContainer.appendChild(button);
+            }
+
+            return;
+        }
+        participatedActivitiesContainer.classList.remove("no-activities-container");
         
         renderActivities(participatedActivitiesContainer, approve_activities, approve_activities.length);
     }

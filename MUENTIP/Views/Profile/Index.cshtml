@@ -3,9 +3,17 @@
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<User> UserManager
 @{
-    ViewData["Title"] = "My Profile Page";
+    
     var user = await UserManager.GetUserAsync(User);
     var userId = user.Id;
+    if (userId == Model.Id)
+    {
+        ViewData["Title"] = "My Profile Page";
+    }
+    else
+    {
+        ViewData["Title"] = "View Profile Page";
+    }
 }
 
 <!DOCTYPE html>
@@ -21,7 +29,7 @@
 </head>
 <body>
 
-        <header>Profile Page</header>
+        <header>@ViewData["Title"]</header>
         @if (userId == Model.Id)
         {
             <button class="edit-profile-btn">Edit Profile</button>
