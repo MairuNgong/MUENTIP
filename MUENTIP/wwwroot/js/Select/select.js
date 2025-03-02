@@ -5,6 +5,7 @@ var activity_id = JSON.parse(JSON.stringify(selectModel)).activity_id;
 console.log(activity_id)
 console.log(selectModel)
 console.log(ApplyMax)
+
 function renderApplier(container) {
   // Remove all child elements from the container to overwrite it
   container.innerHTML = "";
@@ -35,9 +36,10 @@ function renderApplier(container) {
     owner.className = "applicant_detail";
     owner.appendChild(img_people);
 
-    const owner_text = document.createElement("span");
-    owner_text.textContent = `${applicant.userName} - ${applicant.email}`; // Display username and email
-    owner.appendChild(owner_text);
+        const owner_text = document.createElement("span");
+        owner_text.textContent = `${applicant.userName} - ${applicant.email}`; // Display username and email
+
+        owner.appendChild(owner_text);
 
     left_content_text.appendChild(owner);
 
@@ -47,10 +49,11 @@ function renderApplier(container) {
     const checkboxWrapper = document.createElement("div");
     checkboxWrapper.className = "checkbox_wrapper";
 
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.className = "checkbox";
-    checkbox.id = `checkbox-${applicant.userName}`;
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "checkbox";
+        checkbox.id = `checkbox-${applicant.userName}`; // Set ID with userName
+
 
     checkboxWrapper.appendChild(checkbox);
     left_group.appendChild(checkboxWrapper);
@@ -59,43 +62,43 @@ function renderApplier(container) {
 
       container.appendChild(applicant_card);
 
-      document.getElementById("confirmBtn").addEventListener("click", async function () {
-          // สมมติว่า `user_id` และ `activity_id` เก็บค่าไว้ในตัวแปร
-          const user_id = applicant.userId;
-          const activity_id = JSON.parse(JSON.stringify(selectModel)).activity_id; // เช่นเดียวกัน
+        document.getElementById("confirmBtn").addEventListener("click", async function () {
+            // user_id and activity_id for form data submission
+            const user_id = applicant.userId;
+            const activity_id = JSON.parse(JSON.stringify(selectModel)).activity_id;
 
-          // สร้าง FormData และเพิ่มข้อมูลที่ต้องการ
-          const formData = new FormData();
-          formData.append("user_id", user_id);
-          formData.append("activity_id", activity_id);
+            // Prepare FormData for submission
+            const formData = new FormData();
+            formData.append("user_id", user_id);
+            formData.append("activity_id", activity_id);
 
-          // ส่งคำขอ POST ไปยังเซิร์ฟเวอร์
-          const response = await fetch("/Select/select_create", {
-              method: "POST",
-              body: new URLSearchParams(formData),
-              headers: { "Content-Type": "application/x-www-form-urlencoded" }
-          });
+            // Perform POST request
+            const response = await fetch("/Select/select_create", {
+                method: "POST",
+                body: new URLSearchParams(formData),
+                headers: { "Content-Type": "application/x-www-form-urlencoded" }
+            });
 
-          // ตรวจสอบผลลัพธ์จากเซิร์ฟเวอร์ (ถ้าต้องการ)
-          const data = await response.json();
-          console.log(data);
-      });
-});
-
-  // Add event listeners to checkboxes after rendering
-  document.querySelectorAll(".checkbox").forEach(checkbox => {
-    checkbox.addEventListener("change", function() {
-      // นับจำนวน checkbox ที่ถูกเลือก
-      const checkedCheckboxes = document.querySelectorAll(".checkbox:checked").length;
-    
-      // อัพเดตจำนวนที่แสดงใน <span id="selectedCount">
-      document.getElementById("selectedCount").textContent = `${checkedCheckboxes} / ${totalCheckboxes}`;
+            // Log the response data
+            const data = await response.json();
+            console.log(data);
+        });
     });
-  });
 
-  // Initial update of selected count
-  const initialCheckedCheckboxes = document.querySelectorAll(".checkbox:checked").length;
-  document.getElementById("selectedCount").textContent = `${initialCheckedCheckboxes} / ${totalCheckboxes}`;
+    // Add event listeners to checkboxes after rendering
+    document.querySelectorAll(".checkbox").forEach(checkbox => {
+        checkbox.addEventListener("change", function () {
+            // Track the number of checked checkboxes
+            const checkedCheckboxes = document.querySelectorAll(".checkbox:checked").length;
+
+            // Update the selected count display
+            document.getElementById("selectedCount").textContent = `${checkedCheckboxes} / ${totalCheckboxes}`;
+        });
+    });
+
+    // Initial update of selected count
+    const initialCheckedCheckboxes = document.querySelectorAll(".checkbox:checked").length;
+    document.getElementById("selectedCount").textContent = `${initialCheckedCheckboxes} / ${totalCheckboxes}`;
 }
 
 // Add selectAll functionality
@@ -108,13 +111,24 @@ document.getElementById("selectAllBtn").addEventListener("click", function() {
     checkbox.checked = true;  // Check each checkbox
   });
 
-  // Update the selected count
-  const checkedCheckboxes = document.querySelectorAll(".checkbox:checked").length;
-  const totalCheckboxes = Appliers.length;
-  document.getElementById("selectedCount").textContent = `${checkedCheckboxes} / ${totalCheckboxes}`;
+    // Update the selected count
+    const checkedCheckboxes = document.querySelectorAll(".checkbox:checked").length;
+    const totalCheckboxes = Appliers.length;
+    document.getElementById("selectedCount").textContent = `${checkedCheckboxes} / ${totalCheckboxes}`;
 });
 
 // Assuming you have a container with the id "container" in your HTML
 const container = document.getElementById("container");
 renderApplier(container);
 
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, input, textarea");
+
+  elements.forEach(el => {
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+          el.style.fontFamily = '"Noto Sans Thai", serif';
+      } else if (/[ก-๙]/.test(el.textContent)) { 
+          el.style.fontFamily = '"Noto Sans Thai", serif';
+      }
+  });
+});

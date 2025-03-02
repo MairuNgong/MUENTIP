@@ -1,5 +1,4 @@
 ﻿@using MUENTIP.ViewModels
-
 @{
     ViewData["Title"] = "My Activity Page";
 }
@@ -28,7 +27,7 @@
         </ul>
     </nav>
 
-    <nav class="activity-nav">
+    <nav id="activity-nav" class="activity-nav">
         <ul class="activity-menu">
             <li><a id="createButton" href="#">Create</a></li>
             <li><a id="approvedButton" href="#">Approved</a></li>
@@ -37,41 +36,37 @@
         <hr>
     </nav>
 
-    <div class="search-and-filter">
-        <div class="search-container">
-            <input type="text" placeholder="stand-in" name="search">
-            <button type="submit">
-                <img src="../img/search.png" alt="Search Icon">
+    <div class="search-container">
+        <div style="display: flex; align-items: center;">
+            <input type="text" id="search_bar" placeholder="Search..." style="padding: 10px;" />
+            <button id="search_button" style="display: inline-block">
+                <img src="../img/search.png" width="20px" />
             </button>
-        </div>
-
-        <div class="filter-container">
-            <button id="filter_button">
+            <button id="filter_button" style="display: inline-block">
                 <img src="../img/filter.png" />
             </button>
+        </div>
 
-            <div id="filter_window" style="display: none">
-                <div class="filter_header">
-                    <p class="filter_title">Apply filter</p>
-                    <button id="close_button">
-                        <img src="../img/filter.png" />
-                    </button>
-                </div>
-                <div class="filter_tags_group" id="tags_group"></div>
+        <div id="filter_window" style="display: none">
+            <div class="filter_header">
+                <p class="filter_title">Apply filter</p>
+                <button id="close_button">
+                    <img src="../img/filter.png" />
+                </button>
             </div>
+            <div class="filter_tags_group" id="tags_group"></div>
         </div>
     </div>
 
-    <div class="create-container">
-        <div class="create-inner">
-            <button id="create-button">
-                <img src="../img/Plus.png">
-            </button>
+    <div  class="create-container">
+        <div id="create-button">
+            <img src="../img/Plus.png">
         </div>
     </div>
-    
-    <div id="container"></div>
-    
+
+    <div class="container" id="container"></div>
+
+    <button id="back-to-top"><img src="~/img/back-to-top.png" /></button>
 
     <script>
         var activityModel = @Html.Raw(Json.Serialize(Model));
@@ -80,6 +75,7 @@
 
     <script src="~/js/MyActivity/activity_card.js"></script>
     <script src="~/js/MyActivity/filter.js"></script>
+    <script src="~/js/MyActivity/myAct_page.js"></script>
 </body>
 
 </html>
