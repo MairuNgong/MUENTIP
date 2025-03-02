@@ -57,6 +57,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=SearchPage}/{action=Index}/{id?}");
+    pattern: "{controller=Select}/{action=Index}/{id?}");
 
 app.Run();
