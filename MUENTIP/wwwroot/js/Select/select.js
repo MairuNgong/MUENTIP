@@ -1,4 +1,4 @@
-var Appliers = JSON.parse(JSON.stringify(selectModel)).appliers;
+var Appliers = JSON.parse(JSON.stringify(selectModel)).appliers; 
 var ApplyMax = JSON.parse(JSON.stringify(selectModel)).applyMax;
 var activity_id = JSON.parse(JSON.stringify(selectModel)).activity_id;
 
@@ -7,47 +7,47 @@ console.log(selectModel)
 console.log(ApplyMax)
 
 function renderApplier(container) {
-    // Remove all child elements from the container to overwrite it
-    container.innerHTML = "";
+  // Remove all child elements from the container to overwrite it
+  container.innerHTML = "";
 
-    // Track the total number of activities (checkboxes)
-    const totalCheckboxes = Appliers.length;
+  // Track the total number of activities (checkboxes)
+  const totalCheckboxes = Appliers.length;
 
-    // Iterate over the activities (we are only displaying owner info now)
-    Appliers.forEach(applicant => {
-        const applicant_card = document.createElement("div");
-        applicant_card.className = "applicant_card";
+  // Iterate over the activities (we are only displaying owner info now)
+  Appliers.forEach(applicant => {
+    const applicant_card = document.createElement("div");
+    applicant_card.className = "applicant_card";
 
-        const left_group = document.createElement("div");
-        left_group.className = "left_group";
+    const left_group = document.createElement("div");
+    left_group.className = "left_group";
 
-        const left_content_text = document.createElement("div");
-        left_content_text.className = "left_content_text";
+    const left_content_text = document.createElement("div");
+    left_content_text.className = "left_content_text";
 
-        const owner = document.createElement("div");
-        const img_people = document.createElement("img");
-        img_people.className = "icon";
-        if (applicant.userImgLink != null) {
-            img_people.src = applicant.userImgLink; // Display the applicant's profile picture
-        }
-        else {
-            img_people.src = "/img/default-profile.png"
-        }
-        owner.className = "applicant_detail";
-        owner.appendChild(img_people);
+    const owner = document.createElement("div");
+    const img_people = document.createElement("img");
+      img_people.className = "icon";
+      if (applicant.userImgLink != null) {
+          img_people.src = applicant.userImgLink; // Display the applicant's profile picture
+      }
+      else {
+          img_people.src = "/img/default-profile.png"
+      }
+    owner.className = "applicant_detail";
+    owner.appendChild(img_people);
 
         const owner_text = document.createElement("span");
         owner_text.textContent = `${applicant.userName} - ${applicant.email}`; // Display username and email
 
         owner.appendChild(owner_text);
 
-        left_content_text.appendChild(owner);
+    left_content_text.appendChild(owner);
 
-        left_group.appendChild(left_content_text);
+    left_group.appendChild(left_content_text);
 
-        // Add checkbox
-        const checkboxWrapper = document.createElement("div");
-        checkboxWrapper.className = "checkbox_wrapper";
+    // Add checkbox
+    const checkboxWrapper = document.createElement("div");
+    checkboxWrapper.className = "checkbox_wrapper";
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -55,12 +55,12 @@ function renderApplier(container) {
         checkbox.id = `checkbox-${applicant.userName}`; // Set ID with userName
 
 
-        checkboxWrapper.appendChild(checkbox);
-        left_group.appendChild(checkboxWrapper);
+    checkboxWrapper.appendChild(checkbox);
+    left_group.appendChild(checkboxWrapper);
 
-        applicant_card.appendChild(left_group);
+    applicant_card.appendChild(left_group);
 
-        container.appendChild(applicant_card);
+      container.appendChild(applicant_card);
 
         document.getElementById("confirmBtn").addEventListener("click", async function () {
             // user_id and activity_id for form data submission
@@ -102,14 +102,14 @@ function renderApplier(container) {
 }
 
 // Add selectAll functionality
-document.getElementById("selectAllBtn").addEventListener("click", function () {
-    // Get all checkboxes within the container
-    const checkboxes = document.querySelectorAll(".checkbox");
+document.getElementById("selectAllBtn").addEventListener("click", function() {
+  // Get all checkboxes within the container
+  const checkboxes = document.querySelectorAll(".checkbox");
 
-    // Loop through all checkboxes and set the "checked" property to true
-    checkboxes.forEach(checkbox => {
-        checkbox.checked = true;  // Check each checkbox
-    });
+  // Loop through all checkboxes and set the "checked" property to true
+  checkboxes.forEach(checkbox => {
+    checkbox.checked = true;  // Check each checkbox
+  });
 
     // Update the selected count
     const checkedCheckboxes = document.querySelectorAll(".checkbox:checked").length;
@@ -120,3 +120,15 @@ document.getElementById("selectAllBtn").addEventListener("click", function () {
 // Assuming you have a container with the id "container" in your HTML
 const container = document.getElementById("container");
 renderApplier(container);
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, input, textarea");
+
+  elements.forEach(el => {
+      if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+          el.style.fontFamily = '"Noto Sans Thai", serif';
+      } else if (/[ก-๙]/.test(el.textContent)) { 
+          el.style.fontFamily = '"Noto Sans Thai", serif';
+      }
+  });
+});

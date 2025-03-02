@@ -74,8 +74,8 @@ document.getElementById("search_button").addEventListener("click", search_apply)
 
 document.getElementById("filter_button").addEventListener("click", ShowFilterWindow);
 document.getElementById("close_button").addEventListener("click", CloseFilterWindow);
-document.getElementById("search_bar").addEventListener("keypress", (event) => {
-    if (event.key === "Enter") {
-        search_apply();
-    }
-});
+
+
+
+
+

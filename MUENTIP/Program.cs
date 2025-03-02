@@ -12,38 +12,34 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuthentication()
     .AddCookie();
 
-builder.Services.AddDbContext<ApplicationDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
+builder.Services.AddDbContext<ApplicationDBContext>(
+    options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+
 
 builder.Services.AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDBContext>()
     .AddDefaultTokenProviders();
 
-Env.Load(); // Load environment variables
+Env.Load();
 
-// Register Cloudinary as a singleton service
 var cloudinaryAccount = new Account(
     Env.GetString("CLOUDINARY_CLOUD_NAME"),
     Env.GetString("CLOUDINARY_API_KEY"),
     Env.GetString("CLOUDINARY_API_SECRET")
 );
-var cloudinary = new Cloudinary(cloudinaryAccount);
-builder.Services.AddSingleton(cloudinary); // Register Cloudinary
 
-// Register EmailService as a transient service
-builder.Services.AddTransient<EmailService>(); // Register EmailService
+var cloudinary = new Cloudinary(cloudinaryAccount);
+builder.Services.AddSingleton(cloudinary);
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseDeveloperExceptionPage(); // Detailed error pages in development
-}
-else
+if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -57,6 +53,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Select}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
