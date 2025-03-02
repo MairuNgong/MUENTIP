@@ -1,6 +1,4 @@
-﻿// Create Activities
-
-const activities = JSON.parse(JSON.stringify(activityModel)).cards;
+﻿const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
 
 const img_people_src = "../img/people.png";
@@ -151,5 +149,3 @@ function renderActivities(container, ShowedtagList, searchTerm = "", maxActiviti
 const container = document.getElementById("container");
 const searchTerm = "";  // Empty search term will show all activities
 renderActivities(container, tags, searchTerm);
-
-
