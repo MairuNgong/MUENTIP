@@ -62,7 +62,7 @@
 
                 const result = await response.json();
                 if (result.success) {
-                    window.location.href = "/MyProfile/";
+                    window.location.href = `/Profile/Index/${result.message}`;
                 }
                 else
                 {

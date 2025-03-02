@@ -32,7 +32,7 @@ public class AccountController : Controller
         var result = await _signInManager.PasswordSignInAsync(user.UserName, password, false, false);
         if (result.Succeeded)
         {
-            return Json(new { success = true });
+            return Json(new { success = true, message = user.Id });
         }
         return Json(new { success = false, message = "Wrong username or password." });
     }

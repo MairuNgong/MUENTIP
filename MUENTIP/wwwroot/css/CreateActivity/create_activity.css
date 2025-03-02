@@ -10,6 +10,7 @@
 .Banner {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background-color: #C0EFD8;
     display: flex;
@@ -33,12 +34,12 @@
     font-weight: bold;
     cursor: pointer;
     padding: 5px 10px;
-    color: #333; /* Adjust color */
+    color: #333; 
 }
 
-    .ReturnButton:hover {
-        opacity: 0.7;
-    }
+.ReturnButton:hover {
+    opacity: 0.7;
+}
 
 .ActivityForm {
     font-size: 16px;
@@ -213,6 +214,6 @@
 }
 @media (min-width: 800px) {
     .ReturnButton {
-        margin-left: 3%;
+        margin-left: 50px;
     }
 }

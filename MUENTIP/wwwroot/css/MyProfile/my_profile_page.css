@@ -1,22 +1,22 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
-*{
+* {
     font-family: "Inter", Helvetica;
-    scroll-padding-top: 70px;
 }
 
 header {
-    background: #a1a5a3;
-    padding: 20px;
+    background: #C0EFD8;
+    padding: 20px 0px;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
-    position: fixed; 
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 1000; 
+    z-index: 99;
 }
 
 .edit-profile-btn {
@@ -30,6 +30,11 @@ header {
     right: 10px; 
     top: 90px; 
     transform: translateY(-50%); 
+    cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+    background-color: #016332;
 }
 
 .profile-card {
@@ -90,3 +95,33 @@ header {
         display: block;
     }
 
+@media (min-width: 800px) {
+    .menu-button {
+        display: block; /* Show menu button */
+        position: fixed;
+        width: 70px;
+        top: 10px;
+        left: 0;
+        z-index: 100;
+    }
+
+    .tab-bar.hidden {
+        transform: translateX(-100%);
+    }
+
+    .tab-bar {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: auto;
+        max-width: 70px;
+        height: 100%;
+        padding: 10px 0;
+        box-shadow: 4px 0 40px rgba(0, 0, 0, 0.2);
+        transition: transform 0.1s ease;
+        padding-top: 70px;
+    }
+}

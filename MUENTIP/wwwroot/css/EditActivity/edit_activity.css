@@ -11,6 +11,7 @@
 .Banner {
     position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
     background-color: #C0EFD8;
     display: flex;
@@ -237,6 +238,6 @@
 
 @media (min-width: 800px) {
     .ReturnButton {
-        margin-left: 3%;
+        margin-left: 50px;
     }
 }
