@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 #container{
-  border: #000000 1px solid;
+  /* border: #000000 1px solid; */
   display: flex;
   flex-direction: column;
   justify-content: center;

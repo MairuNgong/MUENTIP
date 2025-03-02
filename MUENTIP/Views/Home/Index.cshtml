@@ -3,19 +3,29 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/css/Home/activity_card.css" />
     <link rel="stylesheet" href="~/css/Home/home_page.css" />
 </head>
+
 <body>
     <header class="header-muentip">MUENTIP</header>
     <nav class="header-nav">
-        <ul class="header-menu">
+        @* <ul class="header-menu">
             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
             <li><a href="@Url.Action("Index", "MyActivity")">My Activity</a></li>
+        </ul> *@
+        <ul class="header-menu">
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <li><a href="@Url.Action("Index", "MyActivity")">My Activity</a></li>
+            }
         </ul>
+
     </nav>
     <nav id="hot-tag-nav">
         <h1>Hot Topic</h1>
@@ -29,6 +39,7 @@
     <script>
         var activityModel = @Html.Raw(Json.Serialize(Model));
         var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
+        var CreateActivity = "@Url.Action("Index", "CreateActivity")";
     </script>
     <script src="~/js/Home/activity_card.js"></script>
     <script src="~/js/Home/home_page.js"></script>
