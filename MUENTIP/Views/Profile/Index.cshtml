@@ -53,7 +53,7 @@
                 <p><strong>Email : </strong> @Model.Email</p>
                 <p><strong>Detail : </strong> @(Model.Info ?? "**Not added yet")</p>
                 <p><strong>Birthday : </strong> @(Model.BirthDate != null ? Model.BirthDate.Value.ToString("yyyy-MM-dd") : "**Not added yet")</p>
-                <p><strong>Gender : </strong> @(Model.Gender ?? "**Not added yet")</p>
+                <p><img src= "~\wwwroot\img\gender_icon.png" class="img-icon-profile"/> @(Model.Gender ?? "**Not added yet")</p>
                 <p><strong>Education : </strong> @(Model.Education ?? "**Not added yet")</p>
                 <p><strong>Address : </strong> @(Model.Address ?? "**Not added yet")</p>
                 <p><strong>Interest : </strong> 
