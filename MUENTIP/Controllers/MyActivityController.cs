@@ -84,12 +84,10 @@ namespace MUENTIP.Controllers
                         EndDateTime = apply.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         DeadlineDateTime = apply.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         ApplyMax = apply.Activity.ApplyMax,
-                        ApplyCount = apply.Activity.Applications.Count(),
+                        ApplyCount = _context.ApplyOn.Count(a => a.ActivityId == apply.ActivityId),
                         TagsList = apply.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>(),
                     })
                     .ToList();
-
-                // return Ok(NonApprovedActivityFromDb);
 
                 ApprovedActivityFromDb = userClass.Participations
                     .Where(p => p.Activity != null)
@@ -103,20 +101,13 @@ namespace MUENTIP.Controllers
                         EndDateTime = p.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         DeadlineDateTime = p.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         ApplyMax = p.Activity.ApplyMax,
-                        ApplyCount = p.Activity.Applications.Count(),
+                        ApplyCount = _context.ApplyOn.Count(a => a.ActivityId == p.ActivityId),
                         TagsList = p.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>()
                     })
                     .ToList();
 
                 NonApprovedActivityFromDb.RemoveAll(n => ApprovedActivityFromDb.Any(a => a.ActivityId == n.ActivityId));
             }
-            // return Ok(new
-            // {
-            //     UserName = user.UserName,
-            //     NonApprovedActivities = NonApprovedActivityFromDb,
-            //     ApprovedActivities = ApprovedActivityFromDb
-            // });
-
 
             // ดึงแท็กจากฐานข้อมูล
             var tagsFromDb = await _context.Tags
