@@ -24,7 +24,7 @@ namespace MUENTIP.Controllers
 
             if (user == null)
             {
-                return NotFound();; // กลับไปหน้า login ถ้ายังไม่ได้ login
+                return NotFound(); ; // กลับไปหน้า login ถ้ายังไม่ได้ login
             }
 
             // โหลดข้อมูล User พร้อมกิจกรรมที่สร้างและกิจกรรมที่สมัครไว้
@@ -110,6 +110,13 @@ namespace MUENTIP.Controllers
 
                 NonApprovedActivityFromDb.RemoveAll(n => ApprovedActivityFromDb.Any(a => a.ActivityId == n.ActivityId));
             }
+            // return Ok(new
+            // {
+            //     UserName = user.UserName,
+            //     NonApprovedActivities = NonApprovedActivityFromDb,
+            //     ApprovedActivities = ApprovedActivityFromDb
+            // });
+
 
             // ดึงแท็กจากฐานข้อมูล
             var tagsFromDb = await _context.Tags
