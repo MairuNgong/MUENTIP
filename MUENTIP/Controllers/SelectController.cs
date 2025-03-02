@@ -97,7 +97,18 @@ public class SelectController : Controller
         _context.ParticipateIn.Add(Participate); // Use the correct DbSet
         await _context.SaveChangesAsync();
 
-        return Ok(new { message = "User successfully added to the activitys." });
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == user_id);
+        if (user != null)
+        {
+            // Customize the email content as needed
+            string subject = "Successfully Added to Activity";
+            string body = $"Hello Test Email Sending2";
+
+            // Call the EmailService to send the email
+            await _emailService.SendEmailAsync(user.Email, subject, body);
+        }
+
+        return Ok(new { message = "User successfully added to the activity." });
     }
 
 
