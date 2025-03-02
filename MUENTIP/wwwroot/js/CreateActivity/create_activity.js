@@ -21,7 +21,7 @@ ActivityForm.addEventListener("submit", async function (event) {
 
     const result = await response.json();
     if (result.success) {
-        window.location.href = "/ViewActivity/";
+        window.location.href = `/ViewActivity/Index?activity_id=${result.activityId}`;
     }
     else {
 
@@ -89,3 +89,15 @@ const removeTag = (tag) => {
     });
     updateInUseGroup();
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, input, textarea");
+
+    elements.forEach(el => {
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        } else if (/[ก-๙]/.test(el.textContent)) { 
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        }
+    });
+});

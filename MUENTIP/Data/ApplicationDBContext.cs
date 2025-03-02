@@ -21,6 +21,5 @@ namespace MUENTIP.Data
         public DbSet<InterestIn> InterestIn { get; set; }
         public DbSet<ParticipateIn> ParticipateIn { get; set;}
 
-
     }
 }

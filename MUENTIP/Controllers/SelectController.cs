@@ -69,7 +69,6 @@ public class SelectController : Controller
 
         return View(model);
     }
-
     [HttpPost]
     public async Task<IActionResult> select_create(string activity_id, string user_id)
     {

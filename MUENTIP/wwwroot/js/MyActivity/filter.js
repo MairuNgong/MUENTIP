@@ -44,6 +44,34 @@ tags.forEach(tag => {
     tags_group.appendChild(tag_element);
 });
 
+
+const search_apply = () => {
+    const searchTerm = document.getElementById("search_bar").value.trim().toLowerCase();
+    console.log("Searching for:", searchTerm);
+
+    // Filter activities based on the search term matching the title and having a non-empty title
+    const filteredActivities = activities.filter(activity =>
+        activity.title && activity.title.toLowerCase().includes(searchTerm)
+    );
+
+    // Log the number of filtered activities
+    console.log(`Filtered activities count: ${filteredActivities.length}`);
+
+    // Optionally display the count on the page
+    const countDisplay = document.getElementById("filtered_count"); 
+    if (countDisplay) {
+        countDisplay.textContent = `Found ${filteredActivities.length} activities`;
+    }
+    filteredActivities.forEach(activity => {
+        console.log(`Activity: ${activity.title}, Tag: ${activity.tag}`);
+    });
+
+    // Render only the filtered activities based on title match
+    renderActivities(document.getElementById("container"), tags, filteredActivities.length, searchTerm);
+}
+
+document.getElementById("search_button").addEventListener("click", search_apply);
+
 document.getElementById("filter_button").addEventListener("click", ShowFilterWindow);
 document.getElementById("close_button").addEventListener("click", CloseFilterWindow);
 

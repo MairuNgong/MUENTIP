@@ -15,12 +15,15 @@ namespace MUENTIP.Models
 
         public string? Address { get; set; }
 
-        public virtual ICollection<Activity> CreatedActivities { get; set; } // Navigation property
+        public virtual ICollection<Activity> CreatedActivities { get; set; } // Navigation property สร้าง
 
-        public virtual ICollection<ApplyOn> Applications { get; set; } // Many-to-Many relation
+        public virtual ICollection<ApplyOn> Applications { get; set; } // Many-to-Many relation, nonapprroved
 
-        public virtual ICollection<ParticipateIn> Participations { get; set; }
+        public virtual ICollection<ParticipateIn> Participations { get; set; } //apprroved
 
         public virtual ICollection<InterestIn> InterestedTags { get; set; }
+
+        public bool ShowCreate { get; set; } = true;
+        public bool ShowParticipate { get; set; } = true;
     }
 }

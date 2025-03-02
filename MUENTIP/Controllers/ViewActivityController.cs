@@ -103,22 +103,22 @@ namespace MUENTIP.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateAnnounce(int activity_id, string content)
+        public async Task<IActionResult> CreateAnnounce(int ActivityId, string Content)
         {
             try
             {
                 var user = await _userManager.GetUserAsync(User);
                 if (user == null) return Json(new { success = false, message = "User not logged in." });
                 
-                var activity = _context.Activities.Find(activity_id);
+                var activity = _context.Activities.Find(ActivityId);
                 if (activity == null) return NotFound("Activity not found.");
 
                 var announcement = new Annoucement
                 {
-                    ActivityId = activity_id,
+                    ActivityId = ActivityId,
                     Activity = activity,
                     AnnouceDate = DateTime.Now,
-                    Content = content
+                    Content = Content
                 };
 
                 _context.Annoucements.Add(announcement);
