@@ -24,7 +24,7 @@ namespace MUENTIP.Controllers
 
             if (user == null)
             {
-                return NotFound();; // กลับไปหน้า login ถ้ายังไม่ได้ login
+                return NotFound(); ; // กลับไปหน้า login ถ้ายังไม่ได้ login
             }
 
             // โหลดข้อมูล User พร้อมกิจกรรมที่สร้างและกิจกรรมที่สมัครไว้
@@ -84,12 +84,10 @@ namespace MUENTIP.Controllers
                         EndDateTime = apply.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         DeadlineDateTime = apply.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         ApplyMax = apply.Activity.ApplyMax,
-                        ApplyCount = apply.Activity.Applications.Count(),
+                        ApplyCount = _context.ApplyOn.Count(a => a.ActivityId == apply.ActivityId),
                         TagsList = apply.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>(),
                     })
                     .ToList();
-
-                // return Ok(NonApprovedActivityFromDb);
 
                 ApprovedActivityFromDb = userClass.Participations
                     .Where(p => p.Activity != null)
@@ -103,7 +101,7 @@ namespace MUENTIP.Controllers
                         EndDateTime = p.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         DeadlineDateTime = p.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         ApplyMax = p.Activity.ApplyMax,
-                        ApplyCount = p.Activity.Applications.Count(),
+                        ApplyCount = _context.ApplyOn.Count(a => a.ActivityId == p.ActivityId),
                         TagsList = p.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>()
                     })
                     .ToList();
