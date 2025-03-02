@@ -115,7 +115,7 @@ public class SelectController : Controller
         {
             // Customize the email content as needed
             string subject = "Successfully Added to Activity";
-            string body = $"Hello Test Email Sending";
+            string body = $"Hello Test Email Sending2";
 
             // Call the EmailService to send the email
             await _emailService.SendEmailAsync(user.Email, subject, body);
