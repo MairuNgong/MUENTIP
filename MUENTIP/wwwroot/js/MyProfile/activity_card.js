@@ -183,6 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isOwner && !showCreate) {
 
             createdActivitiesContainer.innerHTML = "<div style='text-align: center; color: grey; margin-top: 20px;'>This info is private</div>";
+            participatedActivitiesContainer.classList.add("no-activities-container");
             return;
         }
         if (create_activities.length === 0) {
@@ -219,6 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!isOwner && !showParticipate) {
 
             participatedActivitiesContainer.innerHTML = "<div style='text-align: center; color: grey; margin-top: 20px;'>This info is private</div>";
+            participatedActivitiesContainer.classList.add("no-activities-container");
             return; 
         }
         if (approve_activities.length === 0) {

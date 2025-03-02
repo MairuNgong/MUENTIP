@@ -151,6 +151,7 @@ ul li input[type="checkbox"] {
 }
 
 
+
 #availableTags {
     list-style-type: none;
     padding: 5px;
@@ -180,6 +181,12 @@ ul li input[type="checkbox"] {
     position: absolute;
     top: 5%;
     right: 5%; 
+}
+input[type="checkbox"] {
+    width: 15px; 
+    height: 15px; 
+    transform: scale(1.5); 
+    margin-right: 10px; 
 }
 
 @media (min-width: 800px) {

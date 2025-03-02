@@ -92,22 +92,26 @@
                     <button type="button"id="addTagBtn" class="hot-tag-ele"><div class="add-btn">+</div></button>
                 </div>
                 <div class="form-group">
-                    <label for="showCreate">Show your created activities? : </label>
-                    <input type="checkbox" id="showCreate" name="showCreate"
-                    @if (Model.showCreate)
-                    {
-                        @:checked
-                    }
-                    />
+                    <label for="showCreate"><input type="checkbox" id="showCreate" name="showCreate"
+                        @if (Model.showCreate)
+                        {
+                            @:checked
+                        }
+                    /> Show your created activities? </label>
+                    
                 </div>
                 <div class="form-group">
-                    <label for="showParticipate">Show your participation history?: </label>
-                    <input type="checkbox" id="showParticipate" name="showParticipate"
-                    @if (Model.showParticipate)
-                    {
-                        @:checked
-                    } 
-                    />
+                    
+                    <label for="showParticipate">
+                        <input type="checkbox" id="showParticipate" name="showParticipate"
+                            @if (Model.showParticipate)
+                            {
+                                @:checked
+                            } 
+                        />
+                        Show your participation history?
+                    </label>
+                    
                 </div>
             </div>
             <p id="error"></p>
