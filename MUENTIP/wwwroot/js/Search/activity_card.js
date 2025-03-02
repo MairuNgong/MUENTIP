@@ -9,22 +9,14 @@ const img_location_src = "../img/location-pin.png";
 const img_arrow_src = "../img/right-arrow.png";
 
 // Function to render activities based on tags and title search
-function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "", Notfull = false) {
+function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "") {
     container.innerHTML = ""; // Clear existing content
 
     // Filter activities based on tags and title
-    let filteredActivities = activities.filter(activity =>
+    const filteredActivities = activities.filter(activity =>
         activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
         activity.title.toLowerCase().includes(searchTitle.toLowerCase())  // Filter by title
     );
-
-    // ??? Notfull ???? true ????????????????????????????????
-    if (Notfull) {
-        filteredActivities = filteredActivities.filter(activity => activity.applyCount < activity.applyMax);
-    }
-    else {
-        filteredActivities = activities;
-    }
 
     // Limit the number of activities to show
     const activitiesToShow = filteredActivities.slice(0, maxActivities);
@@ -81,6 +73,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         start_date_time_text.appendChild(start_date_time_value);
         start_date_time.appendChild(start_date_time_text);
 
+
         const end_date_time = document.createElement("div");
         const img_end_date_time = document.createElement("img");
         const end_date_time_text = document.createElement("span");
@@ -98,6 +91,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         end_date_time_text.appendChild(end_date_time_label);
         end_date_time_text.appendChild(end_date_time_value);
         end_date_time.appendChild(end_date_time_text);
+
 
         const deadline_date_time = document.createElement("div");
         const img_deadline_date_time = document.createElement("img");
@@ -178,7 +172,6 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
 
 
 
-
 const container = document.getElementById("container");
 renderActivities(container, tags);
 
@@ -201,3 +194,15 @@ back_to_top_bt.onclick = function () {
         block: "start"
     });
 };
+
+document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, input, textarea");
+
+    elements.forEach(el => {
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        } else if (/[ก-๙]/.test(el.textContent)) { 
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        }
+    });
+});

@@ -119,7 +119,7 @@ namespace MUENTIP.Controllers
                     await _context.SaveChangesAsync();
                 }
 
-                return Json(new { success = true});
+                return Json(new { success = true, activityId = activity.ActivityId });
             }
             catch (Exception ex)
             {
