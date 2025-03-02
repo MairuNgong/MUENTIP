@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 
@@ -16,7 +15,6 @@ header {
     top: 0;
     left: 0;
     width: 100%;
-    z-index: 99;
 }
 
 .edit-profile-btn {
@@ -26,7 +24,7 @@ header {
     background-color: #00ff80;
     color: black;
     border: none;
-    position: absolute;
+    position: fixed;
     right: 10px;
     top: 90px;
     transform: translateY(-50%);
@@ -56,6 +54,31 @@ header {
     display: flex;
     flex-direction: column;
     padding: 20px;
+}
+
+    .detail-profile p {
+        margin: 5px 0;
+        font-size: 16px;
+        display: flex;
+        align-items: center; /* Vertically align the icon with text */
+    }
+
+.about-me-info {
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+    .about-me-info p {
+        width: 70vw;
+    }
+
+.img-icon-profile {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-color: white;
+    padding: 5px
 }
 
 .profile-picture img {

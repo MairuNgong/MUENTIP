@@ -9,21 +9,22 @@
     width: 360px;
 }
 .cancel-btn {
-    position: absolute;
-    top: 40px;
-    right: 10px;
-    background-color: red;
-    color: white;
+    background: none;
     border: none;
-    padding: 5px 10px;
+    font-size: 30px;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 14px;
-    border-radius: 5px;
+    padding: 5px 10px;
+    color: #333;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 100;
 }
 
-.cancel-btn:hover {
-    background-color: darkred;
-}
+    .cancel-btn:hover {
+        background-color: #54dd90;
+    }
 
 label {
     display: block;
@@ -58,7 +59,6 @@ textarea {
 .form-group, label, input, select, button {
     margin-left: auto;
     margin-right: auto;
-   
 }
 
 ul {
@@ -66,13 +66,13 @@ ul {
     padding: 0;
 }
 
-ul li {
-    margin-bottom: 5px;
-}
+    ul li {
+        margin-bottom: 5px;
+    }
 
-ul li input[type="checkbox"] {
-    margin-right: 10px;
-}
+        ul li input[type="checkbox"] {
+            margin-right: 10px;
+        }
 .hot-tag-ele {
     display: inline-block;
     border-radius: 50px;
@@ -95,8 +95,8 @@ ul li input[type="checkbox"] {
     .hot-tag-ele:hover {
         background-color: #ACACAC;
     }
-.remove-tag-btn{
 
+.remove-tag-btn {
     background-color: transparent;
     border-radius: 50%;
     color: red;
@@ -105,10 +105,10 @@ ul li input[type="checkbox"] {
     font-size: 10px;
     font-weight: bold;
 }
-.remove-tag-btn:hover{
-    background-color: red;
-    color:#000000;
-}
+    .remove-tag-btn:hover{
+        background-color: red;
+        color:#000000;
+    }
 .add-btn{
     font-size: 16px;
     color:#5f5c5c;
@@ -123,9 +123,9 @@ ul li input[type="checkbox"] {
     cursor: pointer;
 }
 
-.button:hover {
-    background-color: #45a049;
-}
+    .button:hover {
+        background-color: #45a049;
+    }
 /* Tag Modal Styles */
 .tag-modal {
     display: none; /* Hidden by default */
@@ -137,7 +137,6 @@ ul li input[type="checkbox"] {
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    
 }
 
 .modal-content {
@@ -155,41 +154,43 @@ ul li input[type="checkbox"] {
 #availableTags {
     list-style-type: none;
     padding: 5px;
-    
 }
 
-#availableTags li {
-    
-    display: inline-block;
-    border-radius: 50px;
-    border: #000000 solid 1px;
-    padding: 5px 15px 5px 15px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    width: fit-content;
-    list-style: none;
-    font-size: 12px;
-    font-weight: 400;
-    background-color: #D1D1D1;
-}
+    #availableTags li {
+        display: inline-block;
+        border-radius: 50px;
+        border: #000000 solid 1px;
+        padding: 5px 15px 5px 15px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        width: fit-content;
+        list-style: none;
+        font-size: 12px;
+        font-weight: 400;
+        background-color: #D1D1D1;
+    }
 
-#availableTags li:hover {
-    background-color: #b5ffcb;
-}
+        #availableTags li:hover {
+            background-color: #b5ffcb;
+        }
 
-.cancel-select-tag-btn{
+.cancel-select-tag-btn {
     position: absolute;
     top: 5%;
-    right: 5%; 
+    right: 5%;
 }
+
 input[type="checkbox"] {
-    width: 15px; 
-    height: 15px; 
-    transform: scale(1.5); 
-    margin-right: 10px; 
+    width: 15px;
+    height: 15px;
+    transform: scale(1.5);
+    margin-right: 10px;
 }
 
 @media (min-width: 800px) {
+    .cancel-btn {
+        margin-left: 50px;
+    }
     .form-group {
         margin-bottom: 20px;
     }

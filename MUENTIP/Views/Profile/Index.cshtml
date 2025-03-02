@@ -3,7 +3,7 @@
 @using Microsoft.AspNetCore.Identity
 @inject UserManager<User> UserManager
 @{
-    
+
     var user = await UserManager.GetUserAsync(User);
     var userId = user.Id;
     if (userId == Model.Id)
@@ -30,38 +30,45 @@
 <body>
 
         <header>@ViewData["Title"]</header>
-        @if (userId == Model.Id)
-        {
-            <button class="edit-profile-btn">Edit Profile</button>
-        }
+    @if (userId == Model.Id)
+    {
+                <button class="edit-profile-btn">Edit Profile</button>
+    }
     <!-- Profile Information -->
         <div class="profile-card">
             <div class="profile-picture">
             @if (Model.ProfileImageLink != null)
             {
-                <img src="@Model.ProfileImageLink" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
+                    <img src="@Model.ProfileImageLink" alt="Profile Picture"  />
             }
             else
             {
-                <img src="/img/default-profile.png" alt="Profile Picture" style="width: 150px; height: 150px; border-radius: 50%;" />
+                    <img src="/img/default-profile.png" alt="Profile Picture"  />
             }
             </div>
             <h2>@Model.UserName</h2>
-            
+
+            <div class="about-me-info">
+
+                    <p>@(Model.Info ?? "**Not added yet")</p>
+                </div>
             <div class="detail-profile">
-                
-                <p><strong>Email : </strong> @Model.Email</p>
-                <p><strong>Detail : </strong> @(Model.Info ?? "**Not added yet")</p>
-                <p><strong>Birthday : </strong> @(Model.BirthDate != null ? Model.BirthDate.Value.ToString("yyyy-MM-dd") : "**Not added yet")</p>
-                <p><img src= "~\wwwroot\img\gender_icon.png" class="img-icon-profile"/> @(Model.Gender ?? "**Not added yet")</p>
-                <p><strong>Education : </strong> @(Model.Education ?? "**Not added yet")</p>
-                <p><strong>Address : </strong> @(Model.Address ?? "**Not added yet")</p>
+
+                <p><img src= "\img\email_icon.jpg" class="img-icon-profile"/>@Model.Email</p>
+
+                <p><img src= "\img\date_icon.png" class="img-icon-profile"/> @(Model.BirthDate != null ? Model.BirthDate.Value.ToString("yyyy-MM-dd") : "**Not added yet")</p>
+                <p><img src= "\img\gender_icon.png" class="img-icon-profile"/> @(Model.Gender ?? "**Not added yet")</p>
+                <p><img src= "\img\education_icon.png" class="img-icon-profile"/> @(Model.Education ?? "**Not added yet")</p>
+                <p><img src= "\img\address_icon.png" class="img-icon-profile"/>@(Model.Address ?? "**Not added yet")</p>
+
+
+
                 <p><strong>Interest : </strong> 
                     <ul id="tag-nav" class="tag-nav">
-                    @foreach (var ints_tag in Model.InterestedTags) 
+                    @foreach (var ints_tag in Model.InterestedTags)
                     { 
-                                     <li class="hot-tag-ele">@ints_tag</li> 
-                     } 
+                                         <li class="hot-tag-ele">@ints_tag</li> 
+                    } 
 </ul>
 
                    </p>
