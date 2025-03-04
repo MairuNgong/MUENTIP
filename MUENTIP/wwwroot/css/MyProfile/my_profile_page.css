@@ -21,8 +21,8 @@ header {
     border-radius: 10px;
     padding: 10px 15px;
     margin-top: 10px;
-    background-color: #00ff80;
-    color: black;
+    background-color: #1cb88a;
+    color: white;
     border: none;
     position: fixed;
     right: 10px;
@@ -56,12 +56,12 @@ header {
     padding: 20px;
 }
 
-    .detail-profile p {
-        margin: 5px 0;
-        font-size: 16px;
-        display: flex;
-        align-items: center; /* Vertically align the icon with text */
-    }
+.detail-profile p {
+    margin: 5px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center; /* Vertically align the icon with text */
+}
 
 .about-me-info {
     padding-top: 15px;
@@ -114,9 +114,9 @@ header {
     display: none;
 }
 
-    .tab-content.active {
-        display: block;
-    }
+.tab-content.active {
+    display: block;
+}
 
 .profile-activity-button {
     border-radius: 10px;
@@ -145,41 +145,11 @@ header {
         max-width: 800px;
         margin: 0 auto;
     }
-
-    .menu-button {
-        display: block; /* Show menu button */
-        position: fixed;
-        width: 70px;
-        top: 10px;
-        left: 0;
-        z-index: 100;
-    }
-
-    .tab-bar.hidden {
-        transform: translateX(-100%);
-    }
-
-    .tab-bar {
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        position: fixed;
-        left: 0;
-        top: 0;
-        bottom: auto;
-        max-width: 70px;
-        height: 100%;
-        padding: 10px 0;
-        box-shadow: 4px 0 40px rgba(0, 0, 0, 0.2);
-        transition: transform 0.1s ease;
-        padding-top: 70px;
-    }
 }
 
 @media (min-width: 1200px) {
 
     .tab-content.active {
-        /* background-color: #36672a; */
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 0rem 2rem;

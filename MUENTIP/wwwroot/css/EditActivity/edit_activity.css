@@ -21,7 +21,6 @@
     padding: 10px;
     font-size: 20px;
     font-weight: bold;
-    z-index: 99;
 }
 
 .Banner span {
@@ -177,7 +176,6 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    position: relative;
 }
 
 .filter_tag {
@@ -190,7 +188,7 @@
     cursor: pointer;
 }
 
-.inuse_tag {
+.inuse_tag {  
     font-size: 12px;
     display: inline-flex;
     align-items: center;
@@ -238,6 +236,6 @@
 
 @media (min-width: 800px) {
     .ReturnButton {
-        margin-left: 50px;
+      margin-left: 60px;
     }
 }
