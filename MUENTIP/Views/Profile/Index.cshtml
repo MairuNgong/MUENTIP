@@ -1,0 +1,111 @@
+﻿@model MUENTIP.ViewModels.MyProfileViewModel;
+@using MUENTIP.Models
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
+@{
+
+    var user = await UserManager.GetUserAsync(User);
+    var userId = user.Id;
+    if (userId == Model.Id)
+    {
+        ViewData["Title"] = "My Profile Page";
+    }
+    else
+    {
+        ViewData["Title"] = "View Profile Page";
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/MyActivity/my_activity_page.css">
+    <link rel="stylesheet" href="~/css/MyProfile/activity_card.css">
+    <link rel="stylesheet" href="~/css/MyProfile/my_profile_page.css">
+
+</head>
+<body>
+
+        <header>@ViewData["Title"]</header>
+    @if (userId == Model.Id)
+    {
+                <button class="edit-profile-btn">Edit Profile</button>
+    }
+    <!-- Profile Information -->
+        <div class="profile-card">
+            <div class="profile-picture">
+            @if (Model.ProfileImageLink != null)
+            {
+                    <img src="@Model.ProfileImageLink" alt="Profile Picture"  />
+            }
+            else
+            {
+                    <img src="/img/default-profile.png" alt="Profile Picture"  />
+            }
+            </div>
+            <h2>@Model.UserName</h2>
+
+            <div class="about-me-info">
+
+                    @if (Model.Info != null) 
+                    {
+                        <p>@Model.Info</p>
+                    } 
+                    else 
+                    {
+                        <p style="color: grey;">**Not added yet**</p>
+                    }
+
+                </div>
+            <div class="detail-profile">
+
+                <p><img src= "\img\email_icon.jpg" class="img-icon-profile"/>@Model.Email</p>
+
+                <p><img src= "\img\date_icon.png" class="img-icon-profile"/> @(Model.BirthDate != null ? Model.BirthDate.Value.ToString("yyyy-MM-dd") : "**Not added yet")</p>
+                <p><img src= "\img\gender_icon.png" class="img-icon-profile"/> @(Model.Gender ?? "**Not added yet")</p>
+                <p><img src= "\img\education_icon.png" class="img-icon-profile"/> @(Model.Education ?? "**Not added yet")</p>
+                <p><img src= "\img\address_icon.png" class="img-icon-profile"/>@(Model.Address ?? "**Not added yet")</p>
+
+
+
+                <p><strong>Interest : </strong> 
+                    <ul id="tag-nav" class="tag-nav">
+                    @foreach (var ints_tag in Model.InterestedTags)
+                    { 
+                                         <li class="hot-tag-ele">@ints_tag</li> 
+                    } 
+</ul>
+
+                   </p>
+            </div>
+        </div>
+
+        <!-- Navigation to switch between activities -->
+        <nav class="activity-nav">
+        <ul class="activity-menu">
+            <li><a id="createTab" href="#">Create</a></li>
+            <li><a id="participateTab" href="#">Participate</a></li>
+        </ul>
+        <hr>
+        </nav>
+        <div id="createActivities" class="tab-content active"></div>
+
+
+        <div id="participateActivities" class="tab-content"></div>
+
+    <script>
+        var activityModel = @Html.Raw(Json.Serialize(Model));
+        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
+        var isOwner = (`@userId` == `@Model.Id`) ? true : false;
+    </script>
+<script src="~/js/MyProfile/my_profile_page.js"></script>
+<script src="~/js/MyProfile/activity_card.js"></script>
+
+
+
+
+</body>
+</html>

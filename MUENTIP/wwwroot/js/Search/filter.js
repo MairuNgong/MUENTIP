@@ -44,6 +44,28 @@ tags.forEach(tag => {
     tags_group.appendChild(tag_element);
 });
 
+const NotFullButton = document.getElementById("Not_full_Only");
+
+let notFullActive = false; // ???????????? false
+
+NotFullButton.addEventListener("click", () => {
+    notFullActive = !notFullActive; // ??????? true <-> false
+
+    console.log(notFullActive); // ?????? true ???? false ????????????
+
+    const container = document.getElementById("container");
+
+    if (notFullActive) {
+        // ?????????????????????????????
+        const filteredActivities = activities.filter(activity => activity.applyCount < activity.applyMax);
+        renderActivities(container, tags, filteredActivities.length, "", true);
+    } else {
+        // ??????????????????
+        renderActivities(container, tags);
+    }
+});
+
+
 
 const search_apply = () => {
     const searchTerm = document.getElementById("search_bar").value.trim().toLowerCase();
@@ -81,10 +103,3 @@ document.getElementById("search_bar").addEventListener("keypress", (event) => {
         search_apply();
     }
 });
-
-
-
-
-
-
-

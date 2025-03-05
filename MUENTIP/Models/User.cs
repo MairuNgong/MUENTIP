@@ -22,5 +22,8 @@ namespace MUENTIP.Models
         public virtual ICollection<ParticipateIn> Participations { get; set; } //apprroved
 
         public virtual ICollection<InterestIn> InterestedTags { get; set; }
+
+        public bool ShowCreate { get; set; } = true;
+        public bool ShowParticipate { get; set; } = true;
     }
 }
