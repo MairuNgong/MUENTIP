@@ -50,7 +50,15 @@
 
             <div class="about-me-info">
 
-                    <p>@(Model.Info ?? "**Not added yet")</p>
+                    @if (Model.Info != null) 
+                    {
+                        <p>@Model.Info</p>
+                    } 
+                    else 
+                    {
+                        <p style="color: grey;">**Not added yet**</p>
+                    }
+
                 </div>
             <div class="detail-profile">
 
