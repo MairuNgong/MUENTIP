@@ -8,6 +8,10 @@
     scroll-behavior: smooth;
 }
 
+body {
+    background-image: url("/img/muen-tip-bg.png");
+}
+
 nav {
     background-color: #707070;
     max-width: 100%;
@@ -34,6 +38,7 @@ nav {
 
 .header-menu li {
     margin: 0 1rem;
+    font-size: 20px;
 }
 
 .header-menu li:first-child {
@@ -46,10 +51,24 @@ nav {
     width: auto;
 }
 
+.filter-div {
+    margin: 1.5rem 1rem 1.5rem 2rem;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.not-found {
+    font-size: 14px;
+    text-align: center;
+}
 
 @media (min-width: 800px) {
     .act-div {
-        /* background-color: #36672a; */
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 0rem 2rem; 
@@ -59,12 +78,11 @@ nav {
 }
 
 @media (min-width: 1200px) {
-    /* .act-div {
-        background-color: #36672a;
+    .act-div {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 0rem 2rem; 
         max-width: 1200px; 
         margin: 0 auto; 
-    } */
+    }
 }

@@ -4,5 +4,6 @@ namespace MUENTIP.ViewModels
     {
         public string TagName { get; set; }
         public List<ActivityCardViewModel> Cards { get; set; }
+        public List<TagFilterViewModel> FilterTags { get; set; }
     }
 }

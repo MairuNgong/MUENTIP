@@ -1,5 +1,6 @@
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
-const tags = JSON.parse(JSON.stringify(activityModel)).tags;
+const tag = JSON.parse(JSON.stringify(activityModel)).tagName;
+const filter_tags = JSON.parse(JSON.stringify(activityModel)).filterTags;
 
 const img_people_src = "../img/people.png";
 const img_clock_src = "../img/clock.png";
@@ -8,11 +9,41 @@ const img_location_src = "../img/location-pin.png";
 const img_arrow_src = "../img/right-arrow.png";
 
 function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
-  container.innerHTML = "";
-  
-  const activitiesToShow = activities;
+    container.innerHTML = "";
 
-  activitiesToShow.forEach(activity => {
+    let filteredActivities = [];
+
+    if (ShowedtagList === "Realtime" || ShowedtagList.length === filter_tags.length) {
+        filteredActivities = activities;
+    } else {
+        if (typeof ShowedtagList === "string") {
+            ShowedtagList = [ShowedtagList]; 
+        }
+    
+        if (Array.isArray(ShowedtagList) && ShowedtagList.length > 0) {
+            filteredActivities = activities.filter(activity =>
+                ShowedtagList.every(showedTag =>
+                    activity.tagsList.includes(
+                        typeof showedTag === "string" ? showedTag : showedTag.tagName
+                    )
+                )
+            );
+        } else {
+            filteredActivities = activities;
+        }
+    }    
+
+    const activitiesToShow = filteredActivities.slice(0, maxActivities);
+
+    if (activitiesToShow.length == 0) {
+        const not_found = document.createElement("p");
+        not_found.className = "not-found";
+        not_found.textContent = "There are currently no activities you are looking for.";
+        container.appendChild(not_found);
+        return;
+    }
+
+    activitiesToShow.forEach(activity => {
       const activity_card = document.createElement("div");
       activity_card.className = "activity_card";
 
@@ -158,9 +189,20 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
 
       activity_card.appendChild(enter_button);
       container.appendChild(activity_card);
+      applyFontFamilyToText(activity_card);
   });
+}
+
+function applyFontFamilyToText(activity_card) {
+    const elements = activity_card.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6");
+    
+    elements.forEach(el => {
+        if (/[ก-๙]/.test(el.textContent)) { 
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        }
+    });   
 }
 
 const act_container = document.getElementById("act-div");
 
-renderActivities(act_container, tags);
+renderActivities(act_container, tag);
