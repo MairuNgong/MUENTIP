@@ -8,12 +8,14 @@
 
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"] - MUENTIP</title>
     <link rel="stylesheet" href="~/css/NavBar/login_register_style.css">
 </head>
+
 <body>
     @RenderBody()
     @if (SignInManager.IsSignedIn(User))
@@ -28,21 +30,20 @@
                 <img src="~/img/search.png" alt="Search tab" class="tab-icon">
             </div>
             <div class="tab" id="creatActivityTab">
-                <img src="~/img/edit.png" alt="create activitys tab"
-                     class="tab-icon">
+                <img src="~/img/edit.png" alt="create activitys tab" class="tab-icon">
             </div>
             <div class="tab" id="profileTab">
                 @if (user.ProfileImageLink != null)
                 {
                     <img src="@user.ProfileImageLink" alt="Profile tab" class="tab-icon" style="border-radius:50%">
                 }
-                else{
-                     <img src="~/img/default-profile.png" alt="Profile tab"class="tab-icon">
+                else
+                {
+                    <img src="~/img/default-profile.png" alt="Profile tab" class="tab-icon">
                 }
             </div>
             <div class="tab" id="logoutTab">
-                <img src="~/img/out.png" alt="Logout tab"
-                     class="tab-icon">
+                <img src="~/img/out.png" alt="Logout tab" class="tab-icon">
             </div>
         </div>
         <button id="menuButton" class="menu-button">&#9776;</button>
@@ -50,7 +51,7 @@
             userId = "@user.Id";
         </script>
         <script src="~/js/Component/SignIn.js"></script>
-            
+
     }
     else
     {
@@ -69,20 +70,33 @@
         </div>
         <button id="menuButton" class="menu-button">&#9776;</button>
 
+
+
         <div id="loginPopup" class="popup">
             <div class="popup-content">
-                <span class="close-btn" id="closePopup">&times;</span>
-                <h2>Login</h2>
-                <form id="loginForm">
-                    <label for="loginInput">Username / Email</label>
-                    <input type="text" id="loginInput" name="loginInput" placeholder="Username or Email" required>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Password" required>
-                    <p id="LoginMessage" name="LoginMessage" style="color:red"></p>
-                    <button type="submit">Login</button>
-                </form>
-                <div class="register">
-                    <a href="#" id="registerLink">Register</a>
+                <div class="left-container">
+                    <p class="welcome-text">Welcome!</p>
+                    <div class="pic-logo">
+                        <img class="login-image" src="~/img/10000tip2.png" alt="Logo10000tip">
+                    </div>
+                    <p class="findFrind-text">Find friends to hang out with MUENTIP.</p>
+                </div>
+
+                <div class="form-container">
+                    <span class="close-btn" id="closePopup">&times;</span>
+                    <h2>Login</h2>
+                    <form id="loginForm">
+                        <label for="loginInput">Username / Email</label>
+                        <input type="text" id="loginInput" name="loginInput" placeholder="Username or Email" required>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Password" required>
+                        <p id="LoginMessage" name="LoginMessage" style="color:red"></p>
+                        <button type="submit">Login</button>
+                    </form>
+                    <div class="register">
+                        <p>Not a member yet?</p>
+                        <a href="#" id="registerLink">Register</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,7 +114,8 @@
                     <label for="registerPassword">Password</label>
                     <input type="password" id="registerPassword" name="registerPassword" placeholder="Password" required>
                     <label for="registerConfirmPassword">Confirm Password</label>
-                    <input type="password" id="registerConfirmPassword" name="registerConfirmPassword" placeholder="Confirm Password" required>
+                    <input type="password" id="registerConfirmPassword" name="registerConfirmPassword"
+                        placeholder="Confirm Password" required>
                     <p id="RegisterMessage" name="RegisterMessage" style="color:red;padding:10px 0;"> </p>
                     <button type="submit">Register</button>
                 </form>
@@ -122,4 +137,5 @@
         });
     </script>
 </body>
+
 </html>
