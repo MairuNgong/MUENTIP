@@ -113,19 +113,19 @@ public class SelectController : Controller
         if (user != null)
         {
             // Customize the email content as needed
-            string subject = "🎉 ขอแสดงความยินดี! ท่านได้รับการคัดเลือกเข้าร่วมกิจกรรม \"Easy Money With Game\" 🎮💰";
+            string subject = "🎉 Congratulations! You've Been Selected for the {activity.Title} Event!";
 
-            string body = $@"<p>เรียนท่าน {user.UserName},</p>
+            string body = $@"<p>Dear {user.UserName},</p>
 
-                        <p style='font-size:18px;'><strong>🎊 ขอแสดงความยินดีอย่างยิ่ง! 🎊</strong></p>
+                            <p style='font-size:18px;'><strong>🎊 A Huge Congratulations! 🎊</strong></p>
 
-                        <p>ท่านได้รับการคัดเลือกให้เข้าร่วมกิจกรรม <strong>""{activity.Title}""</strong> 
-                        ที่จะมอบทั้งความสนุกและความบันเทิงให้ท่านแบบจัดเต็ม! 🎮✨</p>
+                            <p>You have been selected to participate in the <strong>""{activity.Title}""</strong> 
+                            event, where fun and entertainment await you! ✨</p>
 
-                        <p><strong>เตรียมตัวให้พร้อม แล้วมาสนุกไปด้วยกันนะ! 😆🎯</strong></p>
+                            <p><strong>Get ready and join us for an exciting experience! 😆🎯</strong></p>
 
-                        <p>ขอแสดงความนับถือ,<br>
-                        [MUENTIP]</p>";
+                            <p>Best regards,<br>
+                            [MUENTIP]</p>";
 
 
             // Call the EmailService to send the email
