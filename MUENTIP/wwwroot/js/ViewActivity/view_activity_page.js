@@ -238,7 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
         } 
         else if (!is_apply_on && !out_of_date) {
             parti_bt.textContent = "apply";
-            parti_bt.className = "participants-bt-2";
+            parti_bt.className = "participants-bt-1";
     
             parti_bt.addEventListener("click", async function (ev) {
                 ev.preventDefault();
