@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 #filter_button {
-  background-color: #D9D9D9;
+  background-color: #ffffff;
   display: inline-block;
   border-radius: 50px;
-  border: none;
+  border: #000000 solid 1px;
   padding: 5px 15px 5px 15px;
   margin-right: 20px;
   width: fit-content;
@@ -22,9 +22,8 @@
   background:none;
   border: 0;
   cursor: pointer;
-}
-#close_button img{
-  width: 32px;
+  font-size: 20px;
+  font-weight: bold;
 }
 #filter_window{
   border-radius: 15px;
@@ -41,7 +40,7 @@
   justify-content: center;
 }
 .filter_header{
-  padding: 0px 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;

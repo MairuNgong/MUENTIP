@@ -23,14 +23,24 @@ const ApplyFilter = (tag, tag_element) => {
     FilterActivity(selected_tags);  // Apply the filter with the accumulated tags
 };
 
+let showWindow = false;
+
 const ShowFilterWindows = () => {
+  if (showWindow === false){
+    showWindow = true;
     filter_button.style.border = "2px solid black";
     const filterWindow = document.getElementById("filter_window");
-    filterWindow.style.display = "block";  // Show the window
-
+    filterWindow.style.display = "block";
+  }
+  else
+  {
+    CloseFilterWindows()
+  }
+  
 }
 
 const CloseFilterWindows = () => {
+  showWindow = false;
     filter_button.style.border = "0px solid black";
     const filterWindow = document.getElementById("filter_window");
     filterWindow.style.display = "none";  // Hide the window

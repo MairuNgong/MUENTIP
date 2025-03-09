@@ -182,10 +182,19 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
 
         activity_card.appendChild(enter_button);
         container.appendChild(activity_card);
+        applyFontFamilyToText(activity_card);
     });
 }
 
-
+function applyFontFamilyToText(activity_card) {
+  const elements = activity_card.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6");
+  
+  elements.forEach(el => {
+      if (/[ก-๙]/.test(el.textContent)) { 
+          el.style.fontFamily = '"Noto Sans Thai", serif';
+      }
+  });   
+}
 
 
 const container = document.getElementById("container");

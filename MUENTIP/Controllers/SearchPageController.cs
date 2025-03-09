@@ -16,7 +16,9 @@ namespace MUENTIP.Controllers
 
         public IActionResult Index()
         {
+
             var activityFromDb = _context.Activities.OrderByDescending(a => a.ActivityId).Select(t => new ActivityCardViewModel
+
             {
                 ActivityId = t.ActivityId,
                 Title = t.Title,
