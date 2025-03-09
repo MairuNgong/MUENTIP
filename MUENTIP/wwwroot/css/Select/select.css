@@ -20,6 +20,23 @@ header {
     font-size: 24px;
     font-weight: bold;
 }
+.cancel-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #333;
+    position: fixed;
+    top: 10px;
+    left: 80px;
+    z-index: 100;
+}
+
+    .cancel-btn:hover {
+        opacity: 0.7;
+    }
 
 .rectangle-container {
     background-color: #f3f3f3; /* สีพื้นหลัง */
@@ -42,6 +59,65 @@ header {
     gap: 20px;
     padding: 20px;
 }
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+
+#notify-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #F1F1F1;
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    z-index: 1000;
+    transition: opacity 1s ease-in-out;
+}
+
+#progress-container {
+    width: 100%;
+    height: 5px;
+    background: #ffffff;
+    border-radius: 5px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #C0EFD8;
+    transition: width 1.5s linear;
+}
+
+#notify-popup.fade-out, #overlay.fade-out {
+    opacity: 0;
+}
+
+.noti-title {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.noti-context {
+    font-weight: 500;
+    font-size: 15px;
+}
+
 
 /* Style for each activity card */
 .applicant_card {
