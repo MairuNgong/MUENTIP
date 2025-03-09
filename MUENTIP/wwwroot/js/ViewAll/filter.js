@@ -9,6 +9,11 @@ if (tag == "Realtime") {
             renderActivities(container, selected_tags);
         }
     };
+
+    const CloseFilterWindow = () => {
+        const filterWindow = document.getElementById("filter_window");
+        filterWindow.style.display = "none"; 
+    }
   
     const ApplyFilter = (tag, tag_element) => {
         if (!selected_tags.includes(tag)) {
@@ -41,5 +46,6 @@ if (tag == "Realtime") {
     });
 
     document.getElementById("filter_button").addEventListener("click", ToggleFilterWindow);
-  }
+    document.getElementById("close_button").addEventListener("click", CloseFilterWindow);
+}
   
