@@ -27,9 +27,9 @@ header {
     cursor: pointer;
     padding: 5px 10px;
     color: #333;
-    position: fixed;
+    position: absolute;
     top: 10px;
-    left: 80px;
+    left: 10px;
     z-index: 100;
 }
 
@@ -139,6 +139,24 @@ header {
         margin-left: -40px;
         margin-right: 50px;
     }
+
+    .cancel-btn {
+        background: none;
+        border: none;
+        font-size: 30px;
+        font-weight: bold;
+        cursor: pointer;
+        padding: 5px 10px;
+        color: #333;
+        position: absolute;
+        top: 10px;
+        left: 80px;
+        z-index: 100;
+    }
+
+        .cancel-btn:hover {
+            opacity: 0.7;
+        }
 }
 
 #back-to-top {
