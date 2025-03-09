@@ -9,9 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
         editProfileBtn.addEventListener('click', function () {
             window.location.href = "/EditProfile"; 
         });
-    
-    
-
 
     if (createTab && participateTab && createActivities && participateActivities) {
         createTab.classList.add('active');  

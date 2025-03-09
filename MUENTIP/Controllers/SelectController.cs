@@ -138,11 +138,20 @@ public class SelectController : Controller
 
 public class EmailService
 {
-    private readonly string _smtpHost = "smtp.gmail.com";  // SMTP Host
-    private readonly int _smtpPort = 587;  // SMTP Port (587 for TLS)
-    private readonly string _smtpUser = "suwichakboat2548@gmail.com";  // Your Email
-    private readonly string _smtpPass = "zzcawderromihbfv";  // Your Email Password
-    private readonly string _fromEmail = "suwichakboat2548@gmail.com";  // From Email
+    private readonly string _smtpHost;
+    private readonly int _smtpPort;
+    private readonly string _smtpUser;
+    private readonly string _smtpPass;
+    private readonly string _fromEmail;
+
+    public EmailService()
+    {
+        _smtpHost = Environment.GetEnvironmentVariable("SMTP_HOST") ?? "default_host";
+        _smtpPort = int.TryParse(Environment.GetEnvironmentVariable("SMTP_PORT"), out int port) ? port : 587;
+        _smtpUser = Environment.GetEnvironmentVariable("SMTP_USERNAME") ?? "default_user";
+        _smtpPass = Environment.GetEnvironmentVariable("SMTP_PASSWORD") ?? "default_password";
+        _fromEmail = Environment.GetEnvironmentVariable("SMTP_FROM_EMAIL") ?? "default_from";
+    }
 
     public async Task SendEmailAsync(string toEmail, string subject, string body)
     {

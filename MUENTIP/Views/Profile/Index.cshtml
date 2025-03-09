@@ -64,10 +64,41 @@
 
                 <p><img src= "\img\email_icon.jpg" class="img-icon-profile"/>@Model.Email</p>
 
-                <p><img src= "\img\date_icon.png" class="img-icon-profile"/> @(Model.BirthDate != null ? Model.BirthDate.Value.ToString("yyyy-MM-dd") : "**Not added yet")</p>
-                <p><img src= "\img\gender_icon.png" class="img-icon-profile"/> @(Model.Gender ?? "**Not added yet")</p>
-                <p><img src= "\img\education_icon.png" class="img-icon-profile"/> @(Model.Education ?? "**Not added yet")</p>
-                <p><img src= "\img\address_icon.png" class="img-icon-profile"/>@(Model.Address ?? "**Not added yet")</p>
+                @if (Model.BirthDate != null) 
+                {
+                    <p><img src="\img\date_icon.png" class="img-icon-profile"/> @Model.BirthDate.Value.ToString("yyyy-MM-dd")</p>
+                } 
+                else 
+                {
+                    <p><img src="\img\date_icon.png" class="img-icon-profile"/> <span style="color: grey;">**Not added yet**</span></p>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.Gender)) 
+                {
+                    <p><img src="\img\gender_icon.png" class="img-icon-profile"/> @Model.Gender</p>
+                } 
+                else 
+                {
+                    <p><img src="\img\gender_icon.png" class="img-icon-profile"/> <span style="color: grey;">**Not added yet**</span></p>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.Education)) 
+                {
+                    <p><img src="\img\education_icon.png" class="img-icon-profile"/> @Model.Education</p>
+                } 
+                else 
+                {
+                    <p><img src="\img\education_icon.png" class="img-icon-profile"/> <span style="color: grey;">**Not added yet**</span></p>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.Address)) 
+                {
+                    <p><img src="\img\address_icon.png" class="img-icon-profile"/> @Model.Address</p>
+                } 
+                else 
+                {
+                    <p><img src="\img\address_icon.png" class="img-icon-profile"/> <span style="color: grey;">**Not added yet**</span></p>
+}
 
 
 

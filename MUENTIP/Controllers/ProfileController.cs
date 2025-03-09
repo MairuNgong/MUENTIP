@@ -1,4 +1,4 @@
-﻿﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MUENTIP.Data;
 using MUENTIP.ViewModels;
 using Microsoft.AspNetCore.Identity;
@@ -22,24 +22,54 @@ namespace MUENTIP.Controllers
         {
 
             var userClass = await _context.Users
-                .Include(u => u.CreatedActivities)
-                    .ThenInclude(a => a.Applications)
-                .Include(u => u.CreatedActivities)
-                    .ThenInclude(a => a.ActivityTags)
-                        .ThenInclude(at => at.Tag)
-                .Include(u => u.Applications)
-                    .ThenInclude(apply => apply.Activity)
-                        .ThenInclude(a => a.User)
-                .Include(u => u.Applications)
-                    .ThenInclude(apply => apply.Activity)
-                        .ThenInclude(a => a.ActivityTags)
-                            .ThenInclude(at => at.Tag)
-                .Include(u => u.Participations)
-                    .ThenInclude(p => p.Activity)
-                        .ThenInclude(a => a.User)
-                .Include(u => u.InterestedTags)
-                    .ThenInclude(it => it.Tag)
-                .FirstOrDefaultAsync(u => u.Id == id);
+                .Where(u => u.Id == id)
+                .Select(u => new
+                {
+                    u.Id,
+                    u.UserName,
+                    u.ProfileImageLink,
+                    u.Email,
+                    u.Info,
+                    u.BirthDate,
+                    u.Gender,
+                    u.Education,
+                    u.Address,
+                    u.ShowCreate,
+                    u.ShowParticipate,
+                    InterestedTags = u.InterestedTags.Select(it => it.Tag.TagName).ToList(),
+
+                    CreatedActivities = u.CreatedActivities.Select(a => new
+                    {
+                        a.ActivityId,
+                        a.Title,
+                        a.Location,
+                        a.StartDateTime,
+                        a.EndDateTime,
+                        a.DeadlineDateTime,
+                        a.ApplyMax,
+                        ApplyCount = a.Applications.Count(),
+                        Tags = a.ActivityTags.Select(at => at.Tag.TagName).ToList(),
+                        OwnerName = a.User.UserName
+                    }).ToList(),
+
+                    Participations = u.Participations.Select(p => new
+                    {
+                        Activity = p.Activity != null ? new
+                        {
+                            p.Activity.ActivityId,
+                            p.Activity.Title,
+                            OwnerName = p.Activity.User.UserName,
+                            p.Activity.Location,
+                            p.Activity.StartDateTime,
+                            p.Activity.EndDateTime,
+                            p.Activity.DeadlineDateTime,
+                            p.Activity.ApplyMax,
+                            ApplyCount = p.Activity.Applications.Count(),
+                            Tags = p.Activity.ActivityTags.Select(at => at.Tag.TagName).ToList()
+                        } : null
+                    }).ToList()
+                })
+                .FirstOrDefaultAsync();
 
             List<ActivityCardViewModel> CreatedActivityFromDb = new();
             List<ActivityCardViewModel> NonApprovedActivityFromDb = new();
@@ -52,18 +82,18 @@ namespace MUENTIP.Controllers
                     {
                         ActivityId = t.ActivityId,
                         Title = t.Title,
-                        Owner = t.User.UserName,
+                        Owner = t.OwnerName,
                         Location = t.Location,
                         StartDateTime = t.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         EndDateTime = t.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         DeadlineDateTime = t.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
                         ApplyMax = t.ApplyMax,
-                        ApplyCount = t.Applications.Count(),
-                        TagsList = t.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>()
+                        ApplyCount = t.ApplyCount,
+                        TagsList = t.Tags
                     })
                     .ToList();
 
-        
+
 
                 ApprovedActivityFromDb = userClass.Participations
                     .Where(p => p.Activity != null)
@@ -71,19 +101,20 @@ namespace MUENTIP.Controllers
                     {
                         ActivityId = p.Activity.ActivityId,
                         Title = p.Activity.Title,
-                        Owner = p.Activity.User.UserName ?? "Unknown",
+                        Owner = p.Activity.OwnerName,
                         Location = p.Activity.Location,
                         StartDateTime = p.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm"),
                         EndDateTime = p.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm"),
                         DeadlineDateTime = p.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm"),
                         ApplyMax = p.Activity.ApplyMax,
-                        ApplyCount = p.Activity.Applications.Count(),
-                        TagsList = p.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>()
+                        ApplyCount = p.Activity.ApplyCount,
+                        TagsList = p.Activity.Tags
                     })
                     .ToList();
             }
-            else{
-              return NotFound();
+            else
+            {
+                return NotFound();
             }
             var tagsFromDb = await _context.Tags
                         .Select(t => new TagFilterViewModel { TagName = t.TagName })
@@ -99,9 +130,9 @@ namespace MUENTIP.Controllers
                 Gender = userClass.Gender,
                 Education = userClass.Education,
                 Address = userClass.Address,
-                InterestedTags = userClass.InterestedTags?.Select(it => it.TagName).ToList() ?? new List<string>(),
+                InterestedTags = userClass.InterestedTags,
                 createdActivity = CreatedActivityFromDb,
-        
+
                 approvedActivity = ApprovedActivityFromDb,
                 availableTags = tagsFromDb,
                 showCreate = userClass.ShowCreate,
