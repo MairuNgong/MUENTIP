@@ -29,7 +29,8 @@
 </head>
 <body>
 
-        <header>@ViewData["Title"]</header>
+    <header>My Profile</header>
+    <button type="button" class="cancel-btn" onclick="history.back();"><</button>
     @if (userId == Model.Id)
     {
                 <button class="edit-profile-btn">Edit Profile</button>
@@ -56,7 +57,7 @@
                     } 
                     else 
                     {
-                        <p style="color: grey;">**Not added yet**</p>
+                        <p style="color: grey;">No Bio</p>
                     }
 
                 </div>
@@ -70,7 +71,7 @@
                 } 
                 else 
                 {
-                    <p><img src="\img\date_icon.png" class="img-icon-profile"/> <span style="color: grey;">**Not added yet**</span></p>
+                    <p><img src="\img\date_icon.png" class="img-icon-profile"/> <span style="color: grey;">Not added yet</span></p>
                 }
 
                 @if (!string.IsNullOrEmpty(Model.Gender)) 
@@ -79,7 +80,7 @@
                 } 
                 else 
                 {
-                    <p><img src="\img\gender_icon.png" class="img-icon-profile"/> <span style="color: grey;">**Not added yet**</span></p>
+                    <p><img src="\img\gender_icon.png" class="img-icon-profile"/> <span style="color: grey;">Not added yet</span></p>
                 }
 
                 @if (!string.IsNullOrEmpty(Model.Education)) 
@@ -88,7 +89,7 @@
                 } 
                 else 
                 {
-                    <p><img src="\img\education_icon.png" class="img-icon-profile"/> <span style="color: grey;">**Not added yet**</span></p>
+                    <p><img src="\img\education_icon.png" class="img-icon-profile"/> <span style="color: grey;">Not added yet</span></p>
                 }
 
                 @if (!string.IsNullOrEmpty(Model.Address)) 
@@ -97,20 +98,26 @@
                 } 
                 else 
                 {
-                    <p><img src="\img\address_icon.png" class="img-icon-profile"/> <span style="color: grey;">**Not added yet**</span></p>
+                    <p><img src="\img\address_icon.png" class="img-icon-profile"/> <span style="color: grey;">Not added yet</span></p>
 }
 
 
 
-                <p><strong>Interest : </strong> 
-                    <ul id="tag-nav" class="tag-nav">
-                    @foreach (var ints_tag in Model.InterestedTags)
-                    { 
-                                         <li class="hot-tag-ele">@ints_tag</li> 
-                    } 
-</ul>
+            <p><strong>Interest : </strong></p>
 
-                   </p>
+            @if (Model.InterestedTags != null && Model.InterestedTags.Any())
+            {
+                <ul id="tag-nav" class="tag-nav">
+                    @foreach (var ints_tag in Model.InterestedTags)
+                    {
+                        <li class="hot-tag-ele">@ints_tag</li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p style="color: grey;">No interests added yet</p>
+            }
             </div>
         </div>
 

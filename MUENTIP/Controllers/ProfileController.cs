@@ -38,7 +38,7 @@ namespace MUENTIP.Controllers
                     u.ShowParticipate,
                     InterestedTags = u.InterestedTags.Select(it => it.Tag.TagName).ToList(),
 
-                    CreatedActivities = u.CreatedActivities.Select(a => new
+                    CreatedActivities = u.CreatedActivities.OrderByDescending(a => a.ActivityId).Select(a => new
                     {
                         a.ActivityId,
                         a.Title,
@@ -52,7 +52,7 @@ namespace MUENTIP.Controllers
                         OwnerName = a.User.UserName
                     }).ToList(),
 
-                    Participations = u.Participations.Select(p => new
+                    Participations = u.Participations.OrderByDescending(a => a.ActivityId).Select(p => new
                     {
                         Activity = p.Activity != null ? new
                         {

@@ -114,8 +114,35 @@ function renderApplier(container) {
             }
 
         }
-        window.location.href = '/Home';
-        alert("successfull")
+        console.log("ApplyOn created successfully!");
+
+        const overlay = document.getElementById("overlay");
+        const popup = document.getElementById("notify-popup");
+        const progressBar = document.getElementById("progress-bar");
+
+        overlay.style.display = "block";
+        popup.style.display = "flex";
+        popup.classList.remove("fade-out");
+        overlay.classList.remove("fade-out");
+        progressBar.style.width = "0%";
+
+        setTimeout(() => {
+            progressBar.style.width = "100%";
+        }, 50);
+
+        setTimeout(() => {
+            popup.classList.add("fade-out");
+            overlay.classList.add("fade-out");
+
+            setTimeout(() => {
+                popup.style.display = "none";
+                overlay.style.display = "none";
+                window.location.reload();
+            }, 1000);
+        }, 1000);
+        setTimeout(function () {
+            window.location.href = '/Home';
+        }, 500);  // รอ 2 วินาที (2000 มิลลิวินาที)
     });
 
 
