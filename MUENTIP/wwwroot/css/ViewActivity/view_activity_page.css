@@ -10,11 +10,29 @@
     scroll-behavior: smooth;
 }
 
+.ReturnButton {
+    position: absolute;
+    left: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #333; 
+}
+
+.ReturnButton:hover {
+    opacity: 0.7;
+}
+
 .tags-div, .activity-info-div, .activity-announce{
     margin: 1rem 2rem 2rem 2rem;
 }
 
 .activity-header{
+    position: relative;
     background-color: #C0EFD8;
     padding: 2rem;
 }

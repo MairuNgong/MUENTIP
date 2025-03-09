@@ -41,6 +41,15 @@ if (!activity.description) {
     detail_p.style.color = "grey";
 }
 
+function goBack() {
+    if (document.referrer) {
+        window.history.back();
+    }
+    else {
+        window.location.href = '/Home/';
+    }
+}
+
 function render_announcement() {
     const act_announce_div = document.getElementsByClassName("activity-announce")[0];
     if(announces.length == 0) {
