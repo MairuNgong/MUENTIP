@@ -13,10 +13,16 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
     container.innerHTML = ""; // Clear existing content
 
     // Filter activities based on tags and title
+    console.log("sdadas")
+    console.log(ShowedtagList)
     let filteredActivities = activities.filter(activity =>
-        activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
-        activity.title.toLowerCase().includes(searchTitle.toLowerCase())  // Filter by title
+    (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) &&
+    activity.title.toLowerCase().includes(searchTitle.toLowerCase())
     );
+
+    console.log('asdad')
+    console.log(filteredActivities)
+
 
     // ??? Notfull ???? true ????????????????????????????????
     if (Notfull) {
@@ -24,12 +30,13 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
         filteredActivities = filteredActivities.filter(activity => new Date(activity.deadlineDateTime) > new Date());
         console.log(filteredActivities)
     }
-    else {
-        filteredActivities = activities;
-    }
+
+    console.log("test")
+    console.log(activities)
 
     // Limit the number of activities to show
     const activitiesToShow = filteredActivities.slice(0, maxActivities);
+    console.log(activitiesToShow)
 
     activitiesToShow.forEach(activity => {
         const activity_card = document.createElement("div");
