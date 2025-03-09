@@ -145,11 +145,15 @@ function expandTextarea(textarea) {
 }
 
 function add_new_announce() {
-    const add_new_annunce_form = document.getElementById("add-new-announce");
+    const add_new_announce_form = document.getElementById("add-new-announce");
+    const announceButton = document.getElementById("new-announce-bt");
 
-    add_new_annunce_form.addEventListener("submit", async function (event) {
+    add_new_announce_form.addEventListener("submit", async function (event) {
         event.preventDefault();
-        
+
+        announceButton.disabled = true;
+        announceButton.style.backgroundColor = "#A3A3A3";
+
         const contentTextArea = this.querySelector("textarea");
         const contentValue = contentTextArea.value.trim();
 
@@ -170,9 +174,13 @@ function add_new_announce() {
                 window.location.reload();
             } else {
                 alert(result.message);
+                announceButton.disabled = false; // Re-enable on error
+                announceButton.textContent = "Submit"; // Reset text
             }
         } catch (error) {
             console.error("Error submitting announcement:", error);
+            announceButton.disabled = false; // Re-enable on error
+            announceButton.textContent = "Submit"; // Reset text
         }
     });
 }
