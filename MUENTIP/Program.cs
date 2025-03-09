@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using MUENTIP.Data;
 using CloudinaryDotNet;
 using DotNetEnv;
+using System.Net.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,7 +33,7 @@ var cloudinary = new Cloudinary(cloudinaryAccount);
 builder.Services.AddSingleton(cloudinary); // Register Cloudinary
 
 // Register EmailService as a transient service
-builder.Services.AddTransient<EmailService>(); // Register EmailService
+builder.Services.AddTransient<EmailService>();
 
 var app = builder.Build();
 
