@@ -13,7 +13,6 @@ function renderApplier(container) {
 
     // Track the total number of activities (checkboxes)
     const totalCheckboxes = Appliers.length;
-
     // Iterate over the activities (we are only displaying owner info now)
     Appliers.forEach(applicant => {
         const applicant_card = document.createElement("div");
@@ -34,6 +33,11 @@ function renderApplier(container) {
         else {
             img_people.src = "/img/default-profile.png"
         }
+
+        img_people.addEventListener("click", function () {
+            window.location.href = `/Profile/Index?id=${applicant.userId}`;
+        });
+
         owner.className = "applicant_detail";
         owner.appendChild(img_people);
 
@@ -146,6 +150,7 @@ function renderApplier(container) {
     });
 
 
+
     // Add event listeners to checkboxes after rendering
     document.querySelectorAll(".checkbox").forEach(checkbox => {
         checkbox.addEventListener("change", function () {
@@ -177,6 +182,11 @@ document.getElementById("selectAllBtn").addEventListener("click", function () {
     const totalCheckboxes = Appliers.length;
     document.getElementById("selectedCount").textContent = `${checkedCheckboxes} / ${totalCheckboxes}`;
 });
+
+document.getElementById("picture").addEventListener("click", function () {
+    window.location.href = `/Profile/Index?id=${selectModel.ownerId}`;
+})
+
 
 // Assuming you have a container with the id "container" in your HTML
 const container = document.getElementById("container");
