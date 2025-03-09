@@ -114,11 +114,28 @@ section {
     margin: 10px 0px 0px 20px;
     overflow-x: auto;
     white-space: nowrap;
-    scrollbar-width: none;
+    display: flex;
+    padding-bottom: 10px; 
+    scrollbar-width: thin;
+    scrollbar-color: #707070 #f0f0f0;
 }
 
 .tag-nav::-webkit-scrollbar {
-    display: none;
+    height: 5px; 
+}
+
+.tag-nav::-webkit-scrollbar-track {
+    background: #f0f0f0; 
+    border-radius: 10px;
+}
+
+.tag-nav::-webkit-scrollbar-thumb {
+    background: #707070; 
+    border-radius: 10px;
+}
+
+.tag-nav::-webkit-scrollbar-thumb:hover {
+    background: #505050; 
 }
 
 .hot-tag-ele {

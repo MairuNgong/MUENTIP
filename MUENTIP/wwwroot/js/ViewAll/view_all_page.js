@@ -1,3 +1,12 @@
+function goBack() {
+    if (document.referrer) {
+        window.history.back();
+    }
+    else {
+        window.location.href = '/Home/';
+    }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6");
 
