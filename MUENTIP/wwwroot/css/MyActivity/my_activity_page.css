@@ -8,6 +8,10 @@
     scroll-behavior: smooth;
 }
 
+.homebody {
+    background-image: url("/img/muen-tip-bg.png");
+}
+
 .header-muentip {
     display: flex;  
     justify-content: center;  
