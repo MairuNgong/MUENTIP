@@ -1,4 +1,7 @@
 ﻿@using MUENTIP.ViewModels
+@using MUENTIP.Models
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
 @{
     ViewData["Title"] = "Select Page";
 }
@@ -59,8 +62,18 @@
     </div>
 
     <script>
+        var currentUserId = '@UserManager.GetUserId(User)';
         var selectModel = @Html.Raw(Json.Serialize(Model));
-        console.log(selectModel);
+        console.log(selectModel.ownerId);
+        console.log(currentUserId);
+
+        if (currentUserId !== selectModel.ownerId) {
+            window.location.href = '/Home';
+            alert("You are not the owner, access denied.");
+        } else {
+            console.log('Access granted to the page');
+        }
+
     </script>
     <script src="~/js/Select/select.js"></script>
 </body>

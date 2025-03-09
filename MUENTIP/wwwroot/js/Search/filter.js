@@ -23,13 +23,15 @@ const ApplyFilter = (tag, tag_element) => {
     FilterActivity(selected_tags);  // Apply the filter with the accumulated tags
 };
 
-const ShowFilterWindow = () => {
+const ShowFilterWindows = () => {
+    filter_button.style.border = "2px solid black";
     const filterWindow = document.getElementById("filter_window");
     filterWindow.style.display = "block";  // Show the window
 
 }
 
-const CloseFilterWindow = () => {
+const CloseFilterWindows = () => {
+    filter_button.style.border = "0px solid black";
     const filterWindow = document.getElementById("filter_window");
     filterWindow.style.display = "none";  // Hide the window
 }
@@ -57,10 +59,12 @@ NotFullButton.addEventListener("click", () => {
 
     if (notFullActive) {
         // ?????????????????????????????
+        NotFullButton.style.border = "2px solid black";  // ????????????
         const filteredActivities = activities.filter(activity => activity.applyCount < activity.applyMax);
         renderActivities(container, tags, filteredActivities.length, "", true);
     } else {
         // ??????????????????
+        NotFullButton.style.border = "none";
         renderActivities(container, tags);
     }
 });
@@ -96,8 +100,8 @@ const search_apply = () => {
 
 document.getElementById("search_button").addEventListener("click", search_apply);
 
-document.getElementById("filter_button").addEventListener("click", ShowFilterWindow);
-document.getElementById("close_button").addEventListener("click", CloseFilterWindow);
+document.getElementById("filter_button").addEventListener("click", ShowFilterWindows);
+document.getElementById("close_button").addEventListener("click", CloseFilterWindows);
 document.getElementById("search_bar").addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
         search_apply();
