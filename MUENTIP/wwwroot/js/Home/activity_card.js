@@ -1,6 +1,7 @@
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
-console.log(tags)
+console.log(tags);
+console.log(activities);
 const img_people_src = "../img/people.png";
 const img_clock_src = "../img/clock.png";
 const img_calendar_src = "../img/calendar.png";
@@ -10,9 +11,16 @@ const img_arrow_src = "../img/right-arrow.png";
 function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
   container.innerHTML = "";
 
-  const filteredActivities = activities.filter(activity =>
+  let filteredActivities;
+  
+  if (ShowedtagList === "Realtime") {
+    filteredActivities = activities;
+  } else {
+    filteredActivities = activities.filter(activity =>
       activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
-  );
+    );
+  }
+
   const activitiesToShow = filteredActivities.slice(0, maxActivities);
 
   activitiesToShow.forEach(activity => {
@@ -212,8 +220,7 @@ function renderHotTagSection(container, hot_tags) {
 const realtime_container = document.getElementById("realtime-activity");
 const hot_tag_container = document.getElementById("tag-nav");
 
-// ต้องเขียน filter ใหม่นับactก่อนrender 
-renderActivities(realtime_container, tags, 5);
+renderActivities(realtime_container, "Realtime", 5);
 if (realtime_container.children.length > 4) {
   createViewAllBt(realtime_container, "Realtime");
 }
