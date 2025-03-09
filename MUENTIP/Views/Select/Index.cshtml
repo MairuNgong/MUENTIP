@@ -19,6 +19,7 @@
 </head>
 <body>
     <header>Select User</header>
+    <button type="button" class="cancel-btn" onclick="history.back();"><</button>
 
     <div id="rectangle_fill" class="rectangle-container">
         <div class="header">
@@ -58,6 +59,15 @@
                     >
                 Confirm
             </button>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="notify-popup">
+        <p class="noti-title">Sending Successful!</p>
+        <p class="noti-context">Email sending successful!.</p>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
         </div>
     </div>
 
