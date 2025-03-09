@@ -65,10 +65,10 @@
             </div>
         </div>
         <p><img src="../img/location-pin.png" alt="location">@Model.Card.Location</p>
-        <div class="owner-div">
-            <img src="../img/profile.png" alt="owner-img">
+        <div class="owner-div" id="owner-div">
+            <img src="@Model.OwnerImg" alt="owner-img" onerror="this.onerror=null; this.src='../img/default-profile.png';">
             <div class="owner-text-div">
-                <p>@Model.Card.Owner</p>
+                <p class="owner-name">@Model.Card.Owner</p>
                 <p>@FormatDateTime(Model.Card.PostDateTime)</p>
             </div>
         </div>
@@ -95,6 +95,15 @@
                     <button id="confirm-yes">Yes, delete!</button>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+    <div id="notify-popup">
+        <p class="noti-title">Apply successful!</p>
+        <p class="noti-context">We will notify you by email if you are selected.</p>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
         </div>
     </div>
     <script>

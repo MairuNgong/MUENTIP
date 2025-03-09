@@ -1,6 +1,7 @@
 ﻿const activity = JSON.parse(JSON.stringify(viewActivityModel)).card;
 const announces = JSON.parse(JSON.stringify(viewActivityModel)).announcements;
 const username = JSON.parse(JSON.stringify(viewActivityModel)).userName;
+const owner_id = JSON.parse(JSON.stringify(viewActivityModel)).ownerId;
 const is_apply_on = JSON.parse(JSON.stringify(viewActivityModel)).isApplyOn;
 const is_participate = JSON.parse(JSON.stringify(viewActivityModel)).participationStatus;
 const out_of_date = JSON.parse(JSON.stringify(viewActivityModel)).outOfDate;
@@ -195,6 +196,11 @@ function view_participants() {
 render_announcement();
 
 document.addEventListener("DOMContentLoaded", function () {
+    const owner_div = document.getElementById("owner-div");
+    owner_div.addEventListener("click", function () {
+        window.location.href = `/Profile/Index?id=${owner_id}`;           
+    });
+
     const login_popup = document.getElementById("loginPopup");
     
     // owner user
@@ -222,26 +228,50 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!is_apply_on && !out_of_date) {
             parti_bt.textContent = "apply";
 
-            parti_bt.addEventListener("click", async function(ev) {
+            parti_bt.addEventListener("click", async function (ev) {
                 ev.preventDefault();
-
+            
                 try {
                     const response = await fetch(`/ViewActivity/ApplyOn?activity_id=${activity.activityId}`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" }
                     });
-        
+            
                     const result = await response.json();
                     if (result.success) {
                         console.log("ApplyOn created successfully!");
-                        window.location.reload();
+            
+                        const overlay = document.getElementById("overlay");
+                        const popup = document.getElementById("notify-popup");
+                        const progressBar = document.getElementById("progress-bar");
+            
+                        overlay.style.display = "block";
+                        popup.style.display = "flex";
+                        popup.classList.remove("fade-out");
+                        overlay.classList.remove("fade-out"); 
+                        progressBar.style.width = "0%"; 
+            
+                        setTimeout(() => {
+                            progressBar.style.width = "100%";
+                        }, 50);
+            
+                        setTimeout(() => {
+                            popup.classList.add("fade-out");
+                            overlay.classList.add("fade-out");
+            
+                            setTimeout(() => {
+                                popup.style.display = "none";
+                                overlay.style.display = "none";
+                                window.location.reload(); 
+                            }, 1000);
+                        }, 1000);
                     } else {
                         alert(result.message);
                     }
                 } catch (error) {
                     console.error("Error creating ApplyOn:", error);
                 }
-            });
+            });                               
         }
         if (is_apply_on && !out_of_date) {
             parti_bt.textContent = "cancel";

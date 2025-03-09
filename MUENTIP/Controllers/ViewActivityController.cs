@@ -89,9 +89,23 @@ namespace MUENTIP.Controllers
 
             bool out_of_date = isValidDeadline && DateTime.Compare(DateTime.Now, deadline) > 0;
 
+            var ownerUser = await _userManager.Users
+                .Where(u => u.UserName == activityFromDb.Owner)
+                .Select(u => u.ProfileImageLink)
+                .FirstOrDefaultAsync();
+
+            var ownerImg = ownerUser ?? "../img/default-profile.png"; 
+
+            var ownerId = await _userManager.Users
+                .Where(u => u.UserName == activityFromDb.Owner)
+                .Select(u => u.Id)
+                .FirstOrDefaultAsync();
+
             var model = new ViewActivityViewModel
             {
                 Card = activityFromDb,
+                OwnerImg = ownerImg,
+                OwnerId = ownerId,
                 Announcements = announcementFromDb,
                 UserName = user?.UserName,
                 IsApplyOn = is_applied ? (bool?)true : (bool?)false, 
