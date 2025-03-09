@@ -20,11 +20,6 @@ namespace MUENTIP.Controllers
 
         public async Task<IActionResult> Index(string id)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(x => x.Id == id);
-            if (user == null)
-            {
-                return NotFound();
-            }
 
             var userClass = await _context.Users
                 .Include(u => u.CreatedActivities)
@@ -42,9 +37,9 @@ namespace MUENTIP.Controllers
                 .Include(u => u.Participations)
                     .ThenInclude(p => p.Activity)
                         .ThenInclude(a => a.User)
-                .Include(u => u.InterestedTags) 
+                .Include(u => u.InterestedTags)
                     .ThenInclude(it => it.Tag)
-                .FirstOrDefaultAsync(u => u.Id == user.Id);
+                .FirstOrDefaultAsync(u => u.Id == id);
 
             List<ActivityCardViewModel> CreatedActivityFromDb = new();
             List<ActivityCardViewModel> NonApprovedActivityFromDb = new();
@@ -78,36 +73,39 @@ namespace MUENTIP.Controllers
                         Title = p.Activity.Title,
                         Owner = p.Activity.User.UserName ?? "Unknown",
                         Location = p.Activity.Location,
-                        StartDateTime = p.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        EndDateTime = p.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        DeadlineDateTime = p.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                        StartDateTime = p.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm"),
+                        EndDateTime = p.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm"),
+                        DeadlineDateTime = p.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm"),
                         ApplyMax = p.Activity.ApplyMax,
                         ApplyCount = p.Activity.Applications.Count(),
                         TagsList = p.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>()
                     })
                     .ToList();
             }
+            else{
+              return NotFound();
+            }
             var tagsFromDb = await _context.Tags
                         .Select(t => new TagFilterViewModel { TagName = t.TagName })
                         .ToListAsync();
             var model = new MyProfileViewModel
             {
-                Id = user.Id,
-                UserName = user.UserName,
-                ProfileImageLink = user.ProfileImageLink,
-                Email = user.Email,
-                Info = user.Info,
-                BirthDate = user.BirthDate,
-                Gender = user.Gender,
-                Education = user.Education,
-                Address = user.Address,
-                InterestedTags = user.InterestedTags?.Select(it => it.TagName).ToList() ?? new List<string>(),
+                Id = userClass.Id,
+                UserName = userClass.UserName,
+                ProfileImageLink = userClass.ProfileImageLink,
+                Email = userClass.Email,
+                Info = userClass.Info,
+                BirthDate = userClass.BirthDate,
+                Gender = userClass.Gender,
+                Education = userClass.Education,
+                Address = userClass.Address,
+                InterestedTags = userClass.InterestedTags?.Select(it => it.TagName).ToList() ?? new List<string>(),
                 createdActivity = CreatedActivityFromDb,
         
                 approvedActivity = ApprovedActivityFromDb,
                 availableTags = tagsFromDb,
-                showCreate = user.ShowCreate,
-                showParticipate = user.ShowParticipate
+                showCreate = userClass.ShowCreate,
+                showParticipate = userClass.ShowParticipate
             };
 
             return View(model);
