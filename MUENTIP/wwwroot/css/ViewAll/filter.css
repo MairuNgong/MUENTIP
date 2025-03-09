@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 #filter_button {
-  background-color: #D9D9D9;
+  background-color: #ffffff;
   display: inline-block;
   border-radius: 50px;
-  border: none;
+  border: #000000 solid 1px;
   padding: 5px 15px 5px 15px;
   margin-right: 20px;
   width: fit-content;
