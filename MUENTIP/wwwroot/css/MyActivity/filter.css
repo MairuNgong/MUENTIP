@@ -22,10 +22,8 @@
   background: none;
   border: 0;
   cursor: pointer;
-}
-
-#close_button img {
-  width: 32px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 #filter_window {
@@ -45,7 +43,7 @@
 }
 
 .filter_header {
-  padding: 0px 20px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
