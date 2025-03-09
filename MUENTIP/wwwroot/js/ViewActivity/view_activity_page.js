@@ -50,6 +50,28 @@ function goBack() {
     }
 }
 
+function showCustomConfirm(callback) {
+    const confirmBox = document.getElementById("custom-confirm");
+
+    if (!confirmBox) {
+        console.error("Confirmation dialog elements not found!");
+        return;
+    }
+
+    confirmBox.style.display = "flex"; 
+    confirmBox.classList.add('show');  
+
+    document.getElementById("confirm-yes").onclick = function () {
+        confirmBox.classList.remove('show');  
+        callback(true);
+    };
+
+    document.getElementById("confirm-no").onclick = function () {
+        confirmBox.classList.remove('show'); 
+        callback(false);
+    };
+}
+
 function render_announcement() {
     const act_announce_div = document.getElementsByClassName("activity-announce")[0];
     if(announces.length == 0) {
@@ -81,27 +103,27 @@ function render_announcement() {
     
                 delete_bt.addEventListener("click", async function (ev) {
                     ev.preventDefault();
-    
-                    if (!confirm("Are you sure you want to delete this announcement?")) return;
-    
-                    try 
-                    {
-                        const response = await fetch(`/ViewActivity/DeleteAnnounce?annoucement_id=${announce.announcementId}`, {
-                            method: "POST",
-                            headers: { "Content-Type": "application/json" }
-                        });
-    
-                        const result = await response.json();
-                        if (result.success) {
-                            announce_div.remove();
-                        } else {
-                            alert("Error: " + result.message);
+                
+                    showCustomConfirm(async function (confirmed) {
+                        
+                        if (!confirmed) return;
+                        
+                        try {
+                            const response = await fetch(`/ViewActivity/DeleteAnnounce?annoucement_id=${announce.announcementId}`, {
+                                method: "POST",
+                                headers: { "Content-Type": "application/json" }
+                            });
+                
+                            const result = await response.json();
+                            if (result.success) {
+                                announce_div.remove();
+                            } else {
+                                alert("Error: " + result.message);
+                            }
+                        } catch (error) {
+                            console.error("Error deleting announcement:", error);
                         }
-                    } 
-                    catch (error) 
-                    {
-                        console.error("Error deleting announcement:", error);
-                    }
+                    });
                 });
             }
     

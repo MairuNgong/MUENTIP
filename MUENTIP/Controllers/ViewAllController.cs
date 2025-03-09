@@ -40,10 +40,15 @@ namespace MUENTIP.Controllers
                 activity_cards = activityFromDb;
             }
 
+            var tagsFromDb = _context.Tags
+                .Select(t => new TagFilterViewModel { TagName = t.TagName })
+                .ToList();
+
             var model = new ViewAllViewModel
             {
                 TagName = tag_name,
-                Cards = activity_cards
+                Cards = activity_cards,
+                FilterTags = tagsFromDb
             };
 
             return View(model);

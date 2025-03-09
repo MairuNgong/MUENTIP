@@ -12,12 +12,8 @@
 </head>
 
 <body>
-    <header class="header-muentip">MUENTIP</header>
+    <header class="header-muentip"><div>MUENTIP</div></header>
     <nav class="header-nav">
-        @* <ul class="header-menu">
-            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
-            <li><a href="@Url.Action("Index", "MyActivity")">My Activity</a></li>
-        </ul> *@
         <ul class="header-menu">
             <li><a href="@Url.Action("Index", "Home")">Home</a></li>
             @if (User.Identity.IsAuthenticated)

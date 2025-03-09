@@ -6,23 +6,44 @@
 <head>
     <title>View@Model.TagName</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="~/css/Home/activity_card.css" />
+    <link rel="stylesheet" href="~/css/component/activity_card.css" />
+    <link rel="stylesheet" href="~/css/ViewAll/filter.css" />
     <link rel="stylesheet" href="~/css/ViewAll/view_all_page.css" />
 </head>
 <body>
     <nav class="header-nav">
         <ul class="header-menu">
-            <li><a href="@Url.Action("Index", "Home")"><img src="../img/white_go_back.png" alt="go-back"></a></li>
+            <li onclick="goBack()">&#60;</li>
             <li>@Model.TagName</li>
         </ul>
     </nav>
+
+    @if (Model.TagName == "Realtime")
+    {
+        <div class="filter-div">
+            <button id="filter_button">
+                filter
+            </button>
+        </div>
+        <div id="filter_window" style="display: none">
+            <div class="filter_header">
+                <p class="filter_title">Apply filter</p>
+                <button id="close_button">
+                    <img src="../img/filter.png" />
+                </button>
+            </div>
+            <div class="filter_tags_group" id="tags_group"></div>
+        </div>
+    }
+
     <div id="act-div" class="act-div"></div>
     
     <script>
         var activityModel = @Html.Raw(Json.Serialize(Model));
-        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";
+        var ViewActivityURL = "@Url.Action("Index", "ViewActivity")";      
     </script>
     <script src="~/js/ViewAll/activity_card.js"></script>
+    <script src="~/js/ViewAll/filter.js"></script>
     <script src="~/js/ViewAll/view_all_page.js"></script>
 </body>
 

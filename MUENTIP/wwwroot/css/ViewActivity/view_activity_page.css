@@ -195,6 +195,7 @@ h2 {
     position: relative;
     display: flex;
     flex-direction: column;
+    z-index: 0; 
 }
 
 .announce-div img {
@@ -215,6 +216,11 @@ h2 {
     border: none;
     border-radius: 100px;
     cursor: pointer;
+}
+
+.activity-announce {
+    position: relative;
+    z-index: 0;
 }
 
 .activity-announce #new-announce-bt{
@@ -241,6 +247,110 @@ h2 {
     align-items: center;
     gap: 10px;
     margin-bottom: 2.5rem;
+}
+
+.confirm-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 999; 
+}
+
+.confirm-box {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+}
+
+.confirm-box img {
+    height: 60px;
+}
+
+.confirm-box .confirm-title {
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 1rem;
+}
+
+.confirm-box .confirm-context {
+    font-size: 15px;
+    font-weight: 400;
+    margin: 1rem 0 2rem 0;
+}
+
+.confirm-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.confirm-buttons button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#confirm-yes {
+    background: #F44336;
+    color: white;
+    font-weight: 600;
+}
+
+#confirm-no {
+    background: #bfbfbf;
+    color: white;
+    font-weight: 600;
+}
+
+.confirm-overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.start-end-dt {
+    display: none;
+}
+
+.start-end-mb {
+    display: flex;
+    justify-items: center;
+    align-items: center; 
+    margin-bottom: 1rem;
+}
+
+.start-end-mb img {
+    margin-right: 1rem; 
+    margin-right: 0.5rem;
+    height: 22px;
+    vertical-align: middle;
+}
+
+.start-end-mb div p{
+    margin: 0;
+}
+
+@media (min-width: 480px) {
+    .start-end-mb {
+        display: none;
+    }
+    
+    .start-end-dt {
+        display: flex;
+    }
 }
 
 @media (min-width: 800px) {

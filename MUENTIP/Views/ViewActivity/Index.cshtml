@@ -53,10 +53,17 @@
         <p class="deadline-datetime">
             Until @FormatDateTime(Model.Card.DeadlineDateTime)
         </p>
-        <p>
+        <p class="start-end-dt">
             <img src="../img/clock.png" alt="clock">
             @FormatDateTime(Model.Card.StartDateTime) - @FormatDateTime(Model.Card.EndDateTime)
         </p>
+        <div class="start-end-mb">
+            <img src="../img/clock.png" alt="clock">
+            <div>
+                <p>@FormatDateTime(Model.Card.StartDateTime) - </p>
+                <p>@FormatDateTime(Model.Card.EndDateTime)</p>
+            </div>
+        </div>
         <p><img src="../img/location-pin.png" alt="location">@Model.Card.Location</p>
         <div class="owner-div">
             <img src="../img/profile.png" alt="owner-img">
@@ -78,6 +85,17 @@
                 <button id="new-announce-bt" type="submit">+</button>
             </form>
         }
+        <div id="custom-confirm" class="confirm-overlay" style="display: none;">
+            <div class="confirm-box">
+                <img alt="alert" src="../img/alert-triangle.png">
+                <p class="confirm-title">Are you sure?</p>
+                <p class="confirm-context">This announcement will be permanently deleted.</p>
+                <div class="confirm-buttons">
+                    <button id="confirm-no">Cancel</button>
+                    <button id="confirm-yes">Yes, delete!</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script>
         var viewActivityModel = @Html.Raw(Json.Serialize(Model));
