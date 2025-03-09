@@ -98,30 +98,46 @@
                         <a href="#" id="registerLink">Register</a>
                     </div>
                 </div>
+
             </div>
         </div>
 
 
         <div id="registerPopup" class="popup">
+
+
             <div class="popup-content">
-                <span class="close-btn" id="closeregisterPopup">&times;</span>
-                <h2>Register</h2>
-                <form id="registerForm">
-                    <label for="registerEmail">Email</label>
-                    <input type="email" id="registerEmail" name="registerEmail" placeholder="Email" required>
-                    <label for="registerUsername">Username</label>
-                    <input type="text" id="registerUsername" name="registerUsername" placeholder="Username" required>
-                    <label for="registerPassword">Password</label>
-                    <input type="password" id="registerPassword" name="registerPassword" placeholder="Password" required>
-                    <label for="registerConfirmPassword">Confirm Password</label>
-                    <input type="password" id="registerConfirmPassword" name="registerConfirmPassword"
-                        placeholder="Confirm Password" required>
-                    <p id="RegisterMessage" name="RegisterMessage" style="color:red;padding:10px 0;"> </p>
-                    <button type="submit">Register</button>
-                </form>
-                <div class="login">
-                    <a href="#" id="loginLink">Login</a>
+                <div class="left-container">
+                    <p class="welcome-text">Welcome!</p>
+                    <div class="pic-logo">
+                        <img class="login-image" src="~/img/10000tip2.png" alt="Logo10000tip">
+                    </div>
+                    <p class="findFrind-text">Find friends to hang out with MUENTIP.</p>
                 </div>
+
+                <div class="form-container">
+                    <span class="close-btn" id="closeregisterPopup">&times;</span>
+                    <h2>Register</h2>
+                    <form id="registerForm">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" name="registerEmail" placeholder="Email" required>
+                        <label for="registerUsername">Username</label>
+                        <input type="text" id="registerUsername" name="registerUsername" placeholder="Username" required>
+                        <label for="registerPassword">Password</label>
+                        <input type="password" id="registerPassword" name="registerPassword" placeholder="Password"
+                            required>
+                        <label for="registerConfirmPassword">Confirm Password</label>
+                        <input type="password" id="registerConfirmPassword" name="registerConfirmPassword"
+                            placeholder="Confirm Password" required>
+                        <p id="RegisterMessage" name="RegisterMessage" style="color:red;padding:10px 0;"> </p>
+                        <button type="submit">Register</button>
+                    </form>
+                    <div class="login">
+                        <p>Are you a member?</p>
+                        <a href="#" id="loginLink">Login</a>
+                    </div>
+                </div>
+
             </div>
         </div>
         <script src="~/js/Component/Guest.js"></script>

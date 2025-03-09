@@ -101,13 +101,14 @@ body {
 }
 
 .popup-content input {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
     border: 1px solid #ddd;
     text-align: left;
     background-color: #e7e7e7;
+    box-sizing: border-box;
 }
 
 .popup-content form {
@@ -119,7 +120,6 @@ body {
     padding-top: 20px;
     color: #134c13;
     font-weight: bold;
-    /* text-align: center; */
     display: flex;
     justify-content: center;
 }
@@ -132,6 +132,12 @@ body {
     padding-top: 20px;
     color: #134c13;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+}
+
+.popup-content .login a {
+    margin-left: 10px;
 }
 
 .popup-content button {
@@ -270,7 +276,7 @@ body {
     }
 
     .popup-content input {
-        width: 92%;
+        width: 100%;
     }
 
     .popup-content button {
