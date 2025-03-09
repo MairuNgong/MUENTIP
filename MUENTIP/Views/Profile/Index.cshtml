@@ -29,7 +29,8 @@
 </head>
 <body>
 
-        <header>@ViewData["Title"]</header>
+    <header>My Profile</header>
+    <button type="button" class="cancel-btn" onclick="history.back();"><</button>
     @if (userId == Model.Id)
     {
                 <button class="edit-profile-btn">Edit Profile</button>

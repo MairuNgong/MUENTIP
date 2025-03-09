@@ -8,23 +8,7 @@
     margin-bottom: 15px;
     width: 360px;
 }
-.cancel-btn {
-    background: none;
-    border: none;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    padding: 5px 10px;
-    color: #333;
-    position: fixed;
-    top: 10px;
-    left: 20px;
-    z-index: 100;
-}
 
-.cancel-btn:hover {
-    opacity: 0.7;
-}
 
 label {
     display: block;
@@ -188,9 +172,7 @@ input[type="checkbox"] {
 }
 
 @media (min-width: 800px) {
-    .cancel-btn {
-        margin-left: 55px;
-    }
+    
     .form-group {
         margin-bottom: 20px;
     }

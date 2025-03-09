@@ -27,87 +27,135 @@ namespace MUENTIP.Controllers
                 return NotFound(); ; // กลับไปหน้า login ถ้ายังไม่ได้ login
             }
 
-            // โหลดข้อมูล User พร้อมกิจกรรมที่สร้างและกิจกรรมที่สมัครไว้
             var userClass = await _context.Users
-                .Include(u => u.CreatedActivities)   // โหลดกิจกรรมที่ user สร้าง
-                    .ThenInclude(a => a.Applications) // โหลด Applications ของแต่ละกิจกรรม
-                .Include(u => u.CreatedActivities)
-                    .ThenInclude(a => a.ActivityTags) // โหลด Tags ของกิจกรรม
-                        .ThenInclude(at => at.Tag) // โหลดชื่อ Tag
-                .Include(u => u.Applications) // โหลด ApplyOn (กิจกรรมที่ user สมัครไว้)
-                    .ThenInclude(apply => apply.Activity) // โหลดข้อมูล Activity
-                        .ThenInclude(a => a.User) // โหลดข้อมูล User เจ้าของกิจกรรม
-                .Include(u => u.Applications) // โหลด ApplyOn (กิจกรรมที่ user สมัครไว้)
-                    .ThenInclude(apply => apply.Activity) // โหลดข้อมูล Activity
-                        .ThenInclude(a => a.ActivityTags) // โหลด Tags ของ Activity
-                            .ThenInclude(at => at.Tag) // โหลดชื่อ Tag
-                .Include(u => u.Participations) // โหลด Participations (กิจกรรมที่ได้รับการอนุมัติ)
-                    .ThenInclude(p => p.Activity) // โหลดข้อมูล Activity ของการเข้าร่วม
-                        .ThenInclude(a => a.User) // โหลดข้อมูล User เจ้าของกิจกรรม
-                .FirstOrDefaultAsync(u => u.Id == user.Id);
-
-
-            List<ActivityCardViewModel> CreatedActivityFromDb = new();
-            List<ActivityCardViewModel> NonApprovedActivityFromDb = new();
-            List<ActivityCardViewModel> ApprovedActivityFromDb = new();
-
-            if (userClass != null)
+            .Where(u => u.Id == user.Id)
+            .Select(u => new
             {
-                CreatedActivityFromDb = userClass.CreatedActivities
-                    .Select(t => new ActivityCardViewModel
+                u.Id,
+                u.UserName,
+                u.ProfileImageLink,
+                u.Email,
+                u.Info,
+                u.BirthDate,
+                u.Gender,
+                u.Education,
+                u.Address,
+                u.ShowCreate,
+                u.ShowParticipate,
+                InterestedTags = u.InterestedTags.Select(it => it.Tag.TagName).ToList(),
+
+                CreatedActivities = u.CreatedActivities.OrderByDescending(a => a.ActivityId).Select(a => new
+                {
+                    a.ActivityId,
+                    a.Title,
+                    a.Location,
+                    a.StartDateTime,
+                    a.EndDateTime,
+                    a.DeadlineDateTime,
+                    a.ApplyMax,
+                    ApplyCount = a.Applications.Count(),
+                    Tags = a.ActivityTags.Select(at => at.Tag.TagName).ToList(),
+                    OwnerName = a.User.UserName
+                }).ToList(),
+
+                Applications = u.Applications.OrderByDescending(a => a.ActivityId).Select(apply => new
+                {
+                    Activity = apply.Activity != null ? new
                     {
-                        ActivityId = t.ActivityId,
-                        Title = t.Title,
-                        Owner = t.User.UserName,
-                        Location = t.Location,
-                        StartDateTime = t.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        EndDateTime = t.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        DeadlineDateTime = t.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        ApplyMax = t.ApplyMax,
-                        ApplyCount = t.Applications.Count(),
-                        TagsList = t.ActivityTags != null
-                            ? t.ActivityTags.Select(at => at.Tag.TagName).ToList()
-                            : new List<string>()
-                    })
-                    .ToList();
+                        apply.Activity.ActivityId,
+                        apply.Activity.Title,
+                        OwnerName = apply.Activity.User.UserName,
+                        apply.Activity.Location,
+                        apply.Activity.StartDateTime,
+                        apply.Activity.EndDateTime,
+                        apply.Activity.DeadlineDateTime,
+                        apply.Activity.ApplyMax,
+                        ApplyCount = apply.Activity.Applications.Count(),
+                        Tags = apply.Activity.ActivityTags.Select(at => at.Tag.TagName).ToList()
+                    } : null
+                }).ToList(),
 
-
-                NonApprovedActivityFromDb = userClass.Applications
-                    .Where(apply => apply.Activity != null)
-                    .Select(apply => new ActivityCardViewModel
+                Participations = u.Participations.OrderByDescending(a => a.ActivityId).Select(p => new
+                {
+                    Activity = p.Activity != null ? new
                     {
-                        ActivityId = apply.ActivityId,
-                        Title = apply.Activity.Title,
-                        Owner = apply.Activity.User.UserName, // ดึงชื่อเจ้าของกิจกรรม
-                        Location = apply.Activity.Location,
-                        StartDateTime = apply.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        EndDateTime = apply.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        DeadlineDateTime = apply.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        ApplyMax = apply.Activity.ApplyMax,
-                        ApplyCount = _context.ApplyOn.Count(a => a.ActivityId == apply.ActivityId),
-                        TagsList = apply.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>(),
-                    })
-                    .ToList();
+                        p.Activity.ActivityId,
+                        p.Activity.Title,
+                        OwnerName = p.Activity.User.UserName,
+                        p.Activity.Location,
+                        p.Activity.StartDateTime,
+                        p.Activity.EndDateTime,
+                        p.Activity.DeadlineDateTime,
+                        p.Activity.ApplyMax,
+                        ApplyCount = p.Activity.Applications.Count(),
+                        Tags = p.Activity.ActivityTags.Select(at => at.Tag.TagName).ToList()
+                    } : null
+                }).ToList()
+            })
+            .FirstOrDefaultAsync();
 
-                ApprovedActivityFromDb = userClass.Participations
-                    .Where(p => p.Activity != null)
-                    .Select(p => new ActivityCardViewModel
+                    List<ActivityCardViewModel> CreatedActivityFromDb = new();
+                    List<ActivityCardViewModel> NonApprovedActivityFromDb = new();
+                    List<ActivityCardViewModel> ApprovedActivityFromDb = new();
+
+                    if (userClass != null)
                     {
-                        ActivityId = p.Activity.ActivityId,
-                        Title = p.Activity.Title,
-                        Owner = p.Activity.User.UserName ?? "Unknown", // ป้องกัน null
-                        Location = p.Activity.Location,
-                        StartDateTime = p.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        EndDateTime = p.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        DeadlineDateTime = p.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
-                        ApplyMax = p.Activity.ApplyMax,
-                        ApplyCount = _context.ApplyOn.Count(a => a.ActivityId == p.ActivityId),
-                        TagsList = p.Activity.ActivityTags?.Select(at => at.Tag.TagName).ToList() ?? new List<string>()
-                    })
-                    .ToList();
+                        CreatedActivityFromDb = userClass.CreatedActivities
+                            .Select(t => new ActivityCardViewModel
+                            {
+                                ActivityId = t.ActivityId,
+                                Title = t.Title,
+                                Owner = t.OwnerName,
+                                Location = t.Location,
+                                StartDateTime = t.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                                EndDateTime = t.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                                DeadlineDateTime = t.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                                ApplyMax = t.ApplyMax,
+                                ApplyCount = t.ApplyCount,
+                                TagsList = t.Tags
+                            })
+                            .ToList();
 
-                NonApprovedActivityFromDb.RemoveAll(n => ApprovedActivityFromDb.Any(a => a.ActivityId == n.ActivityId));
-            }
+
+
+                        ApprovedActivityFromDb = userClass.Participations
+                            .Where(p => p.Activity != null)
+                            .Select(p => new ActivityCardViewModel
+                            {
+                                ActivityId = p.Activity.ActivityId,
+                                Title = p.Activity.Title,
+                                Owner = p.Activity.OwnerName,
+                                Location = p.Activity.Location,
+                                StartDateTime = p.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm"),
+                                EndDateTime = p.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm"),
+                                DeadlineDateTime = p.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm"),
+                                ApplyMax = p.Activity.ApplyMax,
+                                ApplyCount = p.Activity.ApplyCount,
+                                TagsList = p.Activity.Tags
+                            })
+                            .ToList();
+
+                        NonApprovedActivityFromDb = userClass.Applications
+                            .Where(apply => apply.Activity != null)
+                            .Select(apply => new ActivityCardViewModel
+                            {
+                            ActivityId = apply.Activity.ActivityId,
+                            Title = apply.Activity.Title,
+                            Owner = apply.Activity.OwnerName,
+                            Location = apply.Activity.Location,
+                            StartDateTime = apply.Activity.StartDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                            EndDateTime = apply.Activity.EndDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                            DeadlineDateTime = apply.Activity.DeadlineDateTime.ToString("yyyy-MM-ddTHH:mm:ss"),
+                            ApplyMax = apply.Activity.ApplyMax,
+                            ApplyCount = apply.Activity.ApplyCount,
+                            TagsList = apply.Activity.Tags
+                            })
+                            .ToList();
+                    }
+                    else
+                    {
+                        return NotFound();
+                    }
 
             // ดึงแท็กจากฐานข้อมูล
             var tagsFromDb = await _context.Tags
@@ -117,7 +165,7 @@ namespace MUENTIP.Controllers
             // สร้าง ViewModel
             var model = new MyActivityViewModel
             {
-                userId = int.TryParse(user.Id, out int id) ? id : 0, // แปลง string -> int
+                userId = int.TryParse(user.Id, out int id) ? id : 0, 
                 createdActivity = CreatedActivityFromDb,
                 nonApproveActivity = NonApprovedActivityFromDb,
                 approvedActivity = ApprovedActivityFromDb,

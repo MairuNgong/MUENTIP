@@ -31,8 +31,26 @@ header {
     cursor: pointer;
 }
 
-    .edit-profile-btn:hover {
-        background-color: #016332;
+.edit-profile-btn:hover {
+    background-color: #016332;
+}
+
+.cancel-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #333;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 100;
+}
+
+    .cancel-btn:hover {
+        opacity: 0.7;
     }
 
 .profile-card {
@@ -143,6 +161,10 @@ header {
 
 @media (min-width: 800px) {
 
+    .cancel-btn {
+        margin-left: 55px;
+    }
+
     .tab-content.active {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -153,6 +175,7 @@ header {
 }
 
 @media (min-width: 1200px) {
+
 
     .tab-content.active {
         display: grid;
