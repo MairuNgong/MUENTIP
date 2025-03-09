@@ -207,27 +207,31 @@ document.addEventListener("DOMContentLoaded", function () {
     if (username === activity.owner) {
         edit_activity();
         view_participants();
-        add_new_announce();    
+        add_new_announce();
+        
+        if(out_of_date) {
+            document.getElementById("edit-act-bt").style.display = "none";
+        }
     }
 
     // others user
-    if (username != activity.owner && username != null) {
-
+    if (username !== activity.owner && username !== null) {
         if (is_participate === "Participating") {
             parti_bt.textContent = "accepted";
             parti_bt.className = "participants-bt-2";
-        }
-        if (!is_participate === "Not Participating") {
+        }  
+        else if (is_participate !== "Not Participating") {
             parti_bt.textContent = "rejected";
             parti_bt.className = "participants-bt-2";
-        }
-        if (!is_apply_on && out_of_date) {
+        } 
+        else if (!is_apply_on && out_of_date) {
             parti_bt.textContent = "closed";
             parti_bt.className = "participants-bt-2";
-        }
-        if (!is_apply_on && !out_of_date) {
+        } 
+        else if (!is_apply_on && !out_of_date) {
             parti_bt.textContent = "apply";
-
+            parti_bt.className = "participants-bt-2";
+    
             parti_bt.addEventListener("click", async function (ev) {
                 ev.preventDefault();
             
@@ -273,7 +277,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
             });                               
         }
-        if (is_apply_on && !out_of_date) {
+        else if (is_apply_on && !out_of_date) {
             parti_bt.textContent = "cancel";
             parti_bt.style.backgroundColor = "#D1D1D1";
 
@@ -297,6 +301,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     console.error("Error Withdrawing:", error);
                 }
             });
+        }
+        else {
+            parti_bt.textContent = "wating";
+            parti_bt.className = "participants-bt-2";
         }
     }
     // not logged in

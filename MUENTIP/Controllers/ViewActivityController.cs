@@ -4,6 +4,9 @@ using MUENTIP.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using MUENTIP.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Mail;
+using System.Net;
+using System.Diagnostics;
 
 namespace MUENTIP.Controllers
 {
@@ -11,11 +14,12 @@ namespace MUENTIP.Controllers
     {
         private readonly ApplicationDBContext _context;
         private readonly UserManager<User> _userManager;
-
-        public ViewActivityController(ApplicationDBContext context, UserManager<User> userManager)
+        private readonly EmailService _emailService;
+        public ViewActivityController(ApplicationDBContext context, UserManager<User> userManager, EmailService emailService)
         {
             _context = context;
             _userManager = userManager;
+            _emailService = emailService;
         }
         public async Task<IActionResult> Index(int activity_id)
         {
@@ -62,7 +66,7 @@ namespace MUENTIP.Controllers
             var participants = await _context.ParticipateIn
                 .Where(p => p.ActivityId == activity_id)
                 .ToListAsync();
-
+            
             if (participants != null && user != null)
             {
                 var participant = await _context.ParticipateIn
@@ -109,7 +113,7 @@ namespace MUENTIP.Controllers
                 Announcements = announcementFromDb,
                 UserName = user?.UserName,
                 IsApplyOn = is_applied ? (bool?)true : (bool?)false, 
-                ParticipationStatus = string.IsNullOrEmpty(participationStatus) ? "Not Participating" : participationStatus,  // Default to "Not Participating"
+                ParticipationStatus = string.IsNullOrEmpty(participationStatus) ? "Not Participating" : participationStatus,  
                 OutOfDate = out_of_date
             };
 
@@ -123,8 +127,10 @@ namespace MUENTIP.Controllers
             {
                 var user = await _userManager.GetUserAsync(User);
                 if (user == null) return Json(new { success = false, message = "User not logged in." });
-                
-                var activity = _context.Activities.Find(ActivityId);
+
+                var activity = await _context.Activities
+                    .Include(a => a.User) 
+                    .FirstOrDefaultAsync(a => a.ActivityId == ActivityId);
                 if (activity == null) return NotFound("Activity not found.");
 
                 var announcement = new Annoucement
@@ -138,7 +144,23 @@ namespace MUENTIP.Controllers
                 _context.Annoucements.Add(announcement);
                 await _context.SaveChangesAsync();
 
-                return Json(new { success = true});
+                var participantEmails = await _context.ParticipateIn
+                    .Where(p => p.ActivityId == ActivityId)
+                    .Select(p => p.User.Email)
+                    .ToListAsync();
+
+                string subject = $"New Announcement for {activity.Title}";
+                string body = $"Hello, <br/><br/>A new announcement has been posted for the activity <b>{activity.Title}</b>:<br/><br/>{Content}<br/><br/>Regards,<br/>MUENTIP Team";
+
+                foreach (var email in participantEmails)
+                {
+                    if (!string.IsNullOrEmpty(email))
+                    {
+                        await _emailService.SendEmailAsync(email, subject, body);
+                    }
+                }
+
+                return Json(new { success = true });
             }
             catch (Exception ex)
             {
