@@ -3,11 +3,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>View Activity</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/css/ViewActivity/view_activity_page.css" />
 </head>
+
 <body>
     <header class="activity-header">
         @if (Model.Card.Owner == Model.UserName)
@@ -21,6 +23,7 @@
             @Model.Card.Title
         </h1>
     </header>
+
     <div class="tags-div">
         @foreach (var tagName in Model.Card.TagsList)
         {
@@ -77,7 +80,8 @@
         @if (Model.Card.Owner == Model.UserName)
         {
             <form id="add-new-announce">
-                <textarea name="Content" placeholder="Add new announcement..." rows="1" oninput="expandTextarea(this)" required></textarea>
+                <textarea name="Content" placeholder="Add new announcement..." rows="1" oninput="expandTextarea(this)"
+                    required></textarea>
                 <button id="new-announce-bt" type="submit">+</button>
             </form>
         }
@@ -108,4 +112,5 @@
 
     <script src="~/js/ViewActivity/view_activity_page.js"></script>
 </body>
+
 </html>
