@@ -31,8 +31,26 @@ header {
     cursor: pointer;
 }
 
-    .edit-profile-btn:hover {
-        background-color: #016332;
+.edit-profile-btn:hover {
+    background-color: #016332;
+}
+
+.cancel-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    color: #333;
+    position: fixed;
+    top: 10px;
+    left: 20px;
+    z-index: 100;
+}
+
+    .cancel-btn:hover {
+        opacity: 0.7;
     }
 
 .profile-card {
@@ -122,13 +140,18 @@ header {
     border-radius: 10px;
     padding: 10px 15px;
     margin-top: 10px;
-    background-color: #00ff80;
-    color: black;
+    background-color: #1cb88a;
+    color: white;
     border: none;
     font-size: 16px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
+}
+
+.profile-activity-button:hover {
+    background-color: #016332;
 }
 
 .tab-content.no-activities-container.active {
@@ -137,6 +160,10 @@ header {
 }
 
 @media (min-width: 800px) {
+
+    .cancel-btn {
+        margin-left: 55px;
+    }
 
     .tab-content.active {
         display: grid;
@@ -148,6 +175,7 @@ header {
 }
 
 @media (min-width: 1200px) {
+
 
     .tab-content.active {
         display: grid;
