@@ -23,16 +23,28 @@ const ApplyFilter = (tag, tag_element) => {
     FilterActivity(selected_tags);  // Apply the filter with the accumulated tags
 };
 
+let showWindow = false;
 const ShowFilterWindow = () => {
+  if (showWindow === false){
+    showWindow = true;
+    filter_button.style.border = "2px solid black";
     const filterWindow = document.getElementById("filter_window");
-    filterWindow.style.display = "block";  // Show the window
-
+    filterWindow.style.display = "block";
+  }
+  else
+  {
+    CloseFilterWindow();
+  }
+  
 }
 
 const CloseFilterWindow = () => {
+  showWindow = false;
+    filter_button.style.border = "0px solid black";
     const filterWindow = document.getElementById("filter_window");
     filterWindow.style.display = "none";  // Hide the window
 }
+
 
 
 const tags_group = document.getElementById("tags_group");
