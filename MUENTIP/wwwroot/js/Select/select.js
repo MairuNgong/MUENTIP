@@ -2,6 +2,7 @@ var Appliers = JSON.parse(JSON.stringify(selectModel)).appliers;
 var ApplyMax = JSON.parse(JSON.stringify(selectModel)).applyMax;
 var activity_id = JSON.parse(JSON.stringify(selectModel)).activity_id;
 
+
 console.log(activity_id)
 console.log(selectModel)
 console.log(ApplyMax)
@@ -111,7 +112,10 @@ function renderApplier(container) {
                     console.error('Error:', error);
                 }
             }
+
         }
+        window.location.href = '/Home';
+        alert("successfull")
     });
 
 
