@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () { 
+﻿document.addEventListener("DOMContentLoaded", function () { 
     const create_activities = JSON.parse(JSON.stringify(activityModel)).createdActivity;
     const approve_activities = JSON.parse(JSON.stringify(activityModel)).approvedActivity;
     const showCreate = JSON.parse(JSON.stringify(activityModel)).showCreate;
@@ -172,10 +172,21 @@ document.addEventListener("DOMContentLoaded", function () {
             };
     
             activity_card.appendChild(enter_button);
+            applyFontFamilyToText(activity_card);
             container.appendChild(activity_card);
         });
     }
-    
+
+    function applyFontFamilyToText(activity_card) {
+        const elements = activity_card.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6");
+
+        elements.forEach(el => {
+            if (/[ก-๙]/.test(el.textContent)) {
+                el.style.fontFamily = '"Noto Sans Thai", serif';
+            }
+        });
+    }
+
     function renderCreatedActivities() {
         const createdActivitiesContainer = document.getElementById("createActivities");
         

@@ -46,7 +46,7 @@
                 }
             </div>
             <input type="file" id="fileInput" style="display: none;" accept="image/*" onchange="uploadImage()">
-            <button type="button" class="_button" onclick="document.getElementById('fileInput').click()">Upload</button>
+            <button type="button" class="_button" id="fileInputButton" onclick="document.getElementById('fileInput').click()">Upload</button>
 
             <div class="detail-profile">
                 <div class="form-group">
@@ -120,9 +120,9 @@
                 </div>
             </div>
             <p id="error"></p>
-            <!-- Submit Button -->
+          
             <div class="form-group">
-                <button type="submit" class="_button">Save Changes</button>
+                <button type="submit" id="submitButton" class="_button">Save Changes</button>
             </div>
         </div>
             

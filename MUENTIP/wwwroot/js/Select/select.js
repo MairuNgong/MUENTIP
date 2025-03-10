@@ -72,10 +72,14 @@ function renderApplier(container) {
     document.getElementById("confirmBtn").addEventListener("click", async function () {
         // หาชื่อของ checkbox ที่ถูกเลือก
         const selectedCheckboxes = document.querySelectorAll(".checkbox:checked");
-
+        const Button = document.getElementById("confirmBtn");
+        Button.disabled = true;
+        Button.textContent = "Sending...";
+        Button.style.backgroundColor = "#45a049";
+        Button.style.cursor = "not-allowed";
         // สร้าง Set สำหรับเก็บ user_id ที่ถูกส่งไปแล้ว
         const sentUserIds = new Set();
-
+        console.log("Sending");
         // วนลูปผ่าน checkbox ที่ถูกเลือก
         for (const checkbox of selectedCheckboxes) {
             // หา applicant ที่ตรงกับ checkbox โดยใช้ id ของ checkbox
@@ -114,6 +118,10 @@ function renderApplier(container) {
                     console.log(data);
                 } catch (error) {
                     console.error('Error:', error);
+                    Button.disabled = false;
+                    Button.textContent = "Confirm";
+                    Button.style.backgroundColor = "";
+                    Button.style.cursor = "pointer";
                 }
             }
 

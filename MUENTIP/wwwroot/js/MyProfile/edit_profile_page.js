@@ -98,9 +98,16 @@ document.querySelector("form").addEventListener("submit", function(event) {
 });
 
 async function uploadImage() {
-    console.log("DONT");
     const fileInput = document.getElementById("fileInput");
+    const fileInputButton = document.getElementById("fileInputButton");
+
     if (!fileInput.files.length) return;
+
+    
+    fileInputButton.disabled = true;
+    fileInputButton.textContent = "Uploading...";
+    fileInputButton.style.backgroundColor = "#45a049";
+    fileInputButton.style.cursor = "not-allowed";
 
     const file = fileInput.files[0];
     let formData = new FormData();
@@ -121,12 +128,24 @@ async function uploadImage() {
         }
     } catch (error) {
         alert("An error occurred: " + error.message);
+    } finally {
+        
+        fileInputButton.disabled = false;
+        fileInputButton.style.backgroundColor = ""; 
+        fileInputButton.style.cursor = "pointer";
+        fileInputButton.textContent = "Upload";
     }
 }
+
 
 document.getElementById('EditForm').addEventListener('submit', async function (e) {
     e.preventDefault(); // Prevent form submission
 
+    const Button = document.getElementById("submitButton");
+    Button.disabled = true;
+    Button.textContent = "Saving...";
+    Button.style.backgroundColor = "#45a049";
+    Button.style.cursor = "not-allowed";
     // Collect form data
     let formData = new FormData();
     formData.append('UserName', document.getElementById('Name').value);
@@ -164,5 +183,9 @@ document.getElementById('EditForm').addEventListener('submit', async function (e
         }
         Message.style.color = "red";
         Message.textContent = result.message;
+        Button.disabled = false;
+        Button.style.backgroundColor = "";
+        Button.style.cursor = "pointer";
+        Button.textContent = "Save Changes";
     }
 });

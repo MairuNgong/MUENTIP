@@ -31,6 +31,12 @@ async function closeApp() {
 ActivityForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
+    const Button = document.getElementById("create-button");
+    Button.disabled = true;
+    Button.textContent = "Saving...";
+    Button.style.backgroundColor = "#45a049";
+    Button.style.cursor = "not-allowed";
+
     const formData = new FormData(this);
     console.log(selected_tags);
     formData.append("selected_tags", JSON.stringify(selected_tags));
@@ -52,6 +58,10 @@ ActivityForm.addEventListener("submit", async function (event) {
         }
         Message.style.color = "red";
         Message.textContent = result.message;
+        Button.disabled = false;
+        Button.textContent = "Save Changes";
+        Button.style.backgroundColor = "";
+        Button.style.cursor = "pointer";
     }
 });
 
