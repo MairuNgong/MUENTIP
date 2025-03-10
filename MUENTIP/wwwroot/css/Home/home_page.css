@@ -12,22 +12,8 @@
     background-image: url("/img/muen-tip-bg.png");
 }
 
-/* .header-muentip {
-    text-align: center;
-    text-shadow:
-        1px 1px 20px white,   
-        -1px -1px 20px white,
-        1px -1px 20px white, 
-        -1px 1px 20px white;  
-    font-weight: bolder;
-    font-size: 30px;
-    padding: 3rem;
-    background-color: #C0EFD8;
-    background-image: url("/img/10000tip-banner.png");
-    background-size: 530px; 
-    background-position: center 40%; 
-    background-repeat: no-repeat;
-} */
+
+
 
 .header-muentip {
     display: flex;  
@@ -190,13 +176,13 @@ h1 {
     margin-left: 2rem;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 879px) {
     #view-all-bt {
         height: 120px;
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
     .act-div {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -232,7 +218,7 @@ h1 {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .act-div {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
