@@ -5,7 +5,7 @@ const owner_id = JSON.parse(JSON.stringify(viewActivityModel)).ownerId;
 const is_apply_on = JSON.parse(JSON.stringify(viewActivityModel)).isApplyOn;
 const is_participate = JSON.parse(JSON.stringify(viewActivityModel)).participationStatus;
 const out_of_date = JSON.parse(JSON.stringify(viewActivityModel)).outOfDate;
-const is_selected = JSON.parse(JSON.stringify(viewActivityModel)).outOfDate.isSelected;
+const is_selected = JSON.parse(JSON.stringify(viewActivityModel)).isSelected;
 
 console.log(username);
 console.log(activity);
@@ -197,7 +197,7 @@ function edit_activity() {
 function view_participants() {
     parti_bt.textContent = "view";
 
-    if(is_selected) {
+    if(!is_selected) {
         parti_bt.addEventListener("click", function(ev) {
             parti_bt.disabled = true;
             window.location.href = `/Select/Index?id=${activity.activityId}`;

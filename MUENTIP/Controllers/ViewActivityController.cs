@@ -66,7 +66,7 @@ namespace MUENTIP.Controllers
             var participants = await _context.ParticipateIn
                 .Where(p => p.ActivityId == activity_id)
                 .ToListAsync();
-            
+
             if (participants != null && user != null)
             {
                 var participant = await _context.ParticipateIn
