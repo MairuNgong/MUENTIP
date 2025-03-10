@@ -74,7 +74,7 @@ nav {
     text-align: center;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
     .act-div {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -88,7 +88,7 @@ nav {
     }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
     .act-div {
         display: grid;
         grid-template-columns: repeat(3, 1fr);

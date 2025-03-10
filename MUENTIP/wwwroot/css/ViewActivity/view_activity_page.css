@@ -423,7 +423,7 @@ h2 {
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
     .fyi-text {
         margin-top: 1rem;
         color: #FF0000;

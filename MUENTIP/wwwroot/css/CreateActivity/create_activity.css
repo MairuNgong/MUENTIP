@@ -216,7 +216,7 @@
     display: flex;
     justify-content: center;
 }
-@media (min-width: 800px) {
+@media (min-width: 880px) {
     .ReturnButton {
         margin-left: 60px;
     }

@@ -148,7 +148,7 @@ body {
     display: none;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
     .menu-button {
         display: block;
         position: fixed;
@@ -274,7 +274,7 @@ body {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 880px) {
     .popup-content {
         display: block; 
         width: 90%; 

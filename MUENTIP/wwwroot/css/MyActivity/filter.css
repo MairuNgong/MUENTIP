@@ -74,7 +74,7 @@
   /* Enable vertical scrolling */
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
 
   #filter_window {
     border-radius: 15px;

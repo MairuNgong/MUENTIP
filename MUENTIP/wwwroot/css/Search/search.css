@@ -128,8 +128,17 @@ header {
     cursor: pointer;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
 
+
+    #back-to-top {
+        right: 40px;
+        top: 90px;
+    }
+
+    #back-to-top img {
+        height: 40px;
+    }
     #search_bar {
         background-color: #F2F2F2;
         margin-left: calc(50vw - 245px);
@@ -163,8 +172,8 @@ header {
 #back-to-top {
     display: none;
     position: fixed;
-    right: 20px;
-    top: 20px;
+    right: 30px;
+    top: 80px;
     cursor: pointer;
     border: none;
     background-color: unset;

@@ -84,7 +84,7 @@
     margin-right: 20px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
 
     #filter_window {
         border-radius: 15px;

@@ -121,7 +121,7 @@ header {
     cursor: pointer;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
 
     #search_bar {
         background-color: #F2F2F2;
