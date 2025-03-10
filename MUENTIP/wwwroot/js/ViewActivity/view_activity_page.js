@@ -30,7 +30,7 @@ fyi_text.style.width = `${parti_width}px`;
 if (activity.applyCount < activity.applyMax && out_of_date) {
     parti_num.style.color = "#ACACAC";
 }
-if (activity.applyCount > activity.applyMax) {
+if (activity.applyCount >= activity.applyMax) {
     fyi_text.style.display = "block";
     parti_num.style.color = "#FF0000";
 }
@@ -174,13 +174,13 @@ function add_new_announce() {
                 window.location.reload();
             } else {
                 alert(result.message);
-                announceButton.disabled = false; // Re-enable on error
-                announceButton.textContent = "Submit"; // Reset text
+                announceButton.disabled = false; 
+                announceButton.textContent = "Submit"; 
             }
         } catch (error) {
             console.error("Error submitting announcement:", error);
-            announceButton.disabled = false; // Re-enable on error
-            announceButton.textContent = "Submit"; // Reset text
+            announceButton.disabled = false; 
+            announceButton.textContent = "Submit"; 
         }
     });
 }
@@ -195,8 +195,9 @@ function edit_activity() {
 
 function view_participants() {
     parti_bt.textContent = "view";
-
+    
     parti_bt.addEventListener("click", function(ev) {
+        parti_bt.disabled = true;
         window.location.href = `/Select/Index?id=${activity.activityId}`;
     });
 }
@@ -242,6 +243,8 @@ document.addEventListener("DOMContentLoaded", function () {
     
             parti_bt.addEventListener("click", async function (ev) {
                 ev.preventDefault();
+
+                parti_bt.disabled = true;
             
                 try {
                     const response = await fetch(`/ViewActivity/ApplyOn?activity_id=${activity.activityId}`, {
@@ -291,6 +294,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
             parti_bt.addEventListener("click", async function(ev) {
                 ev.preventDefault();
+
+                parti_bt.disabled = true;
 
                 try {
                     const response = await fetch(`/ViewActivity/Withdraw?activity_id=${activity.activityId}`, {

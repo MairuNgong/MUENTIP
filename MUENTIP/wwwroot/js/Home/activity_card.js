@@ -176,12 +176,18 @@ function renderHotTag(container, hot_tags) {
   hot_tags.forEach(hot_tag => {
     const hot_tag_ele = document.createElement("li");
     const link_to_section = document.createElement("a");
+
     hot_tag_ele.className = "hot-tag-ele";
     link_to_section.textContent = hot_tag.tagName;
     link_to_section.href = `#${hot_tag.tagName}-section`;
+
+    hot_tag_ele.addEventListener("click", () => {
+      window.location.href = link_to_section.href;
+    });
+
     hot_tag_ele.appendChild(link_to_section);
     container.appendChild(hot_tag_ele);
-  })
+  });
 }
 
 function createViewAllBt(container, tag_name) {
