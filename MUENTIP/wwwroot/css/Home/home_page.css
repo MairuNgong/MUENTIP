@@ -196,7 +196,7 @@ h1 {
     }
 }
 
-@media (min-width: 800px) {
+@media (min-width: 850px) {
     .act-div {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
