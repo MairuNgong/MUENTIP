@@ -75,6 +75,14 @@
         </div>
     </div>
 
+    <div id="overlay2"></div>
+    <div id="notify-popup2">
+        <p class="noti-title">You are not the owner, access denied.</p>
+        <div id="progress-container2">
+            <div id="progress-bar2"></div>
+        </div>
+    </div>
+
     <script>
         var currentUserId = '@UserManager.GetUserId(User)';
         var selectModel = @Html.Raw(Json.Serialize(Model));
@@ -82,11 +90,42 @@
         console.log(currentUserId);
 
         if (currentUserId !== selectModel.ownerId) {
-            window.location.href = '/Home';
-            alert("You are not the owner, access denied.");
+                    console.log("ApplyOn created successfully!");
+
+        const overlay = document.getElementById("overlay2");
+        const popup = document.getElementById("notify-popup2");
+        const progressBar = document.getElementById("progress-bar2");
+
+        overlay.style.display = "block";
+        popup.style.display = "flex";
+        popup.classList.remove("fade-out");
+        overlay.classList.remove("fade-out");
+        progressBar.style.width = "0%";
+
+        setTimeout(() => {
+            progressBar.style.width = "100%";
+        }, 50);
+
+        setTimeout(() => {
+            popup.classList.add("fade-out");
+            overlay.classList.add("fade-out");
+
+            setTimeout(() => {
+                popup.style.display = "none";
+                overlay.style.display = "none";
+                window.location.reload();
+            }, 1000);
+        }, 1000);
+        setTimeout(function () {
+            window.history.back();
+
+        }, 1000);  // รอ 2 วินาที (2000 มิลลิวินาที)
+            
+
         } else {
             console.log('Access granted to the page');
         }
+
 
     </script>
     <script src="~/js/Select/select.js"></script>

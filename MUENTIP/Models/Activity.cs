@@ -39,7 +39,7 @@ namespace MUENTIP.Models
 
         public virtual ICollection<ApplyOn> Applications { get; set; }
 
-        public virtual ICollection<ParticipateIn> Participations { get; set; }
+        public virtual ICollection<ParticipateIn>? Participations { get; set; }
 
         public virtual ICollection<ActivityType> ActivityTags { get; set; }
 

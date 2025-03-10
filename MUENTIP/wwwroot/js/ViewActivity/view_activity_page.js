@@ -228,6 +228,9 @@ document.addEventListener("DOMContentLoaded", function () {
         if (is_participate === "Participating") {
             parti_bt.textContent = "accepted";
             parti_bt.className = "participants-bt-2";
+            parti_bt.addEventListener("click", function () {
+                window.location.href = `/Checklist/Index?id=${activity.activityId}`;
+            });
         }  
         else if (is_participate !== "Not Participating") {
             parti_bt.textContent = "rejected";
