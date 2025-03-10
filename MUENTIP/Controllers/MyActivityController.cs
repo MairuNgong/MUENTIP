@@ -23,11 +23,9 @@ namespace MUENTIP.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null) return NotFound();
 
-            // ดึงเฉพาะ userId ไปใช้ในการ Query เพื่อให้ประสิทธิภาพดีขึ้น
             var userId = user.Id;
 
-            // ใช้ Task.WhenAll() เพื่อให้ทุก Query ดำเนินไปพร้อมกัน
-            var createdActivitiesTask = _context.Activities
+            var createdActivities = await _context.Activities
                 .AsNoTracking()
                 .Where(a => a.UserId == userId)
                 .OrderByDescending(a => a.ActivityId)
@@ -46,7 +44,7 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
-            var applicationsTask = _context.ApplyOn
+            var applications = await _context.ApplyOn
                 .AsNoTracking()
                 .Where(a => a.UserId == userId && a.Activity != null)
                 .OrderByDescending(a => a.Activity.ActivityId)
@@ -65,7 +63,7 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
-            var participationsTask = _context.ParticipateIn
+            var participations = await _context.ParticipateIn
                 .AsNoTracking()
                 .Where(p => p.UserId == userId && p.Activity != null)
                 .OrderByDescending(p => p.Activity.ActivityId)
@@ -84,24 +82,22 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
-            var tagsTask = _context.Tags
+            var tags = await _context.Tags
                 .AsNoTracking()
                 .Select(t => new TagFilterViewModel { TagName = t.TagName })
                 .ToListAsync();
 
-            // รอให้ทุก Task ทำงานเสร็จ
-            await Task.WhenAll(createdActivitiesTask, applicationsTask, participationsTask, tagsTask);
-
             var model = new MyActivityViewModel
             {
                 userId = int.TryParse(userId, out int id) ? id : 0,
-                createdActivity = await createdActivitiesTask,
-                nonApproveActivity = await applicationsTask,
-                approvedActivity = await participationsTask,
-                filterTags = await tagsTask
+                createdActivity = createdActivities,
+                nonApproveActivity = applications,
+                approvedActivity = participations,
+                filterTags = tags
             };
+
             return View(model);
         }
-        
+
     }
 }
