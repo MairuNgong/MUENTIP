@@ -73,6 +73,20 @@
     text-underline-offset: 6px;
     text-decoration-thickness: 2px;
 }
+#back-to-top {
+    display: none;
+    position: fixed;
+    right: 30px;
+    top: 80px;
+    cursor: pointer;
+    border: none;
+    background-color: unset;
+}
+
+    #back-to-top img {
+        height: 30px;
+    }
+
 
 .activity-nav {
     max-width: 100%;
@@ -207,16 +221,3 @@
     }
 }
 
-#back-to-top {
-    display: none;
-    position: fixed;
-    right: 30px;
-    top: 80px;
-    cursor: pointer;
-    border: none;
-    background-color: unset;
-}
-
-    #back-to-top img {
-        height: 30px;
-    }
