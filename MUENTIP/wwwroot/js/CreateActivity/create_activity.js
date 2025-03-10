@@ -10,7 +10,11 @@ function goBack() {
 }
 ActivityForm.addEventListener("submit", async function (event) {
     event.preventDefault();
-
+    const Button = document.getElementById("create-button");
+    Button.disabled = true;
+    Button.textContent = "Saving...";
+    Button.style.backgroundColor = "#45a049";
+    Button.style.cursor = "not-allowed";
     const formData = new FormData(this);
     formData.append("selected_tags", JSON.stringify(selected_tags));
     const response = await fetch("/CreateActivity/Create", {
@@ -30,6 +34,10 @@ ActivityForm.addEventListener("submit", async function (event) {
         }
         Message.style.color = "red";
         Message.textContent = result.message;
+        Button.disabled = false;
+        Button.textContent = "Create";
+        Button.style.backgroundColor = "";
+        Button.style.cursor = "pointer";
     }
 });
 

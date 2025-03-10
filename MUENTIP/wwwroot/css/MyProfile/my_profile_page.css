@@ -5,6 +5,9 @@
     font-family: "Inter", Helvetica;
 }
 
+body {
+    background-image: url("/img/muen-tip-bg.png");
+}
 header {
     background: #C0EFD8;
     padding: 20px 0px;
@@ -15,6 +18,7 @@ header {
     top: 0;
     left: 0;
     width: 100%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .edit-profile-btn {
@@ -72,6 +76,7 @@ header {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .detail-profile p {
