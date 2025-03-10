@@ -190,13 +190,13 @@ h1 {
     margin-left: 2rem;
 }
 
-@media (max-width: 799px) {
+@media (max-width: 879px) {
     #view-all-bt {
         height: 120px;
     }
 }
 
-@media (min-width: 850px) {
+@media (min-width: 880px) {
     .act-div {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
