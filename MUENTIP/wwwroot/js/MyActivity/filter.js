@@ -27,7 +27,7 @@ let showWindow = false;
 const ShowFilterWindow = () => {
   if (showWindow === false){
     showWindow = true;
-    filter_button.style.border = "2px solid black";
+    filter_button.style.outline = "2px solid black";
     const filterWindow = document.getElementById("filter_window");
     filterWindow.style.display = "block";
   }
@@ -40,7 +40,7 @@ const ShowFilterWindow = () => {
 
 const CloseFilterWindow = () => {
   showWindow = false;
-    filter_button.style.border = "0px solid black";
+    filter_button.style.outline = "0px solid black";
     const filterWindow = document.getElementById("filter_window");
     filterWindow.style.display = "none";  // Hide the window
 }
