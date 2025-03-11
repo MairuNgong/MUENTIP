@@ -22,7 +22,6 @@
     cursor: pointer;
     padding: 5px 10px;
     color: #333; 
-    z-index: 1000; 
 }
 
 .ReturnButton:hover {
