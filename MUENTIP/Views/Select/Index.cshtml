@@ -46,7 +46,7 @@
 
         ">
 
-        <img id="picture" src=@Model.ownerImgLink style="width: 80px; height: 80px; border-radius: 50%;" />
+            <img id="picture" src="@(Model.ownerImgLink ?? "/img/default-profile.png")" style="width: 80px; height: 80px; border-radius: 50%;" />
             <button class="Select_all_button"
                     id="selectAllBtn"
                     style="margin-left: 70px">
