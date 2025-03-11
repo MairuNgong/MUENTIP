@@ -57,6 +57,7 @@
   border-radius: 50px;
   font-size: 16px;
   cursor: pointer;
+  margin: 2px 0 0 2px;
 }
 
 .filter_tags_group{

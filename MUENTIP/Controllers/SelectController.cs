@@ -113,7 +113,7 @@ public class SelectController : Controller
         if (user != null)
         {
             // Customize the email content as needed
-            string subject = "🎉 Congratulations! You've Been Selected for the {activity.Title} Event!";
+            string subject = $@"🎉 Congratulations! You've Been Selected for the {activity.Title} Event!";
 
             string body = $@"<p>Dear {user.UserName},</p>
 

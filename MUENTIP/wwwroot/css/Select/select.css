@@ -68,6 +68,13 @@ body {
     gap: 20px;
     padding: 20px;
 }
+#picture {
+    cursor: pointer;
+}
+
+.icon {
+    cursor: pointer;
+}
 
 #overlay2 {
     position: fixed;
