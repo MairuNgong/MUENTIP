@@ -1,0 +1,67 @@
+﻿@using MUENTIP.ViewModels
+@using MUENTIP.Models
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<User> UserManager
+@{
+    ViewData["Title"] = "Checklist Page";
+}
+
+
+@model Check_listViewModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checklist Page</title>
+    <link rel="stylesheet" href="~/css/Check/Check.css" />
+    <style></style>
+</head>
+<body>
+    <header class="Banner">
+        <button class="ReturnButton" onclick="history.back();">&#60;</button>
+        <span>
+            Checklist Participants
+        </span>
+    </header>
+
+    <div id="rectangle_fill" class="rectangle-container">
+        <div class="header">
+        </div>
+        <div style="
+          display: flex;
+          align-items: center;
+          margin-top: 20px;
+          margin-left: 30px;
+        ">
+
+        <img id="picture" src=@Model.ownerImgLink style="width: 80px; height: 80px; border-radius: 50%;"/>
+            <span style="margin-left: 25px;">@UserManager.GetUserName(User)</span>
+        </div>
+
+        <hr class="line" style="margin-top: 20px" />
+        <div id="container" style="margin-left: 0px"></div>
+
+    </div>
+
+    <div id="overlay"></div>
+    <div id="notify-popup">
+        <p class="noti-title">Sending Successful!</p>
+        <p class="noti-context">Email sending successful!.</p>
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+    </div>
+
+    <script>
+        var currentUserId = '@UserManager.GetUserId(User)';
+        var selectModel = @Html.Raw(Json.Serialize(Model));
+        console.log(selectModel.ownerId);
+        console.log(currentUserId);
+
+
+
+    </script>
+    <script src="~/js/Check/Check.js"></script>
+</body>
+</html>
