@@ -11,16 +11,17 @@ const img_arrow_src = "../img/right-arrow.png";
 function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
     container.innerHTML = "";
 
+    console.log(ShowedtagList);
     let filteredActivities = [];
 
-    if (ShowedtagList === "Realtime" || ShowedtagList.length === filter_tags.length) {
+    if (ShowedtagList === "Realtime") {
         filteredActivities = activities;
     } else {
         if (typeof ShowedtagList === "string") {
             ShowedtagList = [ShowedtagList]; 
         }
     
-        if (Array.isArray(ShowedtagList) && ShowedtagList.length === 0) {
+        if (Array.isArray(ShowedtagList) && ShowedtagList.length === 1) {
             filteredActivities = activities.filter(activity =>
                 ShowedtagList.every(showedTag =>
                     activity.tagsList.includes(
@@ -29,13 +30,10 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
                 )
             );
         } 
-        else if (Array.isArray(ShowedtagList) && ShowedtagList.length > 1){
+        if (Array.isArray(ShowedtagList) && ShowedtagList.length > 1){
             filteredActivities = activities.filter(activity =>
                 activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
             )
-        }    
-        else {
-            filteredActivities = activities;
         }
     }    
 
