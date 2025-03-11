@@ -70,9 +70,9 @@
   gap: 20px 16px;
   margin: 10px 10px;
   max-height: 150px;
-  /* Set the fixed height */
+ 
   overflow-y: auto;
-  /* Enable vertical scrolling */
+
 }
 
 @media (min-width: 880px) {
