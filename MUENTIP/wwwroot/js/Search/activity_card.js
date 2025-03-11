@@ -11,17 +11,18 @@ const img_arrow_src = "../img/right-arrow.png";
 // Function to render activities based on tags and title search
 function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "", Notfull = false) {
     container.innerHTML = ""; // Clear existing content
-
+    let filteredActivities;
+    if (ShowedtagList === tags) {
+        filteredActivities = activities;
+    }
     // Filter activities based on tags and title
-    console.log("sdadas")
-    console.log(ShowedtagList)
-    let filteredActivities = activities.filter(activity =>
-    (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) &&
-    activity.title.toLowerCase().includes(searchTitle.toLowerCase())
-    );
+    else {
+        filteredActivities = activities.filter(activity =>
+            (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) &&
+            activity.title.toLowerCase().includes(searchTitle.toLowerCase())
+        );
+    }
 
-    console.log('asdad')
-    console.log(filteredActivities)
 
 
     // ??? Notfull ???? true ????????????????????????????????
