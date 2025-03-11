@@ -171,7 +171,7 @@ input[type="checkbox"] {
     margin-right: 10px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
     
     .form-group {
         margin-bottom: 20px;

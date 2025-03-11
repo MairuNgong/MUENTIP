@@ -255,7 +255,7 @@ body {
         background-color: #80da80;
     }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
 
     #container {
         display: grid;

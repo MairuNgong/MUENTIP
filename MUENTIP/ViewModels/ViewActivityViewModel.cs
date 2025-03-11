@@ -6,6 +6,7 @@ namespace MUENTIP.ViewModels
         public string OwnerImg { get; set; }
         public string OwnerId { get; set; }
         public bool? IsApplyOn { get; set; } 
+        public bool? IsSelected { get; set; } 
         public string ParticipationStatus { get; set; }
         public Boolean OutOfDate { get; set; }
         public ActivityCardViewModel Card { get; set; }
