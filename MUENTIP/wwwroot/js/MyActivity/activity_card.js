@@ -14,11 +14,10 @@ const img_arrow_src = "/img/right-arrow.png";
 function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "") {
     container.innerHTML = "";
     let filteredActivities
-    if (ShowedtagList === tags) {
+    if (ShowedtagList === tags && searchTitle === "") {
         filteredActivities = activities;
     }
 
-    
     else {
         filteredActivities = activities.filter(activity =>
             activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
