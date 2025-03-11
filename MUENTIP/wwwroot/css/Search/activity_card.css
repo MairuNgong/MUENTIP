@@ -66,9 +66,9 @@
     font-size: 24px;
 }
 
-    .activity_participant img {
-        width: 25px;
-    }
+.activity_participant img {
+    width: 25px;
+}
 
 .tags_group {
     display: flex;
@@ -84,6 +84,14 @@
     font-size: 12px;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-top: 100px;
+    justify-content: center;
+    width: 100%;
+}
+
 .enter_button {
     border: 0;
     width: 50px;
@@ -91,14 +99,15 @@
     background-color: #C0EFD8;
 }
 
-    .enter_button img {
-        padding: 0px;
-        width: 30px;
-    }
+.enter_button img {
+    padding: 0px;
+    width: 30px;
+}
 
-    .enter_button:hover {
-        background-color: #ACACAC; /* A darker shade of  */
-    }
+.enter_button:hover {
+    background-color: #ACACAC;
+    /* A darker shade of  */
+}
 
 
 @media (min-width: 880px) {
@@ -108,8 +117,10 @@
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
         max-width: 1400px;
         grid-column-gap: 30px;
-        margin: auto; /* Centers horizontally */
-        padding: 0; /* Optional: Prevents content from touching the edges on small screens */
+        margin: auto;
+        /* Centers horizontally */
+        padding: 0;
+        /* Optional: Prevents content from touching the edges on small screens */
     }
 
     .activity_card {
@@ -145,7 +156,7 @@
         font-family: "Inter", Helvetica;
         font-weight: bold;
         font-size: 24px;
-        
+
     }
 
     .activity_participant img {

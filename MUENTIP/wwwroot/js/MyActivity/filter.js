@@ -13,11 +13,11 @@ const FilterActivity = (selected_tags) => {
 const ApplyFilter = (tag, tag_element) => {
     // Check if the tag is already in the selected_tags array
     if (!selected_tags.includes(tag)) {
-        tag_element.style.border = "black solid 2px";
+        tag_element.style.outline = "black solid 2px";
         selected_tags.push(tag);  // Add the tag to the array if not already selected
     } else {
         // If the tag is already selected, you can optionally remove it (toggle effect)
-        tag_element.style.border = "0";
+        tag_element.style.outline = "0";
         selected_tags = selected_tags.filter(selectedTag => selectedTag !== tag);
     }
     FilterActivity(selected_tags);  // Apply the filter with the accumulated tags

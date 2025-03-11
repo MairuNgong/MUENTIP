@@ -152,7 +152,6 @@ body {
 
 @media (min-width: 880px) {
 
-
     #back-to-top {
         right: 50px;
         top: 100px;
@@ -164,7 +163,7 @@ body {
 
     #search_bar {
         background-color: #F2F2F2;
-        margin-left: calc(50vw - 245px);
+        /* margin-left: calc(50vw - 245px); */
         width: 420px;
     }
 
