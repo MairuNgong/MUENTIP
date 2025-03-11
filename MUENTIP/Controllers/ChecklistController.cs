@@ -36,7 +36,9 @@ public class ChecklistController : Controller
         var owner_id = Activity.UserId;
 
         var user = _context.Users.FirstOrDefault(u => u.Id == owner_id);
-      
+
+        var owner_name = user.UserName;
+
         var member = _context.ParticipateIn
             .Where(p => p.ActivityId == id) 
             .ToList();
@@ -62,6 +64,7 @@ public class ChecklistController : Controller
 
         var model = new Check_listViewModel
         {
+            ownerName = owner_name,
             ownerId = owner_id,
             ownerImgLink = user.ProfileImageLink,
             applyMax = Activity.ApplyMax,
