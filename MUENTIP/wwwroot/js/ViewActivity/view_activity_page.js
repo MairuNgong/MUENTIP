@@ -347,6 +347,18 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
+    window.addEventListener('scroll', function () {
+        const returnButton = document.querySelector('.ReturnButton');
+        const scrollThreshold = 20; 
+    
+        if (window.scrollY > scrollThreshold) {
+            returnButton.style.display = "none";
+        } else {
+            returnButton.style.display = "";
+        }
+    });
+    
+
     const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, header");
     
     elements.forEach(el => {
