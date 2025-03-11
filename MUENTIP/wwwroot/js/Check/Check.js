@@ -36,7 +36,7 @@ function renderApplier(container) {
         owner.appendChild(img_people);
 
         const owner_text = document.createElement("span");
-        owner_text.textContent = `${applicant.userName} - ${applicant.email}`; // Display username and email
+        owner_text.textContent = `${applicant.userName}`; // Display username and email
 
         owner.appendChild(owner_text);
 
