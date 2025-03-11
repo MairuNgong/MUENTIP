@@ -14,10 +14,10 @@ window.addEventListener("pageshow", function (event) {
 });
 
 function renderApplier(container) {
-    // Remove all child elements from the container to overwrite it
+    
     container.innerHTML = "";
 
-    // Iterate over the applicants (display owner info now)
+    
     Appliers.forEach(applicant => {
         const applicant_card = document.createElement("div");
         applicant_card.className = "applicant_card";
@@ -32,7 +32,7 @@ function renderApplier(container) {
         const img_people = document.createElement("img");
         img_people.className = "icon";
         if (applicant.userImgLink != null) {
-            img_people.src = applicant.userImgLink; // Display the applicant's profile picture
+            img_people.src = applicant.userImgLink; 
         } else {
             img_people.src = "/img/default-profile.png";
         }
@@ -45,7 +45,7 @@ function renderApplier(container) {
         owner.appendChild(img_people);
 
         const owner_text = document.createElement("span");
-        owner_text.textContent = `${applicant.userName}`; // Display username and email
+        owner_text.textContent = `${applicant.userName}`; 
 
         owner.appendChild(owner_text);
 
@@ -63,6 +63,6 @@ document.getElementById("picture").addEventListener("click", function () {
     window.location.href = `/Profile/Index?id=${selectModel.ownerId}`;
 })
 
-// Assuming you have a container with the id "container" in your HTML
+
 const container = document.getElementById("container");
 renderApplier(container);

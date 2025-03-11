@@ -13,7 +13,7 @@ window.addEventListener("pageshow", function (event) {
         requestAnimationFrame(() => {
             setTimeout(() => {
                 window.location.reload();
-            }, 100); // หน่วงเวลา 100ms เพื่อให้หน้าโหลดเสร็จก่อน
+            }, 100); 
         });
     }
 });

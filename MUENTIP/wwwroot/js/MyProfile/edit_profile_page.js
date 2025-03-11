@@ -139,14 +139,14 @@ async function uploadImage() {
 
 
 document.getElementById('EditForm').addEventListener('submit', async function (e) {
-    e.preventDefault(); // Prevent form submission
+    e.preventDefault(); 
 
     const Button = document.getElementById("submitButton");
     Button.disabled = true;
     Button.textContent = "Saving...";
     Button.style.backgroundColor = "#45a049";
     Button.style.cursor = "not-allowed";
-    // Collect form data
+   
     let formData = new FormData();
     formData.append('UserName', document.getElementById('Name').value);
     formData.append('Email', document.getElementById('Email').value);
@@ -157,17 +157,17 @@ document.getElementById('EditForm').addEventListener('submit', async function (e
     formData.append('Address', document.getElementById('Address').value);
     formData.append('showCreate', document.getElementById('showCreate').checked);
     formData.append('showParticipate', document.getElementById('showParticipate').checked);
-    // Handle tags
+
    
     formData.append('InterestedTags', JSON.stringify(tags));
     console.log(JSON.stringify(tags))
-    // Handle profile image
+   
     let profileImageLink = document.getElementById('profileImageLink').value;
     if (profileImageLink) {
         formData.append('ProfileImageLink', profileImageLink);
     }
 
-    // Send the request
+    
     const response = await fetch('/EditProfile/Edit', {
         method: 'POST',
         body: formData

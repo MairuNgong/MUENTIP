@@ -11,16 +11,16 @@ const FilterActivity = (selected_tags) => {
 };
 
 const ApplyFilter = (tag, tag_element) => {
-    // Check if the tag is already in the selected_tags array
+   
     if (!selected_tags.includes(tag)) {
         tag_element.style.outline = "black solid 2px";
-        selected_tags.push(tag);  // Add the tag to the array if not already selected
+        selected_tags.push(tag);  
     } else {
-        // If the tag is already selected, you can optionally remove it (toggle effect)
+      
         tag_element.style.outline = "0";
         selected_tags = selected_tags.filter(selectedTag => selectedTag !== tag);
     }
-    FilterActivity(selected_tags);  // Apply the filter with the accumulated tags
+    FilterActivity(selected_tags);  
 };
 
 let showWindow = false;
@@ -42,7 +42,7 @@ const CloseFilterWindow = () => {
   showWindow = false;
     filter_button.style.outline = "0px solid black";
     const filterWindow = document.getElementById("filter_window");
-    filterWindow.style.display = "none";  // Hide the window
+    filterWindow.style.display = "none"; 
 }
 
 
@@ -61,15 +61,15 @@ const search_apply = () => {
     const searchTerm = document.getElementById("search_bar").value.trim().toLowerCase();
     console.log("Searching for:", searchTerm);
 
-    // Filter activities based on the search term matching the title and having a non-empty title
+   
     const filteredActivities = activities.filter(activity =>
         activity.title && activity.title.toLowerCase().includes(searchTerm)
     );
 
-    // Log the number of filtered activities
+    
     console.log(`Filtered activities count: ${filteredActivities.length}`);
 
-    // Optionally display the count on the page
+    
     const countDisplay = document.getElementById("filtered_count"); 
     if (countDisplay) {
         countDisplay.textContent = `Found ${filteredActivities.length} activities`;
@@ -78,7 +78,7 @@ const search_apply = () => {
         console.log(`Activity: ${activity.title}, Tag: ${activity.tag}`);
     });
 
-    // Render only the filtered activities based on title match
+   
     renderActivities(document.getElementById("container"), tags, filteredActivities.length, searchTerm);
 }
 
