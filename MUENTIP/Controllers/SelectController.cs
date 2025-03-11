@@ -34,6 +34,14 @@ public class SelectController : Controller
             return NotFound();
         }
 
+        var hasParticipants = _context.ParticipateIn.Any(p => p.ActivityId == id);
+
+        if (hasParticipants)
+        {
+            return BadRequest("Already Select.");
+        }
+
+
         var owner_id = Activity.UserId;
 
         var user = _context.Users.FirstOrDefault(u => u.Id == owner_id);
