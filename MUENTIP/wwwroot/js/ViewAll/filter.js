@@ -17,10 +17,10 @@ if (tag == "Realtime") {
   
     const ApplyFilter = (tag, tag_element) => {
         if (!selected_tags.includes(tag)) {
-            tag_element.style.border = "black solid 2px";
+            tag_element.style.outline = "black solid 2px";
             selected_tags.push(tag);
         } else {
-            tag_element.style.border = "0";
+            tag_element.style.outline = "0";
             selected_tags = selected_tags.filter(selectedTag => selectedTag !== tag);
         }
         FilterActivity(selected_tags);
