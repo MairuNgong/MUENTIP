@@ -22,12 +22,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
     
         if (Array.isArray(ShowedtagList) && ShowedtagList.length > 0) {
             filteredActivities = activities.filter(activity =>
-                ShowedtagList.every(showedTag =>
-                    activity.tagsList.includes(
-                        typeof showedTag === "string" ? showedTag : showedTag.tagName
-                    )
-                )
-            );
+                activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)));
         } else {
             filteredActivities = activities;
         }
