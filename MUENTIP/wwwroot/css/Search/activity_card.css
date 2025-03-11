@@ -106,7 +106,6 @@
 
 .enter_button:hover {
     background-color: #ACACAC;
-    /* A darker shade of  */
 }
 
 
@@ -118,9 +117,8 @@
         max-width: 1400px;
         grid-column-gap: 30px;
         margin: auto;
-        /* Centers horizontally */
         padding: 0;
-        /* Optional: Prevents content from touching the edges on small screens */
+        
     }
 
     .activity_card {

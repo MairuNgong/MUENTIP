@@ -112,7 +112,7 @@ header {
     bottom: 0;
     left: 0;
     z-index: 10;
-    /* Ensure footer is above other content */
+
 }
 
 .footer_icon {
@@ -125,7 +125,7 @@ header {
 
     #search_bar {
         background-color: #F2F2F2;
-        /* margin-left: calc(50vw - 245px); */
+        
         width: 420px;
     }
 
