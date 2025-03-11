@@ -28,8 +28,14 @@
 
 </head>
 <body>
+    @if (userId == Model.Id)
+    {
+        <header>My Profile</header>
+    }
+    else{
+        <header>@Model.UserName Profile</header>
+    }
 
-    <header>My Profile</header>
     <button type="button" class="cancel-btn" onclick="history.back();"><</button>
     @if (userId == Model.Id)
     {

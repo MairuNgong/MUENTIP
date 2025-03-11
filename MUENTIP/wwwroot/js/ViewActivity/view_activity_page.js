@@ -288,9 +288,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             overlay.classList.add("fade-out");
             
                             setTimeout(() => {
+                                window.location.reload(); 
                                 popup.style.display = "none";
                                 overlay.style.display = "none";
-                                window.location.reload(); 
                             }, 1000);
                         }, 1000);
                     } else {
@@ -349,7 +349,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener('scroll', function () {
         const returnButton = document.querySelector('.ReturnButton');
-        const scrollThreshold = 20; 
+        const scrollThreshold = 30; 
     
         if (window.scrollY > scrollThreshold) {
             returnButton.style.display = "none";
