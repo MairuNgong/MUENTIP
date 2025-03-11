@@ -164,7 +164,7 @@ header {
     align-content: center;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
 
     .cancel-btn {
         margin-left: 55px;

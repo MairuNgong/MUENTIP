@@ -66,7 +66,7 @@ namespace MUENTIP.Controllers
             var participants = await _context.ParticipateIn
                 .Where(p => p.ActivityId == activity_id)
                 .ToListAsync();
-            
+
             if (participants != null && user != null)
             {
                 var participant = await _context.ParticipateIn
@@ -114,7 +114,8 @@ namespace MUENTIP.Controllers
                 UserName = user?.UserName,
                 IsApplyOn = is_applied ? (bool?)true : (bool?)false, 
                 ParticipationStatus = string.IsNullOrEmpty(participationStatus) ? "Not Participating" : participationStatus,  
-                OutOfDate = out_of_date
+                OutOfDate = out_of_date,
+                IsSelected = participants.Count > 0
             };
 
             return View(model);

@@ -10,15 +10,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search Page</title>
+    <link rel="stylesheet" href="~/css/Search/search.css" />
     <link rel="stylesheet" href="~/css/Search/activity_card.css" />
     <link rel="stylesheet" href="~/css/Search/filter.css" />
-    <link rel="stylesheet" href="~/css/Search/search.css" />
+    
 </head>
 <body>
-    <header>Search Page</header>
-    <button type="button" class="cancel-btn" onclick="history.back();"><</button>
+    <header class="Banner">
+        <button class="ReturnButton" onclick="history.back();">&#60;</button>
+        <span>
+            Search Activity
+        </span>
+    </header>
+
     <button id="back-to-top"><img src="~/img/back-to-top.png" /></button>
-    <div style="display: flex; align-items: center; margin-top: 10px">
+    <div style="display: flex; align-items: center; margin-top: 100px">
         <input type="text"
                id="search_bar"
                placeholder="Search..."
