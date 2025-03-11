@@ -93,7 +93,7 @@ const search_apply = () => {
     
     console.log(`Filtered activities count: ${filteredActivities.length}`);
 
-  
+    const countDisplay = document.getElementById("filtered_count"); 
     if (countDisplay) {
         countDisplay.textContent = `Found ${filteredActivities.length} activities`;
     }
