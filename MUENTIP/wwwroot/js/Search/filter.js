@@ -1,49 +1,54 @@
 let selected_tags = [];
+let lastsearch = "";
+const NotFullButton = document.getElementById("Not_full_Only");
+
+let notFullActive = false;
 
 const FilterActivity = (selected_tags) => {
     const container = document.getElementById("container");
+    console.log("from filter:");
+    console.log(lastsearch);
     if (selected_tags.length === 0) {
-        renderActivities(container, tags);
+        renderActivities(container, tags, Infinity, lastsearch, notFullActive);
     }
     else {
-        renderActivities(container, selected_tags);
+        renderActivities(container, selected_tags, Infinity, lastsearch, notFullActive);
     }
 };
 
 const ApplyFilter = (tag, tag_element) => {
-    // Check if the tag is already in the selected_tags array
+    
     if (!selected_tags.includes(tag)) {
         tag_element.style.border = "black solid 2px";
-        selected_tags.push(tag);  // Add the tag to the array if not already selected
+        selected_tags.push(tag);  
     } else {
-        // If the tag is already selected, you can optionally remove it (toggle effect)
+        
         tag_element.style.border = "0";
         selected_tags = selected_tags.filter(selectedTag => selectedTag !== tag);
     }
-    FilterActivity(selected_tags);  // Apply the filter with the accumulated tags
+    FilterActivity(selected_tags); 
 };
 
 let showWindow = false;
 
 const ShowFilterWindows = () => {
-  if (showWindow === false){
-    showWindow = true;
-    filter_button.style.border = "2px solid black";
-    const filterWindow = document.getElementById("filter_window");
-    filterWindow.style.display = "block";
-  }
-  else
-  {
-    CloseFilterWindows()
-  }
-  
+    if (showWindow === false) {
+        showWindow = true;
+        filter_button.style.border = "2px solid black";
+        const filterWindow = document.getElementById("filter_window");
+        filterWindow.style.display = "block";
+    }
+    else {
+        CloseFilterWindows()
+    }
+
 }
 
 const CloseFilterWindows = () => {
-  showWindow = false;
+    showWindow = false;
     filter_button.style.border = "0px solid black";
     const filterWindow = document.getElementById("filter_window");
-    filterWindow.style.display = "none";  // Hide the window
+    filterWindow.style.display = "none";  
 }
 
 
@@ -56,26 +61,34 @@ tags.forEach(tag => {
     tags_group.appendChild(tag_element);
 });
 
-const NotFullButton = document.getElementById("Not_full_Only");
 
-let notFullActive = false; // ???????????? false
 
 NotFullButton.addEventListener("click", () => {
-    notFullActive = !notFullActive; // ??????? true <-> false
+    notFullActive = !notFullActive; 
 
-    console.log(notFullActive); // ?????? true ???? false ????????????
+    console.log(notFullActive); 
 
     const container = document.getElementById("container");
 
     if (notFullActive) {
-        // ?????????????????????????????
-        NotFullButton.style.border = "2px solid black";  // ????????????
-        const filteredActivities = activities.filter(activity => activity.applyCount < activity.applyMax);
-        renderActivities(container, tags, 999, "", true);
-    } else {
-        // ??????????????????
+
+        NotFullButton.style.border = "2px solid black"; 
+        if (selected_tags.length === 0) {
+            renderActivities(container, tags, Infinity, lastsearch, notFullActive);
+        }
+        else {
+            renderActivities(container, selected_tags, Infinity, lastsearch, notFullActive);
+        }
+    }
+    else {
+        
         NotFullButton.style.border = "none";
-        renderActivities(container, tags);
+        if (selected_tags.length === 0) {
+            renderActivities(container, tags, Infinity, lastsearch, notFullActive);
+        }
+        else {
+            renderActivities(container, selected_tags, Infinity, lastsearch, notFullActive);
+        }
     }
 });
 
@@ -84,17 +97,17 @@ NotFullButton.addEventListener("click", () => {
 const search_apply = () => {
     const searchTerm = document.getElementById("search_bar").value.trim().toLowerCase();
     console.log("Searching for:", searchTerm);
-
-    // Filter activities based on the search term matching the title and having a non-empty title
+    lastsearch = searchTerm;
+   
     const filteredActivities = activities.filter(activity =>
         activity.title && activity.title.toLowerCase().includes(searchTerm)
     );
 
-    // Log the number of filtered activities
+   
     console.log(`Filtered activities count: ${filteredActivities.length}`);
 
-    // Optionally display the count on the page
-    const countDisplay = document.getElementById("filtered_count"); 
+    
+    const countDisplay = document.getElementById("filtered_count");
     if (countDisplay) {
         countDisplay.textContent = `Found ${filteredActivities.length} activities`;
     }
@@ -102,8 +115,12 @@ const search_apply = () => {
         console.log(`Activity: ${activity.title}, Tag: ${activity.tag}`);
     });
 
-    // Render only the filtered activities based on title match
-    renderActivities(document.getElementById("container"), tags, filteredActivities.length, searchTerm);
+    if (selected_tags.length === 0) {
+        renderActivities(container, tags, Infinity, lastsearch, notFullActive);
+    }
+    else {
+        renderActivities(container, selected_tags, Infinity, lastsearch, notFullActive);
+    }
 }
 
 
@@ -117,3 +134,4 @@ document.getElementById("search_bar").addEventListener("keypress", (event) => {
         search_apply();
     }
 });
+

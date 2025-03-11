@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
-/* Style for the container that holds the activities */
+
 * {
     margin: 0;
     padding: 0;
@@ -48,10 +48,10 @@ body {
     }
 
 .rectangle-container {
-    background-color: #f3f3f3; /* สีพื้นหลัง */
-    border-radius: 30px; /* มุมโค้งมน */
-    padding: 20px; /* ระยะห่างจากขอบ */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* เงา */
+    background-color: #f3f3f3;
+    border-radius: 30px; 
+    padding: 20px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     margin: 100px 20px 20px 20px;
 }
 
@@ -60,6 +60,13 @@ body {
     flex-direction: column;
     justify-content: start;
     align-items: start;
+}
+#picture{
+    cursor: pointer;
+    object-fit: cover;
+}
+.icon {
+    cursor: pointer;
 }
 
 #container {
@@ -129,7 +136,7 @@ body {
 }
 
 
-/* Style for each activity card */
+
 .applicant_card {
     display: flex;
     padding: 15px;
@@ -141,19 +148,19 @@ body {
     width: 100%;
     flex-wrap: wrap;
 }
-/* Style for the checkbox container */
+
 .checkbox_wrapper {
     display: flex;
 }
 
 .line {
-    width: 95%; /* ความยาวของเส้น */
-    height: 2px; /* ความหนาของเส้น */
-    background-color: #000; /* สีของเส้น */
-    margin-left: 20px; /* ระยะห่างจากบนและล่าง */
+    width: 95%;
+    height: 2px; 
+    background-color: #000; 
+    margin-left: 20px; 
 }
 
-/* Style for the checkbox itself */
+
 .checkbox {
     width: 20px;
     height: 20px;
@@ -164,9 +171,9 @@ body {
 
 .applicant_detail {
     display: flex;
-    align-items: center; /* Vertically center the content */
+    align-items: center; 
     flex-wrap: wrap;
-    gap: 10px; /* Adds space between the elements */
+    gap: 10px; 
 }
 
 .icon {
@@ -208,7 +215,7 @@ body {
         background-color: #80da80;
     }
 
-@media (min-width: 800px) {
+@media (min-width: 880px) {
 
     #container {
         display: grid;

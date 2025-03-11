@@ -56,6 +56,7 @@ public class SelectController : Controller
             userImgLink = a.ProfileImageLink
         }).ToList();
 
+
         var model = new SelectViewModel
         {
             ownerId = owner_id,
@@ -83,8 +84,13 @@ public class SelectController : Controller
             return NotFound();
         }
 
+
         activity.DeadlineDateTime = DateTime.UtcNow.AddDays(-1);  
         _context.Activities.Update(activity);
+
+
+
+        
 
         var existingParticipations = await _context.ParticipateIn
             .Where(p => p.ActivityId == activityIds && p.UserId == user_id)
@@ -94,6 +100,7 @@ public class SelectController : Controller
         {
             _context.ParticipateIn.RemoveRange(existingParticipations); 
         }
+
 
         var Participate = new ParticipateIn
         {
@@ -108,7 +115,9 @@ public class SelectController : Controller
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == user_id);
         if (user != null)
         {
-            string subject = "🎉 Congratulations! You've Been Selected for the {activity.Title} Event!";
+           
+            string subject = $@"🎉 Congratulations! You've Been Selected for the {activity.Title} Event!";
+
 
             string body = $@"<p>Dear {user.UserName},</p>
 
@@ -121,6 +130,7 @@ public class SelectController : Controller
 
                             <p>Best regards,<br>
                             [MUENTIP]</p>";
+
 
 
             await _emailService.SendEmailAsync(user.Email, subject, body);

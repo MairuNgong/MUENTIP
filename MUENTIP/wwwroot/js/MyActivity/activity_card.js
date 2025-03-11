@@ -12,15 +12,19 @@ const img_arrow_src = "/img/right-arrow.png";
 
 
 function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "") {
-    container.innerHTML = ""; // Clear existing content
+    container.innerHTML = "";
+    let filteredActivities
+    if (ShowedtagList === tags && searchTitle === "") {
+        filteredActivities = activities;
+    }
 
-    // Filter activities based on tags and title
-    const filteredActivities = activities.filter(activity =>
-        activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
-        activity.title.toLowerCase().includes(searchTitle.toLowerCase())  // Filter by title
-    );
-
-    // Limit the number of activities to show
+    else {
+        filteredActivities = activities.filter(activity =>
+            activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
+            activity.title.toLowerCase().includes(searchTitle.toLowerCase()) 
+        );
+    }
+    
     const activitiesToShow = filteredActivities.slice(0, maxActivities);
 
     activitiesToShow.forEach(activity => {

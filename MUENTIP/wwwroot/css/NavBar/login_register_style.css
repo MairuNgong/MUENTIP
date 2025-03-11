@@ -45,6 +45,7 @@ body {
     height: 30px;
     display: block;
     margin: 0 auto;
+    object-fit: cover;
 }
 
 .tab {

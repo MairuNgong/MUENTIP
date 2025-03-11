@@ -1,16 +1,25 @@
-// ดึงปุ่มทั้งหมดจากเมนู
+
 const buttons = document.querySelectorAll(".activity-menu li a");
 const createContainer = document.querySelector(".create-container");
 const container = document.getElementById("container");
 
-//gobal
+window.addEventListener("pageshow", function (event) {
+    let perfEntries = performance.getEntriesByType("navigation");
+    let historyTraversal = event.persisted || (perfEntries.length && perfEntries[0].type === "back_forward");
+
+    if (historyTraversal) {
+        window.location.reload();
+    }
+});
+
+
 let activities = [];
 
-// กำหนดค่าเริ่มต้นของ Active Tab จาก localStorage
+
 const savedTab = localStorage.getItem("activeTab") || "createButton";
 setActiveTab(savedTab);
 
-// กำหนด Event Listeners สำหรับปุ่มเลือกแท็บ
+
 document.getElementById("createButton")?.addEventListener("click", function () {
     setActiveTab("createButton");
 });
@@ -31,13 +40,13 @@ function setActiveTab(selectedButtonId) {
     const selectedButton = document.getElementById(selectedButtonId);
     if (selectedButton) {
         selectedButton.classList.add("active");
-        localStorage.setItem("activeTab", selectedButtonId); // บันทึกค่า activeTab
+        localStorage.setItem("activeTab", selectedButtonId); 
     }
 
-    // แสดง/ซ่อน create-container ตามปุ่มที่เลือก
+    
     createContainer.style.display = selectedButtonId === "createButton" ? "flex" : "none";
 
-    // ตรวจสอบค่า tab ที่ได้รับ และเลือกกิจกรรมที่จะแสดง
+
     if (selectedButtonId === "createButton") {
         activities = createdActivity;
     }
@@ -48,14 +57,14 @@ function setActiveTab(selectedButtonId) {
         activities = nonApproveActivity;
     }
 
-    // // เรียกใช้ฟังก์ชัน renderActivities ใหม่หลังจากเปลี่ยนแท็บ
+    
     renderActivities(container, tags);
 }
 
 const back_to_top_bt = document.getElementById("back-to-top");
 const header_height = document.querySelector("header").offsetHeight;
 const header_nav_height = document.querySelector(".header-nav").offsetHeight;
-// const tag_nav_height = document.querySelector("#hot-tag-nav").offsetHeight;
+
 const target_ele = document.getElementById("activity-nav");
 var height = header_height + header_nav_height;
 

@@ -7,6 +7,15 @@ const is_participate = JSON.parse(JSON.stringify(viewActivityModel)).participati
 const out_of_date = JSON.parse(JSON.stringify(viewActivityModel)).outOfDate;
 const is_selected = JSON.parse(JSON.stringify(viewActivityModel)).isSelected;
 
+window.addEventListener("pageshow", function (event) {
+    let perfEntries = performance.getEntriesByType("navigation");
+    let historyTraversal = event.persisted || (perfEntries.length && perfEntries[0].type === "back_forward");
+
+    if (historyTraversal) {
+        window.location.reload();
+    }
+});
+
 console.log(username);
 console.log(activity);
 console.log(announces);
@@ -288,11 +297,11 @@ document.addEventListener("DOMContentLoaded", function () {
                             overlay.classList.add("fade-out");
             
                             setTimeout(() => {
+                                window.location.reload(); 
                                 popup.style.display = "none";
                                 overlay.style.display = "none";
-                                window.location.reload(); 
                             }, 1000);
-                        }, 1000);
+                        }, 1500);
                     } else {
                         alert(result.message);
                     }
@@ -346,6 +355,18 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
     }
+
+    window.addEventListener('scroll', function () {
+        const returnButton = document.querySelector('.ReturnButton');
+        const scrollThreshold = 30; 
+    
+        if (window.scrollY > scrollThreshold) {
+            returnButton.style.display = "none";
+        } else {
+            returnButton.style.display = "";
+        }
+    });
+    
 
     const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, header");
     

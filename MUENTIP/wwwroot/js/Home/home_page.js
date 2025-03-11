@@ -5,6 +5,20 @@ const tag_nav_height = document.querySelector("#hot-tag-nav").offsetHeight;
 const target_ele = document.getElementById("hot-tag-nav");
 var height = header_height + header_nav_height + tag_nav_height;
 
+window.addEventListener("pageshow", function (event) {
+    let perfEntries = performance.getEntriesByType("navigation");
+    let historyTraversal = event.persisted || (perfEntries.length && perfEntries[0].type === "back_forward");
+
+    if (historyTraversal) {
+        requestAnimationFrame(() => {
+            setTimeout(() => {
+                window.location.reload();
+            }, 100); 
+        });
+    }
+});
+
+
 window.onscroll = function() {
     if (document.body.scrollTop > height ||
         document.documentElement.scrollTop > height) 

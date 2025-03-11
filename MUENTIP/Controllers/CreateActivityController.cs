@@ -91,15 +91,18 @@ namespace MUENTIP.Controllers
 
                 if (!string.IsNullOrEmpty(selected_tags))
                 {
+
                     List<Tag> tags = JsonConvert.DeserializeObject<List<Tag>>(selected_tags);
 
                     foreach (var tag in tags)
                     {
+
                         var tagExists = await _context.Tags.AnyAsync(t => t.TagName == tag.TagName);
                         if (!tagExists)
                         {
                             return Json(new { success = false, message = $"Tag '{tag.TagName}' does not exist." });
                         }
+
 
                         var activityType = new ActivityType
                         {

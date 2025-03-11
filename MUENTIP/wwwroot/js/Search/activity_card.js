@@ -1,4 +1,3 @@
-// Mock data for activities and tags (you can replace this with real data from your API or other sources)
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
 
@@ -8,23 +7,20 @@ const img_calendar_src = "../img/calendar.png";
 const img_location_src = "../img/location-pin.png";
 const img_arrow_src = "../img/right-arrow.png";
 
-// Function to render activities based on tags and title search
-function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "", Notfull = false) {
-    container.innerHTML = ""; // Clear existing content
 
-    // Filter activities based on tags and title
-    console.log("sdadas")
-    console.log(ShowedtagList)
+function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "", Notfull = false) {
+    container.innerHTML = ""; 
+
+   
+    console.log(searchTitle)
     let filteredActivities = activities.filter(activity =>
-    (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) &&
-    activity.title.toLowerCase().includes(searchTitle.toLowerCase())
+        (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) && activity.title.toLowerCase().includes(searchTitle.toLowerCase())
     );
 
-    console.log('asdad')
     console.log(filteredActivities)
 
 
-    // ??? Notfull ???? true ????????????????????????????????
+    
     if (Notfull) {
         console.log(new Date())
         filteredActivities = filteredActivities.filter(activity => new Date(activity.deadlineDateTime) > new Date());
@@ -34,7 +30,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
     console.log("test")
     console.log(activities)
 
-    // Limit the number of activities to show
+    
     const activitiesToShow = filteredActivities.slice(0, maxActivities);
     console.log(activitiesToShow)
 
@@ -187,13 +183,13 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
 }
 
 function applyFontFamilyToText(activity_card) {
-  const elements = activity_card.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6");
-  
-  elements.forEach(el => {
-      if (/[ก-๙]/.test(el.textContent)) { 
-          el.style.fontFamily = '"Noto Sans Thai", serif';
-      }
-  });   
+    const elements = activity_card.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6");
+
+    elements.forEach(el => {
+        if (/[ก-๙]/.test(el.textContent)) {
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        }
+    });
 }
 
 
@@ -206,8 +202,7 @@ const target_ele = document.querySelector("header");
 var height = header_height
 
 window.onscroll = function () {
-    if (document.body.scrollTop > height ||
-        document.documentElement.scrollTop > height) {
+    if (document.body.scrollTop > height || document.documentElement.scrollTop > height) {
         back_to_top_bt.style.display = "block";
     } else {
         back_to_top_bt.style.display = "none";
@@ -215,8 +210,9 @@ window.onscroll = function () {
 };
 
 back_to_top_bt.onclick = function () {
-    target_ele.scrollIntoView({
-        block: "start"
+    window.scrollTo({
+        top: 0,  
+        behavior: 'smooth'  
     });
 };
 
@@ -226,8 +222,9 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.forEach(el => {
         if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
             el.style.fontFamily = '"Noto Sans Thai", serif';
-        } else if (/[ก-๙]/.test(el.textContent)) { 
+        } else if (/[ก-๙]/.test(el.textContent)) {
             el.style.fontFamily = '"Noto Sans Thai", serif';
         }
     });
 });
+

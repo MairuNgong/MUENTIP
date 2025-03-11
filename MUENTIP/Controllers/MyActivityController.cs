@@ -25,6 +25,7 @@ namespace MUENTIP.Controllers
 
             var userId = user.Id;
 
+            
             var createdActivities = await _context.Activities
                 .AsNoTracking()
                 .Where(a => a.UserId == userId)
@@ -44,6 +45,7 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
+            
             var applications = await _context.ApplyOn
                 .AsNoTracking()
                 .Where(a => a.UserId == userId && a.Activity != null)
@@ -63,6 +65,7 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
+            
             var participations = await _context.ParticipateIn
                 .AsNoTracking()
                 .Where(p => p.UserId == userId && p.Activity != null)
@@ -82,6 +85,11 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
+            
+             var nonApprovedActivities = applications
+                .Where(apply => !participations.Any(p => p.ActivityId == apply.ActivityId)) 
+                .ToList();
+
             var tags = await _context.Tags
                 .AsNoTracking()
                 .Select(t => new TagFilterViewModel { TagName = t.TagName })
@@ -91,7 +99,7 @@ namespace MUENTIP.Controllers
             {
                 userId = int.TryParse(userId, out int id) ? id : 0,
                 createdActivity = createdActivities,
-                nonApproveActivity = applications,
+                nonApproveActivity = nonApprovedActivities,
                 approvedActivity = participations,
                 filterTags = tags
             };
