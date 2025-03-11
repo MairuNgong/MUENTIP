@@ -42,7 +42,8 @@ function renderApplier(container) {
         owner.appendChild(img_people);
 
         const owner_text = document.createElement("span");
-        owner_text.textContent = `${applicant.userName} - ${applicant.email}`; // Display username and email
+        owner_text.textContent = `${applicant.userName}`; // Display username and email
+        owner_text.style.marginLeft = "10px"; // Adjust the value as needed
 
         owner.appendChild(owner_text);
 
@@ -58,6 +59,7 @@ function renderApplier(container) {
         checkbox.type = "checkbox";
         checkbox.className = "checkbox";
         checkbox.id = `checkbox-${applicant.userName}`; // Set ID with userName
+        checkbox.style.marginLeft = "240px";
 
 
         checkboxWrapper.appendChild(checkbox);
