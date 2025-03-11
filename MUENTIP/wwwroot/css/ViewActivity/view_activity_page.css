@@ -37,7 +37,7 @@
     padding: 2rem;
 }
 
-.activity-header button {
+#edit-act-bt{
     text-decoration: none;
     background: transparent; 
     border: none; 
@@ -45,7 +45,7 @@
     cursor: pointer; 
 }
 
-.activity-header button img{
+#edit-act-bt img {
     height: 48px;
 }
 
@@ -443,5 +443,8 @@ h2 {
     
     .fyi-text {
         margin-left: 1rem; 
+    }
+    .ReturnButton {
+        margin-left: 60px;
     }
 }
