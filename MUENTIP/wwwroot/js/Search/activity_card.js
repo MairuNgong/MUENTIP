@@ -8,6 +8,15 @@ const img_calendar_src = "../img/calendar.png";
 const img_location_src = "../img/location-pin.png";
 const img_arrow_src = "../img/right-arrow.png";
 
+window.addEventListener("pageshow", function (event) {
+    let perfEntries = performance.getEntriesByType("navigation");
+    let historyTraversal = event.persisted || (perfEntries.length && perfEntries[0].type === "back_forward");
+
+    if (historyTraversal) {
+        window.location.reload();
+    }
+});
+
 // Function to render activities based on tags and title search
 function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "", Notfull = false) {
     container.innerHTML = ""; // Clear existing content

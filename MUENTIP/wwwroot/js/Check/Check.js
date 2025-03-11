@@ -4,6 +4,15 @@ var activity_id = JSON.parse(JSON.stringify(selectModel)).activity_id;
 console.log(activity_id);
 console.log(selectModel);
 
+window.addEventListener("pageshow", function (event) {
+    let perfEntries = performance.getEntriesByType("navigation");
+    let historyTraversal = event.persisted || (perfEntries.length && perfEntries[0].type === "back_forward");
+
+    if (historyTraversal) {
+        window.location.reload();
+    }
+});
+
 function renderApplier(container) {
     // Remove all child elements from the container to overwrite it
     container.innerHTML = "";
