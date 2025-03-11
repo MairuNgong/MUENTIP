@@ -25,7 +25,7 @@ namespace MUENTIP.Controllers
 
             var userId = user.Id;
 
-            // กิจกรรมที่ผู้ใช้สร้าง
+            
             var createdActivities = await _context.Activities
                 .AsNoTracking()
                 .Where(a => a.UserId == userId)
@@ -45,7 +45,7 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
-            // กิจกรรมที่ผู้ใช้สมัครแต่ยังไม่ได้อนุมัติ (non-approved)
+            
             var applications = await _context.ApplyOn
                 .AsNoTracking()
                 .Where(a => a.UserId == userId && a.Activity != null)
@@ -65,7 +65,7 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
-            // กิจกรรมที่ผู้ใช้ได้รับการอนุมัติ (approved)
+            
             var participations = await _context.ParticipateIn
                 .AsNoTracking()
                 .Where(p => p.UserId == userId && p.Activity != null)
@@ -85,9 +85,9 @@ namespace MUENTIP.Controllers
                 })
                 .ToListAsync();
 
-            // return Ok(participations);
+            
              var nonApprovedActivities = applications
-                .Where(apply => !participations.Any(p => p.ActivityId == apply.ActivityId)) // กรองกิจกรรมที่มีใน `approvedActivity` ออก
+                .Where(apply => !participations.Any(p => p.ActivityId == apply.ActivityId)) 
                 .ToList();
 
             var tags = await _context.Tags

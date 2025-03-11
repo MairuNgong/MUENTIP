@@ -25,7 +25,7 @@ namespace MUENTIP.Controllers
 
         public IActionResult Index()
         {
-            // Fetch tags from the database
+            
             var tagsFromDb = _context.Tags
                 .Select(t => new TagFilterViewModel { TagName = t.TagName })
                 .ToList();
@@ -92,19 +92,19 @@ namespace MUENTIP.Controllers
 
                 if (!string.IsNullOrEmpty(selected_tags))
                 {
-                    // Deserialize the JSON string into a list of Tag objects
+                    
                     List<Tag> tags = JsonConvert.DeserializeObject<List<Tag>>(selected_tags);
 
                     foreach (var tag in tags)
                     {
-                        // Check if the tag exists in the database
+                        
                         var tagExists = await _context.Tags.AnyAsync(t => t.TagName == tag.TagName);
                         if (!tagExists)
                         {
                             return Json(new { success = false, message = $"Tag '{tag.TagName}' does not exist." });
                         }
 
-                        // Create ActivityType entry
+                       
                         var activityType = new ActivityType
                         {
                             ActivityId = activity.ActivityId,
@@ -115,7 +115,7 @@ namespace MUENTIP.Controllers
                         _context.ActivityTypes.Add(activityType);
                     }
 
-                    // Save changes to the database
+                   
                     await _context.SaveChangesAsync();
                 }
 
