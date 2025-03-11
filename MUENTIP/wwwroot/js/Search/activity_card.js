@@ -1,4 +1,4 @@
-// Mock data for activities and tags (you can replace this with real data from your API or other sources)
+
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
 
@@ -17,14 +17,14 @@ window.addEventListener("pageshow", function (event) {
     }
 });
 
-// Function to render activities based on tags and title search
+
 function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "", Notfull = false) {
-    container.innerHTML = ""; // Clear existing content
+    container.innerHTML = "";
     let filteredActivities;
     if (ShowedtagList === tags) {
         filteredActivities = activities;
     }
-    // Filter activities based on tags and title
+    
     else {
         filteredActivities = activities.filter(activity =>
             (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) &&
@@ -34,7 +34,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
 
 
 
-    // ??? Notfull ???? true ????????????????????????????????
+    
     if (Notfull) {
         console.log(new Date())
         filteredActivities = filteredActivities.filter(activity => new Date(activity.deadlineDateTime) > new Date());
@@ -44,7 +44,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
     console.log("test")
     console.log(activities)
 
-    // Limit the number of activities to show
+    
     const activitiesToShow = filteredActivities.slice(0, maxActivities);
     console.log(activitiesToShow)
 
