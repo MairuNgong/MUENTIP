@@ -4,6 +4,7 @@ namespace MUENTIP.ViewModels
 {
     public class Check_listViewModel
     {
+        public string? ownerName { get; set; }
         public string? ownerId { get; set; }
         public string? ownerImgLink { get; set; }
         public int? applyMax { get; set; }

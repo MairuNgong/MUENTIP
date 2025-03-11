@@ -121,14 +121,14 @@ namespace MUENTIP.Controllers
 
                     foreach (var tag in tagsList)
                     {
-                        
+
                         var tagExists = await _context.Tags.AnyAsync(t => t.TagName == tag);
                         if (!tagExists)
                         {
                             return Json(new { success = false, message = $"Tag '{tag}' does not exist." });
                         } 
 
-                        
+
                         var activityType = new ActivityType
                         {
                             ActivityId = existingActivity.ActivityId,
@@ -139,7 +139,7 @@ namespace MUENTIP.Controllers
                         _context.ActivityTypes.Add(activityType);
                     }
 
-                    
+
                     await _context.SaveChangesAsync();
                 }
 

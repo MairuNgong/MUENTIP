@@ -96,7 +96,7 @@ namespace MUENTIP.Controllers
 
             if (user != null)
             {
-               
+
                 if (model.UserName != user.UserName && _context.Users.Any(u => u.UserName == model.UserName))
                 {
                     return Json(new { success = false, message = "UserName already taken" });
@@ -147,27 +147,27 @@ namespace MUENTIP.Controllers
 
                 }
 
-                
-                var JSONtags = model.InterestedTags;  
+
+                var JSONtags = model.InterestedTags;
+
                 List<string> tags = JsonConvert.DeserializeObject<List<string>>(JSONtags[0]);
                 var currentTags = await _context.InterestIn
                     .Where(interest => interest.UserId == user.Id)
                     .ToListAsync();
 
-                
+
                 _context.InterestIn.RemoveRange(currentTags);
 
-                
                 foreach (var tag in tags)
                 {
-                    
+
                     var tagExists = await _context.Tags.AnyAsync(t => t.TagName == tag);
                     if (!tagExists)
                     {
                         return Json(new { success = false, message = $"Tag '{tag}' does not exist." });
                     }
 
-                    
+
                     var InterestIn = new InterestIn
                     {
                         UserId = user.Id,

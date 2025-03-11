@@ -36,9 +36,12 @@ public class ChecklistController : Controller
         var owner_id = Activity.UserId;
 
         var user = _context.Users.FirstOrDefault(u => u.Id == owner_id);
-      
+
+        var owner_name = user.UserName;
+
         var member = _context.ParticipateIn
-            .Where(p => p.ActivityId == id)  
+            .Where(p => p.ActivityId == id) 
+
             .ToList();
 
 
@@ -60,9 +63,10 @@ public class ChecklistController : Controller
             userImgLink = a.ProfileImageLink
         }).ToList();
 
-        
+
         var model = new Check_listViewModel
         {
+            ownerName = owner_name,
             ownerId = owner_id,
             ownerImgLink = user.ProfileImageLink,
             applyMax = Activity.ApplyMax,
@@ -88,11 +92,13 @@ public class ChecklistController : Controller
             return NotFound();
         }
 
-        
-        activity.DeadlineDateTime = DateTime.UtcNow.AddDays(-1); 
+
+  
+        activity.DeadlineDateTime = DateTime.UtcNow.AddDays(-1);  
         _context.Activities.Update(activity);
 
-        
+ 
+
         var existingParticipations = await _context.ParticipateIn
             .Where(p => p.ActivityId == activityIds && p.UserId == user_id)
             .ToListAsync();
@@ -102,7 +108,6 @@ public class ChecklistController : Controller
             _context.ParticipateIn.RemoveRange(existingParticipations); 
         }
 
-        
         var Participate = new ParticipateIn
         {
             ActivityId = activityIds,
@@ -110,13 +115,15 @@ public class ChecklistController : Controller
             AppliedDate = DateTime.UtcNow
         };
 
-        _context.ParticipateIn.Add(Participate); 
+
+        _context.ParticipateIn.Add(Participate);
+
         await _context.SaveChangesAsync();
 
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == user_id);
         if (user != null)
         {
-            
+
             string subject = "🎉 Congratulations! You've Been Selected for the {activity.Title} Event!";
 
             string body = $@"<p>Dear {user.UserName},</p>
@@ -132,7 +139,7 @@ public class ChecklistController : Controller
                             [MUENTIP]</p>";
 
 
-            
+
             await _emailService.SendEmailAsync(user.Email, subject, body);
         }
 
