@@ -96,7 +96,7 @@ namespace MUENTIP.Controllers
 
             if (user != null)
             {
-                // Update user information
+               
                 if (model.UserName != user.UserName && _context.Users.Any(u => u.UserName == model.UserName))
                 {
                     return Json(new { success = false, message = "UserName already taken" });
@@ -147,27 +147,27 @@ namespace MUENTIP.Controllers
 
                 }
 
-                // Tags ที่ผู้ใช้เลือก
-                var JSONtags = model.InterestedTags;  // ใช้ List<string> ตรงๆ
+                
+                var JSONtags = model.InterestedTags;  
                 List<string> tags = JsonConvert.DeserializeObject<List<string>>(JSONtags[0]);
                 var currentTags = await _context.InterestIn
                     .Where(interest => interest.UserId == user.Id)
                     .ToListAsync();
 
-                // ลบ tags เก่าออก
+                
                 _context.InterestIn.RemoveRange(currentTags);
 
-                // เพิ่ม tags ใหม่
+                
                 foreach (var tag in tags)
                 {
-                    // Check if the tag exists in the database
+                    
                     var tagExists = await _context.Tags.AnyAsync(t => t.TagName == tag);
                     if (!tagExists)
                     {
                         return Json(new { success = false, message = $"Tag '{tag}' does not exist." });
                     }
 
-                    // Create ActivityType entry
+                    
                     var InterestIn = new InterestIn
                     {
                         UserId = user.Id,
