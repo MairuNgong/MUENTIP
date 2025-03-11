@@ -14,10 +14,9 @@ const img_arrow_src = "/img/right-arrow.png";
 function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "") {
     container.innerHTML = ""; // Clear existing content
     let filteredActivities
-    if (ShowedtagList === tags) {
+    if (ShowedtagList === tags && searchTitle === "") {
         filteredActivities = activities;
     }
-
     // Filter activities based on tags and title
     else {
         filteredActivities = activities.filter(activity =>
