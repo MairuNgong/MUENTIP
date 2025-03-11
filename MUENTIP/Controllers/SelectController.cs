@@ -56,7 +56,6 @@ public class SelectController : Controller
             userImgLink = a.ProfileImageLink
         }).ToList();
 
-        // Map directly to the view model
         var model = new SelectViewModel
         {
             ownerId = owner_id,
@@ -84,21 +83,18 @@ public class SelectController : Controller
             return NotFound();
         }
 
-        // Update the activity deadline
-        activity.DeadlineDateTime = DateTime.UtcNow.AddDays(-1);  // You might want to add validation here
+        activity.DeadlineDateTime = DateTime.UtcNow.AddDays(-1);  
         _context.Activities.Update(activity);
 
-        // Remove existing participation of this user in the activity
         var existingParticipations = await _context.ParticipateIn
             .Where(p => p.ActivityId == activityIds && p.UserId == user_id)
             .ToListAsync();
 
         if (existingParticipations.Any())
         {
-            _context.ParticipateIn.RemoveRange(existingParticipations); // Remove existing participation
+            _context.ParticipateIn.RemoveRange(existingParticipations); 
         }
 
-        // Add new participation
         var Participate = new ParticipateIn
         {
             ActivityId = activityIds,
@@ -106,13 +102,12 @@ public class SelectController : Controller
             AppliedDate = DateTime.UtcNow
         };
 
-        _context.ParticipateIn.Add(Participate); // Add new participation
+        _context.ParticipateIn.Add(Participate); 
         await _context.SaveChangesAsync();
 
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == user_id);
         if (user != null)
         {
-            // Customize the email content as needed
             string subject = "🎉 Congratulations! You've Been Selected for the {activity.Title} Event!";
 
             string body = $@"<p>Dear {user.UserName},</p>
@@ -128,7 +123,6 @@ public class SelectController : Controller
                             [MUENTIP]</p>";
 
 
-            // Call the EmailService to send the email
             await _emailService.SendEmailAsync(user.Email, subject, body);
         }
 
