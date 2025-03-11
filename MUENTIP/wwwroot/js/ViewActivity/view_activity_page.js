@@ -7,6 +7,15 @@ const is_participate = JSON.parse(JSON.stringify(viewActivityModel)).participati
 const out_of_date = JSON.parse(JSON.stringify(viewActivityModel)).outOfDate;
 const is_selected = JSON.parse(JSON.stringify(viewActivityModel)).isSelected;
 
+window.addEventListener("pageshow", function (event) {
+    let perfEntries = performance.getEntriesByType("navigation");
+    let historyTraversal = event.persisted || (perfEntries.length && perfEntries[0].type === "back_forward");
+
+    if (historyTraversal) {
+        window.location.reload();
+    }
+});
+
 console.log(username);
 console.log(activity);
 console.log(announces);
@@ -292,7 +301,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 popup.style.display = "none";
                                 overlay.style.display = "none";
                             }, 1000);
-                        }, 1000);
+                        }, 1500);
                     } else {
                         alert(result.message);
                     }

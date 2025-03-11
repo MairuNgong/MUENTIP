@@ -3,6 +3,15 @@ const buttons = document.querySelectorAll(".activity-menu li a");
 const createContainer = document.querySelector(".create-container");
 const container = document.getElementById("container");
 
+window.addEventListener("pageshow", function (event) {
+    let perfEntries = performance.getEntriesByType("navigation");
+    let historyTraversal = event.persisted || (perfEntries.length && perfEntries[0].type === "back_forward");
+
+    if (historyTraversal) {
+        window.location.reload();
+    }
+});
+
 //gobal
 let activities = [];
 
