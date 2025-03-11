@@ -1,12 +1,12 @@
 let selected_tags = [];
-
+let lastsearch = "";
 const FilterActivity = (selected_tags) => {
     const container = document.getElementById("container");
     if (selected_tags.length === 0) {
-        renderActivities(container, tags);
+        renderActivities(container, tags, Infinity, lastsearch);
     }
     else {
-        renderActivities(container, selected_tags);
+        renderActivities(container, selected_tags, Infinity, lastsearch);
     }
 };
 
@@ -60,7 +60,7 @@ tags.forEach(tag => {
 const search_apply = () => {
     const searchTerm = document.getElementById("search_bar").value.trim().toLowerCase();
     console.log("Searching for:", searchTerm);
-
+    lastsearch = searchTerm;
    
     const filteredActivities = activities.filter(activity =>
         activity.title && activity.title.toLowerCase().includes(searchTerm)
@@ -79,7 +79,7 @@ const search_apply = () => {
     });
 
    
-    renderActivities(document.getElementById("container"), tags, filteredActivities.length, searchTerm);
+    renderActivities(document.getElementById("container"), tags, filteredActivities.length, lastsearch);
 }
 
 document.getElementById("search_button").addEventListener("click", search_apply);

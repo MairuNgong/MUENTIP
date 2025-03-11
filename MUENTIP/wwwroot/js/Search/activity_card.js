@@ -1,4 +1,3 @@
-
 const activities = JSON.parse(JSON.stringify(activityModel)).cards;
 const tags = JSON.parse(JSON.stringify(activityModel)).tags;
 
@@ -8,30 +7,17 @@ const img_calendar_src = "../img/calendar.png";
 const img_location_src = "../img/location-pin.png";
 const img_arrow_src = "../img/right-arrow.png";
 
-window.addEventListener("pageshow", function (event) {
-    let perfEntries = performance.getEntriesByType("navigation");
-    let historyTraversal = event.persisted || (perfEntries.length && perfEntries[0].type === "back_forward");
-
-    if (historyTraversal) {
-        window.location.reload();
-    }
-});
-
 
 function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "", Notfull = false) {
-    container.innerHTML = "";
-    let filteredActivities;
-    if (ShowedtagList === tags) {
-        filteredActivities = activities;
-    }
-    
-    else {
-        filteredActivities = activities.filter(activity =>
-            (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) &&
-            activity.title.toLowerCase().includes(searchTitle.toLowerCase())
-        );
-    }
+    container.innerHTML = ""; 
 
+   
+    console.log(searchTitle)
+    let filteredActivities = activities.filter(activity =>
+        (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) && activity.title.toLowerCase().includes(searchTitle.toLowerCase())
+    );
+
+    console.log(filteredActivities)
 
 
     
@@ -197,13 +183,13 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
 }
 
 function applyFontFamilyToText(activity_card) {
-  const elements = activity_card.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6");
-  
-  elements.forEach(el => {
-      if (/[ก-๙]/.test(el.textContent)) { 
-          el.style.fontFamily = '"Noto Sans Thai", serif';
-      }
-  });   
+    const elements = activity_card.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6");
+
+    elements.forEach(el => {
+        if (/[ก-๙]/.test(el.textContent)) {
+            el.style.fontFamily = '"Noto Sans Thai", serif';
+        }
+    });
 }
 
 
@@ -211,12 +197,13 @@ const container = document.getElementById("container");
 renderActivities(container, tags);
 
 const back_to_top_bt = document.getElementById("back-to-top");
-const header_height = document.querySelector("header").offsetHeight;    
+const header_height = document.querySelector("header").offsetHeight;
 const target_ele = document.querySelector("header");
 var height = header_height
 
 window.onscroll = function () {
-    if (document.body.scrollTop > height || document.documentElement.scrollTop > height) {
+    if (document.body.scrollTop > height ||
+        document.documentElement.scrollTop > height) {
         back_to_top_bt.style.display = "block";
     } else {
         back_to_top_bt.style.display = "none";
@@ -224,13 +211,10 @@ window.onscroll = function () {
 };
 
 back_to_top_bt.onclick = function () {
-
-    window.scrollTo({
-        top: 0, 
-        behavior: 'smooth'  
+    target_ele.scrollIntoView({
+        block: "start"
     });
 };
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, input, textarea");
@@ -238,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.forEach(el => {
         if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
             el.style.fontFamily = '"Noto Sans Thai", serif';
-        } else if (/[ก-๙]/.test(el.textContent)) { 
+        } else if (/[ก-๙]/.test(el.textContent)) {
             el.style.fontFamily = '"Noto Sans Thai", serif';
         }
     });
