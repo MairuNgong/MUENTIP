@@ -11,17 +11,18 @@ const img_arrow_src = "../img/right-arrow.png";
 // Function to render activities based on tags and title search
 function renderActivities(container, ShowedtagList, maxActivities = Infinity, searchTitle = "", Notfull = false) {
     container.innerHTML = ""; // Clear existing content
-
+    let filteredActivities;
+    if (ShowedtagList === tags) {
+        filteredActivities = activities;
+    }
     // Filter activities based on tags and title
-    console.log("sdadas")
-    console.log(ShowedtagList)
-    let filteredActivities = activities.filter(activity =>
-    (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) &&
-    activity.title.toLowerCase().includes(searchTitle.toLowerCase())
-    );
+    else {
+        filteredActivities = activities.filter(activity =>
+            (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) &&
+            activity.title.toLowerCase().includes(searchTitle.toLowerCase())
+        );
+    }
 
-    console.log('asdad')
-    console.log(filteredActivities)
 
 
     // ??? Notfull ???? true ????????????????????????????????
@@ -201,13 +202,12 @@ const container = document.getElementById("container");
 renderActivities(container, tags);
 
 const back_to_top_bt = document.getElementById("back-to-top");
-const header_height = document.querySelector("header").offsetHeight;
+const header_height = document.querySelector("header").offsetHeight;    
 const target_ele = document.querySelector("header");
 var height = header_height
 
 window.onscroll = function () {
-    if (document.body.scrollTop > height ||
-        document.documentElement.scrollTop > height) {
+    if (document.body.scrollTop > height || document.documentElement.scrollTop > height) {
         back_to_top_bt.style.display = "block";
     } else {
         back_to_top_bt.style.display = "none";
@@ -215,10 +215,13 @@ window.onscroll = function () {
 };
 
 back_to_top_bt.onclick = function () {
-    target_ele.scrollIntoView({
-        block: "start"
+
+    window.scrollTo({
+        top: 0, 
+        behavior: 'smooth'  
     });
 };
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const elements = document.querySelectorAll("p, span, div, h1, h2, h3, h4, h5, h6, input, textarea");

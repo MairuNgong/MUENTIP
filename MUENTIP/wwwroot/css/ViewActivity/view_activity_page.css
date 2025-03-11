@@ -11,9 +11,10 @@
 }
 
 .ReturnButton {
-    position: absolute;
-    left: 10px;
-    transform: translateY(-50%);
+    position: fixed; 
+    left: 20px; 
+    transform: translateY(-50%); 
+    transition: opacity 0.3s ease;
     background: none;
     border: none;
     font-size: 30px;
@@ -37,7 +38,7 @@
     padding: 2rem;
 }
 
-#edit-act-bt{
+#edit-act-bt {
     text-decoration: none;
     background: transparent; 
     border: none; 
@@ -45,7 +46,7 @@
     cursor: pointer; 
 }
 
-#edit-act-bt img {
+#edit-act-bt img{
     height: 48px;
 }
 
