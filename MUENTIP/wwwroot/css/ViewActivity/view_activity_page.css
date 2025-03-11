@@ -11,9 +11,10 @@
 }
 
 .ReturnButton {
-    position: absolute;
-    left: 10px;
-    transform: translateY(-50%);
+    position: fixed; 
+    left: 80px; 
+    transform: translateY(-50%); 
+    transition: opacity 0.3s ease;
     background: none;
     border: none;
     font-size: 30px;
@@ -21,6 +22,7 @@
     cursor: pointer;
     padding: 5px 10px;
     color: #333; 
+    z-index: 1000; 
 }
 
 .ReturnButton:hover {
@@ -37,7 +39,7 @@
     padding: 2rem;
 }
 
-.activity-header button {
+#edit-act-bt {
     text-decoration: none;
     background: transparent; 
     border: none; 
@@ -45,7 +47,7 @@
     cursor: pointer; 
 }
 
-.activity-header button img{
+#edit-act-bt img{
     height: 48px;
 }
 

@@ -12,13 +12,13 @@
 
 <body>
     <header class="activity-header">
+        <button class="ReturnButton" onclick="goBack()">&#60;</button>
         @if (Model.Card.Owner == Model.UserName)
         {
             <button id="edit-act-bt" type="button">
                 <img src="../img/edit.png" alt="edit">
             </button>
         }
-        <button class="ReturnButton" onclick="goBack()">&#60;</button>
         <h1>
             @Model.Card.Title
         </h1>
