@@ -202,8 +202,7 @@ const target_ele = document.querySelector("header");
 var height = header_height
 
 window.onscroll = function () {
-    if (document.body.scrollTop > height ||
-        document.documentElement.scrollTop > height) {
+    if (document.body.scrollTop > height || document.documentElement.scrollTop > height) {
         back_to_top_bt.style.display = "block";
     } else {
         back_to_top_bt.style.display = "none";
@@ -211,8 +210,9 @@ window.onscroll = function () {
 };
 
 back_to_top_bt.onclick = function () {
-    target_ele.scrollIntoView({
-        block: "start"
+    window.scrollTo({
+        top: 0,  
+        behavior: 'smooth'  
     });
 };
 
@@ -227,3 +227,4 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+

@@ -78,8 +78,12 @@ const search_apply = () => {
         console.log(`Activity: ${activity.title}, Tag: ${activity.tag}`);
     });
 
-   
-    renderActivities(document.getElementById("container"), tags, filteredActivities.length, lastsearch);
+    if (selected_tags.length === 0) {
+        renderActivities(container, tags, Infinity, lastsearch);
+    }
+    else {
+        renderActivities(container, selected_tags, Infinity, lastsearch);
+    }
 }
 
 document.getElementById("search_button").addEventListener("click", search_apply);
