@@ -17,6 +17,7 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
     if (ShowedtagList === tags && searchTitle === "") {
         filteredActivities = activities;
     }
+    
     // Filter activities based on tags and title
     else {
         filteredActivities = activities.filter(activity =>

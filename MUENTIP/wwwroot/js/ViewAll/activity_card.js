@@ -20,10 +20,21 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity) {
             ShowedtagList = [ShowedtagList]; 
         }
     
-        if (Array.isArray(ShowedtagList) && ShowedtagList.length > 0) {
+        if (Array.isArray(ShowedtagList) && ShowedtagList.length === 0) {
             filteredActivities = activities.filter(activity =>
-                activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)));
-        } else {
+                ShowedtagList.every(showedTag =>
+                    activity.tagsList.includes(
+                        typeof showedTag === "string" ? showedTag : showedTag.tagName
+                    )
+                )
+            );
+        } 
+        else if (Array.isArray(ShowedtagList) && ShowedtagList.length > 1){
+            filteredActivities = activities.filter(activity =>
+                activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))
+            )
+        }    
+        else {
             filteredActivities = activities;
         }
     }    
