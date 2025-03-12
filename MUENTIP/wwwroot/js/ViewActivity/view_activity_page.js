@@ -339,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
         else {
-            parti_bt.textContent = "wating";
+            parti_bt.textContent = "waiting";
             parti_bt.className = "participants-bt-2";
         }
     }

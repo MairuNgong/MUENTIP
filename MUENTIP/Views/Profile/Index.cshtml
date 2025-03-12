@@ -5,7 +5,7 @@
 @{
 
     var user = await UserManager.GetUserAsync(User);
-    var userId = user.Id;
+    var userId = user?.Id;
     if (userId == Model.Id)
     {
         ViewData["Title"] = "My Profile Page";
@@ -14,7 +14,8 @@
     {
         ViewData["Title"] = "View Profile Page";
     }
-}
+  }
+    
 
 <!DOCTYPE html>
 <html lang="en">
