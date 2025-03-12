@@ -20,6 +20,7 @@ console.log(username);
 console.log(activity);
 console.log(announces);
 
+console.log("Is Selected: " + is_selected);
 console.log("Is Participate: " + is_participate);
 console.log("Is Apply On: " + is_apply_on);
 console.log("Out of Date: " + out_of_date);
@@ -251,7 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = `/Checklist/Index?id=${activity.activityId}`;
             });
         }  
-        else if (is_participate !== "Not Participating") {
+        else if (is_apply_on && is_participate === "Not Participating" && out_of_date) {
             parti_bt.textContent = "rejected";
             parti_bt.className = "participants-bt-2";
         } 

@@ -62,48 +62,44 @@ namespace MUENTIP.Controllers
                     .AnyAsync(a => a.UserId == user.Id && a.ActivityId == activity_id);
             }
 
-            var participationStatus = "Not Yet";
             var participants = await _context.ParticipateIn
                 .Where(p => p.ActivityId == activity_id)
                 .ToListAsync();
 
-            if (participants != null && user != null)
+            var is_selected = participants.Any();
+
+            var participationStatus = "";
+
+            if (!participants.Any())
             {
-                var participant = await _context.ParticipateIn
-                    .FirstOrDefaultAsync(p => p.UserId == user.Id && p.ActivityId == activity_id);
-                
-                if (participant != null)
-                {
-                    participationStatus = "Participating";
-                }
-                else
-                {
-                    participationStatus = "Not Participating";
-                }
+                participationStatus = "Not Yet";
+            }
+            else if (user != null)
+            {
+                participationStatus = participants.Any(p => p.UserId == user.Id) ? "Participating" : "Not Participating";
+            }
+            else
+            {
+                participationStatus = "Not Participating";
             }
 
-            DateTime deadline;
-            bool isValidDeadline = DateTime.TryParseExact(
+            DateTime.TryParseExact(
                 activityFromDb.DeadlineDateTime,
                 "yyyy-MM-ddTHH:mm:ss",
                 System.Globalization.CultureInfo.InvariantCulture,
                 System.Globalization.DateTimeStyles.None,
-                out deadline
+                out DateTime deadline
             );
 
-            bool out_of_date = isValidDeadline && DateTime.Compare(DateTime.Now, deadline) > 0;
+            bool out_of_date = deadline != default && DateTime.Now > deadline;
 
-            var ownerUser = await _userManager.Users
+            var ownerInfo = await _userManager.Users
                 .Where(u => u.UserName == activityFromDb.Owner)
-                .Select(u => u.ProfileImageLink)
+                .Select(u => new { u.ProfileImageLink, u.Id })
                 .FirstOrDefaultAsync();
 
-            var ownerImg = ownerUser ?? "../img/default-profile.png"; 
-
-            var ownerId = await _userManager.Users
-                .Where(u => u.UserName == activityFromDb.Owner)
-                .Select(u => u.Id)
-                .FirstOrDefaultAsync();
+            var ownerImg = ownerInfo?.ProfileImageLink ?? "../img/default-profile.png";
+            var ownerId = ownerInfo?.Id;
 
             var model = new ViewActivityViewModel
             {
@@ -112,10 +108,10 @@ namespace MUENTIP.Controllers
                 OwnerId = ownerId,
                 Announcements = announcementFromDb,
                 UserName = user?.UserName,
-                IsApplyOn = is_applied ? (bool?)true : (bool?)false, 
-                ParticipationStatus = string.IsNullOrEmpty(participationStatus) ? "Not Participating" : participationStatus,  
+                IsApplyOn = is_applied ? (bool?)true : (bool?)false,
+                ParticipationStatus = participationStatus,
                 OutOfDate = out_of_date,
-                IsSelected = participants.Count > 0
+                IsSelected = is_selected
             };
 
             return View(model);
