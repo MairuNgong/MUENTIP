@@ -252,11 +252,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = `/Checklist/Index?id=${activity.activityId}`;
             });
         }  
-<<<<<<< HEAD
-        else if (is_participate === "Not Participating") {
-=======
         else if (is_apply_on && is_participate === "Not Participating" && out_of_date) {
->>>>>>> 5dfc5e00801037da9e39574d7c48da7725c5668b
             parti_bt.textContent = "rejected";
             parti_bt.className = "participants-bt-2";
         } 
@@ -343,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
         else {
-            parti_bt.textContent = "wating";
+            parti_bt.textContent = "waiting";
             parti_bt.className = "participants-bt-2";
         }
     }
