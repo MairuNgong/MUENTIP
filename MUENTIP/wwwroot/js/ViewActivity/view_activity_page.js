@@ -251,7 +251,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 window.location.href = `/Checklist/Index?id=${activity.activityId}`;
             });
         }  
-        else if (is_participate !== "Not Participating") {
+        else if (is_participate === "Not Participating") {
             parti_bt.textContent = "rejected";
             parti_bt.className = "participants-bt-2";
         } 
