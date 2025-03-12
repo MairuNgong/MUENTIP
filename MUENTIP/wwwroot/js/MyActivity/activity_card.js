@@ -17,11 +17,15 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
     if (ShowedtagList === tags && searchTitle === "") {
         filteredActivities = activities;
     }
-
+    else if (ShowedtagList === tags) {
+        filteredActivities = activities.filter(activity =>
+            activity.title.toLowerCase().includes(searchTitle.toLowerCase())
+        );
+    }
     else {
         filteredActivities = activities.filter(activity =>
             activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
-            activity.title.toLowerCase().includes(searchTitle.toLowerCase()) 
+            activity.title.toLowerCase().includes(searchTitle.toLowerCase())
         );
     }
     

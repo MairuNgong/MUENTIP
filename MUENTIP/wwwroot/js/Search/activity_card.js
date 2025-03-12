@@ -13,10 +13,22 @@ function renderActivities(container, ShowedtagList, maxActivities = Infinity, se
 
    
     console.log(searchTitle)
-    let filteredActivities = activities.filter(activity =>
-        (!ShowedtagList || ShowedtagList.length === 0 || activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag))) && activity.title.toLowerCase().includes(searchTitle.toLowerCase())
-    );
-
+    let filteredActivities
+    if (ShowedtagList === tags && searchTitle === "") {
+        filteredActivities = activities;
+    }
+    else if (ShowedtagList === tags)
+    {
+        filteredActivities = activities.filter(activity =>
+            activity.title.toLowerCase().includes(searchTitle.toLowerCase())
+        );
+    }
+    else {
+        filteredActivities = activities.filter(activity =>
+            activity.tagsList.some(tag => ShowedtagList.some(showedTag => showedTag.tagName === tag)) &&
+            activity.title.toLowerCase().includes(searchTitle.toLowerCase())
+        );
+    }
     console.log(filteredActivities)
 
 
